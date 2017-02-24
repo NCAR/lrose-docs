@@ -1,1 +1,1 @@
-http://htmlpreview.github.io/?https://github.com/NCAR/lrose-docs/blob/master/cidd/user_manual/index.html
+http://htmlpreview.github.io/?https://github.com/NCAR/lrose-docs/blob/master/cidd/user_manual/CIDD_manual.html
