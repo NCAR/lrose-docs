@@ -1,1 +1,2 @@
-http://htmlpreview.github.io/?https://github.com/NCAR/lrose-core/blob/master/docs/tdrp/index.html
+http://htmlpreview.github.io/?https://github.com/NCAR/lrose-docs/blob/master/tdrp/index.html
+
