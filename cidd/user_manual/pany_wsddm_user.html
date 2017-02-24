@@ -1,0 +1,464 @@
+<html>
+
+<head>
+
+<title>PANYNJ WSDDM User Manual</title>
+
+<meta http-equiv="Content-Type" content="text/html">
+
+</head>
+
+<body bgcolor="#FFFFFF" link="#000088" vlink="#000088">
+<!-- ******************************************************************** --><
+<MAP NAME="Left_map"> 
+  <AREA Shape=rect coords= "0,0,390,18" href="#Menubar">
+  <AREA Shape=rect coords= "0,19,225,54" href="#Labels">
+  <AREA Shape=rect coords= "27,67,67,96" href="#fieldmenu">
+  <AREA Shape=rect coords= "72,67,121,207" href="#viewmenu">
+  <AREA Shape=rect coords= "128,67,188,315" href="#mapmenu">
+  <AREA Shape=rect coords= "197,67,276,113" href="#urlmenu">
+  <AREA Shape=rect coords= "19,313,345,381" href="#moviepanel">
+</MAP>
+<MAP NAME="Right_map"> 
+  <AREA Shape=rect coords= "0,0,134,112" href="#MetarSelect">
+  <AREA Shape=rect coords= "0,113,134,168" href="#Gaugetext">
+  <AREA Shape=rect coords= "0,169,134,291" href="#Trend">
+  <AREA Shape=rect coords= "13,286,39,320" href="#Strip1">
+  <AREA Shape=rect coords= "47,286,71,320" href="#Strip2">
+  <AREA Shape=rect coords= "114,398,134,410" href="#Functions">
+</MAP>
+<!-- ******************************************************************** -->
+ 
+
+
+
+
+<center>
+ <img src="images/panynj.logo.472x23.gif">
+ <h1> PANYNJ WSDDM User Manual</h1>
+</center>
+
+<HR>
+
+<A NAME="Doc_Top"></a>
+<CENTER>
+  <H5> Click on images below or in table of contents to go to section of interest</H5>
+</CENTER>
+<center>
+<TABLE>
+<TR>
+      <TD ALIGN=CENTER> <IMG USEMAP="#Left_map" SRC="images/screen2_left_sm.png" > 
+      </TD>
+ <TD ALIGN=LEFT VALIGN=CENTER>
+  <center><h2> Table of Contents</h2></center>
+    <UL>
+    <B>
+    <LI><A HREF="#ops">WSDDM Users Guide</A></LI>
+      <OL>
+	    <LI> <A HREF="#ops1">Basic Layout </A></LI>
+	    <LI> <A HREF="#Menubar">Menu Bar Buttons </A></LI>
+	    <LI> <A HREF="#Labels">Margins</A></LI>
+	    <LI> <A HREF="#viewmenu">Zooming and Panning </A></LI>
+	    <LI> <A HREF="#moviepanel">Movie Control Panel </A></LI>
+      </OL>
+    <LI><A HREF="#MetarSelect">Decoded Metar Display</A></LI>
+    <LI><A HREF="#pany_mesonet">PANYNJ Mesonet Display</A></LI>
+    <LI><A HREF="#snow_plot">RADAR/Snow Trend Plot </A></LI>
+    <LI><A HREF="#metar_mediogram">Regional Metar Mediogram Plot</A></LI>
+    <LI><A HREF="#pany_mediogram">PANYNJ Station Mediogram Plot</A></LI>
+    <LI><A HREF="#trouble">Trouble Shooting and FAQ </A></LI>
+    </b></UL> 
+ </TD>
+    <TD ALIGN=CENTER> <IMG USEMAP="#Right_map" SRC="images/screen_right_sm.png"> </TD>
+</TR>
+</TABLE>
+</center>
+<HR>
+<br>
+
+<!--  -->
+<a name="ops1"></a>
+<h3>1.1 Display Layout <font size=2><a href="#Doc_Top">Back to top</a></font></h3>
+
+<P> The WSDDM Display is composed of multiple windows, displaying data
+in various forms.  The main plan view window on the left provides Radar
+and motion vectors, along with Metar station model plots as graphics
+images. The windows on the right provide decoded Metar and Surface
+station data, along with time history plots and precip forecasts as
+text and time plots.  Click in the plan view display (CIDD)* with the
+left mouse button to force the tabular displays to sort the station in
+distance order from the click point. <BR> <I> * Configurable Interactive
+Data Display </I> <BR>
+
+  
+
+<a name="Menubar"></a>
+<h3>The Menu Bar<font size=2><a href="#Doc_Top">Back to top</a></font></h3>
+<img src="images/menubar.png">
+The main display window has a menu bar area above the plan view graphic image.
+The buttons in the menu bar allow the user to toggle features on and off, or to pop
+up sub panels with additional menu options.
+<br>
+<UL>
+  <LI> <B>LOOP </B> - Turns the movie loop on and off.
+  <LI> <B>FIELDS... </B> - Displays the <a href="#fieldmenu">Field Sub Menu </a>
+  <LI> <B>VIEW... </B> - Displays the preset <a href="#viewmenu"> View Sub Menu</a>
+  <LI> <B>OVERLAYS... </B> - Displays the  <a href="#mapmenu">Overlays Sub Menu</a>
+  <LI> <B>Station Plots... </B> - Displays a menu for selecting different styles of <a href="#stationplots"> Station Plots </a>
+  <LI> <B>Vectors</B> - Turns  <a href="#trecvectors">Storm Motion Vectors</a> on and off
+  <LI> <B>Movie... </B> - Displays the  <a href="#moviepanel">Movie loop control panel</a>
+  <LI> <B>REPORT </B> - Turns on/off a display of the data values at the cursor position
+  <LI> <B>RESET </B> - Reset the display to the default state.
+  <LI> <B>URL... </B> - Displays a  <a href="#urlmenu"> URL menu</a> for quick access to selected web sites.
+  <LI> <B>HELP... </B> - Displays this document in a browser
+</UL>
+
+<p>Directly below the menu bar is the time and flight level information bar. This 
+  bar shows:<br>
+ <UL>
+  <LI> Data time and frame sequence: the frame, date and time selected, <br>
+  <LI> Product elevation: Radar tilt angle or MSL altitude
+  <LI> Current date and time: UTC </p>
+ </UL>
+
+<a name="Labels"></a>
+<h3>Margins and Legends<br>
+<img src="images/legends.png">
+  <UL>
+   <LI>	<B> Left Margin </B> Latitude scale
+   <LI>	<B> Top Margin </B> Longitude scale
+   <LI>	<B> Legend 1 </B> Main product info. Date and time of the product being displayed
+	<LI> <B> Legends 2+ </B> Date and time for the Motion Vectors 
+   <LI>	<B> Bottom Margin </B> Time scale. - Click in this margin to shift in time.
+-	<LI> <B> Right Margin </B> Color scale. An optional height scale may appear on the right side of the screen. 
+ </UL>
+</p>
+
+<!--############################################################################### -->
+<a name="ops4"></a>
+<h4>Changing Height/Elevation <font size=2><a href="#Doc_Top">Back to top</a></font></h4>
+To change the elevation level, click the left mouse button in the
+height margin.  You can also step up and down in height
+by pressing the up or down arrow key on the keyboard. Note: Some data may not be
+volumetric (3D), and thus the user cannot move up or down in height. 
+<br> <i>Note: for this to work,
+the pointer must be within the main display window.</i>
+
+<!--############################################################################### -->
+<h4>Changing Time<font size="2"><a href="#Doc_Top">Back to top</a></font></h4>
+To change the time, click with the left mouse button in the time scale margin. 
+Pressing the left or right arrow keys on the keyboard also moves the time by one frame.
+<br><i>Note: for this to work,
+the pointer must be within the main display window.</i>
+
+
+<!--############################################################################### -->
+<h4> Changing the View - Zooming and Panning<font size=2><a href="#Doc_Top">Back to top</a></font></h4>
+<a name="viewmenu"></a>
+<table border="0">
+  <tr> 
+    <td><img src="images/view_menu.png"> 
+    <td> The view menu allows you to select pre-defined domains. There are also buttons that allow you to save custom zoom states and return to the saved states.<br>
+  <br>
+  <b>Custom Zoom:</b> Use the left-mouse button (click and drag)
+  to define an arbitrary region. This user-defined region becomes the
+  current zoom and will cause the 'Current' button to be selected. Unzoom
+  by choosing one of the pre-defined domains.<br> 
+  <b>Panning:</b> 
+  You can pan or move the image with the middle mouse button: Click on
+  a point and drag it to the desired location, then release.<br>
+  <b>Saving zoom states:</b> To save the current zoom, click on 'Save 1',
+  'Save 2', or 'Save 3'. To go back to the saved view, click on 'Goto 1',
+  'Goto 2', or 'Goto 3'.</p>
+  </tr>
+</table>
+
+<BR clear=all>
+<a name="fieldmenu"></a>
+<!--############################################################################### -->
+<h5><a name="Page"></a> Field/Page Menu<font size=2><a href="#Doc_Top">Back to top</a></font></h5>                                                                 
+<table border="0">
+  <tr> 
+    <td><img src="images/field_menu.png"></td>
+    <td valign="top">
+    The 'Field or Page' menu (see left Fig.) is a pop-up menu for selecting
+    a desired data set page.  Select the desired page by clicking on the
+    appropriate button. Click on 'Field/Page' again in the menu bar to remove
+    the menu.  </td>
+  </tr>
+</table>
+
+
+<BR clear=all>
+<a name="mapmenu"></a>
+<!--############################################################################### -->
+<h5></a> Overlay Menu<font size=2><a href="#Doc_Top">Back to top</a></font></h5>                                                                 
+<table border="0">
+  <tr> 
+    <td><img src="images/overlay_menu.png"></td>
+    <td valign="top">
+    The 'Overlay or Page' menu (see left Fig.) is a pop-up menu for selecting
+    desired map overlays.  Select the desired map by clicking on the
+    appropriate button. Click on 'Overlays...' button again in the menu bar to remove
+    the menu<BR>
+	NOTE: Many map features are visible only in certain zoom states. Typically,
+	maps are set up to reveal additional detail as the user zooms in to smaller
+	and smaller domains.</td>
+  </tr>
+</table>
+
+
+<BR clear=all>
+<a name="urlmenu"></a>
+<!--############################################################################### -->
+<h5></a> URL Menu<font size=2><a href="#Doc_Top">Back to top</a></font></h5>                                                                 
+<table border="0">
+  <tr> 
+    <td><img src="images/url_menu.png"></td>
+    <td valign="top">
+    The 'URL' menu (see left Fig.) is a pop-up menu for sending a browser to
+    a desired web page.  Select the desired page by clicking on the
+    appropriate button.
+    the menu.  </td>
+  </tr>
+</table>
+
+<BR clear=all>
+<!--############################################################################### -->
+<h5><a name="Vectors"></a>Vectors Button<font size="2"><a href="#Doc_Top">Back to top</a></font></h5>                                                                         
+</font>
+Toggling the Vectors button turns motion vectors on and off.<br>
+The density of wind barbs is automatically adjusted as the user zooms in.
+The density of wind vectors is kept between 10-20 wind barbs across the
+screen, even though there may be hundreds of wind grids cells across
+the screen in the data. If the user zooms in far enough, all possible
+vectors or barbs are plotted.
+
+
+<!--############################################################################### -->
+<h3><a name="moviepanel"></a> Movie Control Panel<font size="2"><a href="#Doc_Top">Back 
+  to Top</a></font></h3>                                                                         
+<p></a><img src="images/movie_panel.png" usemap="#Map4" border="0"> 
+  <map name="Map4"> 
+    <area shape="rect" coords="3,17,97,53" href="#moviestart">
+    <area shape="rect" coords="108,22,270,52" href="#archive">
+    <area shape="rect" coords="519,0,805,25" href="#moviestartsat">
+    <area shape="rect" coords="0,48,296,73" href="#movieframes">
+    <area shape="rect" coords="301,52,521,78" href="#moviesweep">
+    <area shape="rect" coords="515,52,614,85" href="#moviespeed">
+    <area shape="rect" coords="604,52,809,168" href="#moviedelay">
+    <area shape="rect" coords="300,79,668,99" href="#moviebar">
+    <area shape="rect" coords="84,97,645,148" href="#movieticks">
+    <area shape="rect" coords="0,149,808,167" href="#movietimescale">
+  </map>
+</p>
+
+<p>The movie control panel has two main sections. The upper half of the panel contains controls
+for manipulating the movie animation. The lower half contains indicators showing the
+presence of data along the time line.
+
+<a name="moviestart"></a>
+<table> <tr width=600>
+  <td><img src="images/movie_start.png" align=left> 
+  <td>You can start and stop the movie by clicking this button. 
+  You can also step through the 
+  frames by hitting the left arrow key (go back) or right arrow key (go forward) 
+  on the keyboard. 
+  For this to work, the pointer must be in the main window.<br>
+</tr> </table> <br>
+
+<a name="archive"></a>
+<table> <tr width=600>
+  <td><img src="images/movie_realtime.png" align=left> 
+  <td>The display may be run in 'Realtime' or 'Archive' mode. In real-time mode, new 
+  data is added to the end of the movie loop as it arrives and the loop advances 
+  as time passes. Realtime mode is the default behavior of a live system such 
+  as WSDDM. In archive mode, the movie loop remains static, it does not move as time passes, 
+  and the display does not check for new data. Archive mode is used for viewing 
+  old data for analysis purposes. To set the display to archive mode, click on 
+  the Archive button.
+</tr> </table> <br>
+
+<a name="moviestartsat"></a>
+<table> <tr width=600>
+  <td><img src="images/movie_starts.png" align=left>
+  <td>Set the desired movie start time in the top text box that reads '<b>Movie Loop 
+  Starts at:</b>' The data entered is:<i>hour:minute month/day/year</i>. You can 
+  either use the format presented in the time text box, or you can just enter 
+  numbers separated by spaces.<i>(Remember to hit "Enter" when you are done.)</i> 
+  To return to real-time mode, click on the 'Real Time' button on the movie panel
+</tr> </table> <br>
+
+<a name="movieframes"></a>
+<table> <tr width=600>
+  <td> <img src="images/movie_frames.png"> </td>
+  <td> You can change the number of movie frames in three ways:
+    <OL>
+    <LI> Enter the number of frames at the text entry point
+    <i> (Remember to hit "Enter" when you are done)</i>
+    <LI> Click on the up/down arrows next to the '<b>Number of Frames</b>'entry box
+    <LI> Drag either the start or finish solid triangles, at either end of the movie 
+    bar, to change its start or finish time.
+    </OL>
+  </td>
+</tr> </table> <br>
+
+
+
+<a name="moviesweep"></a>
+<table> <tr width=600>
+  <td> <img src="images/movie_sweep.png">
+  <td><b>Sweep Button: </b>Use the Sweep Button to enter sweep mode. In sweep mode the movie goes forwards 
+  and backwards in sequence, instead of just forwards.<br>
+</tr> </table> <br>
+
+<a name="movieinterval"></a>
+<table> <tr width=600>
+  <td><img src="images/movie_interval.png">
+  <td> This changes the movie frame time interval. Enter the number of minutes per 
+  frame in the text box.<i> (Remember to hit "Enter" when you are done.)</i><br>
+</tr> </table> <br>
+
+<a name="moviespeed"></a>
+<table> <tr width=600>
+   <td><img src="images/movie_speed.png">
+   <td><b>Speed Slider Bar</b>
+  The 'Speed' slider bar in the Movie Control Panel controls the speed of the 
+  animation loop. Move the slider further to the right side to increase the speed.<br>
+</tr> </table> <br>
+
+<a name="moviedelay"></a>
+<table> <tr width=600>
+   <td><img src="images/movie_delay.png">
+   <td><b>Delay Slider Bar</b>
+  The 'Delay' slider bar controls the length of  time the animation delays on the
+  last frame.  Move the slider further to the right side indicating a longer 
+  delay.
+</tr> </table>
+<br>
+
+<a name="moviebar"></a>
+<table> <tr width=600>
+  <td><img src="images/movie_bar.png"> </td>
+  <td><b>Data Availability and Loop Coverage</b>
+  The lower half of the panel is a graphical display which shows, from top
+  to bottom, the "movie bar", a bar showing the span of the current movie
+  extent, and the frame divisions, the available data with tick lines
+  showing when symbol data exist and tiny squares showing when gridded
+  data exists , and a selectable time scale in the bottom margin. The
+  enlarged dots indicate a which data grids are currently visible. </td>
+</tr> </table> <br>
+
+<table> <tr width=600>
+  <td><img src="images/movie_bar_sm.png"></td>
+  <td><b>Movie Bar</a></b> Click on a frame to move to that frame.
+  Click and  Drag 
+  on the start or finish solid triangles, at either end of the movie bar, 
+  to extend or shorten the movie loop. This will add or decrease the number of
+  animated frames. Click and drag on the central section
+  of the Movie Bar to shift the loop in time, leaving the number of animated frames
+  intact.</td>
+</tr> </table> <br>
+
+<a name="movieticks"></a>
+<table> <tr width=600>
+   <td><img src="images/movie_symprods.png"></td>
+   <td>Each vertical tick mark represents one binary record of data of the type listed, created
+   at the indicated time. The small squares represent gridded data files, valid at the indicated time.
+   The larger sized squares show grids currently on the screen.</td>
+</tr> </table> <br>
+
+<a name="movietimescale"></a>
+<table> <tr width=600>
+   <tr><td><img src="images/movietimescale.png"> </td></tr>
+   <tr><td> Click on the Time axis to move to the frame closest to the chosen time. </td></tr>
+</table> <br>
+
+<!-- ============================================================================================== -->
+<!-- Section 6 Companion Programs
+<!-- ============================================================================================== -->
+<hr>
+
+<a name="MetarSelect"></a>
+<h4>Decoded METAR Text Window <font size="2"> <a href="#Doc_Top">Back to top</a></font> </h4>
+<table Border=2> <tr>
+  <td><img src="images/decoded_metar.png"> </td>
+    
+  <td>
+	The decoded METAR text program displays metar data in tabular form, sorted by distance
+    from the click point. 
+
+    <p> To update the window, select the desired METAR station by clicking in
+    the main display window close to the METAR station of interest. The METAR
+    text window will be updated with the latest reporting METAR information
+    for that station and nearby stations. The closest station will appear at
+    the top of the list. The data is in time-reverse order with the latest
+    observations at the top. 
+  </td></tr>
+</table> <br>
+
+<a name="Gaugetext"></a>
+<h4>PANYNJ Mesonet Text Window <font size="2"> <a href="#Doc_Top">Back to top</a></font> </h4>
+
+<table Border=2> <tr>
+  <td> <img src="images/meso_text.png"> </td>
+    
+  <td> The PANYNJ Mesonet text window displays data from the local, high resolution
+	   precip gauges. The data on this window updates every minute, providing the
+	   most up-to-date data on the screen.
+  </td></tr>
+</table> <br>
+
+
+<a name="Trend"></a>
+<h4>PANYNJ Precip Trend Plots <font size="2"> <a href="#Doc_Top">Back to top</a></font> </h4>
+<table Border=2> <tr>
+  <td><img src="images/snow_plot.png"> </td>
+
+  <td> The PANYNJ Snow and Precip text window displays traces of radar intensity (YELLOW)
+       and Precipitation accumulation at a station of choice. Place the mouse cursor in the
+	   window and press and hold the right button to pop up a station choice menu.
+	   <p> The plot is a scrolling time display, with the current time indicated by a red
+	   vertical line. To the left of the Now line, solid lines should appear which represent
+	   measured, actual data. The dotted lines on the right represent the current prediction
+	   for both the radar return over the gauge as well as how much precipitation (liquid equivalent)
+	   will fall into the gauge. The Radar updates every 6-10 minutes, while the gauge data
+	   update every 1-2 minutes. New radar and precip predictions are updated every 6-10 minutes. 
+  </td></tr>
+</table> <br>
+
+<h4><a name="Strip1"></a>METAR/Surface Station Time History Window<font size="2">
+    <a href="#Doc_Top">Back to top</a></font></h4>             
+<table Border=2> <tr>
+  <td><img src="images/mediogram_fcat.png"> </td>
+
+  <td>  This program displays data traces, plotted over time of
+    METAR and Surface stations. To change the field, right-click to display the menu and
+	select the desired field.
+	To view all parameters from a single station, right-click to display the menu and
+	select a Station Identifier.
+  </td></tr>
+</table> <br>
+
+<h4><a name="Strip2"></a>METAR/Surface Station Time History Window<font size="2">
+    <a href="#Doc_Top">Back to top</a></font></h4>             
+<table Border=2> <tr>
+  <td><img src="images/mediogram_wspd.png"> </td>
+
+  <td>  This program will also plot stations closest to the click point.
+		When configured to do this, the display will display the closest N stations,
+		sorted in order of their distance from the chosen point.
+  </td></tr>
+</table> <br>
+
+
+<!-- ============================================================================================== -->
+<!-- Section 8  TROUBLE SHOOTING
+<!-- ============================================================================================== -->
+<h2><a name="trouble">7. TROUBLE SHOOTING </a><font size="2"><a href="#Doc_Top">Back 
+  to Top</a></font></h2>
+
+<P>
+<hr>
+</body>
+</html>

@@ -1,0 +1,106 @@
+<html>
+
+<head>
+
+<title>Event Manager User Manual</title>
+
+<meta http-equiv="Content-Type" content="text/html">
+
+</head>
+<MAP NAME="eventman_map">
+<AREA Shape=rect coords= "0,38,146,58" href="#goto">
+<AREA Shape=rect coords= "304,38,410,58" href="#goreal">
+<AREA Shape=rect coords= "432,38,476,58" href="#help">
+<AREA Shape=rect coords= "484,38,538,58" href="#close">
+<AREA Shape=rect coords= "12,180,100,196" href="#add">
+<AREA Shape=rect coords= "162,176,260,198" href="#delete">
+<AREA Shape=rect coords= "10,218,114,236" href="#save">
+<AREA Shape=rect coords= "9,80,255,108" href="#title">
+<AREA Shape=rect coords= "9,109,255,140" href="#start">
+<AREA Shape=rect coords= "9,141,255,168" href="#end">
+<AREA Shape=rect coords= "0,300,544,476" href="#notes">
+</MAP>
+
+
+<!-- ******************************************************************** -->
+<body bgcolor="#FFFFFF">
+
+ <center>
+    <h1> Weather Event Manager </h1>
+</center>
+<A NAME="Doc_Top"></a>
+<CENTER>
+<TABLE>
+<TR>
+   <TD ALIGN=CENTER> <IMG USEMAP="#eventman_map" SRC="images/EventMan_screen.png"> </TD>
+</TR>
+</TABLE>
+</CENTER>
+
+<h4> <a name="Summary"> Summary  </a> <font size=2><a href="#Doc_Top">Back to top</a></font></h4>
+<p> Event Manager is a tool which is used to record and retrieve
+weather events. A list of weather events is presented in a list. Specific
+information about the selected event is displayed and the user may update
+or add to the information and  save the result to disk. Event Manager
+works in conjunction with the WSDM displays and the data scrubbing
+utilities; Event Manager can be used to send the display to the chosen
+event. When a new event has been added and saved, the data for that
+event is retained indefinitely on the local disk. WSDM systems typically have 30 days
+of history stored on the local display. <b>One must add a new event
+within 30 days of the event date or the data will already have been 
+scrubbed off your disk. WSDM display typically can store hundreds of days
+of Event data in addition to the latest 30-60 days. </b>
+
+<h4> <a name="goto"> GOTO Event </a> <font size=2><a href="#Doc_Top">Back to top</a></font></h4>
+<p> Selecting GOTO Event sends the WSDM display to the start time of
+the weather event.
+
+<h4> <a name="goreal"> GO REAL-TIME </a> <font size=2><a href="#Doc_Top">Back to top</a></font></h4>
+<p> Puts the WSDM display into Real-Time mode, looking at current data.
+
+<h4> <a name="add"> New Event </a> <font size=2><a href="#Doc_Top">Back to top</a></font></h4>
+<p> Selecting ADD creates a new, blank event. By default Event Manager
+chooses a start time, end time and picks a default title. Select the
+new event from the list and edit the fields as desired. Choosing <a
+href="#save"> Save </a> commits the changes to disk and prevents data
+in the new event from being erased.
+
+<h4> <a name="delete"> Delete Event </a> <font size=2><a href="#Doc_Top">Back to top</a></font></h4>
+<p> Selecting Delete removes the weather event from the list. This
+change is not committed to disk until the user selects <a href="#save">
+Save </a>. <em> Note: Once an event has been removed from the event list
+and saved, the data for this time period will then be scrubbed from this
+disk of it is more than 30 days old.  This data will not re-appear once
+it has been removed from the list. Be sure you have no need for an older
+event, before you remove it.
+
+<h4> <a name="help"> Help </a> <font size=2><a href="#Doc_Top">Back to top</a></font></h4>
+<p> Selecting Help brings up this document.
+
+<h4> <a name="save"> Save Changes </a> <font size=2><a href="#Doc_Top">Back to top</a></font></h4>
+<p> Commit changes to disk. The Data scrubbing utility;
+<em>Janitor</em> uses the information saved onto disk to decide what
+data to save.  
+
+<h4> <a name="close"> Close </a> <font size=2><a href="#Doc_Top">Back to top</a></font></h4>
+<p> Close iconifys the application. Event Manager continues to
+run  and can be re-opened by clicking on the icon or on the task button
+in the task bar.
+
+<h4> <a name="title"> Title: </a> <font size=2><a href="#Doc_Top">Back to top</a></font></h4>
+<p> Select an event from the Event List. Then Select and edit the title, hitting <CR> at the
+end to submit the changed text. Select <a href="#save"> Save </a> to commit the changes to disk.
+
+<h4> <a name="start"> Start: </a> <font size=2><a href="#Doc_Top">Back to top</a></font></h4>
+<p> Select an event from the Event List. Then Select and edit the Start Time, hitting <CR> when finished
+to submit the changed text. Select <a href="#save"> Save </a> to commit the changes to disk.
+The format for the time is: YYYY/MM/DD HH:MM:SS.
+
+<h4> <a name="end"> End: </a> <font size=2><a href="#Doc_Top">Back to top</a></font></h4>
+<p> Select an event from the Event List. Then Select and edit the End Time, hitting <CR> when finished
+to submit the changed text. Select <a href="#save"> Save </a> to commit the changes to disk.
+The format for the time is: YYYY/MM/DD HH:MM:SS.
+
+<h4> <a name="notes"> Event Notes: </a> <font size=2><a href="#Doc_Top">Back to top</a></font></h4>
+<p> You may place arbitrary text in the notes area of the Event Manager window. Select <a href="#save"> Save
+</a> to commit the changes to disk.

@@ -1,0 +1,19 @@
+
+<DRAW_EXPORT>
+///////////// dexport_info ///////////////////////////////
+// Draw/Export Parameters
+// 
+// Each Entry needs:
+// ID_Label FMQ_URL Valid_Minutes Default_ID_no
+//    ID_LABEL - This is used to designate Product types
+//    FMQ_URL: example: fmqp:://host::dir/file 
+//    Valid_Minutes: How many minutes the product is valid by default
+//    Default_ID_no: Default Data Type (Enumerated ID)
+//    
+
+dexport_info = {
+    {"Boundry",         "/tmp/cidd.fmq",                           60, 0},
+    {"Turb_Sigmet",     "/tmp/mds.fmq",                            60, 0}
+};
+</DRAW_EXPORT>
+

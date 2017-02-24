@@ -1,0 +1,757 @@
+<html>
+
+<head>
+
+<title>CIDD and MDV Utility Programs </title>
+
+<meta http-equiv="Content-Type" content="text/html">
+
+</head>
+
+<body bgcolor="#FFFFFF" link="#000088" vlink="#000088">
+
+<center>
+ <h1> CIDD and MDV Utility Programs</h1>
+<H4> <A HREF="CIDD_manual.html"> Back to CIDD Manual </a> </H4>
+</center>
+
+<UL>
+  <B>
+    <LI><A HREF="#Doc_Top">MAP and Colorscale Support</A></LI>
+    <LI> <A HREF="#mdv_utils">MDV Utilities</A></LI>
+    <LI> <A HREF="#mdv_tools">MDV Analytical Tools </A></LI>
+    <LI> <A HREF="#mdv_ingest">MDV Ingest Tools </A></LI>
+    <LI> <A HREF="#mdv_export">MDV Export Tools </A></LI>
+    <LI> <A HREF="#mdv_radar">Radar Ingest Tools </A></LI>
+  </B>
+</UL>
+</center>
+
+<hr>
+<A NAME="Doc_Top"></a>
+
+
+<!-- ============================================================================================== -->
+<H1> MAP and Colorscale Support </H1>
+<!-- ============================================================================================== -->
+
+<TABLE BORDER=1 CELLPADDING=5>
+<TR>
+ <TD> <H4> Utility </H4>
+ <TD> <H4> Description </H4>
+ <TD> <H4> Author </H4>
+ <TD> <H4> Location </H4>
+</TR>
+
+<!--   cscale_edit       -->
+<TR>
+ <TD> <A HREF="#cscale_edit">cscale_edit</A>
+ <TD> Build a Color Scale Using a GUI
+ <TD> F. Hage and Students.
+ <TD> cvs/apps/cidd/src/cscale_edit
+</TR>
+
+<!--   MapCircles       -->
+<TR>
+ <TD> MapCircles
+ <TD> Create Circles on the earth
+ <TD> M. Dixon
+ <TD> cvs/apps/cidd/src/MapCircles
+</TR>
+
+
+<!--   MapGrid/       -->
+<TR>
+ <TD> MapGrid
+ <TD> Create Grids on the earth
+ <TD> M. Dixon
+ <TD> cvs/apps/cidd/src/MapGrid
+</TR>
+
+<!--   ESRI Shape/       -->
+<TR>
+ <TD> ESRI ARC Tools
+ <TD> CIDD reads Geographic Coordinate Shape files
+ <TD> F. Hage
+ <TD> External Shape File Programs.
+</TR>
+
+
+<!--   MM5 Output Maps        -->
+<TR>
+ <TD> MM5Print -border 
+ <TD> Produces CIDD map format files showing MM5 grid boundries.
+ <TD> F. Hage
+ <TD> cvs/apps/mm5/src/MM5Print/
+</TR>
+
+</TABLE>
+
+<A NAME="mdv_utils"></a>
+
+<HR>
+<!-- ============================================================================================== -->
+<H1> MDV Utility Tools</H1>
+<!-- ============================================================================================== -->
+
+<TABLE BORDER=1 CELLPADDING=5>
+<TR>
+ <TD> <H4> Utility </H4>
+ <TD> <H4> Description </H4>
+ <TD> <H4> Author </H4>
+ <TD> <H4> Location </H4>
+</TR>
+
+<!--   DsMdvServer       -->
+<TR>
+ <TD> DsMdvServer 
+ <TD> Serve Mdv Data over the Network
+ <TD> M. Dixon
+ <TD> cvs/apps/dsserver/src/DsMdvServer
+</TR>
+
+<!--   DsServerMgr       -->
+<TR>
+ <TD> DsServerMgr 
+ <TD> Manage the other DIDSS Services 
+ <TD> M. Dixon
+ <TD> cvs/apps/dsserver/src/DsServerMgr
+</TR>
+
+<!--   DsServerTunnel       -->
+<TR>
+ <TD> DsServerTunnel 
+ <TD> Serve MDV data via HTTP Tunnel - Apache Perl Module
+ <TD> F. Hage
+ <TD> cvs/apps/dsserver/src/DsServerTunnel
+</TR>
+
+<!--   PrintMdv       -->
+<TR>
+ <TD> PrintMdv 
+ <TD> Print out Ascii Mdv File info
+ <TD> M. Dixon
+ <TD> cvs/apps/mdv_utils/src/PrintMdv
+</TR>
+
+<!--   WMS2MdvServer       -->
+<TR>
+ <TD> WMS2MdvServer 
+ <TD> Serve OGIS WMS data in MDV form
+ <TD> F. Hage
+ <TD> cvs/apps/dsserver/src/WMS2MdvServer
+</TR>
+
+
+
+<A NAME="mdv_tools"></a>
+
+<HR>
+<!-- ============================================================================================== -->
+<H1> MDV Analytical Tools</H1>
+<!-- ============================================================================================== -->
+
+<TABLE BORDER=1 CELLPADDING=5>
+<TR>
+ <TD> <H4> Utility </H4>
+ <TD> <H4> Description </H4>
+ <TD> <H4> Author </H4>
+ <TD> <H4> Location </H4>
+</TR>
+
+
+<!--   Affirm       -->
+<TR>
+ <TD> Affirm 
+ <TD> Apply Funtions to MDV Data
+ <TD> D. Megenhardt
+ <TD> cvs/apps/mdv_utils/src/Affirm
+</TR>
+
+
+<!--   InitClimate, UpdateClimate       -->
+<TR>
+ <TD> InitClimate, UpdateClimate 
+ <TD> generate a clear sky climatology
+ <TD> N. Oien
+ <TD> cvs/apps/mdv_utils/src/InitClimate, UpdateClimate
+ </TR>
+</TR>
+<!--   MdvClump       -->
+<TR>
+ <TD> MdvClump 
+ <TD> Remove small clumps from data Use with MdvThresh
+ <TD> N. Oien
+ <TD> cvs/apps/mdv_utils/src/Mdv2Ascii/
+</TR>
+
+<!--   MdvCombine       -->
+<TR>
+ <TD> MdvCombine 
+ <TD> Combine multiple MDV files into one.
+ <TD> G. Cunning
+ <TD> cvs/apps/mdv_utils/src/MdvCombine/
+</TR>
+
+<!--   MdvComp       -->
+<TR>
+ <TD> MdvComp 
+ <TD> Creates composite output
+ <TD> M. Dixon
+ <TD> cvs/apps/mdv_utils/src/MdvComp
+</TR>
+
+<!--   MdvCompare       -->
+<TR>
+ <TD> MdvCompare 
+ <TD> Compares grid differences.
+ <TD> N. Oien
+ <TD> cvs/apps/mdv_utils/src/MdvCompare/
+</TR>
+
+
+<!--   MdvCompare2       -->
+<TR>
+ <TD> MdvCompar2 
+ <TD> Compares grid differences, differently.
+ <TD> N. Oien
+ <TD> cvs/apps/mdv_utils/src/MdvCompar2/
+</TR>
+
+<!--    MdvConvert       -->
+<TR>
+ <TD> MdvConvert 
+ <TD> Does various conversions within the MDV file
+ <TD> M. Dixon
+ <TD> cvs/apps/mdv_utils/src/Mdv2Ascii/
+</TR>
+
+<!--   MdvFillMissing       -->
+<TR>
+ <TD> MdvFillMissing
+ <TD> Replace bad or missing values
+ <TD> N. Oien
+ <TD> cvs/apps/mdv_utils/src/MdvFillMissing
+</TR>
+
+<!--   MdvFromCircles       -->
+<TR>
+ <TD> MdvFromCircles 
+ <TD> Specify circular regions to be filled
+ <TD> N. Oien
+ <TD> cvs/apps/mdv_utils/src/MdvFromCircles/
+</TR>
+
+<!--   MdvGrad       -->
+<TR>
+ <TD> MdvGrad 
+ <TD> Computes the gradient in two dimensions
+ <TD> N. Oien
+ <TD> cvs/apps/mdv_utils/src/MdvGrad/
+</TR>
+
+<!--   MdvGridDiagnostic       -->
+<TR>
+ <TD> MdvGridDiagnostic 
+ <TD> Computes statistics for VDRAS
+ <TD> N. Oien
+ <TD> cvs/apps/mdv_utils/src/MdvGridDiagnostic/
+</TR>
+
+<!--   MdvHist       -->
+<TR>
+ <TD> MdvHist 
+ <TD> Generate histograms
+ <TD> N. Oien
+ <TD> cvs/apps/mdv_utils/src/MdvHist/
+</TR>
+
+<!--   MdvHowBad       -->
+<TR>
+ <TD> MdvHowBad 
+ <TD> Print out percentage of bad or missing values
+ <TD> N. Oien
+ <TD> cvs/apps/mdv_utils/src/MdvHowBad/
+</TR>
+
+<!--   MdvMakeSurface       -->
+<TR>
+ <TD> MdvMakeSurface 
+ <TD> Set data to indicate Surface field
+ <TD> N. Oien
+ <TD> cvs/apps/mdv_utils/src/MdvMakeSurface
+</TR>
+
+<!--   MdvMask       -->
+<TR>
+ <TD> MdvMask 
+ <TD> mask out unwanted regions of data
+ <TD> N. Oien
+ <TD> cvs/apps/mdv_utils/src/MdvMask
+</TR>
+
+<!--   MdvMatch       -->
+<TR>
+ <TD> MdvMatch 
+ <TD> Force a data set to match another
+ <TD> T. Betancourt
+ <TD> cvs/apps/mdv_utils/src/MdvMatch/
+</TR>
+
+<!--   MdvMedian       -->
+<TR>
+ <TD> MdvMedian 
+ <TD> Compute Median values
+ <TD> M. Dixon
+ <TD> cvs/apps/mdv_utils/src/MdvMedian/
+</TR>
+
+<!--   MdvMerge       -->
+<TR>
+ <TD> MdvMerge 
+ <TD> Produce a Mosaic by merginging 
+ <TD> M. Dixon
+ <TD> cvs/apps/mdv_utils/src/MdvMerge/
+</TR>
+
+<!--   MdvResample       -->
+<TR>
+ <TD> MdvResample 
+ <TD> Resample data onto a new grid.
+ <TD> T. Betancourt
+ <TD> cvs/apps/mdv_utils/src/MdvResample/
+</TR>
+
+<!--   MdvTComp       -->
+<TR>
+ <TD> MdvTComp 
+ <TD> Produces a temporal composite
+ <TD> M. Dixon
+ <TD> cvs/apps/mdv_utils/src/MdvTComp/
+</TR>
+
+<!--   MdvSmooth       -->
+<TR>
+ <TD> MdvSmooth 
+ <TD> Run spatial smoothing on data
+ <TD> T. Betancourt
+ <TD> cvs/apps/mdv_utils/src/MdvSmooth/
+</TR>
+
+<!--   MdvTSmooth       -->
+<TR>
+ <TD> MdvTSmooth 
+ <TD> Run temporal smoothing on Mdv data
+ <TD> M. Dixon
+ <TD> cvs/apps/mdv_utils/src/MdvTSmooth/
+</TR>
+
+<!--   MdvThresh       -->
+<TR>
+ <TD> MdvThresh 
+ <TD> Threshold data to bad or missing.
+ <TD> N. Oien
+ <TD> cvs/apps/mdv_utils/src/MdvThresh/
+</TR>
+
+<!--   ResetClimateField       -->
+<TR>
+ <TD> ResetClimateField 
+ <TD> Reset Climate data 
+ <TD> N. Oien
+ <TD> cvs/apps/mdv_utils/src/ResetClimateField/
+</TR>
+
+<!--   UpdateMdvFieldNames       -->
+<TR>
+ <TD> UpdateMdvFieldNames 
+ <TD> Reset field names in files
+ <TD> N. Oien
+ <TD> cvs/apps/mdv_utils/src/UpdateMdvFieldName
+</TR>
+
+<!--   UpdateMdvOrigin       -->
+<TR>
+ <TD> UpdateMdvOrigin 
+ <TD> Reset the origin in the files.
+ <TD> N. Oien
+ <TD> cvs/apps/mdv_utils/src/UpdateMdvOrigin/
+</TR>
+
+
+</TABLE>
+
+<A NAME="mdv_ingest"></a>
+
+<HR>
+<!-- ============================================================================================== -->
+<H1> MDV Ingest Tools </H1>
+<!-- ============================================================================================== -->
+
+<TABLE BORDER=1 CELLPADDING=5>
+<TR>
+ <TD> <H4> Utility </H4>
+ <TD> <H4> Description </H4>
+ <TD> <H4> Author </H4>
+ <TD> <H4> Location </H4>
+</TR>
+
+
+<!--   avnIngest       -->
+<TR>
+ <TD> avnIngest 
+ <TD> Creates MDV from AVN data files
+ <TD> G. Blackburn
+ <TD> cvs/apps/ingest/src/avnIngest
+</TR>
+
+<!--   cartsim2mdv       -->
+<TR>
+ <TD> cartsim2mdv 
+ <TD> Converts Simulated TASS data to Mdv
+ <TD> D. Albo
+ <TD> cvs/apps/mdv_utils/src/cartsim2mdv
+</TR>
+
+<!--   cedric2mdv       -->
+<TR>
+ <TD> cedric2mdv 
+ <TD> Converts CEDRIC Format radar files to MDV
+ <TD> F. hage
+ <TD> cvs/apps/mdv_utils/src/cedric2mdv
+</TR>
+
+<!--   CwbRadar2Mdv       -->
+<TR>
+ <TD> CwbRadar2MdV 
+ <TD> Converts CWB 3D radar files to MDV
+ <TD> M. Dixon
+ <TD> cvs/apps/mdv_utils/src/CwbRadar2Mdv
+</TR>
+
+<!--   Gini2Mdv       -->
+<TR>
+ <TD> Gini2Mdv 
+ <TD> Converts  Gini Sat image files to MDV
+ <TD> N. Oien
+ <TD> cvs/apps/mdv_utils/src/gint2mdv
+</TR>
+
+<!--   gint2mdv       -->
+<TR>
+ <TD> gint2mdv 
+ <TD> Converts GINT radar files to MDV
+ <TD> F. Hage
+ <TD> cvs/apps/mdv_utils/src/gint2mdv
+</TR>
+
+<!--   Image2Mdv       -->
+<TR>
+ <TD> Image2Mdv 
+ <TD> Converts Images (TIFF, PNG, GIF, etc) to MDV
+ <TD> F. Hage 
+ <TD> cvs/apps/mdv_utils/src/Image2Mdv
+</TR>
+
+<!--   kav6h2mdv       -->
+<TR>
+ <TD> kav6h2mdv/ 
+ <TD> Converts Kavouras 6 Bit High resolution graphics files to MDV
+ <TD> F. Hage 
+ <TD> cvs/apps/mdv_utils/src/kav6h2mdv
+</TR>
+
+<!--   kav6l2mdv       -->
+<TR>
+ <TD> kav6l2mdv 
+ <TD> Converts Kavouras 6 Bit Low resolution graphics files to MDV
+ <TD> F. Hage
+ <TD> cvs/apps/mdv_utils/src/kav6l2mdv
+</TR>
+
+<!--   mcidas2mdv       -->
+<TR>
+ <TD> mcidas2mdv 
+ <TD> Converts Mcidas Image files to MDV
+ <TD> M. Dixon
+ <TD> cvs/apps/mdv_utils/src/mcidas2mdv
+</TR>
+
+<!--   MM52Mdv       -->
+<TR>
+ <TD> MM52Mdv 
+ <TD> Convert Native MM5 files to MDV
+ <TD> M. Dixon
+ <TD> cvs/apps/mdv_utils/src/MM52Mdv/
+</TR>
+
+<!--   Nids2Mdv       -->
+<TR>
+ <TD> Nids2Mdv
+ <TD> Convert Nids Level 3 to MDV
+ <TD> Dixon, McCarthy, Hage
+ <TD> cvs/apps/mdv_utils/src/Nids2Mdv
+</TR>
+
+<!--   nsslMosaic2Mdv       -->
+<TR>
+ <TD> nsslMosaic2Mdv 
+ <TD> Convert nsslMosaic NetCDF files to MDV
+ <TD> N. Oien
+ <TD> cvs/apps/mdv_utils/src/nsslMosaic2Mdv
+</TR>
+
+
+<!--   radarMosaic2Mdv       -->
+<TR>
+ <TD> radarMosaic2Mdv 
+ <TD> Creates MDV from Dick Oye's netCDF format
+ <TD> N. Oien
+ <TD> cvs/apps/ingest/src/radarMosaic2Mdv
+</TR>
+
+<!--   ReadDEM       -->
+<TR>
+ <TD> ReadDEM 
+ <TD> Read Digital Elevation Data
+ <TD> N. Oien
+ <TD> cvs/apps/mdv_utils/src/ReadDEM
+</TR>
+
+<!--   ReadRUCDEM       -->
+<TR>
+ <TD> MdvMatch 
+ <TD> Read Digital Elevation Data from RUC
+ <TD> P. McCarthy
+ <TD> cvs/apps/mdv_utils/src/ReadRUCDEM
+</TR>
+
+
+<!--   rucIngest       -->
+<TR>
+ <TD> rucIngest 
+ <TD> Creates MDV from RUC2 data files
+ <TD> J. Yee
+ <TD> cvs/apps/ingest/src/rucIngest
+</TR>
+
+<!--   Terascan2Mdv       -->
+<TR>
+ <TD> Terascan2Mdv 
+ <TD> Converts Terascanv Format Satellite Data to Mdv
+ <TD> Carson, Cunning, Rehak
+ <TD> cvs/apps/ingest/src/Terascan2Mdv
+</TR>
+
+<!--   uf2mdv       -->
+<TR>
+ <TD> uf2mdv 
+ <TD> Converts Universal Format  Radar to Mdv
+ <TD> M. Dixon
+ <TD> cvs/apps/mdv_utils/src/uf2mdv
+</TR>
+
+<!--   unisysm2mdv       -->
+<TR>
+ <TD> unisysm2mdv 
+ <TD> Converts Unisys National Scale Mosaic to Mdv
+ <TD> M. Petach
+ <TD> cvs/apps/mdv_utils/src/unisysm2mdv
+</TR>
+
+<!--   WinsRadar2Mdv       -->
+<TR>
+ <TD> WinsRadar2Mdv 
+ <TD> Converts Wins Radar to Mdv
+ <TD> M. Dixon
+ <TD> cvs/apps/mdv_utils/src/WinsRadar2Mdv
+</TR>
+
+<!--   WorldTerrain       -->
+<TR>
+ <TD> WorldTerrain 
+ <TD> Convert World DEM to Mdv
+ <TD> N. Oien
+ <TD> cvs/apps/mdv_utils/src/WorldTerrain
+</TR>
+
+
+</TABLE>
+
+<A NAME="mdv_export"></a>
+
+<HR>
+<!-- ============================================================================================== -->
+<H1> MDV Export Tools </H1>
+<!-- ============================================================================================== -->
+
+<TABLE BORDER=1 CELLPADDING=5>
+<TR>
+ <TD> <H4> Utility </H4>
+ <TD> <H4> Description </H4>
+ <TD> <H4> Author </H4>
+ <TD> <H4> Location </H4>
+</TR>
+
+<!--   Mdv2Ascii       -->
+<TR>
+ <TD> Mdv2Ascii
+ <TD> Create ASCII from MDV
+ <TD> M. Dixon?
+ <TD> cvs/apps/mdv_utils/src/Mdv2Ascii/
+</TR>
+
+<!--   Mdv2Axf       -->
+<TR>
+ <TD> Mdv2Ascii 
+ <TD> Create AXF from MDV
+ <TD> N. Oien
+ <TD> cvs/apps/mdv_utils/src/Mdv2Axf/
+</TR>
+
+<!--   Mdv2AxfCont       -->
+<TR>
+ <TD> Mdv2AxfCont 
+ <TD> Converts AxfCont to MDV
+ <TD> N. Oien
+ <TD> cvs/apps/mdv_utils/src/Mdv2AxfCont/
+</TR>
+
+<!--   mdv2netCDF       -->
+<TR>
+ <TD> mdv2netCDF
+ <TD> Converts MDv to COARDS convention NetCDF 
+ <TD> N. Oien, M. Dixon
+ <TD> cvs/apps/mdv_utils/src/mdv2netCDF/
+</TR>
+
+<!--   Mdv2NewZealand       -->
+<TR>
+ <TD> Mdv2NewZealand
+ <TD> Converts MDv to NewZealand Fmt data
+ <TD> N. Oien
+ <TD> cvs/apps/mdv_utils/src/Mdv2Ascii/
+</TR>
+
+<!--   Mdv2Plain       -->
+<TR>
+ <TD> Mdv2Plain 
+ <TD> Create ARaw Binary from MDV
+ <TD> M. Dixon
+ <TD> cvs/apps/mdv_utils/src/Mdv2Plain/
+</TR>
+
+<!--   Mdv2SweepNetCDF       -->
+<TR>
+ <TD> Mdv2SweepNetCDF 
+ <TD> Create SweepNetCDF from MDV
+ <TD> M. Dixon
+ <TD> cvs/apps/mdv_utils/src/Mdv2SweepNetCDF
+</TR>
+
+<!--   Mdv2TextHdr       -->
+<TR>
+ <TD> Mdv2TextHdr 
+ <TD> Writes header information to an output file.
+ <TD> M. Dixon
+ <TD> cvs/apps/mdv_utils/src/Mdv2TextHdr
+</TR>
+
+<!--   Mdv2Vil       -->
+<TR>
+ <TD> Mdv2Vil
+ <TD> Computes VIL related values
+ <TD> T. Betancourt
+ <TD> cvs/apps/mdv_utils/src/Mdv2Vil/
+</TR>
+</TABLE>
+
+<HR>
+
+<A NAME="mdv_radar"></a>
+
+<HR>
+<!-- ============================================================================================== -->
+<H1> MDV (DIDSS)  RADAR Ingesters </H1>
+<!-- ============================================================================================== -->
+
+<TABLE BORDER=1 CELLPADDING=5>
+<TR>
+ <TD> <H4> Utility </H4>
+ <TD> <H4> Description </H4>
+ <TD> <H4> Author </H4>
+ <TD> <H4> Location </H4>
+</TR>
+
+<!--   binet2dsr       -->
+<TR>
+ <TD> binet2dsr: 
+ <TD> Reads BINET Radar data - Outputs RAP DSR
+ <TD> Terri Betancourt
+ <TD> cvs/apps/ingest/src/binet2dsr
+</TR>
+
+<!--   Bprp2Dsr       -->
+<TR>
+ <TD> Bprp2Dsr 
+ <TD> Reads BPRP Radar data via socket - Outputs RAP DSR
+ <TD> M. Dixon
+ <TD> cvs/apps/ingest/src/Bprp2Dsr
+</TR>
+
+<!--   Dorade2Dsr       -->
+<TR>
+ <TD> Dorade2Dsr 
+ <TD> Dorade2Dsr reads Dorade radar beam-by-beam files - Outputs RAP DSR
+ <TD> M. Dixon
+ <TD> cvs/apps/ingest/src/Dorade2Dsr
+</TR>
+
+<!--   nexrad2dsr       -->
+<TR>
+ <TD> nexrad2dsr 
+ <TD> Takes NWS LDM Nexrad data -  Outputs RAP DSR
+ <TD> T. Betancourt
+ <TD> cvs/apps/ingest/src/nexrad2dsr
+</TR>
+
+<!--   NcRadar2Dsr       -->
+<TR>
+ <TD> NcRadar2Dsr 
+ <TD> reads netCDF radar beam-by-beam files - Outputs RAP DSR
+ <TD> T. Betancourt, M. Dixon
+ <TD> cvs/apps/ingest/src/NcRadar2Dsr
+</TR>
+
+<!--   Uf2Dsr       -->
+<TR>
+ <TD> Uf2Dsr 
+ <TD> Reads Universal Format radar beam-by-beam files -  Outputs RAP DSR
+ <TD> M. Dixon
+ <TD> cvs/apps/ingest/src/Uf2Dsr
+</TR>
+</TABLE>
+
+<HR>
+
+
+
+<!-- ============================================================================================== -->
+<!-- Utility Programs
+<!-- ============================================================================================== -->
+
+<a name="cscale_edit"></a>
+<h4>Color Scale Editor  <font size="2"> <a href="#Doc_Top">Back to top</a></font> </h4>
+<table Border=2> <tr>
+  <td><img src="images/cscale_edit.png"> </td>
+    
+  <td>
+     Cscale_edit is a simple color scale editor that is compatible with CIDD's file
+     format.  Start the program 'cscale_edit'. A main panel should appear.
+
+  </td></tr>
+</table> <br>
+
+<hr>
+</body>
+</html>

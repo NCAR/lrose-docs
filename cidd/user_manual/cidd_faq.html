@@ -1,0 +1,327 @@
+<HTML>
+<HEAD>
+   <META NAME="Description" CONTENT="CIDD FAQ">
+   <TITLE>CIDD FAQ</TITLE>
+</HEAD>
+<BODY>
+
+<CENTER> <H1> CIDD FAQ </H1> </CENTER>
+<H4> <A HREF="CIDD_manual.html"> Back to CIDD Manual </a> </H4>
+<BR>
+<H3> Current CIDD Executable Version : 2.153 </H3>
+	<I> Please check to see what version of CIDD you are running
+	before reporting bugs. (It reports this on startup) </I>
+
+<H3> INDEX </H3>
+<UL> 
+<LI><B>  X Windows,  Display Problems, Starting CIDD  </B>
+  <UL>
+     <LI><A HREF="#Q1.1"> 1.1 Fonts do not fit in the buttons... </A>
+     <LI><A HREF="#Q1.2"> 1.2 Under Mac OS 10.4 and above, popup panels are dysfunctional. </A>
+  </UL>
+<LI><B>  Running CIDD </B>
+  <UL>
+     <LI><A HREF="#Q2.1"> 2.1 What programs do I need to run CIDD. </A>
+  </UL>
+<LI><B>  Cidd Configuration </B>
+  <UL>
+     <LI> <A HREF="#Q3.1"> 3.1 What is the difference between the "terrain" and "landuse" fields?
+     <LI><A HREF="#Q3.2"> 3.2 What do I have to do to render a new SPDB data type?</A>
+  </UL>
+<LI><B>  Trouble Shooting </B>
+  <UL>
+     <LI><A HREF="#Q4.1"> 4.1 Data retrieval is intermittent.  Products don't always appear... </A>
+  </UL>
+</UL>
+
+<HR>
+<!-------------------------------------------------------------------->
+<A name="Q1.1"> 
+<B> 1.1 Fonts do not fit in the buttons. The menus and panels look
+	  terrible and some elements are obscured. What is going on and,
+	  most importantly, how can I fix it? </B>
+
+<BR><BLOCKQUOTE><I>
+   A: The XView toolkit that CIDD uses as a GUI layer has a relatively
+	  ambiguous specification for its default font. It finds a
+	  really big font because your X server lists big fonts first
+	  when it sets up the default X font path and XView does
+	  not scale the size of the widgets to fit the fonts.
+	  <P> The current, preferred workaround is to add specific Openwindows font specifications
+	  into your .Xresources file: 
+	  <UL>
+		<LI>OpenWindows.MonospaceFont: fixed
+		<LI>OpenWindows.RegularFont: -b&h-lucida-medium-r-normal-sans-12-100-75-75-*-*-iso8859-1
+		<LI>OpenWindows.BoldFont:  -b&h-lucida-bold-r-normal-sans-12-100-75-75-*-*-iso8859-1
+	  </UL>
+	  <h4>or, if lucida sans fonts are not found on your system, try:</h4>
+	  <UL>
+		<LI>OpenWindows.MonospaceFont: fixed
+		<LI>OpenWindows.RegularFont: 6x13
+		<LI>OpenWindows.BoldFont: 6x13bold
+	  </UL>
+	  <UL> <h4> For a Mac with minimal fonts installed try: </h4>
+		<LI>OpenWindows.MonospaceFont: fixed
+		<LI>OpenWindows.RegularFont:  times-medium-12
+		<LI>OpenWindows.BoldFont:  times-bold-12
+	  </UL>
+	  <P> Merge this into your current resource set with: <B> 'xrdb -merge ~/.Xresources' </B>
+	  After editing your ~/.Xresources file. 
+
+	  <P> Another Simple work-around is to ask for a specific font on the command line;
+	  <BR> <B> CIDD -font lucidasans-bold-12 -p CIDD.myparamfile </B> <BR>
+	  <BR> <B> CIDD -font times-medium-12 -p CIDD.myparamfile </B> <BR>
+	  <I> Note: Older versions of CIDD will honor but complain of unknown command line arguments when using the -font or any other Openwindows command line
+	  options on startup. These can be safely ignored. Newer versions of CIDD do not
+	  complain. </I>
+
+</I></BLOCKQUOTE>
+<A name="Q1.2"> 
+<B> 1.2 Under Mac OS 10.4 and above: CIDD's popup panels are non-functional. The Mac OS window
+    manager never gives focus to the popup panels, so the user cannot select or change GUI elements. </B>
+
+<BR><BLOCKQUOTE>
+   A: Enter the following commands in a terminal window, then quit and restart X11.
+   <I><P> defaults write com.apple.x11 wm_click_through -bool true </P>
+   <P>defaults write com.apple.x11 wm_ffm -bool true </P></I>
+   <BR> <P> Check your current settings with 'defaults read com.apple.x11'
+
+   For the latest XQuartz server, the preference name is org.macosforge.xquartz.X11
+   So enter the following commands in a terminal window, then quit and restart X11.
+   <I><P> defaults write org.macosforge.xquartz.X11 wm_click_through -bool true </P>
+   <P>defaults org.macosforge.xquartz.X11 wm_ffm -bool true </P></I>
+   <BR>
+
+  <h5>Dennis Flanigan (dennisf@ucar.edu) Adds: </h5>
+  <p>I installed the Xquartz
+  version of X windows and not the Apple version when I upgraded to
+  Leopard.  I discovered that for Xquartz, the defaults are not kept
+  in the com.apple.x11 preferences , but in the org.x.X11 preferences
+  instead.
+
+  <p>So Xquartz users should replace com.apple.x11 with
+  org.x.X11 in the commands listed in section 1.2 of
+  the CIDD FAQ.
+
+  <p>A somewhat easier procedure is to navigate to
+  ~/Library/Preferences.  From the command line
+  use 'open org.x.X11.plist' or from the finder
+  double click on org.x.X11.plist.   Either of these
+  steps will bring up the Property List Editor.  Opening
+  the Root property list will allow access to the
+  wm_click_through and wm_ffm properties.
+
+</BLOCKQUOTE>
+
+
+<HR>
+<!-------------------------------------------------------------------->
+<A name="Q2.1"> 
+<B> 2.1 What programs do I need to run CIDD. I get strange messages about not
+being able to contact DsServerMgr... </B>
+
+<BR><BLOCKQUOTE><I>
+   A: CIDD can run completely stand-alone if gridded data are requested
+      from the local disk and no SPDB data are being visualized.
+      However, in cases where SPDB data are being visualized or the data are located
+      on another machine, the following programs programs are required.
+   <UL>
+	<LI> <B>DsServerMgr </B> - The Master Server - Should always be running.<br>
+	  This server automatically starts other servers as needed.
+	  <B> NOTE: This is typically the only "Server" that needs to be started
+	  independently from CIDD.</B>
+	<LI> <B>DsMdvServer </B> - The Gridded Data Server - Serves 'MDV' data
+	<LI> <B>DsSpdbServer </B> - The Symbolic Product Data Server - Serves raw 'SPDB' data.
+	</UL>
+
+	<P> The following executables provide support for real time operations
+   <UL>
+	<LI> <B>procmap </B> - The Process Heartbeat Collector.  Used in concert
+		   with <B> auto_restart </B> (A perl script) to keep process running
+		   in case of failure. 
+	<LI> <B>DataMapper </B> - The Master Index of data availability within a
+	"system". All data sets 'register' their deposits of new data into the
+	database. This registry of data is used by clients to detect the
+	presence of new data on the system.
+	<LI> <B>DsFileDist </B> - A daemon which traverses a database and
+		  distributes files to remote hosts. Requires <B>DsServerMgr </B>
+		  and <B>DsFCopyServer </B> be available on the remote host.
+	<LI> <B>Janitor </B> - Scrubs data from our databases in an intelligent way.
+	<LI> <B>Scout </B> - Finds (scouts out) and registers data in our databases.
+	</UL>
+
+  
+<A name="Q2.1symprod">
+
+	<P> The following executables provide graphical representations of data
+	stored in the binary, Symbolic Product Data Base (SPDB) as of Spring 2005.. 
+	<UL>
+	<LI> <B>AcTrack2Symprod </B> - Converts Aircraft Track (ac_data.h> data to Symprod format 
+	<LI> <B>Acars2Symprod </B> - Converts Aircraft telemetry data to Symprod format 
+	<LI> <B>BasinGenPt2Symprod </B> - Converts data to Symprod format 
+	<LI> <B>Bdry2Symprod </B> - Converts convergence line boundary  data to Symprod format 
+	<LI> <B>Chunk2Symprod </B> - Converts raw data to Symprod format 
+	<LI> <B>Contour2Symprod </B> - Converts contour/Contour.hh buffers to Symprod format 
+	<LI> <B>Edr2Symprod </B> - Converts Turbulence EDR data to Symprod format 
+	<LI> <B>FltPath2Symprod </B> - Converts Flight path data to Symprod format 
+	<LI> <B>GenPoly2Symprod </B> - Converts Generic Polyline  data to Symprod format 
+	<LI> <B>GenPt2Symprod </B> - Converts Generic Point  data to Symprod format 
+	<LI> <B>GenPtField2Symprod </B> - Converts Generic Point Field  data to Symprod format 
+	<LI> <B>HydroStation2Symprod </B> - Converts HydroStation  data to Symprod format 
+	<LI> <B>Metar2Symprod </B> - Converts SPDB  Metar (station_report) Data to Symprod format
+	<LI> <B>Ltg2Symprod </B> - Converts Lightning data to Symprod 
+	<LI> <B>Mad2Symprod </B> - Converts ?? data to Symprod format 
+	<LI> <B>Pirep2Symprod </B> - Converts Pilot Report  data to Symprod format 
+	<LI> <B>PosnRpt2Symprod </B> - Converts Position  data to Symprod format 
+	<LI> <B>Rhi2Symprod </B> - Provides MDV Rhi scan indicators in Symprod format 
+	<LI> <B>SigAirMet2Symprod/ </B> - Converts Sig AIRMET data to Symprod format 
+	<LI> <B>Sigmet2Symprod </B> - Converts Sigmet  data to Symprod format 
+	<LI> <B>TrecGauge2Symprod </B> - Converts raw Reflectivity Trace   data to Symprod format 
+	<LI> <B>Tstorms2Symprod </B> - Converts raw Titan storm track data to Symprod format 
+	<LI> <B>Vergrid2Symprod </B> - Converts ?? data to Symprod format 
+	<LI> <B>WxHazards2Symprod </B> - Converts Weather Hazard  data to Symprod format 
+	<LI> <B>simpleAcTrack2Symprod </B> - Converts Aircraft Track (ac_posn.h> data to Symprod format 
+	</UL>
+
+
+	<P> The following executables provide support for optional and infrequently
+	used features.
+   <UL>
+	<LI> <B>DsFmqServer </B> - A server that is required when distributing or
+		   operating File Message Queues (FMQ's) across remote hosts.
+	<LI> <B>DrawFmq2Bdry </B> - A program which translates human generated
+		   drawings into SPDB format boundary products.
+	<LI> <B>RemoteUI2Fmq </B> - A program which sends the contents of a file to 
+	        CIDD's Remote User Interface FMQ. - Used in concert with scripts,
+			php or cgi mechanisms to deliver output for interactive users or
+			for static graphic generation. 
+			mechanisms
+	<LI> <B>WMS2MdvServer </B> - A program which translates Mdv requests into WMS requests
+	       and returns the resultant image as a Mdv encapsulated geo-tiff.
+	</UL>
+      
+	<P> The following utilities are often used to view the contents of the data
+	   bases, files, and server stats and info.
+   <UL>
+	<LI> <B>PrintDataMap </B> - Prints the contents of DataMapper.
+	<LI> <B>print_procmap </B> - Prints the contents of procmap.
+	<LI> <B>print_mdv </B> - Prints the contents of Mdv files.
+	<LI> <B>fmq_print </B> - Prints the contents of FMQ files.
+	<LI> <B>print_server_mgr </B> - Prints the status of DsServerMgr.
+	<LI> <B>print_spdb </B> - Prints the low level SPDB data.
+	<LI> <B>print_spdb_index </B> - Prints the low level SPDB data index files.
+	<LI> <B>didss_print </B> - Prints many RAP format data, including TITAN
+	                          track data.
+
+	<LI> <B>PrintMdv </B> - Prints the contents of Mdv files.
+	<LI> <B>SpdbQuery </B> - Prints the contents of SPDB data. - Command line
+	driven.
+	<LI> <B>XSpdbQuery </B> - An X windows Application which prints the contents
+	of SPDB data.  GUI Driven. 
+
+	</UL>
+</I></BLOCKQUOTE>
+
+<HR>
+<!-------------------------------------------------------------------->
+<A name="Q3.1"> 
+<B> 3.1  What is the difference between the "terrain" and "landuse" fields?A </B>
+
+<BR><BLOCKQUOTE><I>
+<P>   A: "Terrain" must be a Mdv file/URL which contains
+   elevation data. It is used primarily to obscure data above a particular
+   elevation. For example, looking at the 900Mb plot over Colorado, or a
+   cross section of model data, on pressure layers, over a mountain range.
+   <BR>
+    Note: Niles Oien has <A
+   HREF="http://www.rap.ucar.edu/~oien/terrain/makeTerrain.html">
+    instructions </A> on preparing these data.
+
+<P>   Landuse, is gridded data that is rendered underneath all other
+   data. Many choose to use the same URL as their terrain data and
+   use a color scale to provide a false colored topological map. Many
+   choose to use a colorscale that uses "ocean blue" for elevations of
+   0 meters. This works pretty well, unless you are looking at coastal
+   areas where your map will show "Ocean" far inland. A better approach,
+   and much more pleasing to the eye is to take a geo-referenced image,
+   like a geotiff and run it through <b>Image2Mdv</b> to produce an Mdv
+   encapsulated geo-tiff, which CIDD and JADE know how to render. Shaded
+   relief images are available from the USGS that contain a combination
+   of topological features as well as land category to produce very
+   pleasing maps. There are detailed notes in the Image2Mdv source code
+   directory which illustrate its use.
+
+ <P> Note: Landuse can refer to a non-static data set. For example you could
+   use a WMS Server(via WMS2MdvServer), or a Mdv Server to feed it live
+   data showing maps that include up-to-date- traffic, flood coverage,
+   satellite imagery, etc.
+</I></BLOCKQUOTE>
+
+<HR>
+<!-------------------------------------------------------------------->
+<A name="Q3.2"> 
+<B> 3.2 What do I have to do to render a new SPDB data type?
+<BR> "The Insitu Turbulence project would like
+ to render the new spdb Edr data type
+ in CIDD. What do I need to do?</B>
+
+<BR><BLOCKQUOTE><I>
+ <P>If you are using a totally new data type, you'll need to create a Symprod
+ server for this new data format. In OO terms - you need to create a vi1G
+ method for your new model. This process will translate your binary format
+ into lines, text and symbols (Symprod format spdb data) which CIDD renders.
+ If you used a pre-existing data format you just need to place the proper
+ "SPDB to Symprod Server"  in your URL's. See <A HREF="#Q2.1symprod">
+  question 2.1 </a>
+
+ <P>Check out cvs/apps/dsserver/ and look at all the different *2Symprod
+ apps. Pick  one with similar data format and/or  and rendering. Copy
+ that and create a Edr2Symprod server.  Once this gets built, you can then
+ add a config line in CIDD's param files to load and render this product.
+
+ <P>You'll also need to coordinate with Mike Dixon (author of DsServerMgr)
+ to add a hook for your new data type into the server manager, so it
+ can fire up your new Symprod server automatically.
+</I></BLOCKQUOTE>
+
+
+
+
+<HR>
+<!-------------------------------------------------------------------->
+<A name="Q4.1"> 
+<B> 4.1  Data retrieval is intermittent. Products don't always appear.  When the # of movie frames gets larger,
+	the client requests begin to fail.  For very short movies the requests are all
+	successful and I can see all the products, then as the movie gets longer fewer
+	and fewer products are successfully gotten.  </B>
+
+<BR><BLOCKQUOTE><I>
+   A: The likely cause of this  problem is that the <b> cidd.data_timeout_secs:
+   </b> parameter is set too small. Spdb Servers can sometimes take a long
+   time to do their work and respond, especially if they have a lot of
+   data to process. 
+   <P> In some cases it may be advantageous to set up CIDD to request
+   SPDB products for each individual frame, rather than requesting data
+   which covers the entire movie loop. To enable this, set the parameter;
+   <b>short_requests = TRUE;</b> in the &lt;SYMPRODS&gt; section of the parameter
+   file. 
+
+   <P> Note:  The 'short requests' mode will often return data quicker, but will
+   take a longer time overall to build a movie loop because products which
+   appear in more than one movie frame have to be re-requested. Additionally,
+   several of the time selection modes become ineffective due to the limited
+   storage of product data across time.
+
+   <P> Another possibility is that your DS_COMM_TIMEOUT_MSECS environment
+   variable is set too small. The default value is 30,000. (30 sec). 30
+   seconds is high enough for most access across the Internet. Unless you
+   have reset this, this is probably not an issue.
+
+</I></BLOCKQUOTE>
+
+<!-------------------------------------------------------------------->
+
+<HR>
+<BR>
+</BODY>
+</HTML>

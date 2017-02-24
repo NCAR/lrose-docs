@@ -1,0 +1,93 @@
+
+<TERRAIN>
+/**********************************************************************
+ * TDRP params for Cterrain_P
+ **********************************************************************/
+
+//======================================================================
+//
+// Terrain Parameters.
+//
+//======================================================================
+
+///////////// id_label ////////////////////////////////
+//
+// Label used for legends.
+// Type: string
+//
+
+id_label = "Terrain";
+
+///////////// terrain_url /////////////////////////////
+//
+// Used to located gridded terrain data.
+// Terrain_URL
+//  Note URL is of the form
+//   mdvp::[param_file]//host.dom::dir/dir&field_name.
+// Type: string
+//
+
+terrain_url = "mdvp::static//neptune::mdv/terrain&Elevation";
+
+///////////// height_scaler ///////////////////////////
+//
+// Conversion from terrain units to local coords.
+// Choose a scaler which converts plane height values.
+// Type: double
+//
+//  Hecto-feet (FL) per meter
+height_scaler = 0.03280834;
+
+///////////// landuse_url /////////////////////////////
+//
+// Used to located gridded land use data.
+// Land Use URL
+//  Note URL is of the form
+//   mdvp::[param_file]//host.dom::dir/dir&field_name.
+// Type: string
+//
+
+landuse_url = "mdvp::static//neptune::mdv/terrain&Elevation";
+
+///////////// landuse_colorscale //////////////////////
+//
+// Color lookup table for Land use.
+// Land Use colorscale file name
+//  Note: CIDD looks in the colorscale dir, then in the current dir for
+//   this file.
+// Type: string
+//
+
+landuse_colorscale = "terrain.colors";
+
+///////////// land_use_render_method //////////////////
+//
+// Land Use rendering style.
+// Use Contours only for continious data like elevation.
+//
+// Type: enum
+// Options:
+//   RENDER_FILLED_CONT, RENDER_RECTANGLES
+//
+//
+
+land_use_render_method = RENDER_RECTANGLES;
+
+///////////// earth_color1 ////////////////////////////
+//
+// Earth's skin color.
+// Type: string
+//
+
+earth_color1 = "sienna";
+
+///////////// earth_color2 ////////////////////////////
+//
+// Earth's core color.
+// Type: string
+//
+
+earth_color2 = "red4";
+
+</TERRAIN>
+

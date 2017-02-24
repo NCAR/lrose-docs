@@ -1,0 +1,369 @@
+<html>
+
+<head>
+
+<title>CIDD Support for SPDB Data </title>
+
+<meta http-equiv="Content-Type" content="text/html">
+
+</head>
+
+<body bgcolor="#FFFFFF" link="#000088" vlink="#000088">
+
+<center>
+ <h1> CIDD and SPDB Utility Programs</h1>
+<H4> <A HREF="CIDD_manual.html"> Back to CIDD Manual </a> </H4>
+</center>
+
+<UL>
+  <B>
+    <LI> <A HREF="#spdb_utils">SPDB Utilities</A></LI>
+    <LI> <A HREF="#spdb_ingest">SPDB Ingest Tools </A></LI>
+    <LI> <A HREF="#spdb_export">SPDB Export Tools </A></LI>
+    <LI> <A HREF="#spdb_management">SPDB data management Tools </A></LI>
+  </B>
+</UL>
+</center>
+
+<hr>
+<A NAME="spdb_symprod"></a>
+
+<HR>
+<!-- ============================================================================================== -->
+<H1> SPDB to Symprod (CIDD rendering format) Translators 
+<!-- ============================================================================================== -->
+
+<TABLE BORDER=1 CELLPADDING=5>
+<TR>
+ <TD> <H4> Utility </H4>
+ <TD> <H4> Description </H4>
+ <TD> <H4> Author </H4>
+ <TD> <H4> Location </H4>
+</TR>
+
+<!--   AcTrack2Symprod       -->
+<TR>
+ <TD> AcTrack2Symprod
+ <TD> Aircraft Tracks to Symprod
+ <TD> Nancy Rehak
+ <TD> cvs/apps/dsserver/src/AcTrack2Symprod
+</TR>
+
+<!--   simpleAcTrack2Symprod       -->
+<TR>
+ <TD> simpleAcTrack2Symprod
+ <TD> Aircraft Positions  to Symprod
+ <TD> N. Oien
+ <TD> cvs/apps/dsserver/src/simpleAcTrack2Symprod
+</TR>
+
+<!--   Acars2Symprod       -->
+<TR>
+ <TD> Acars2Symprod
+ <TD> ACARS data to Symprod
+ <TD> Mike Dixon
+ <TD> cvs/apps/dsserver/src/Acars2Symprod
+</TR>
+
+<!--   Bdry2Symprod       -->
+<TR>
+ <TD> Bdry2Symprod
+ <TD> Gust Fronts, Boundries to  Symprod
+ <TD> Niles Oien
+ <TD> cvs/apps/dsserver/src/Bdry2Symprod
+</TR>
+
+<!--   Chunk2Symprod       -->
+<TR>
+ <TD> Chunk2Symprod
+ <TD> Chunk to Symprod
+ <TD> Niles Oien
+ <TD> cvs/apps/dsserver/src/Chunk2Symprod
+</TR>
+
+<!--   Contour2Symprod       -->
+<TR>
+ <TD> Contour2Symprod
+ <TD> BasinGenPt2Symprod ??
+ <TD> Nancy Rehak
+ <TD> cvs/apps/dsserver/src/Contour2Symprod
+</TR>
+
+<!--   Edr2Symprod       -->
+<TR>
+ <TD> AcTrack2Symprod
+ <TD> Aircraft EDR (turbulence) to Symprod
+ <TD> S. Dettling
+ <TD> cvs/apps/dsserver/src/Edr2Symprod
+</TR>
+
+<!--   FltPath2Symprod       -->
+<TR>
+ <TD> FltPath2Symprod
+ <TD> Aircraft Flight Path to Symprod
+ <TD> Nancy Rehak
+ <TD> cvs/apps/dsserver/src/FltPath2Symprod
+</TR>
+
+<!--   GenPt2Symprod       -->
+<TR>
+ <TD> GenPt2Symprod
+ <TD> Generic Points to Symprod
+ <TD> Nancy Rehak, Niles Oien
+ <TD> cvs/apps/dsserver/src/GenPt2Symprod
+</TR>
+
+<!--   GenPtField2Symprod       -->
+<TR>
+ <TD> GenPtField2Symprod
+ <TD> GenPtField? to Symprod
+ <TD> Nancy Rehak, Dixon
+ <TD> cvs/apps/dsserver/src/GenPtField2Symprod
+</TR>
+
+<!--   HydroStation2Symprod       -->
+<TR>
+ <TD> HydroStation2Symprod
+ <TD> Hydro Station to Symprod
+ <TD> Nancy Rehak
+ <TD> cvs/apps/dsserver/src/HydroStation2Symprod
+</TR>
+
+<!--   Ltg2Symprod       -->
+<TR>
+ <TD> Ltg2Symprod
+ <TD> Lightning to Symprod
+ <TD> Nancy Rehak
+ <TD> cvs/apps/dsserver/src/Ltg2Symprod
+</TR>
+
+<!--   Mad2Symprod       -->
+<TR>
+ <TD> Mad2Symprod
+ <TD> Microburst to Symprod
+ <TD> Niles Oien
+ <TD> cvs/apps/dsserver/src/Mad2Symprod
+</TR>
+
+<!--   Metar2Symprod       -->
+<TR>
+ <TD> Metar2Symprod
+ <TD> Metar to Symprod
+ <TD> Mike Dixon
+ <TD> cvs/apps/dsserver/src/Metar2Symprod
+</TR>
+
+<!--   Pirep2Symprod       -->
+<TR>
+ <TD> Pirep2Symprod
+ <TD> Pilot Reports to Symprod
+ <TD> Niles Oien
+ <TD> cvs/apps/dsserver/src/Pirep2Symprod
+</TR>
+
+<!--   PosnRpt2Symprod       -->
+<TR>
+ <TD> PosnRpt2Symprod
+ <TD> Position Reports to Symprod
+ <TD> Nancy Rehak
+ <TD> cvs/apps/dsserver/src/PosnRpt2Symprod
+</TR>
+
+<!--   Rhi2Symprod       -->
+<TR>
+ <TD> Rhi2Symprod
+ <TD> Radar RHI Scan info to Symprod
+ <TD> Mike Dixon.
+ <TD> cvs/apps/dsserver/src/Rhi2Symprod
+</TR>
+
+<!--   SigAirMet2Symprod       -->
+<TR>
+ <TD> Sigmet2Symprod
+ <TD> SIGnificant AIR MET to Symprod
+ <TD> Niles Oien.
+ <TD> cvs/apps/dsserver/src/SigAirMet2Symprod
+</TR>
+
+<!--   Sigmet2Symprod       -->
+<TR>
+ <TD> Sigmet2Symprod
+ <TD> SIGMET  to Symprod
+ <TD> Nancy Rehak
+ <TD> cvs/apps/dsserver/src/Sigmet2Symprod
+</TR>
+
+<!--   Sndg2Symprod       -->
+<TR>
+ <TD> Sndg2Symprod
+ <TD> Soundings to Symprod
+ <TD> S. Dettling.
+ <TD> cvs/apps/dsserver/src/Sndg2Symprod
+</TR>
+
+<!--   TrecGauge2Symprod       -->
+<TR>
+ <TD> TrecGauge2Symprod
+ <TD> TREC Reflectivity Traces to Symprod
+ <TD> Mike Dixon
+ <TD> cvs/apps/dsserver/src/TrecGauge2Symprod
+</TR>
+
+<!--   Tstorms2Symprod       -->
+<TR>
+ <TD> Tstorms2Symprod
+ <TD> TITAN Thunderstorms to Symprod
+ <TD> Rehak, Dixon, Oien
+ <TD> cvs/apps/dsserver/src/Tstorms2Symprod
+</TR>
+
+<!--   Vergrid2Symprod       -->
+<TR>
+ <TD> Vergrid2Symprod
+ <TD> Verify Grid to Symprod
+ <TD> Niles Oien
+ <TD> cvs/apps/dsserver/src/Vergrid2Symprod
+</TR>
+
+<!--   WWA2Symprod       -->
+<TR>
+ <TD> WWA2Symprod
+ <TD> NWS Watchwes, Warnings and Alerts to Symprod
+ <TD> Frank Hage
+ <TD> cvs/apps/dsserver/src/WWA2Symprod
+</TR>
+
+<!--   WxHazards2Symprod       -->
+<TR>
+ <TD> WxHazards2Symprod
+ <TD> WxHazards to Symprod
+ <TD> Nancy Rehak
+ <TD> cvs/apps/dsserver/src/WxHazards2Symprod
+</TR>
+
+</TABLE>
+
+<A NAME="spdb_utils"></a>
+
+<HR>
+<!-- ============================================================================================== -->
+<H1> SPDB Utility Tools</H1>
+<!-- ============================================================================================== -->
+
+<TABLE BORDER=1 CELLPADDING=5>
+<TR>
+ <TD> <H4> Utility </H4>
+ <TD> <H4> Description </H4>
+ <TD> <H4> Author </H4>
+ <TD> <H4> Location </H4>
+</TR>
+
+<!--   SpdbQuery       -->
+<TR>
+ <TD> SpdbQuery 
+ <TD> Print out Ascii Spdb 
+ <TD> M. Dixon
+ <TD> cvs/apps/spdb_utils/src/SpdbQuery
+</TR>
+
+<!--   XSpdbQuery       -->
+<TR>
+ <TD> XSpdbQuery 
+ <TD> Print out Ascii Spdb in a GUI
+ <TD> F. Hage
+ <TD> cvs/apps/spdb_utils/src/XSpdbQuery
+</TR>
+
+<!--   DsSpdbServer       -->
+<TR>
+ <TD> DsSpdbServer 
+ <TD> Serve SPDB Data over the Network
+ <TD> M. Dixon
+ <TD> cvs/apps/dsserver/src/DsSpdbServer
+</TR>
+
+<!--   DsServerTunnel       -->
+<TR>
+ <TD> DsServerTunnel 
+ <TD> Serve SPDB data via HTTP Tunnel - Apache Perl Module
+ <TD> F. Hage
+ <TD> cvs/apps/dsserver/src/DsServerTunnel
+</TR>
+
+</TABLE>
+
+
+<A NAME="spdb_ingest"></a>
+<!-- ============================================================================================== -->
+<H1> SPDB Ingest Tools</H1>
+<!-- ============================================================================================== -->
+
+<UL>
+<LI>AbleAws2Spdb
+<LI>AcPosnAscii2Spdb
+<LI>AlertMeta2Spdb
+<LI>AlertNet2Spdb
+<LI>asos2spdb
+<LI>Awos2Spdb
+<LI>bdry2spdb
+<LI>codsus2Spdb
+<LI>GenPt2Spdb
+<LI>ihopNcarSfc2Spdb
+<LI>kavltg2spdb
+<LI>MM52Spdb
+<LI>metar2spdb
+<LI>Metar2Spdb
+<LI>Migfa2Spdb
+<LI>NidsVad2Spdb
+<LI>netCDF2StnRptSpdb
+<LI>nprtLtg2Spdb
+<LI>Nmsu2Spdb
+<LI>nsslSkit2Spdb
+<LI>RapPirep2Spdb
+<LI>Sams2Spdb
+<LI>sigmet2spdb
+<LI>StationFile2Spdb
+<LI>southWestKs2Spdb
+<LI>TrecGauge2Spdb
+<LI>Tstorms2Spdb
+<LI>tstorms2spdb
+<LI>twnacars2spdb
+<LI>twnairep2spdb
+<LI>twnltg2spdb
+<LI>twntaf2spdb
+<LI>TXpet2Spdb
+<LI>unisysltg2spdb
+</UL>
+
+<A NAME="spdb_export"></a>
+<!-- ============================================================================================== -->
+<H1> SPDB Utility Tools</H1>
+<!-- ============================================================================================== -->
+<UL>
+<LI>BasinPrecipSpdb2Xml
+<LI>ColSpdbMerge
+<LI>interp_spdb
+<LI>ltg_spdb2mdv
+<LI>ltg_spdb2verify
+<LI>spdb2bdry
+</UL>
+
+
+<A NAME="spdb_management"></a>
+<!-- ============================================================================================== -->
+<H1> SPDB Management Tools</H1>
+<UL>
+<LI>dist_spdb_data
+<LI>merge_ltg_spdb
+<LI>load_spdb
+<LI>MosSpdb2Html
+<LI>print_spdb_index
+<LI>PrintSpdbMetar
+<LI>SpdbMultSim
+<LI>spdb_merge
+<LI>spdb_repair
+</UL>
+
+<HR>
+</body>
+</html>

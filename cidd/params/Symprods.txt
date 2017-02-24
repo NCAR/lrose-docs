@@ -1,0 +1,103 @@
+
+
+<SYMPRODS>
+///////////// debug ///////////////////////////////////
+//
+// Debug option.
+// If set, debug messages will be printed appropriately.
+//
+// Type: enum
+// Options:
+//   DEBUG_OFF, DEBUG_NORM, DEBUG_VERBOSE
+//
+//
+
+debug = DEBUG_OFF;
+
+
+///////////// use_domain_limits ///////////////////////
+//
+// Control to set domain based clip requests on.
+// Gathers data only in the visible domain when set to true.
+// Type: boolean
+//
+ 
+use_domain_limits = TRUE;
+  
+  ///////////// short_requests //////////////////////////
+  //
+  // Gather Data Frame by Frame, Otherwise by loop span.
+  // Gathers Products valid for the current frame only.
+  // Type: boolean
+  //
+   
+short_requests = TRUE;
+///////////// prod_info ///////////////////////////////
+//
+// Product Source and Rendering Information Array
+// The fields in the structure are as follows:
+//   menu_label: Label to be used for the product in menu.
+//
+//   url: for retrieving the data.
+//
+//   data_type: data type used when querying the SPDB data server
+//     (set to 0 to retrieve all data regardless of type).
+//
+//   url: URL for the data. - 
+//
+//   render_type: Select how temporal clipping is done:
+//      RENDER_ALL: Do no temporal clipping.
+//      RENDER_ALL_VALID: Render all Valid in frame
+//      RENDER_VALID_IN_LAST_FRAME: Render all Valid in the last frame
+//      RENDER_LATEST_IN_FRAME: Render the latest product in the frame.
+//      RENDER_LATEST_IN_LOOP:  Render the latest product valid in the movie loop
+//      RENDER_FIRST_BEFORE_DATA_TIME: Render the latest product before the data time in each frame.
+//      RENDER_FIRST_AFTER_DATA_TIME:Render the earliest product after the data time in each frame.
+//      RENDER_ALL_BEFORE_DATA_TIME: Render all valid products before the data time in each frame.
+//      RENDER_ALL_AFTER_DATA_TIME:  Render all valid products after the data time in each frame. 
+//
+//   on_by_default: True or False
+//  
+//   minutes_allow_before: Stretch the frame time this many minutes - prior
+//   minutes_allow_after: Stretch the frame time this many minutes - after
+//
+//  text_off_threshold: Threshold where text disappears. Usees the function:
+//         log10(scale_constant /km_distance_across_screen ) + 1.0
+//	   Use 0 to disable the off feature. (always displayed)
+//         Note: scale_constant set in MAIN_PARAM section.
+
+prod_info = {
+  {
+    menu_label = "METARS",
+    url = "spdbp:Metar2Symprod://neptune::spdb/metar",
+    data_type = 0,
+    render_type = RENDER_LATEST_IN_FRAME,
+    on_by_default = FALSE,
+    minutes_allow_before = 60.0,
+    minutes_allow_after = 0.0,
+    text_off_threshold = 0.4
+  },
+  {
+    menu_label = "Lightning",
+    url = "spdbp:Ltg2Symprod://neptune::spdb/ltg",
+    data_type = 0,
+    render_type = RENDER_ALL_VALID,
+    on_by_default = FALSE,
+    minutes_allow_before = 0.0,
+    minutes_allow_after = 0.0,
+    text_off_threshold = 0.4
+  },
+  {
+    menu_label = "AIREPS",
+    url = "spdbp:Pirep2Symprod://neptune::spdb/pirep",
+    data_type = 0,
+    render_type = RENDER_ALL_VALID,
+    on_by_default = FALSE,
+    minutes_allow_before = 0.0,
+    minutes_allow_after = 0.0,
+    text_off_threshold = 0.4
+  }
+};
+
+</SYMPRODS>
+

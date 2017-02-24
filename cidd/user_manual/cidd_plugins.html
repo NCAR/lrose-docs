@@ -1,0 +1,643 @@
+<html>
+
+<head>
+
+<title>CIDD Plug-in/ Companion Programs </title>
+
+<meta http-equiv="Content-Type" content="text/html">
+
+</head>
+
+<body bgcolor="#FFFFFF" link="#000088" vlink="#000088">
+
+<center>
+ <h1> CIDD Plug-in/ Companion Programs</h1>
+<H4> <A HREF="CIDD_manual.html"> Back to CIDD Manual </a> </H4>
+</center>
+
+<HR>
+
+<A NAME="Doc_Top"></a>
+<CENTER> <H5> Click on images below to go to application of interest</H5> </CENTER>
+
+<!-- ============================================================================================== -->
+<!-- Small Images Table of Contents     -->
+<!-- ============================================================================================== -->
+<TABLE>
+<TR>
+ <TD ALIGN=CENTER > <A HREF="#metar_mediogram">Metar Mediogram Display <BR>
+	<img src="images/flcat_strip_sm.png" align=center> </TD>
+	
+ <TD ALIGN=CENTER > <A HREF="#soundingplot">Model & Class Soundings  <BR>
+	<img src="images/soundingplot_sm.png" align=center> </TD>
+	
+ <TD ALIGN=CENTER > <A HREF="#mediogram">Local Mesonet Station Mediogram <BR>
+	<img src="images/wind_strip_sm.png" align=center> </TD>
+	
+</TR>
+ 
+
+<TR>
+ <TD ALIGN=CENTER > <A HREF="#MetarSelect"> Decoded Metar Display <BR>
+	 <img src="images/metarselect_sm.png" align=center> </TD>
+ 
+ <TD ALIGN=CENTER > <A HREF="#metar_ascii">Raw Metar Display <br>
+	<img src="images/ascii_metars_sm.png" align=center> </TD>
+	
+ 
+ <TD ALIGN=CENTER > <A HREF="#winds_aloft"> Winds Aloft Table  <BR>
+	<img src="images/winds_aloft_sm.png" align=center> </TD>
+	
+</TR>
+
+<TR>
+ 
+ <TD ALIGN=CENTER > <A HREF="#tafs_ascii">Terminal Area Forecasts Text Display <BR>
+	<img src="images/ascii_tafs_sm.png" align=center> </TD>
+	
+ 
+ <TD ALIGN=CENTER > <A HREF="#aireps_ascii">AIR Reports Display  <BR>
+	<img src="images/ascii_areps_sm.png" align=center> </TD>
+	
+ <TD ALIGN=CENTER > <A HREF="#mesonet_text">Mesonet Text  Display <BR>
+	<img src="images/mesotext_sm.png" align=center> </TD>
+	
+</TR>
+
+<TR>
+ 
+ <TD ALIGN=CENTER ALIGN=CENTER > <A HREF="#browser">Web Browsers  <BR>
+	<img src="images/browser_sm.png" align=center> </TD>
+ 
+ <TD ALIGN=CENTER ALIGN=CENTER > <A HREF="#timehist">Storm Time Histories<BR>
+	<img src="images/titan_timehist.png" align=center> </TD>
+ 
+ <TD ALIGN=CENTER ALIGN=CENTER > <A HREF="#snow_plot">Precip Trend Plot <BR>
+	<img src="images/snowplot_sm.png" align=center> </TD>
+ 
+</TR>
+
+<TR>
+ 
+ <TD ALIGN=CENTER ALIGN=CENTER > <A HREF="#JavaSoundingApp">3-D,  Editible Sounding<BR>
+	<img src="images/JavaSoundingApp_sm.png" align=center> </TD>
+ 
+ <TD ALIGN=CENTER ALIGN=CENTER > <A HREF="#DrawFmq2Bdry"> Enter Gust Fronts or Boundries <BR>
+	<img src="images/DrawFmq2Bdry_sm.png" align=center> </TD>
+ 
+ <TD ALIGN=CENTER ALIGN=CENTER > <A HREF="#DrawFmq2MaskMdv"> Mask out areas in Data <BR>
+	<img src="images/DrawFmq2MaskMdv_sm.png" align=center> </TD>
+</TR>
+
+<TR>
+ 
+ <TD ALIGN=CENTER ALIGN=CENTER > <A HREF="#GridPointSelect">MDV Data Statistics Report<BR>
+	<img src="images/GridPointSelect_sm.png" align=center> </TD>
+ 
+ <TD ALIGN=CENTER ALIGN=CENTER > <A HREF="#SoundingChart">Observed and Model Sounding Time History <BR>
+	<img src="images/SoundingChart_sm.png" align=center> </TD>
+ 
+ <TD ALIGN=CENTER ALIGN=CENTER > <A HREF="#EventMan">Weather Event Manager  <BR>
+	<img src="images/EventMan_thumb.png" align=center> </TD>
+ 
+</TR>
+
+<TR>
+
+<TD> </TD>
+
+<TD ALIGN=CENTER ALIGN=CENTER > <A HREF="#ciddArchiveDriver">ciddArchiveDriver - used to dump images for movies <BR>
+	<img src="images/ciddArchiveDriver_sm.jpg" align=center> </TD>
+
+<TD> </TD>
+
+</TR>
+
+
+</TABLE>
+<HR>
+</center>
+
+
+<!-- ============================================================================================== -->
+<!-- MetarSelect                     -->
+<!-- ============================================================================================== -->
+<a name="MetarSelect"></a>
+<h4>Decoded METAR Text Window <font size="2"> <a href="#Doc_Top">Back to top</a></font> </h4>
+<table Border=2> <tr>
+  <td><img src="images/decoded_metar.png"> </td>
+    
+  <td>
+	The decoded METAR text program displays metar data in tabular form, sorted by distance
+    from the click point. 
+
+    <p> To update the window, select the desired METAR station by clicking in
+    the main display window close to the METAR station of interest. The METAR
+    text window will be updated with the latest reporting METAR information
+    for that station and nearby stations. The closest station will appear at
+    the top of the list. The data is in time-reverse order with the latest
+    observations at the top. 
+  </td></tr>
+
+  <tr> <td colspan=2>
+    <ul>
+	<li> <b> Executable Name: </b> MetarSelect
+	<li> <b> CVS loc: </b> apps/cidd/src/MetarSelect
+	<li> <b> Required Input: </b> Station Report (Metar) SPDB data 
+	<li> <b> Notes: </b> Has options for Metric, English
+    </ul>
+   </td></tr>
+
+</table> <br>
+
+
+<!-- ============================================================================================== -->
+<!--   Mesonet_Text_Report      -->
+<!-- ============================================================================================== -->
+<a name="mesonet_text"></a>
+<h4>Mesonet Text Window <font size="2"> <a href="#Doc_Top">Back to top</a></font> </h4>
+
+<table Border=2> <tr>
+  <td> <img src="images/meso_text.png"> </td>
+    
+  <td> The Mesonet text window displays data from the local, high resolution
+	   precip gauges. The data on this window updates every minute, providing the
+	   most up-to-date data on the screen.
+  </td></tr>
+
+  <tr> <td colspan=2>
+    <ul>
+	<li> <b> Executable Name: </b> Mesonet_Text_Report
+	<li> <b> CVS loc: </b> apps/cidd/src/MetarSelect
+	<li> <b> Required Input: </b> Station Report SPDB data 
+	<li> <b> Notes: </b> Has options for Metric, English
+    </ul>
+   </td></tr>
+</table> <br>
+
+
+
+<!-- ============================================================================================== -->
+<!--    SNOW PLOT -->
+<!-- ============================================================================================== -->
+<a name="snow_plot"></a>
+<h4>Precip Trend Plots <font size="2"> <a href="#Doc_Top">Back to top</a></font> </h4>
+<table Border=2> <tr>
+  <td><img src="images/snow_plot.png"> </td>
+
+  <td> The Snow and Precip text window displays traces of radar intensity (YELLOW)
+       and Precipitation accumulation at a station of choice. Place the mouse cursor in the
+	   window and press and hold the right button to pop up a station choice menu.
+	   <p> The plot is a scrolling time display, with the current time indicated by a red
+	   vertical line. To the left of the Now line, solid lines should appear which represent
+	   measured, actual data. The dotted lines on the right represent the current prediction
+	   for both the radar return over the gauge as well as how much precipitation (liquid equivalent)
+	   will fall into the gauge. The Radar updates every 6-10 minutes, while the gauge data
+	   update every 1-2 minutes. New radar and precip predictions are updated every 6-10 minutes. 
+  </td></tr>
+
+  <tr> <td colspan=2>
+    <ul>
+	<li> <b> Executable Name: </b> SnowPlot
+	<li> <b> CVS loc: </b> apps/wsddm/src/SnowPlot
+	<li> <b> Required Input: </b> Station Report SPDB data  - Local Stations
+	<li> <b> Required Input: </b> Station Report SPDB data  - Asos Stations
+	<li> <b> Required Input: </b> TrecGauge Precip Traces Traces SPDB data 
+	<li> <b> Required Input: </b> ZRCalib Precip Prediction Traces SPDB data 
+	<li> <b> Notes: </b> Archive mode plots both measured and predictions making
+		 comparisons easy.
+    </ul>
+   </td></tr>
+</table> <br>
+
+
+<!-- ============================================================================================== -->
+<!--   Metar Mediograms    -->
+<!-- ============================================================================================== -->
+<h4><a name="metar_mediogram"></a>METAR/Surface Station Time History Window<font size="2">
+    <a href="#Doc_Top">Back to top</a></font></h4>             
+<table Border=2> <tr>
+  <td><img src="images/mediogram_fcat.png"> </td>
+
+  <td>  This program displays data traces, plotted over time of
+    METAR and Surface stations. To change the field, right-click to display the menu and
+	select the desired field.
+	To view all parameters from a single station, right-click to display the menu and
+	select a Station Identifier.
+  </td></tr>
+
+  <tr> <td colspan=2>
+    <ul>
+	<li> <b> Executable Name: </b> StationStripChart
+	<li> <b> CVS loc: </b> apps/cidd/src/StationStripChart
+	<li> <b> Required Input: </b> Station Report (Metar) SPDB data 
+	<li> <b> Notes: </b> Can configure in which fields to display and which stations. <br>
+		 Can run independently from CIDD
+    </ul>
+   </td></tr>
+</table> <br>
+
+
+<!-- ============================================================================================== -->
+<!--  Locale Mediograms  -->
+<!-- ============================================================================================== -->
+<h4><a name="mediogram"></a>METAR/Surface Station Time History Window<font size="2">
+    <a href="#Doc_Top">Back to top</a></font></h4>             
+<table Border=2> <tr>
+  <td><img src="images/mediogram_wspd.png"> </td>
+
+  <td>  This program will also plot stations closest to the click point.
+		When configured to do this, the display will display the closest N stations,
+		sorted in order of their distance from the chosen point.
+  </td></tr>
+
+  <tr> <td colspan=2>
+    <ul>
+	<li> <b> Executable Name: </b> StationStripChart
+	<li> <b> CVS loc: </b> apps/cidd/src/StationStripChart
+	<li> <b> Required Input: </b> Station Report (Local) SPDB data 
+	<li> <b> Notes: </b> Can configure in which fields to display and which stations. <br>
+		 Can run independantly from CIDD
+    </ul>
+   </td></tr>
+</table> <br>
+
+<!-- ============================================================================================== -->
+<!--  Soundings  -->
+<!-- ============================================================================================== -->
+<h4><a name="soundingplot"></a>Sounding Plots (Skew-T)<font size="2">
+    <a href="#Doc_Top">Back to top</a></font></h4>             
+<table Border=2> <tr>
+  <td><img src="images/soundingplot.png"> </td>
+
+  <td>  This program produces synthetic (Model Based) Sounding plots at points
+        above cursor clicks.  SoundingText queries the model output and produces a
+        class file which SoundingPlot.py reads and produces a plot. This same mechanism
+        can be used to drive other favorite Sounding Plotting tools.
+  </td></tr>
+
+  <tr> <td colspan=2>
+    <ul>
+	<li> <b> Executable Name: </b> SoundingText and SoundingPlot.py
+	<li> <b> CVS loc: </b> apps/cidd/src/SoundingText
+	<li> <b> Required Input: </b> Mdv Model Data (Written for MM5)
+	<li> <b> Notes: </b> Is a Python Program. Written by a CAA Visitor
+    </ul>
+   </td></tr>
+</table> <br>
+
+
+<!-- ============================================================================================== -->
+<!--  Raw Metars  -->
+<!-- ============================================================================================== -->
+<h4><a name="metar_ascii"></a>Raw Metar Display<font size="2">
+    <a href="#Doc_Top">Back to top</a></font></h4>             
+<table Border=2> <tr>
+  <td><img src="images/ascii_metars.png"> </td>
+
+  <td>  This program Displays raw Metars, sorted by distance
+    from the click point.
+ 
+    <p> To update the window, select the desired METAR station by clicking in
+    the main display window close to the METAR station of interest. The METAR
+    text window will be updated with the latest reporting METAR information
+    for that station and nearby stations. The closest station will appear at
+    the top of the list. The data is in time-reverse order with the latest
+    observations at the top.
+  </td></tr>
+
+  <tr> <td colspan=2>
+    <ul>
+	<li> <b> Executable Name: </b> AsciiSelect
+	<li> <b> CVS loc: </b> apps/cidd/src/AsciiSelect
+	<li> <b> Required Input: </b> ASCII METAR SPDB data 
+	<li> <b> Notes: </b> 
+    </ul>
+   </td></tr>
+</table> <br>
+
+
+<!-- ============================================================================================== -->
+<!--  Winds_aloft  -->
+<!-- ============================================================================================== -->
+<h4><a name="winds_aloft"></a> Winds Aloft Table<font size="2">
+    <a href="#Doc_Top">Back to top</a></font></h4>             
+<table Border=2> <tr>
+  <td><img src="images/winds_aloft.png"> </td>
+
+  <td>  This program Displays Winds and Temperatures Aloft, above the click point in 
+    tabular form.
+ 
+    <p> To update the window, click in the main display window at the point of interest. The Winds Aloft
+    text window will be updated with the latest model data, displayed in tabular form.
+  </td></tr>
+
+  <tr> <td colspan=2>
+    <ul>
+	<li> <b> Executable Name: </b> SoundingText
+	<li> <b> CVS loc: </b> apps/cidd/src/SoundingText
+	<li> <b> Required Input: </b> MDV Model Data
+	<li> <b> Notes: </b> 
+    </ul>
+   </td></tr>
+</table> <br>
+
+
+<!-- ============================================================================================== -->
+<!--  Terminal Area Forecasts  -->
+<!-- ============================================================================================== -->
+<h4><a name="tafs_ascii"></a>Terminal Area Forecasts<font size="2">
+    <a href="#Doc_Top">Back to top</a></font></h4>             
+<table Border=2> <tr>
+  <td><img src="images/ascii_tafs.png"> </td>
+
+  <td>  This program Displays raw Terminal Area Forecasts (TAFs), sorted by distance
+    from the click point.
+ 
+    <p> To update the window, select the desired Airport station by clicking in
+    the main display window close to the Airport of interest. The 
+    text window will be updated with the latest TAF information.
+    for that station and nearby stations. The closest Airports will appear at
+    the top of the list.
+  </td></tr>
+
+  <tr> <td colspan=2>
+    <ul>
+	<li> <b> Executable Name: </b> AsciiSelect
+	<li> <b> CVS loc: </b> apps/cidd/src/AsciiSelect
+	<li> <b> Required Input: </b> ASCII TAFS SPDB data 
+	<li> <b> Notes: </b> 
+    </ul>
+   </td></tr>
+</table> <br>
+
+
+<!-- ============================================================================================== -->
+<!--  AIR Reports  -->
+<!-- ============================================================================================== -->
+<h4><a name="aireps_ascii"></a>AIR Reports<font size="2">
+    <a href="#Doc_Top">Back to top</a></font></h4>             
+<table Border=2> <tr>
+  <td><img src="images/ascii_aireps.png"> </td>
+
+  <td>  This program Displays raw AIREPS, sorted by distance
+    from the click point.
+ 
+    <p> To update the window, select the desired area by clicking in
+    the main display window close to the area of interest. The 
+    text window will be updated with the latest reporting AIREP information.
+  </td></tr>
+
+  <tr> <td colspan=2>
+    <ul>
+	<li> <b> Executable Name: </b> AsciiSelect
+	<li> <b> CVS loc: </b> apps/cidd/src/AsciiSelect
+	<li> <b> Required Input: </b> ASCI AIREP I SPDB data 
+	<li> <b> Notes: </b> 
+    </ul>
+   </td></tr>
+</table> <br>
+
+
+<!-- ============================================================================================== -->
+<!--  Web Browsers  -->
+<!-- ============================================================================================== -->
+<h4><a name="browser"></a> Web Browsers <font size="2">
+    <a href="#Doc_Top">Back to top</a></font></h4>             
+<table Border=2> <tr>
+  <td><img src="images/browser.png"> </td>
+
+  <td>  Web Browsers are used to display supplementary information, especially help documents
+        and live system monitors. They are also used to display the output from CIDD, which
+        can be configured to produce imagery in batch mode, or interactively, through a remote
+        command queue.
+  </td></tr>
+
+  <tr> <td colspan=2>
+    <ul>
+	<li> <b> Executable Name: </b> netscape/mozilla/konqureor
+	<li> <b> CVS loc: </b> N/A
+	<li> <b> Required Input: </b> Existing Web Pages
+	<li> <b> Notes: </b> The URL menu and Help Button directly depend on Web Browsers.
+                 The Batch (HTML) mode output and Remote Command output rely on
+                 them indirectly.
+    </ul>
+   </td></tr>
+</table> <br>
+
+<!-- ============================================================================================== -->
+<!--  Time Hist  -->
+<!-- ============================================================================================== -->
+<h4><a name="timehist"></a>Time Hist<font size="2">
+    <a href="#Doc_Top">Back to top</a></font></h4>             
+<table Border=2> <tr>
+  <td><img src="images/titan_screens.png"> </td>
+
+  <td>  Titan's analysis plots and displays will directly interface with CIDD in much the
+        same way they do with Rview. See the TITAN documentation for more details on the
+        real-time Storm analysis package.
+  </td></tr>
+
+  <tr> <td colspan=2>
+    <ul>
+	<li> <b> Executable Name: </b> TimeHist
+	<li> <b> CVS loc: </b> apps/titan/
+	<li> <b> Required Input: </b> TITAN track data 
+	<li> <b> Notes: </b> 
+		 
+    </ul>
+   </td></tr>
+</table> <br>
+
+
+<!-- ============================================================================================== -->
+<!--  JavaSoundingAppt  -->
+<!-- ============================================================================================== -->
+<h4><a name="JavaSoundingApp"></a>JavaSoundingApp Hist<font size="2">
+    <a href="#Doc_Top">Back to top</a></font></h4>             
+<table Border=2> <tr>
+  <td><img src="images/JavaSoundingApp.png"> </td>
+
+  <td> A 3-D Java Application which plots Soundings and allows the user to
+       rotate the hodograph in real-time. This tool also allow the user
+       to interactively edit the data, changing the graphs. This application requires
+       Java 3-D to be installed on the host system. Java  1.4.0, very specific
+	   video cards and their drivers are necessary.
+
+  </td></tr>
+
+  <tr> <td colspan=2>
+    <ul>
+	<li> <b> Executable Name: </b> Sounding.class
+	<li> <b> CVS loc: </b> java/src/edu/ucar/rap/niwot
+	<li> <b> Required Input: </b> Spdb Format Sounding data 
+	<li> <b> Notes: </b> Original by Unidata, Modified for VMET, Modified to read Spdb by N. Oien, RAP
+		 
+    </ul>
+   </td></tr>
+</table> <br>
+
+<!-- ============================================================================================== -->
+<!--  DrawFmq2MaskMdv  -->
+<!-- ============================================================================================== -->
+<h4><a name="DrawFmq2MaskMdv"></a>DrawFmq2MaskMdv <font size="2">
+    <a href="#Doc_Top">Back to top</a></font></h4>             
+<table Border=2> <tr>
+  <td><img src="images/DrawFmq2MaskMdv.png"> </td>
+
+  <td> A CIDD Draw tool plugin Program. This plugin allows the user to 
+  modify and exclude areas within a mdv file. The user selects areas and 
+  then chooses to excise data inside or outside of the defined area.
+
+  </td></tr>
+
+  <tr> <td colspan=2>
+    <ul>
+	<li> <b> Executable Names: </b> DrawFmq2MaskMdv, MdvMask
+	<li> <b> CVS loc: </b>  Dacvs/apps/cidd/src/DrawFmq2MaskMdv
+	<li> <b> Required Input: </b> CIDD DrawFmq Output
+	<li> <b> Notes: </b>  Niles. Oien, RAP
+		 
+    </ul>
+   </td></tr>
+</table> <br>
+
+<!-- ============================================================================================== -->
+<!--  DrawFmq2Bdry  -->
+<!-- ============================================================================================== -->
+<h4><a name="DrawFmq2Bdry"></a>DrawFmq2Bdry <font size="2">
+    <a href="#Doc_Top">Back to top</a></font></h4>             
+<table Border=2> <tr>
+  <td><img src="images/DrawFmq2Bdry.png"> </td>
+
+  <td> A CIDD Draw tool plugin Program. This plugin allows the user to 
+   enter human inserted Gust Fronts and Boundries. useful for entering truth and
+   entering features too weak for the automated algorithms.
+  </td></tr>
+
+  <tr> <td colspan=2>
+    <ul>
+	<li> <b> Executable Names: </b> DrawFmq2Bdry, Collide
+	<li> <b> CVS loc: </b>  cvs/apps/cidd/src/DrawFmq2Bdry,  cvs/apps/collide
+	<li> <b> Required Input: </b> CIDD DrawFmq Output
+	<li> <b> Notes: </b>  Niles. Oien, RAP
+		 
+    </ul>
+   </td></tr>
+</table> <br>
+
+<!-- ============================================================================================== -->
+<!--  GridPointSelect  -->
+<!-- ============================================================================================== -->
+<h4><a name="GridPointSelect"></a>GridPointSelect <font size="2">
+    <a href="#Doc_Top">Back to top</a></font></h4>             
+<table Border=2> <tr>
+  <td><img src="images/GridPointSelect.png"> </td>
+
+  <td> 
+    GridPointSelect is a small program that enables the display of data
+    in ascii format based on CIDD click points. It is typically run in an
+    xterm. The user gives a list of MDV url sources, and every time the
+    user clicks in the CIDD window data from these sources are displayed.
+    The user has the option of defining a volume to consider.  From this
+    volume the user can select the display of the minimum, maximum or
+    mean value. Niles Oien June 2003.
+  </td></tr>
+
+  <tr> <td colspan=2>
+    <ul>
+	<li> <b> Executable Names: </b> GridPointSelect
+	<li> <b> CVS loc: </b>  cvs/apps/cidd/src/GridPointSelect
+	<li> <b> Required Input: </b> CIDD Coord Shared Mem, Mdv URL 
+	<li> <b> Notes: </b> Niles. Oien, RAP
+		 
+    </ul>
+   </td></tr>
+</table> <br>
+
+
+<!-- ============================================================================================== -->
+<!--  SoundingChart  -->
+<!-- ============================================================================================== -->
+<h4><a name="SoundingChart"></a>SoundingChart <font size="2">
+    <a href="#Doc_Top">Back to top</a></font></h4>             
+<table Border=2> <tr>
+  <td><img src="images/SoundingChart.png"> </td>
+
+  <td> 
+    SoundingChart is a program which plots Model soundings and observed
+	soundings together on the same plot. Right click on the image to pop
+	up a configuration panel
+  </td></tr>
+
+  <tr> <td colspan=2>
+    <ul>
+	<li> <b> Executable Names: </b> SoundingChart
+	<li> <b> CVS loc: </b>  cvs/apps/cidd/src/SoundingChart
+	<li> <b> Required Input: </b> CIDD Coord Shared Mem, Mdv, Spdb URLs 
+	<li> <b> Notes: </b> Frank Hage,   April 2004
+		 
+    </ul>
+   </td></tr>
+</table> <br>
+
+
+<!-- ============================================================================================== -->
+<!--  EventMan  -->
+<!-- ============================================================================================== -->
+<h4><a name="EventMan"></a>EventMan <font size="2">
+    <a href="#Doc_Top">Back to top</a></font></h4>             
+<table Border=2> <tr>
+  <td><img src="images/EventMan_sm.png"> </td>
+
+  <td> 
+    EventMan is a program which is used to manage Weather Events. This plugin
+	will send CIDD and other display plugins to the time of the event, as well as preventing
+	the data janitor from scrubbing data for this event off of the local disk.
+  </td></tr>
+
+  <tr> <td colspan=2>
+    <ul>
+	<li> <b> Executable Names: </b> EventMan
+	<li> <b> CVS loc: </b>  cvs/apps/cidd/src/EventMan
+	<li> <b> Required Input: </b> CIDD Coord Shared Mem, Janitor compatible Event List. 
+	<li> <b> Notes: </b> Frank Hage,   November 2005
+		 
+    </ul>
+   </td></tr>
+</table> <br>
+
+
+<!-- ============================================================================================== -->
+<!--  ciddArchiveDriver  -->
+<!-- ============================================================================================== -->
+<h4><a name="ciddArchiveDriver"></a>ciddArchiveDriver <font size="2">
+    <a href="#Doc_Top">Back to top</a></font></h4>             
+<table Border=2> <tr>
+  <td><img src="images/ciddArchiveDriver_sm.jpg"> </td>
+
+  <td> 
+    ciddArchiveDriver can be used to produce a script that will run CIDD in such a way as
+    to produce a series of images.
+  </td></tr>
+
+  <tr> <td colspan=2>
+    <ul>
+	<li> <b> Executable Names: </b> ciddArchiveDriver
+	<li> <b> CVS loc: </b>  cvs/apps/cidd/src/ciddArchiveDriver
+	<li> <b> Required Input: </b> Via TDRP, the user inputs an MDV URL, the data start and end times, and the CIDD
+                                      command line arguments they want to use. ciddArchiveDriver then produces a script
+                                      that will run CIDD in such a way as to produce image(s) at each time
+                                      that data are available. These images can then be animated using
+                                      standard techniques.
+	<li> <b> Notes: </b> Niles Oien, March 2006
+		 
+    </ul>
+   </td></tr>
+</table> <br>
+
+
+
+<hr>
+</body>
+</html>

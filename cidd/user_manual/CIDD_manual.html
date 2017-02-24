@@ -1,0 +1,647 @@
+<html>
+
+<head>
+
+<title>CIDD User Manual</title>
+
+<meta http-equiv="Content-Type" content="text/html">
+
+</head>
+
+<body bgcolor="#FFFFFF" link="#000088" vlink="#000088">
+
+<!-- ******************************************************************** -->
+<MAP NAME="Left_map"> 
+  <AREA Shape=rect coords= "0,12,405,31" href="#Menubar">
+  <AREA Shape=rect coords= "0,33,273,64" href="#Labels">
+  <AREA Shape=rect coords= "13,78,64,254" href="#fieldmenu">
+  <AREA Shape=rect coords= "65,78,99,235" href="#viewmenu">
+  <AREA Shape=rect coords= "101,78,142,230" href="#mapmenu">
+  <AREA Shape=rect coords= "145,78,193,145" href="#symprodmenu">
+  <AREA Shape=rect coords= "195,78,263,118" href="#urlmenu">
+  <AREA Shape=rect coords= "263,79,311,135" href="#modelrunmenu">
+  <AREA Shape=rect coords= "146,154,349,288" href="#xsect_panel">
+  <AREA Shape=rect coords= "12,321,337,392" href="#moviepanel">
+  <AREA Shape=rect coords= "13,393,356,405" href="#timescale">
+  <AREA Shape=rect coords= "355,43,380,405" href="#heights">
+</MAP>
+
+<MAP NAME="Right_map"> 
+  <AREA Shape=rect coords= "0,0,99,123" href="#overlays_panel">
+  <AREA Shape=rect coords= "0,124,99,232" href="#config_panel">
+  <AREA Shape=rect coords= "0,233,99,318" href="#status_panel">
+</MAP>
+<!-- ******************************************************************** -->
+
+<center>
+ <h1> Configurable Interactive Data Display (CIDD) User Manual</h1>
+</center>
+
+<HR>
+
+<A NAME="Doc_Top"></a>
+<CENTER>
+  <H5> Click on elements of the image below to go to section of interest</H5>
+</CENTER>
+<center>
+<TABLE WIDTH=800>
+<TR>
+  <TD ALIGN=CENTER> <IMG USEMAP="#Left_map" SRC="images/screen_cat_sm.png" > </TD>
+ <TD ALIGN=LEFT VALIGN=CENTER>
+  <center><h2> Table of Contents</h2></center>
+    <UL>
+    
+    <LI><A HREF="#ops"><B>Using CIDD</B></A></LI> 
+      <UL>
+	    <LI> <A HREF="#basic_layout">Basic Layout </A></LI>
+	    <LI> <A HREF="#Menubar">Menu Bar Buttons </A></LI>
+	    <LI> <A HREF="#Menubar">Selecting Data </A></LI>
+	    <LI> <A HREF="#Labels"> Labels and Margins</A></LI>
+	    <LI> <A HREF="#viewmenu">Zooming and Panning </A></LI>
+	    <LI> <A HREF="#heights">Changing Height/ Elevation </A></LI>
+	    <LI> <A HREF="#xsect_panel">Cross Section - Flight Route Display</A></LI>
+	    <LI> <A HREF="#moviepanel">Movie Control Panel </A></LI>
+	    <LI> <A HREF="#overlays_panel">Overlay/Layer Panel </A></LI>
+	    <LI> <A HREF="#config_panel">Data Source Configuration Panel </A></LI>
+	    <LI> <A HREF="#status_panel">Status Panel </A></LI>
+      </UL>
+      <BR>
+    
+    <LI><A HREF="#hardware"> Hardware Requirements</A></LI>
+    <LI><A HREF="#startup"> CIDD Startup </A></LI>
+    <LI><A HREF="#the_wm"> Window Manager Notes</A></LI>
+    <LI><A HREF="cidd_intro.html"> CIDD Introduction and Discussion</A></LI>
+    <LI><A HREF="cidd_plugins.html"> CIDD Plug-in/ Helper Applications</A></LI>
+    <LI><A HREF="cidd_utilities.html"> CIDD and MDV Utility Programs</A></LI>
+    <LI><A HREF="cidd_symprod.html"> CIDD's SPDB Data Support</A></LI>
+    <LI><A HREF="cidd_config.html"> CIDD Configuration </A></LI>
+    <LI><A HREF="cidd_faq.html"> CIDD Trouble Shooting and FAQ </A></LI>
+    </b></UL> 
+ </TD>
+  <TD ALIGN=CENTER> <IMG USEMAP="#Right_map" SRC="images/config_panels_sm.png" > </TD>
+</TR>
+</TABLE>
+</center>
+<HR>
+<br>
+
+<!--  -->
+<a name="basic_layout"></a>
+<h3> Display Layout <font size=2><a href="#Doc_Top">Back to top</a></font></h3>
+
+<P> CIDD consists of two principle display panels; one of plan view
+and one for cross sectional data views. In addition a set of control sub
+panels are used to select products, add or change attributes of products
+in the images, control movie looping, etc.  Many of the most frequently
+used operations such as selecting different products, heights or time
+of interest can be performed with one keystroke or mouse click in the
+display window, or pop up panels. Side by side comparisons of plan view
+or cross sectional data are accomplished by running multiple instances
+of CIDD.  The Clone button/function available in the menu bar is an easy
+way to re-read the parameter files and duplicate the display. Additional
+applications, which display data as textual tables, line graphs, sounding
+plots or mediograms  can be run as <a href="cidd_plugins.html"> CIDD
+plugins </a>.  These applications communicate with CIDD, reading the
+latest times and click points of interest.
+
+
+<a name="Menubar"></a>
+<h3>The Menu Bar<font size=2><a href="#Doc_Top">Back to
+top</a></font></h3> <img src="images/menubar.png"> The main display window
+has a menu bar area above the plan view graphic image.  The buttons in
+the menu bar allow the user to toggle features on and off, or to pop up
+sub panels with additional menu options.  <br>
+
+<P> <B><I> NOTE: All button labels and positions are configurable. This is only a sample
+           configuration. Many configurations have only a few buttons configured to be visible.
+    </I></B>
+
+<UL>
+  <LI> <B>FIELDS... </B> - Displays the <a href="#fieldmenu">Field Sub Menu </a>
+  <LI> <B>VIEW... </B> - Displays the preset <a href="#viewmenu"> View Sub Menu</a>
+  <LI> <B>Maps... </B> - Displays the  <a href="#mapmenu">Map Sub Menu</a>
+  <LI> <B>Movie... </B> - Displays the  <a href="#moviepanel">Movie loop control panel</a>
+  <LI> <B>Overlays... </B> - Displays a <a href="#overlays_panel">pop-up panel </a> for selecting additional data to plot.
+  <LI> <B>SYMPRODS... </B> - Displays a <a href="#symprodmenu">menu</a> for selecting different symbolic products </a>
+  <LI> <B>URL... </B> - Displays a  <a href="#urlmenu"> menu</a> for quick access to selected web sites.
+  <LI> <B>Model Run... </B> - Displays a <a href="#modelrunmenu">menu </a> for choosing a specific model run to visualize.
+  <LI> <B>X Sect... </B> - Displays the <a href="#xsect_panel">Cross Sectional view panel.</a>
+  <LI> <B>Config...</B> - Displays a <a href="#config_panel">Data Source Configuration Editor </a>
+  <LI> <B>Status...</B> - Displays a <a href="#status_panel">Status Message Panel</a>
+  <LI> <B>Print </B> - Calls a print function to dump/print the plan view image.
+  <LI> <B>HELP... </B> - Displays this or another help manual in a browser
+  <LI> <B>Fcast... </B> - Displays a menu for choosing a specific forecast time from now.
+  <LI> <B>Past... </B> - Displays a menu for choosing a specific historical time.
+  <LI> <B>Now </B> - Sets the Display to Real-time mode at the current time.
+  <LI> <B>Close Popups </B> - Closes all pop up windows.
+  <LI> <B>Loop </B> - Turns the movie loop on and off.
+  <LI> <B>Winds</B> - Turns  Motion Vectors on and off
+  <LI> <B>All Symprods</B> - Turns  all symbolic products on or off
+  <LI> <B>RESET </B> - Returns the display to a defined starting state.
+  <LI> <B>Reload </B> - Force a flush and reload of all data.
+  <LI> <B>Report Mode</B> - Turns on/off a display of the data values at the cursor position
+  <LI> <B>Draw Mode</B> - Enables a drawing mode where the right mouse button is used to enter features.
+  <LI> <B>Clone</B> - Starts another instance of the same display - Re-reads the parameter file.
+  <LI> <B>Exit</B> - Cleanly Exit the program
+</UL>
+
+<!--############################################################################### -->
+<table> <tr width=600>
+   <tr><td><img src="images/frame_time.png"> </td> </tr>
+   <tr><td> Directly below the menu bar is the time and flight level
+             information bar. This bar shows:<br>
+      <UL>
+       <LI> Data time and frame sequence: the frame, date and time selected, <br>
+       <LI> Product elevation: Radar tilt angle or MSL altitude
+       <LI> Current date and time: UTC </p>
+      </UL>
+    </td></tr>
+ </table> <br>
+
+<!--############################################################################### -->
+<a name="Labels"></a>
+<h3>Margins and Legends<br> </h3>
+<img src="images/legends.png">
+  <UL>
+   <LI>	<B> Left Margin </B> Latitude scale or Distance scale
+   <LI>	<B> Top Margin </B> Longitude scale or Distance scale
+   <LI>	<B> Legend 1 </B> Main product info. Date and time of the product being displayed
+	<LI> <B> Legends 2+ </B> Date and time for the Motion Vectors 
+   <LI>	<B> Bottom Margin </B> Time scale. - Click in this margin to shift in time.
+-	<LI> <B> Right Margin </B> Color scale. An optional height scale may appear on the right side of the screen. 
+ </UL>
+</p>
+
+
+<!--############################################################################### -->
+<a name="heights"></a>
+<h4>Changing Height/Elevation <font size=2><a href="#Doc_Top">Back to top</a></font></h4>
+<table> <tr width=600>
+   <tr><td><img src="images/height_scale.png"> </td>
+   <td> To change the elevation level, click the left mouse button in the
+            height margin.  You can also step up and down in height by
+            pressing the up or down arrow key on the keyboard. Note: Some
+            data may not be volumetric (3D), and thus the user cannot
+            move up or down in height.  <br> <i>Note: in order to use the keyboard cursor keys,
+            the mouse pointer must be within the main display window.</i>
+    </td></tr>
+</table> <br>
+
+<!--############################################################################### -->
+<h4>Changing Time<font size="2"><a href="#Doc_Top">Back to top</a></font></h4>
+<a name="timescale"></a>
+<table> <tr width=600>
+   <tr><td><img src="images/time_scale.png"> </td> </tr>
+   <tr><td> Click on the Time axis to move to the frame closest to the chosen time.
+	The shaded bar shows the coverage in time.
+        To change the time, click with the left mouse button in the time scale margin. 
+        Pressing the left or right arrow keys on the keyboard also moves the time by one frame.
+        <br><i>Note: in order to use the keyboard cursor keys, the mouse pointer
+        must be within the main display window.</i>
+   </td></tr>
+</table> <br>
+<a name="ops4"></a>
+
+
+
+<!--############################################################################### -->
+<h4> Changing the View - Zooming and Panning<font size=2><a href="#Doc_Top">Back to top</a></font></h4>
+<a name="viewmenu"></a>
+<table border="0">
+  <tr> 
+    <td><img src="images/view_menu.png"> 
+    <td> The view menu allows you to select pre-defined domains. There are also buttons that allow you to save custom zoom states and return to the saved states.<br>
+  <br>
+  <b>Custom Zoom:</b> Use the left-mouse button (click and drag)
+  to define an arbitrary region. This user-defined region becomes the
+  current zoom and will cause the 'Current' button to be selected. Unzoom
+  by choosing one of the pre-defined domains.<br> 
+  <b>Panning:</b> 
+  You can pan or move the image with the middle mouse button: Click on
+  a point and drag it to the desired location, then release.<br>
+  <b>Saving zoom states:</b> To save the current zoom, click on 'Save 1',
+  'Save 2', or 'Save 3'. To go back to the saved view, click on 'Goto 1',
+  'Goto 2', or 'Goto 3'.</p>
+  </tr>
+</table>
+
+<BR clear=all>
+<a name="fieldmenu"></a>
+<!--############################################################################### -->
+<h5><a name="Page"></a> Field/Page Menu<font size=2><a href="#Doc_Top">Back to top</a></font></h5>                                                                 
+<table border="0">
+  <tr> 
+    <td><img src="images/field_menu.png"></td>
+    <td valign="top">
+    The 'Field or Page' menu (see left Fig.) is a pop-up menu for selecting
+    a desired data set page.  Select the desired page by clicking on the
+    appropriate button. Click on 'Field/Page' again in the menu bar to remove
+    the menu.  </td>
+  </tr>
+</table>
+
+
+<BR clear=all>
+<a name="mapmenu"></a>
+<!--############################################################################### -->
+<h5></a> Overlay Menu<font size=2><a href="#Doc_Top">Back to top</a></font></h5>                                                                 
+<table border="0">
+  <tr> 
+    <td><img src="images/overlay_menu.png"></td>
+    <td valign="top">
+    The 'Overlay or Page' menu (see left Fig.) is a pop-up menu for selecting
+    desired map overlays.  Select the desired map by clicking on the
+    appropriate button. Click on 'Overlays...' button again in the menu bar to remove
+    the menu<BR>
+	NOTE:  Map features may be visible only in certain zoom states. Typically,
+	maps are set up to reveal additional detail as the user zooms in to smaller
+	and smaller domains.</td>
+  </tr>
+</table>
+
+<BR clear=all>
+<a name="symprodmenu"></a>
+<!--############################################################################### -->
+<h5></a> URL Menu<font size=2><a href="#Doc_Top">Back to top</a></font></h5>
+ 
+<table border="0">
+  <tr>
+    <td><img src="images/symprod_menu.png"></td>
+    <td valign="top">
+    The 'Product' menu (see left Fig.) is a pop-up menu for selecting
+    various products, drawn as lines, text or symbols. The labels which
+    appear are configurable/td>
+  </tr>
+</table>
+
+<BR clear=all>
+<a name="urlmenu"></a>
+<!--############################################################################### -->
+<h5></a> URL Menu<font size=2><a href="#Doc_Top">Back to top</a></font></h5>                                                                 
+<table border="0">
+  <tr> 
+    <td><img src="images/url_menu.png"></td>
+    <td valign="top">
+    The 'URL' menu (see left Fig.) is a pop-up menu for sending a browser to
+    a desired web page.  Select the desired page by clicking on the
+    appropriate button.
+    the menu.  </td>
+  </tr>
+</table>
+
+<BR clear=all>
+<a name="modelrunmenu"></a>
+<!--############################################################################### -->
+<h5></a> URL Menu<font size=2><a href="#Doc_Top">Back to top</a></font></h5>
+ 
+<table border="0">
+  <tr>
+    <td><img src="images/modelrun_menu.png"></td>
+    <td valign="top">
+    The 'Model Run' menu (see left Fig.) is a pop-up menu for selecting
+    which model run to gather data from. When 'Latest' is selected, the
+    servers will return data for the requested time from the latest model run(s).
+    It is quite possible to get data which spans several runs in this mode.
+    When a specific run time is selected, the servers will return data from
+    only that specific model run. Note that if several models are configured in,
+    CIDD will make a request for the model run times of the main data field being used.
+    You should select a data field from the model you intend to select before
+    enabling this menu.
+  </tr>
+</table>
+
+<BR clear=all>
+<!--############################################################################### -->
+<h5><a name="Vectors"></a>Vectors Button<font size="2"><a href="#Doc_Top">Back to top</a></font></h5>                                                                         
+</font>
+Toggling the Vectors button turns motion vectors on and off.<br>
+The density of wind barbs is automatically adjusted as the user zooms in.
+The density of wind vectors is kept between 10-20 wind barbs across the
+screen, even though there may be hundreds of wind grids cells across
+the screen in the data. If the user zooms in far enough, all possible
+vectors or barbs are plotted.
+
+
+<!--############################################################################### -->
+<h3><a name="moviepanel"></a> Movie Control Panel<font size="2"><a href="#Doc_Top">Back 
+  to Top</a></font></h3>                                                                         
+<p></a><img src="images/movie_panel.png" usemap="#Map4" border="0"> 
+  <map name="Map4"> 
+    <area shape="rect" coords="3,17,97,53" href="#moviestart">
+    <area shape="rect" coords="108,22,270,52" href="#archive">
+    <area shape="rect" coords="519,0,805,25" href="#moviestartsat">
+    <area shape="rect" coords="0,48,296,73" href="#movieframes">
+    <area shape="rect" coords="301,52,521,78" href="#moviesweep">
+    <area shape="rect" coords="515,52,614,85" href="#moviespeed">
+    <area shape="rect" coords="604,52,809,168" href="#moviedelay">
+    <area shape="rect" coords="300,79,668,99" href="#moviebar">
+    <area shape="rect" coords="84,97,645,148" href="#movieticks">
+    <area shape="rect" coords="0,149,808,167" href="#movietimescale">
+  </map>
+</p>
+
+<p>The movie control panel has two main sections. The upper half of the panel contains controls
+for manipulating the movie animation. The lower half contains indicators showing the
+presence of data along the time line.
+
+<a name="moviestart"></a>
+<table> <tr width=600>
+  <td><img src="images/movie_start.png" align=left> 
+  <td>You can start and stop the movie by clicking this button. 
+  You can also step through the 
+  frames by hitting the left arrow key (go back) or right arrow key (go forward) 
+  on the keyboard. 
+  For this to work, the pointer must be in the main window.<br>
+</tr> </table> <br>
+
+<a name="archive"></a>
+<table> <tr width=600>
+  <td><img src="images/movie_realtime.png" align=left> 
+  <td>The display may be run in 'Real-time' or 'Archive' mode. In real-time mode, new 
+  data is added to the end of the movie loop as it arrives and the loop advances 
+  as time passes. Real-time mode is the default behavior of a live system such 
+  as WSDDM. In archive mode, the movie loop remains static, it does not move as time passes, 
+  and the display does not check for new data. Archive mode is used for viewing 
+  old data for analysis purposes. To set the display to archive mode, click on 
+  the Archive button.
+</tr> </table> <br>
+
+<a name="moviestartsat"></a>
+<table> <tr width=600>
+  <td><img src="images/movie_starts.png" align=left>
+  <td>Set the desired movie start time in the top text box that reads '<b>Movie Loop 
+  Starts at:</b>' The data entered is:<i>hour:minute month/day/year</i>. You can 
+  either use the format presented in the time text box, or you can just enter 
+  numbers separated by spaces.<i>(Remember to hit "Enter" when you are done.)</i> 
+  To return to real-time mode, click on the 'Real Time' button on the movie panel
+</tr> </table> <br>
+
+<a name="movieframes"></a>
+<table> <tr width=600>
+  <td> <img src="images/movie_frames.png"> </td>
+  <td> You can change the number of movie frames in three ways:
+    <OL>
+    <LI> Enter the number of frames at the text entry point
+    <i> (Remember to hit "Enter" when you are done)</i>
+    <LI> Click on the up/down arrows next to the '<b>Number of Frames</b>'entry box
+    <LI> Drag either the start or finish solid triangles, at either end of the movie 
+    bar, to change its start or finish time.
+    </OL>
+  </td>
+</tr> </table> <br>
+
+
+
+<a name="moviesweep"></a>
+<table> <tr width=600>
+  <td> <img src="images/movie_sweep.png">
+  <td><b>Sweep Button: </b>Use the Sweep Button to enter sweep mode. In sweep mode the movie goes forwards 
+  and backwards in sequence, instead of just forwards.<br>
+</tr> </table> <br>
+
+<a name="movieinterval"></a>
+<table> <tr width=600>
+  <td><img src="images/movie_interval.png">
+  <td> This changes the movie frame time interval. Enter the number of minutes per 
+  frame in the text box.<i> (Remember to hit "Enter" when you are done.)</i><br>
+</tr> </table> <br>
+
+<a name="moviespeed"></a>
+<table> <tr width=600>
+   <td><img src="images/movie_speed.png">
+   <td><b>Speed Slider Bar</b>
+  The 'Speed' slider bar in the Movie Control Panel controls the speed of the 
+  animation loop. Move the slider further to the right side to increase the speed.<br>
+</tr> </table> <br>
+
+<a name="moviedelay"></a>
+<table> <tr width=600>
+   <td><img src="images/movie_delay.png">
+   <td><b>Delay Slider Bar</b>
+  The 'Delay' slider bar controls the length of  time the animation delays on the
+  last frame.  Move the slider further to the right side indicating a longer 
+  delay.
+</tr> </table>
+<br>
+
+<a name="moviebar"></a>
+<table> <tr width=600>
+  <td><img src="images/movie_bar.png"> </td>
+  <td><b>Data Availability and Loop Coverage</b>
+  The lower half of the panel is a graphical display which shows, from top
+  to bottom, the "movie bar", a bar showing the span of the current movie
+  extent, and the frame divisions, the available data with tick lines
+  showing when symbol data exist and tiny squares showing when gridded
+  data exists , and a selectable time scale in the bottom margin. The
+  enlarged dots indicate a which data grids are currently visible. </td>
+</tr> </table> <br>
+
+<table> <tr width=600>
+  <td><img src="images/movie_bar_sm.png"></td>
+  <td><b>Movie Bar</a></b> Click on a frame to move to that frame.
+  Click and  Drag 
+  on the start or finish solid triangles, at either end of the movie bar, 
+  to extend or shorten the movie loop. This will add or decrease the number of
+  animated frames. Click and drag on the central section
+  of the Movie Bar to shift the loop in time, leaving the number of animated frames
+  intact.</td>
+</tr> </table> <br>
+
+<a name="movieticks"></a>
+<table> <tr width=600>
+   <td><img src="images/movie_symprods.png"></td>
+   <td>Each vertical tick mark represents one binary record of data of the type listed, created
+   at the indicated time. The small squares represent gridded data files, valid at the indicated time.
+   The larger sized squares show grids currently on the screen.</td>
+</tr> </table> <br>
+
+<a name="movietimescale"></a>
+<table> <tr width=600>
+   <tr><td><img src="images/movietimescale.png"> </td></tr>
+   <tr><td> Click on the Time axis to move to the frame closest to the chosen time. </td></tr>
+</table> <br>
+
+<!-- ============================================================================================== -->
+<!--   Cross Section Panel   -->
+<!-- ============================================================================================== -->
+<a name="xsect_panel"></a>
+<h4>Cross Section  Flight Route Panel<font size="2"> <a href="#Doc_Top">Back to top</a></font> </h4>
+<table Border=2>
+  <tr> <td align=center><img src="images/xsect_panel.png"> </td> </tr>
+    
+  <tr><td>
+   <h3> Notes: </h3>
+   In 2006 the NWS asked us to make CIDD's cross section work more
+   like the AWIPS display and also privide a way to identify and
+   edit the position of various products.  AWIPS works using the Left
+   button for all selection while CIDD used the right button for cross
+   sections. Cidd can be configured to use either button to define
+   flight paths, but when configured to use the left button it gains
+   some addtional functionality such as the ability to display hidden,
+   pop-up text when mousing over products on the screen.
+
+   <h3> Left Mouse (AWIPS) mode. </h3>
+   <p> The Cross Section or Flight Route is selected by 1. Pressing the
+   'route define' button on the top of the plan view window, indicates
+   a desire to define flight path The display starts in "zoom mode"
+   where click and drag defines a new zoom area. 2. Click and drag the
+   left mouse button across the plan view graphics, starting at the some origin and releasing over the first
+   way point. Multiple segments
+   may be chosen. Click the button at each way point along the path, and then twice
+   at the last way point to end. If you make a mistake, click the right button
+   to erase the previous segment. Click twice on the end of the last
+   segment to complete the selection.
+   
+   <h3>Right Mouse (Backward Compatibility) mode. </h3>
+   <p> The Cross Section or Flight Route is selected by clicking and dragging
+   the right mouse button across the plan view graphics. Multiple segments
+   may be chosen. Click the button at each way point, and then twice
+   at the last way point If you make a mistake, click the left
+   button to erase the previous segment. Click twice on the end of the
+   last segment to complete the selection.
+
+   <h3> One click Cross sections </h3> 
+   If the parameter cidd.one_click_rhi is set to 1, then CIDD will end
+   the cross section after the mouse button is released after the click
+   and drag.. This allows for a simple; click, drag, release, method for
+   defining a cross section. The RADAR guys bore great hardship clicking
+   that second time to end, so with great pity for their plight, this
+   one-click option was added. WHen this is set, no multi way point
+   paths can be defined.
+
+   <h3> Terrain Masking </h3>
+   <P>The terrain along the route is depicted in solid brown, overlaying
+   the data field. Note this terrain masking is only available if the 'terrain_url' is set and the vertical
+   data is on the same units as the vertical view.
+
+   <h3> Show a different field in the Cross section </h3> 
+   To select a different field from the plan view, right-click in the vertical section
+   window and select the field from the menu that
+   appears.
+
+   <P>The route is shown as a bold yellow line in the plan view. The
+   way points are labeled by the closest navigational fix (way point,
+   VHF navaid or airport) within 20 nm of the selected point. If no
+   navigational fix lies within a 20 nm radius, the point will be marked
+   with a number indicating its position on the route.  For example,
+   the first point will be labeled "1", the third point "3", and so on.
+
+   <P>Clicking on the button labeled 'Routes' will bring up a list of
+   pre-defined routes. You may click on any of these to select it. The
+   latest route you entered by clicking and dragging may be retrieved
+   by using the 'Custom' button on that menu.
+
+  <P>The 'Label Waypoints' check-box toggles the waypoint labels on
+  and off, in case they are obscuring data. If waypoint labels are on,
+  navigational fixes which lie within a 20 nm radius will be marked on the
+  plan view. Otherwise, they will not.
+  
+  <P>The 'Show Winds Text' is a check-box that toggles the segment route
+  values text on and off.  The mean wind for segments along the flight
+  is plotted at the mid-point of each segment in the plan view.
+  
+  <P>The 'Average wind' label located directly under the window title
+  bar displays the average wind along the entire flight route.
+  
+  <P>The 'Turbulence and/or icing warnings' label located under 'Average
+  wind' label, in red, warns if a route goes through an area of turbulence
+  or icing, or both, regardless of the data being viewed.  Otherwise it
+  is empty. (In the example, it shows "HIGH CAT!" indicating the route
+  passes through an area with a high probability of Clear Air Turbulence.)
+  
+  <P>The selected flight level is depicted by the dashed horizontal line,
+with a height/elevation scale on the left and a color bar on the right.
+  
+  </td></tr>
+</table> <br>
+
+
+<!-- ============================================================================================== -->
+<!--   Configuration Panel   -->
+<!-- ============================================================================================== -->
+<a name="config_panel"></a>
+<h4>Data Configuration Panel<font size="2"> <a href="#Doc_Top">Back to top</a></font> </h4>
+<table Border=2> <tr>
+  <td><img src="images/config_panel.png"> </td>
+    
+  <td> The Data Configuration Panel
+  </td></tr>
+</table> <br>
+
+
+<!-- ============================================================================================== -->
+<!--   Overlays Panel   -->
+<!-- ============================================================================================== -->
+<a name="overlays_panel"></a>
+<h4>Image Overlays/Layers  Panel<font size="2"> <a href="#Doc_Top">Back to top</a></font> </h4>
+<table Border=2> <tr>
+  <td><img src="images/overlays_panel.png"> </td>
+    
+  <td> The Overlays/Layers  Panel
+  </td></tr>
+</table> <br>
+
+
+<!-- ============================================================================================== -->
+<!--   Status Panel   -->
+<!-- ============================================================================================== -->
+<a name="status_panel"></a>
+<h4>Status Panel<font size="2"> <a href="#Doc_Top">Back to top</a></font> </h4>
+<table Border=2> <tr>
+  <td><img src="images/status_panel.png"> </td>
+    
+  <td> The Product Status Panel
+  </td></tr>
+</table> <br>
+
+<hr>
+
+<!-- ============================================================================================== -->
+<!--   HARDWARE   -->
+<!-- ============================================================================================== -->
+<a name="hardware"></a>
+<h4>Hardware <font size="2"> <a href="#Doc_Top">Back to top</a></font> </h4>
+CIDD is a legacy application, capable of running on many variants of Unix,
+running X Windows.  It can run in either 8 or 16 bit pseudo color modes, or 24 or 32 bit
+true color modes. It can be configured to run in as little as 2-5 Mb of RAM, or
+more typically to run using about 10-20Mb of program RAM and 50-250 Mb of X server RAM.
+It is possible to configure CIDD to produce windows over 2000X2000 pixels in size,
+and to display data from more than 256 sources. Recommended hardware is a modern
+PC with at least 128 Mb of RAM, and an accelerated graphics card and drivers.
+Nominal image generation time is under one second for most imagery. Currently no
+support is available for Microsoft Operating systems.
+<br>
+
+<!-- ============================================================================================== -->
+<!--   Startup   -->
+<!-- ============================================================================================== -->
+<a name="startup"></a>
+<h4>Startup <font size="2"> <a href="#Doc_Top">Back to top</a></font> </h4>
+<p> enter: CIDD -p <i>paramfilename</i> <BR>
+to start up the display. A sample parameter file with all parameters and comments on their
+usage can be printed using 'CIDD -print_params'. All Command line options can be had
+by entering 'CIDD -help'. Sample parameter files can be viewed and downloaded from:
+<A href="http://www.rap.ucar.edu/CIDD">http://www.rap.ucar.edu/CIDD </A>
+<br>
+
+<!-- ============================================================================================== -->
+<!--   WINDOW_MANAGER   -->
+<!-- ============================================================================================== -->
+<a name="the_wm"></a>
+<h4>Window Manager <font size="2"> <a href="#Doc_Top">Back to top</a></font> </h4>
+CIDD depends on the X window manager controls for placement, sizing
+and iconification. Cidd does allow for specific window placement on
+startup, but, under X windows, they are hints to the window manager
+and are sometimes ignored. CIDD allows the user to resize the plan view
+and cross section windows using the window frame controls provided by
+the window manager. All of CIDD's tear-off menus and control panels
+are requested to be "without frame controls", but many Window managers
+ignore this request and place them there anyway. CIDD always maintains
+a specific aspect ratio as set in the parameter file being used. If the
+window is resized, CIDD will automatically reset the width of the plan
+view window based on the height of the window in order to maintain the
+aspect ratio selected in the parameter file.
+<br>
+
+</body>
+</html>

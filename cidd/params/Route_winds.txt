@@ -1,0 +1,243 @@
+<ROUTE_WINDS>
+/**********************************************************************
+ * TDRP params for Croutes_P
+ **********************************************************************/
+
+//======================================================================
+//
+// Route Winds Parameters.
+//
+//======================================================================
+
+///////////// debug //////////////////////////////////
+//
+// 
+debug = DEBUG_OFF;
+
+///////////// font_height /////////////////////////////
+//
+//  Maximum height in Pixels of labels.
+// Type: int
+//
+
+font_height = 10;
+
+///////////// add_waypoints_labels ////////////////////
+//
+// Default state of the add_waypoints_labels.
+// Type: int
+// 0 = off, 1 = on
+
+add_waypoints_labels = 0;
+
+///////////// add_wind_text ///////////////////////////
+//
+// Default state of the add_wind_text labels.
+// Type: int
+// 0 = off, 1 = on
+
+add_wind_text = 0; 
+
+///////////// label_style /////////////////////////////
+//
+// Set to REGUALR_INTERVALS or EQUAL_DIVISIONS.
+//
+// Type: enum
+// Options:
+//     REGUALR_INTERVALS
+//     EQUAL_DIVISIONS
+//
+
+label_style = EQUAL_DIVISIONS;
+
+///////////// label_interval //////////////////////////
+//
+// Distance in km between winds labels.
+// Used if label_style is set to REGUALR_INTERVALS.
+// Type: double
+//
+
+label_interval = 55.6;
+
+///////////// num_route_labels ////////////////////////
+//
+// number of route wind labels to plot along the route.
+// Typically this should be set between 5 and 20.
+// Minimum val: 2
+// Maximum val: 100
+// Type: int
+//
+
+num_route_labels = 5;
+
+///////////// route_track_line_width //////////////////
+//
+// Width in pixels of the route winds track.
+// Minimum val: 1
+// Maximum val: 20
+// Type: int
+//
+
+route_track_line_width = 3;
+
+///////////// u_url ///////////////////////////////////
+//
+// U Wind Componet.
+//  URL's take the form  mdvp::[paramfile]//host.dom::dir/dir&fieldname.
+// Type: string
+//
+
+u_url = "mdvp::zoom_mds//neptune::mdv/mm5&U"; 
+
+///////////// v_url ///////////////////////////////////
+//
+// v Wind Componet.
+// Type: string
+//
+
+v_url = "mdvp::zoom_mds//neptune::mdv/mm5&V"; 
+
+///////////// turb_url ////////////////////////////////
+//
+// Turbulence Index.
+// Type: string
+//
+
+turb_url = "mdvp::d3_d4//neptune::mdv/mm5&Turb";
+
+
+///////////// turb_low_thresh /////////////////////////
+//
+// Value at which the turbulence is considered Low.
+// Type: double
+//
+
+turb_low_thresh = 0.25;
+
+///////////// turb_mod_thresh /////////////////////////
+//
+// Value at which the turbulence is considered Moderate.
+// Type: double
+//
+
+turb_mod_thresh = 0.5;
+
+///////////// turb_hi_thresh //////////////////////////
+//
+// Value at which the turbulence is considered High.
+// Type: double
+//
+
+turb_hi_thresh = 0.75;
+ 
+///////////// icing_url ///////////////////////////////
+//
+// Icing Index.
+// Type: string
+//
+
+icing_url = "mdvp::d3_d4//neptune::mdv/mm5&Icing";
+
+///////////// icing_low_thresh ////////////////////////
+//
+// Value at which the icing is considered Light.
+// Type: double
+//
+
+icing_low_thresh = 0.25;
+
+///////////// icing_mod_thresh ////////////////////////
+//
+// Value at which the icing is considered Moderate.
+// Type: double
+//
+
+icing_mod_thresh = 0.5;
+
+///////////// icing_hi_thresh /////////////////////////
+//
+// Value at which the icing is considered Heavy.
+// Type: double
+//
+
+icing_hi_thresh = 0.75;
+ 
+
+///////////// route_paths[] ///////////////////////////////
+//   Route path strings - Format of each string is
+// ROUTE_LABEL NPOINTS  ID_String Lat Lon ID_String LAT Lon ..x
+//
+// ROUTE_LABEL will be used in the menu,
+// NPoints = Number of way points in route 
+//   Followed by NPoint triplets of the following:
+// ID_string -> usually a Airport or VOR
+// Lat Lon :   decimal degrees
+//
+// Note: Make sure white space separates the fields!
+// 
+
+route_paths = {
+  "A-1 8 "
+  "BULAN 27.0917 124.0000 "
+  "OSTAR 26.3317 123.0000 "
+  "SHARK 25.8333 122.3583 "
+  "ANNNA 25.5717 122.0217 "
+  "APU 25.1767 121.5233 "
+  "HLG 24.6400 120.7833 "
+  "MKG 23.5583 119.6283 "
+  "ELATO 22.3333 117.5000 ",
+
+  "M-750 12 "
+  "MOLKA 26.6583 124.0000 "
+  "MORSU 25.9100 123.0000 "
+  "LEKOS 25.5100 122.4717 "
+  "ROBIN 25.4200 122.2083 "
+  "NOKAS 25.1317 121.9917 "
+  "SANAS 24.8967 121.6917 "
+  "PILOX 24.4150 121.0250 "
+  "ANLOT 23.9417 120.5233 "
+  "TOROX 23.3533 119.9083 "
+  "RENOT 22.5683 118.5117 "
+  "DADON 22.2767 118.0033 "
+  "ENVAR 21.9917 117.5000 ",
+
+  "G-581 7 "
+  "IGURU 23.9500 124.0000 "
+  "TULTO 23.3233 123.0000 "
+  "HCN 21.9283 120.8433 "
+  "PARPA 22.0150 120.1683 "
+  "CYRUS 22.2167 118.5317 "
+  "DADON 22.2767 118.0033 "
+  "ELATO 22.3333 117.5000 ",
+
+  "B-591 9 "
+  "APU 25.1767 121.5233 "
+  "SANAS 24.8967 121.6917 "
+  "TINHO 24.3533 122.0283 "
+  "TITUS 23.8283 121.8517 "
+  "TACLE 22.9933 121.5867 "
+  "GID 22.6733 121.4867 "
+  "TUNNY 22.3600 121.2150 "
+  "HCN 21.9283 120.8433 "
+  "DOREX 21.0000 120.7833 ",
+
+  "R-583 5 "
+  "BORDO 26.0167 124.0000 "
+  "KIKIT 25.8817 123.5917 "
+  "PABSO 25.6517 122.8750 "
+  "LEKOS 25.5100 122.4717 "
+  "APU 25.1767 121.5233 ",
+
+  "G-86 3 "
+  "HCN 21.9283 120.8433 "
+  "ANDRE 21.7783 120.1683 "
+  "KAPLI 21.1667 117.5000 ",
+
+  "B-576 3 "
+  "SALMI 28.3150 124.0000 "
+  "BERBA 27.0783 123.0000 "
+  "APU 25.1767 121.5233 "
+};
+
+</ROUTE_WINDS>
+
