@@ -12,12 +12,12 @@ In 2016, the National Science Foundation (NSF) funded LROSE for four years.
 [History](https://www.eol.ucar.edu/content/lidar-radar-open-software-environment)
 
 LROSE development falls into six major phases:
-I.  Data Conversion
-II. Displays (Visualization)
-III. Quality Control 
-IV.  Grid
-V.  Echo
-VI.  Wind
+1.  Data Conversion
+2. Displays (Visualization)
+3. Quality Control 
+4.  Grid
+5.  Echo
+6.  Wind
 
  
 [Development Plan](docs/plan_draft.md)
