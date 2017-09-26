@@ -23,4 +23,4 @@ LROSE development falls into six major phases:
 [Development Plan](docs/plan_draft.md)
 
 The current, active phase of development is Data Conversion using RadxConvert.  A docker image of Soloii,
-a data visualization tool, has already complete. 
+a data visualization tool, is already complete. 
