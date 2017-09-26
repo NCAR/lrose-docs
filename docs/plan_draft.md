@@ -4,7 +4,7 @@
 |                 |  RadxPrint    |             | | |
 |                 |  RadxBufr     | in progress | | |
 | LROSE Displays  |  Soloii       | complete    | docker | [docker image](https://hub.docker.com/r/ncareol/soloii/) |
-|                 |               |             |        | [starter kit](./coming_soon) |
+|                 |               |             |        | [starter kit](./coming_soon.md) |
 |                 |  HawkEye      |  2018       | | |
 |                 |  JAZZ         |  2018       | | |
 | LROSE QC        |  RadxQc       |             | | |
