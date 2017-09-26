@@ -3,7 +3,7 @@
 | LROSE Convert   |  RadxConvert  | in progress |        |        |
 |                 |  RadxPrint    |             | | |
 |                 |  RadxBufr     | in progress | | |
-| LROSE Displays  |  Soloii       | complete    | docker | |
+| LROSE Displays  |  Soloii       | complete    | docker | [docker image](https://hub.docker.com/r/ncareol/soloii/) |
 |                 |  HawkEye      |  2018       | | |
 |                 |  JAZZ         |  2018       | | |
 | LROSE QC        |  RadxQc       |             | | |
