@@ -1,6 +1,6 @@
 # LROSE - Lidar Radar Open Software Environment
 
-LROSE is a set of tools to edit, analyze, and visuale LIDAR and RADAR 
+LROSE is a set of tools to edit, analyze, and visualize LIDAR and RADAR 
 data.  LROSE handles data from a variety of formats (netCDF, HDF5, BUFR, Cfarr, etc.).  
 LROSE tools can be used independently or in sequence.    
   
