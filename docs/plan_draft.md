@@ -4,7 +4,7 @@
 | LROSE Convert   |  RadxConvert  | in progress |        |        |
 |                 |  RadxPrint    |             | | |
 |                 |  RadxBufr     | in progress | | |
-| LROSE Displays  |  Soloii       | complete    | legacy code maintained as containers |```[Docker](https://hub.docker.com/r/ncareol/soloii/)```  [Virtual Machine](https://lrose.eol.ucar.edu/soloii/) [Virtual-Appliance](https://github.com/NCAR/lrose-soloii/wiki/Virtual-Appliance) [VirtualBox](https://github.com/NCAR/lrose-soloii/tree/master/packer) [starter kit](./coming_soon.md) |
+| LROSE Displays  |  Soloii       | complete    | legacy code is maintained as containers |[Docker](https://hub.docker.com/r/ncareol/soloii/)  [Virtual Machine](https://lrose.eol.ucar.edu/soloii/) [Virtual-Appliance](https://github.com/NCAR/lrose-soloii/wiki/Virtual-Appliance) [VirtualBox](https://github.com/NCAR/lrose-soloii/tree/master/packer) [starter kit](./coming_soon.md) |
 |                 |  HawkEye      |  2018       | | |
 |                 |  JAZZ         |  2018       | | |
 | LROSE QC        |  RadxQc       |             | | |
@@ -23,7 +23,7 @@
 |                 |  ConvStrat    |             | | |
 |                 |  Refract      |             | | |
 | LROSE Wind      |  Multi-Doppler|             | | |
-|                 |  CEDRIC       |  2018       | docker TODO: add Docker(little boat) image here | | 
+|                 |  CEDRIC       |  2018       | legacy code |  [Docker] (./coming_soon.md) | 
 |                 |  SAMURAI      |             | | |
 |                 |  Single Doppler |           | | |
 |                 |  RadxEvad     |             | | |
