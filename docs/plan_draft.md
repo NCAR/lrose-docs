@@ -1,3 +1,6 @@
+<!--- TODO: it would be nice if lrose-soloii had a webpage and then this link would be to that webpage --->
+
+<!--- [Docker](https://hub.docker.com/r/ncareol/soloii/)  [Virtual Machine](https://lrose.eol.ucar.edu/soloii/) [Virtual-Appliance](https://github.com/NCAR/lrose-soloii/wiki/Virtual-Appliance) [VirtualBox](https://github.com/NCAR/lrose-soloii/tree/master/packer) [starter kit](./coming_soon.md) | --->
 
 | Phase           | Components    | Status        | Notes  | Related Links |
 | --------------- |:-------------:|:-----------:|:-------|:--------------|
@@ -5,9 +8,6 @@
 |                 |  RadxPrint    |             | | |
 |                 |  RadxBufr     | in progress | | |
 | LROSE Displays  |  Soloii       | complete    | legacy code | [lrose-soloii](https://github.com/NCAR/lrose-soloii)  [starter kit](./coming_soon.md) |
-<!--- TODO: it would be nice if lrose-soloii had a webpage and then this link would be to that webpage --->
-
-<!--- [Docker](https://hub.docker.com/r/ncareol/soloii/)  [Virtual Machine](https://lrose.eol.ucar.edu/soloii/) [Virtual-Appliance](https://github.com/NCAR/lrose-soloii/wiki/Virtual-Appliance) [VirtualBox](https://github.com/NCAR/lrose-soloii/tree/master/packer) [starter kit](./coming_soon.md) | --->
 |                 |  HawkEye      |  2018       | | |
 |                 |  JAZZ         |  2018       | | |
 | LROSE QC        |  RadxQc       |             | | |

@@ -21,11 +21,11 @@ LROSE development has six major phases:
 5. Echo
 6. Wind
 
-The current, active phase of development is Data Conversion using RadxConvert.  A docker image of Soloii,
-a data visualization tool, is already complete. 
+ Data Conversion using RadxConvert is the current phase of development. 
 
 ## Additional Resources
-Legacy code that is no longer in active development (no new features), however, it is still available and maintained (bug fixes).
+
+# Legacy code
 
 | Name | link to github webpage |
 |:-----:|:-------------------------:|
@@ -33,12 +33,13 @@ Legacy code that is no longer in active development (no new features), however, 
 | lrose-reorder | |
 | lrose-soloii | |
 | lrose-solo3  | |
-| resources at CSU | |
+
 
 Other resources:
 
 | Name | link to github webpage |
 |------|------------------------|
+| resources at CSU | |
 |lrose-emerald| |
 
 
