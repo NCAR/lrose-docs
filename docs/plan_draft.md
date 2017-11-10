@@ -1,9 +1,14 @@
-| Phases of LROSE | Components  | Status        | Notes  | Related Links |
+
+| Phase           | Components    | Status        | Notes  | Related Links |
 | --------------- |:-------------:|:-----------:|:-------|:--------------|
 | LROSE Convert   |  RadxConvert  | in progress |        |        |
 |                 |  RadxPrint    |             | | |
 |                 |  RadxBufr     | in progress | | |
-| LROSE Displays  |  Soloii       | complete    | docker | [docker image](https://hub.docker.com/r/ncareol/soloii/) |
+| LROSE Displays  |  Soloii       | complete    | legacy code maintained as containers | [Docker](https://hub.docker.com/r/ncareol/soloii/) |
+||||| [Virtual Machine download][https://lrose.eol.ucar.edu/soloii/] |
+||||| [Virtual-Appliance wiki][https://github.com/NCAR/lrose-soloii/wiki/Virtual-Appliance] |
+||||| [VirtualBox Packer][https://github.com/NCAR/lrose-soloii/tree/master/packer] |
+
 |                 |               |             |        | [starter kit](./coming_soon.md) |
 |                 |  HawkEye      |  2018       | | |
 |                 |  JAZZ         |  2018       | | |
@@ -23,7 +28,7 @@
 |                 |  ConvStrat    |             | | |
 |                 |  Refract      |             | | |
 | LROSE Wind      |  Multi-Doppler|             | | |
-|                 |  CEDRIC       |  2018       | docker| | 
+|                 |  CEDRIC       |  2018       | docker TODO: add Docker(little boat) image here | | 
 |                 |  SAMURAI      |             | | |
 |                 |  Single Doppler |           | | |
 |                 |  RadxEvad     |             | | |

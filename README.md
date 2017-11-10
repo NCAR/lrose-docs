@@ -23,3 +23,30 @@ LROSE development has six major phases:
 
 The current, active phase of development is Data Conversion using RadxConvert.  A docker image of Soloii,
 a data visualization tool, is already complete. 
+
+## Additional Resources
+Legacy code that is no longer in active development (no new features), however, it is still available and maintained (bug fixes).
+| Name | link to github webpage |
+|:-----:|:-------------------------:|
+| lrose-cedric | TODO: add image of project here ??  |
+| lrose-reorder | |
+| lrose-soloii | |
+| lrose-solo3  | |
+
+| resources at CSU | |
+
+Other resources:
+| Name | link to github webpage |
+|------|------------------------|
+|lrose-emerald| |
+
+
+
+## [Releases][]
+Schedule for releases:
+
+| Name       |  Contents |  |
+|------------|:--------------------|:----------|
+| Akito [image of Akito rose] | RadxConvert [image]  | |
+|               | Radx2Grid [image] | |
+|               | RadxPrint [image] | |
