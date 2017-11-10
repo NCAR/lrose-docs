@@ -25,7 +25,7 @@ LROSE development has six major phases:
 
 ## Additional Resources
 
-# Legacy code
+### Legacy code
 
 | Name | link to github webpage |
 |:-----:|:-------------------------:|
@@ -35,7 +35,7 @@ LROSE development has six major phases:
 | lrose-solo3  | |
 
 
-Other resources:
+### Other resources:
 
 | Name | link to github webpage |
 |------|------------------------|

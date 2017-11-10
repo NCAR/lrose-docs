@@ -26,7 +26,7 @@
 |                 |  ConvStrat    |             | | |
 |                 |  Refract      |             | | |
 | LROSE Wind      |  Multi-Doppler|             | | |
-|                 |  CEDRIC       |  2018       | legacy code |  [Docker] (./coming_soon.md) | 
+|                 |  CEDRIC       |  2018       | legacy code |  [Docker](./coming_soon.md) | 
 |                 |  SAMURAI      |             | | |
 |                 |  Single Doppler |           | | |
 |                 |  RadxEvad     |             | | |
