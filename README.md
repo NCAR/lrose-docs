@@ -26,23 +26,24 @@ a data visualization tool, is already complete.
 
 ## Additional Resources
 Legacy code that is no longer in active development (no new features), however, it is still available and maintained (bug fixes).
+
 | Name | link to github webpage |
 |:-----:|:-------------------------:|
-| lrose-cedric | TODO: add image of project here ??  |
+| lrose-cedric |  add image of project here  |
 | lrose-reorder | |
 | lrose-soloii | |
 | lrose-solo3  | |
-
 | resources at CSU | |
 
 Other resources:
+
 | Name | link to github webpage |
 |------|------------------------|
 |lrose-emerald| |
 
 
 
-## [Releases][]
+## Releases
 Schedule for releases:
 
 | Name       |  Contents |  |
