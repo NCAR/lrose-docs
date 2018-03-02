@@ -49,6 +49,9 @@ Schedule for releases:
 
 | Name       |  Contents |  |
 |------------|:--------------------|:----------|
-| Akito [image of Akito rose] | RadxConvert [image]  | |
+| Blaze [image of rose variety] | RadxConvert [image]  | |
+|               | RadxBufr [image] | |
 |               | Radx2Grid [image] | |
+|               | RadxCheck [image] | |
 |               | RadxPrint [image] | |
+|               | HawkEye [docs/images/hawkeye_screen_shot.png] | |
