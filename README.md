@@ -54,4 +54,4 @@ Schedule for releases:
 |               | Radx2Grid |[image]|
 |               | RadxCheck |[image]|
 |               | RadxPrint |[image]|
-|               | HawkEye |<img src="docs/images/hawkeye_screen_shot.png" width="48">|
+|               | HawkEye |<img src="docs/images/hawkeye_screen_shot.png" width="100">|
