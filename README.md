@@ -49,9 +49,9 @@ Schedule for releases:
 
 | Name       |  Contents |  |
 |------------|:--------------------|:----------|
-| Blaze [image of rose variety] | RadxConvert [image]  | |
-|               | RadxBufr [image] | |
-|               | Radx2Grid [image] | |
-|               | RadxCheck [image] | |
-|               | RadxPrint [image] | |
-|               | HawkEye |![hawkeye image](docs/images/hawkeye_screen_shot.png)|
+| Blaze [image of rose variety] | RadxConvert |[image]|
+|               | RadxBufr |[image]|
+|               | Radx2Grid |[image]|
+|               | RadxCheck |[image]|
+|               | RadxPrint |[image]|
+|               | HawkEye |![hawkeye image](docs/images/hawkeye_screen_shot.png | width=100)|
