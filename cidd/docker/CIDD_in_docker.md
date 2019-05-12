@@ -9,7 +9,9 @@ Then, run CIDD in a docker container, and point to a CIDD parameter file availab
 For example, to run CIDD for RELAMPAGO:
 
 ```
-docker run --net=host ncareol/lrose-cidd:latest /usr/local/cidd/bin/CIDD -font fixed -p http://front.eol.ucar.edu/displayParams/CIDD.relampago
+  docker run --net=host ncareol/lrose-cidd:latest \
+    /usr/local/cidd/bin/CIDD -font fixed \
+    -p http://front.eol.ucar.edu/displayParams/CIDD.relampago
 ```
 
 ## Apple Mac OSX
@@ -71,7 +73,9 @@ Suppose the above ping indicates your IP address is 192.168.4.101.
 Then run:
 
 ```
-  docker run -e DISPLAY=192.168.4.101:0 ncareol/lrose-cidd:latest /usr/local/cidd/bin/CIDD -font fixed -p http://front.eol.ucar.edu/displayParams/CIDD.relampago
+  docker run -e DISPLAY=192.168.4.101:0 \
+    ncareol/lrose-cidd:latest /usr/local/cidd/bin/CIDD \
+    -font fixed -p http://front.eol.ucar.edu/displayParams/CIDD.relampago
 ```
 
 
