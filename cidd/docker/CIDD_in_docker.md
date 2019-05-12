@@ -54,13 +54,25 @@ If your shell is sh or bash, run the following command:
   socat TCP-LISTEN:6000,reuseaddr,fork UNIX-CLIENT:\"$DISPLAY\" > /dev/null 2>&1 & 
 ```
 
+### Get your IP address
+
+Run:
+
+```
+  ping `hostname`
+```
+
+Those quotations are back-quotes.
+
 ### Run CIDD in docker
 
-```
-  docker run -e DISPLAY=128.117.80.108:0 ncareol/lrose-cidd:latest /usr/local/cidd/bin/CIDD -font fixed -p http://front.eol.ucar.edu/displayParams/CIDD.relampago
-```
+Suppose the above ping indicates your IP address is 192.168.4.101.
 
-and substitute your IP address for ```128.117.80.108```.
+Then run:
+
+```
+  docker run -e DISPLAY=192.168.4.101:0 ncareol/lrose-cidd:latest /usr/local/cidd/bin/CIDD -font fixed -p http://front.eol.ucar.edu/displayParams/CIDD.relampago
+```
 
 
 
