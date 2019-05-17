@@ -34,9 +34,9 @@ The start script is checked into git:
 
 [run-cidd-in-docker](https://raw.githubusercontent.com/NCAR/lrose-displays/master/cidd/scripts/run-cidd-in-docker)
 
-Go there, and right click to download it.
+Go there, and right click to ```save as```.
 
-It will save as:
+It should save as:
 
 ```
   run-cidd-in-docker.txt
