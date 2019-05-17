@@ -30,15 +30,13 @@ After install, set the permissions to allow network clients:
 
 ## 2. Download the start script
 
-The start script is checked into git.
+The start script is checked into git:
 
-Go to the following page:
+[run-cidd-in-docker](https://raw.githubusercontent.com/NCAR/lrose-displays/master/cidd/scripts/run-cidd-in-docker)
 
-```
-  https://raw.githubusercontent.com/NCAR/lrose-displays/master/cidd/scripts/run-cidd-in-docker
-```
+Go there, and right click to download it.
 
-Right click to download it. It will save as:
+It will save as:
 
 ```
   run-cidd-in-docker.txt
@@ -57,11 +55,9 @@ Rename the file, and make it executable:
 
 ### Run using parameters in the cloud
 
-A number of CIDD configuration files are on an NCAR web server:
+A number of CIDD configuration files are on the NCAR/EOL/RSF web server:
 
-```
-  http://front.eol.ucar.edu/displayParams/
-```
+[http://front.eol.ucar.edu/displayParams/](http://front.eol.ucar.edu/displayParams/)
 
 To run with one of these files, you specify the URL.
 
