@@ -12,17 +12,15 @@
 
 See:
 
-```
-  https://docs.docker.com/
-```
+[https://docs.docker.com/](https://docs.docker.com/)
 
 ### On a mac, install XQuartz
 
-Since CIDD is an X application, you will need to install the XQuartz X server:
+Since CIDD is an X application, you will need to install the XQuartz X server.
 
-```
-  https://www.xquartz.org/
-```
+See:
+
+[https://www.xquartz.org/](https://www.xquartz.org/)
 
 After install, set the permissions to allow network clients:
  
@@ -40,7 +38,7 @@ Go to the following page:
   https://raw.githubusercontent.com/NCAR/lrose-displays/master/cidd/scripts/run-cidd-in-docker
 ```
 
-Right click to download it. It will probably save as:
+Right click to download it. It will save as:
 
 ```
   run-cidd-in-docker.txt
