@@ -4,6 +4,8 @@
 2. [download](#download)
 3. [run](#run)
 
+--------------
+
 <a name="prepare"/>
 
 ## 1. Prepare
@@ -25,6 +27,8 @@ See:
 After install, set the permissions to allow network clients:
  
   xQuartz -> Preferences -> Security -> Allow connections from network clients
+
+--------------
 
 <a name="download"/>
 
@@ -50,6 +54,8 @@ Rename the file, and make it executable:
 ```
 
 <a name="run"/>
+
+--------------
 
 ## 3. Run the script
 
@@ -94,5 +100,7 @@ Then the command to use would be:
 ```
   run-cidd-in-docker CIDD.params
 ```
+
+--------------
 
 
