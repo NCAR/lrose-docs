@@ -70,19 +70,19 @@ To run with one of these files, you specify the URL.
 The following are examples:
 
 ```
-  run-cidd-in-docker http://front.eol.ucar.edu/displayParams/CIDD.pecan
-  run-cidd-in-docker http://front.eol.ucar.edu/displayParams/CIDD.relampago
+  run-cidd-in-docker http://front.eol.ucar.edu/displayParams/CIDD.cope
+  run-cidd-in-docker http://front.eol.ucar.edu/displayParams/CIDD.cp2_queensland
   run-cidd-in-docker http://front.eol.ucar.edu/displayParams/CIDD.dynamo
   run-cidd-in-docker http://front.eol.ucar.edu/displayParams/CIDD.eolbase
+  run-cidd-in-docker http://front.eol.ucar.edu/displayParams/CIDD.front
   run-cidd-in-docker http://front.eol.ucar.edu/displayParams/CIDD.hawaii
   run-cidd-in-docker http://front.eol.ucar.edu/displayParams/CIDD.ihop
   run-cidd-in-docker http://front.eol.ucar.edu/displayParams/CIDD.improve
   run-cidd-in-docker http://front.eol.ucar.edu/displayParams/CIDD.improveII
-  run-cidd-in-docker http://front.eol.ucar.edu/displayParams/CIDD.rico
-  run-cidd-in-docker http://front.eol.ucar.edu/displayParams/CIDD.cope
-  run-cidd-in-docker http://front.eol.ucar.edu/displayParams/CIDD.cp2_queensland
-  run-cidd-in-docker http://front.eol.ucar.edu/displayParams/CIDD.front
   run-cidd-in-docker http://front.eol.ucar.edu/displayParams/CIDD.name
+  run-cidd-in-docker http://front.eol.ucar.edu/displayParams/CIDD.pecan
+  run-cidd-in-docker http://front.eol.ucar.edu/displayParams/CIDD.relampago
+  run-cidd-in-docker http://front.eol.ucar.edu/displayParams/CIDD.rico
 ```
 
 ### Run using a local parameter file
