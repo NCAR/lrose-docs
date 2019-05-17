@@ -1,84 +1,104 @@
 # Running CIDD in a docker container
 
-## LINUX
+1. [prepare](#prepare)
+2. [download](#download)
+3. [run](#run)
 
-You will need to install docker.
+<a name="prepare"/>
 
-Then, run CIDD in a docker container, and point to a CIDD parameter file available on a web server somewhere.
-
-For example, to run CIDD for RELAMPAGO:
-
-```
-  docker run --net=host ncareol/lrose-cidd:latest \
-    /usr/local/cidd/bin/CIDD -font fixed \
-    -p http://front.eol.ucar.edu/displayParams/CIDD.relampago
-```
-
-## Apple Mac OSX
-
-A good reference is:
-
-https://cntnr.io/running-guis-with-docker-on-mac-os-x-a14df6a76efc
-
-### Install XQuartz X server
-
-Install XQuartz. Then configure it to accept network connections.
-
-* start xterm
-* XQuartz -> Preferences -> Security
-* Select Allow connections from network clients
+## 1. Prepare
 
 ### Install docker
 
-Download the docker.dmg, and install by clicking on the dmg file.
-
-### Install the socat application
-
-Install homebrew
-
-Then:
+See:
 
 ```
-  brew install socat
+  https://docs.docker.com/
 ```
 
-### Set up socat to connect X server port to container
+### On a mac, install XQuartz
 
-If your shell is csh or tcsh, run the following command:
-
-```
-  socat TCP-LISTEN:6000,reuseaddr,fork UNIX-CLIENT:\"$DISPLAY\" >& /dev/null & 
-```
-
-If your shell is sh or bash, run the following command:
+Since CIDD is an X application, you will need to install the XQuartz X server:
 
 ```
-  socat TCP-LISTEN:6000,reuseaddr,fork UNIX-CLIENT:\"$DISPLAY\" > /dev/null 2>&1 & 
+  https://www.xquartz.org/
 ```
 
-### Get your IP address
+After install, set the permissions to allow network clients:
+ 
+  xQuartz -> Preferences -> Security -> Allow connections from network clients
 
-Run:
+<a name="download"/>
 
-```
-  ping `hostname`
-```
+## 2. Download the start script
 
-Those quotations are back-quotes.
+The start script is checked into git.
 
-### Run CIDD in docker
-
-Suppose the above ping indicates your IP address is 192.168.4.101.
-
-Then run:
+Go to the following page:
 
 ```
-  docker run -e DISPLAY=192.168.4.101:0 \
-    ncareol/lrose-cidd:latest /usr/local/cidd/bin/CIDD \
-    -font fixed -p http://front.eol.ucar.edu/displayParams/CIDD.relampago
+  https://raw.githubusercontent.com/NCAR/lrose-displays/master/cidd/scripts/run-cidd-in-docker
 ```
 
+Right click to download it. It will probably save as:
 
+```
+  run-cidd-in-docker.txt
+```
 
+Rename the file, and make it executable:
+
+```
+  mv run-cidd-in-docker.txt run-cidd-in-docker
+  chmod +x run-cidd-in-docker
+```
+
+<a name="run"/>
+
+## 3. Run the script
+
+### Run using parameters in the cloud
+
+A number of CIDD configuration files are on an NCAR web server:
+
+```
+  http://front.eol.ucar.edu/displayParams/
+```
+
+To run with one of these files, you specify the URL.
+
+The following are examples:
+
+```
+  run-cidd-in-docker http://front.eol.ucar.edu/displayParams/CIDD.pecan
+  run-cidd-in-docker http://front.eol.ucar.edu/displayParams/CIDD.relampago
+  run-cidd-in-docker http://front.eol.ucar.edu/displayParams/CIDD.dynamo
+  run-cidd-in-docker http://front.eol.ucar.edu/displayParams/CIDD.eolbase
+  run-cidd-in-docker http://front.eol.ucar.edu/displayParams/CIDD.hawaii
+  run-cidd-in-docker http://front.eol.ucar.edu/displayParams/CIDD.ihop
+  run-cidd-in-docker http://front.eol.ucar.edu/displayParams/CIDD.improve
+  run-cidd-in-docker http://front.eol.ucar.edu/displayParams/CIDD.improveII
+  run-cidd-in-docker http://front.eol.ucar.edu/displayParams/CIDD.rico
+  run-cidd-in-docker http://front.eol.ucar.edu/displayParams/CIDD.cope
+  run-cidd-in-docker http://front.eol.ucar.edu/displayParams/CIDD.cp2_queensland
+  run-cidd-in-docker http://front.eol.ucar.edu/displayParams/CIDD.front
+  run-cidd-in-docker http://front.eol.ucar.edu/displayParams/CIDD.name
+```
+
+### Run using a local parameter file
+
+If you have a local CIDD parameter file, you can run with that file.
+
+Suppose your parameters are called:
+
+```
+  CIDD.params
+```
+
+Then the command to use would be:
+
+```
+  run-cidd-in-docker CIDD.params
+```
 
 
