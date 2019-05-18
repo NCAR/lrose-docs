@@ -91,7 +91,6 @@ To run with one of these files, you specify the URL.
 The following are examples:
 
 ```
-  run-cidd-in-docker http://front.eol.ucar.edu/displayParams/CIDD.cope
   run-cidd-in-docker http://front.eol.ucar.edu/displayParams/CIDD.cp2_queensland
   run-cidd-in-docker http://front.eol.ucar.edu/displayParams/CIDD.dynamo
   run-cidd-in-docker http://front.eol.ucar.edu/displayParams/CIDD.eolbase
@@ -104,6 +103,7 @@ The following are examples:
   run-cidd-in-docker http://front.eol.ucar.edu/displayParams/CIDD.pecan
   run-cidd-in-docker http://front.eol.ucar.edu/displayParams/CIDD.relampago
   run-cidd-in-docker http://front.eol.ucar.edu/displayParams/CIDD.rico
+  run-cidd-in-docker http://front.eol.ucar.edu/displayParams/CIDD.timrex
 ```
 
 ### Run using a local parameter file
@@ -122,7 +122,15 @@ Then the command to use would be:
   run-cidd-in-docker CIDD.params
 ```
 
---------------
+### Saving images
+
+If you save images or movies, they should appear in:
+
+```
+  /tmp/cidd_images
+```
+
+They will be owned by root, because inside the docker container, CIDD runs as root.
 
 <a name="docs"/>
 
