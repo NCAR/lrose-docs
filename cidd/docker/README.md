@@ -3,7 +3,7 @@
 1. [prepare](#prepare)
 2. [download](#download)
 3. [run](#run)
-
+4. [docs](#docs)
 --------------
 
 <a name="prepare"/>
@@ -27,6 +27,23 @@ See:
 After install, set the permissions to allow network clients:
  
   xQuartz -> Preferences -> Security -> Allow connections from network clients
+
+Under Mac OS 10.4 and above, CIDD's popup panels do not function correctly by default. The Mac OS window manager does not give focus to the popup panels, so the user cannot select or change GUI elements.
+
+To overcome this, start an xterm and run the following commands:
+
+```
+  defaults write com.apple.x11 wm_click_through -bool true
+  defaults write com.apple.x11 wm_ffm -bool true
+```
+
+You can check your current defaults with:
+
+```
+  defaults read com.apple.x11
+```
+
+Then quit Xquartz and restart it.
 
 --------------
 
@@ -53,9 +70,9 @@ Rename the file, and make it executable:
   chmod +x run-cidd-in-docker
 ```
 
-<a name="run"/>
-
 --------------
+
+<a name="run"/>
 
 ## 3. Run the script
 
@@ -103,4 +120,11 @@ Then the command to use would be:
 
 --------------
 
+<a name="docs"/>
+
+--------------
+
+## 4. CIDD documentation
+
+See the full [CIDD documentation]
 
