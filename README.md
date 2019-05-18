@@ -35,13 +35,13 @@ LROSE development has six major phases:
 | lrose-solo3  | |
 
 
-### Other resources:
+### Displays:
 
 | Name | link to github webpage |
 |------|------------------------|
-| resources at CSU | |
-| lrose-emerald| |
-| lrose-cidd| [cidd_intro](https://ncar.github.io/lrose-docs/cidd/user_manual/CIDD_manual.html) |
+| lrose-emerald | [emerald](https://github.com/ncar/lrose-emerald) |
+| lrose-cidd| [cidd_manual](https://ncar.github.io/lrose-docs/cidd/user_manual/CIDD_manual.html) |
+| lrose-cidd| [cidd_in_docker](./cidd/docker/README.md) |
 
 
 
