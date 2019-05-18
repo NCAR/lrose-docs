@@ -41,7 +41,7 @@ LROSE development has six major phases:
 |------|------------------------|
 | resources at CSU | |
 | lrose-emerald| |
-| lrose-cidd| [cidd_intro](./cidd/user_manual/cidd_intro.html) |
+| lrose-cidd| [cidd_intro](https://ncar.github.io/lrose-docs/cidd/user_manual/CIDD_manual.html) |
 
 
 
