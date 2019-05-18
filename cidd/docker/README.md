@@ -124,7 +124,8 @@ Then the command to use would be:
 
 --------------
 
-## 4. CIDD documentation
+## 4. CIDD User Manual
 
-See the full [CIDD documentation]
+See the [CIDD user manual](https://ncar.github.io/lrose-docs/cidd/user_manual/CIDD_manual.html)
+
 
