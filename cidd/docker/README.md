@@ -28,6 +28,8 @@ After install, set the permissions to allow network clients:
  
   xQuartz -> Preferences -> Security -> Allow connections from network clients
 
+### On a mac, set defaults
+
 Under Mac OS 10.4 and above, CIDD's popup panels do not function correctly by default. The Mac OS window manager does not give focus to the popup panels, so the user cannot select or change GUI elements.
 
 To overcome this, start an xterm and run the following commands:
@@ -42,6 +44,8 @@ You can check your current defaults with:
 ```
   defaults read com.apple.x11
 ```
+
+This only needs to be run once for each mac. You don't need to do this every time you run CIDD.
 
 Then quit Xquartz and restart it.
 
