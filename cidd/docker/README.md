@@ -27,6 +27,7 @@ See:
 After install, set the permissions to allow network clients:
  
   xQuartz -> Preferences -> Security -> Allow connections from network clients
+  xQuartz -> Windows -> Click-through Inactive Windows
 
 ### On a mac, set defaults
 
