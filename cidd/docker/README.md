@@ -27,6 +27,9 @@ See:
 After install, set the permissions to allow network clients:
  
   xQuartz -> Preferences -> Security -> Allow connections from network clients
+  
+Also, clicking behavior needs to be set:
+
   xQuartz -> Windows -> Click-through Inactive Windows
 
 ### On a mac, set defaults
@@ -45,8 +48,6 @@ You can check your current defaults with:
 ```
   defaults read com.apple.x11
 ```
-
-This only needs to be run once for each mac. You don't need to do this every time you run CIDD.
 
 Then quit Xquartz and restart it.
 
@@ -74,12 +75,21 @@ Rename the file, and make it executable:
   mv run-cidd-in-docker.txt run-cidd-in-docker
   chmod +x run-cidd-in-docker
 ```
+The above only needs to be run once for each mac. You don't need to do this every time you run CIDD.
 
 --------------
 
 <a name="run"/>
 
 ## 3. Run the script
+
+###
+
+Allow X11 network connections:
+
+```
+xhost +
+```
 
 ### Run using parameters in the cloud
 
@@ -106,6 +116,7 @@ The following are examples:
   run-cidd-in-docker http://front.eol.ucar.edu/displayParams/CIDD.rico
   run-cidd-in-docker http://front.eol.ucar.edu/displayParams/CIDD.timrex
 ```
+Note that if your `PATH` environment variable doesn't include the current directory, then you may need to add `.\` before `run-cidd-in-docker`, i.e.," `.\run-cidd-in-docker http://front.eol.ucar.edu/displayParams/CIDD.relampago`.
 
 ### Run using a local parameter file
 
