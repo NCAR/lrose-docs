@@ -30,6 +30,7 @@ cd projDir/ingest/scripts
 # Convert to CfRadial
 
 cd ~/projDir/data/test/nexrad/KMLB
+RadxPrint -f KMLB????? -rays -data
 RadxConvert -debug -f KMLB* -outdir ~/projDir/data/test/cfradial/kmlb
 
 # Run HawkEye in default mode
