@@ -9,10 +9,10 @@
 
 mkdir ~/git
 cd ~/git
-git clone https://github.com/ncar/lrose-core
-git clone https://github.com/ncar/lrose-netcdf
+
 git clone https://github.com/ncar/lrose-titan
 git clone https://github.com/ncar/lrose-displays
+git clone https://github.com/ncar/lrose-doc
 
 # install nexrad project
 
