@@ -77,6 +77,7 @@ RadxPrint -f 20191008/cfrad.20191008_160057.412_to_20191008_160442.500_KMLB_Surv
 # Edit the project file
 
 cd ~/projDir/system/params
+emacs -nw project_info
 
 # start the ingest and display
 
