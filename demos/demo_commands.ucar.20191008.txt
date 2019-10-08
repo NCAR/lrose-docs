@@ -35,6 +35,7 @@ RadxConvert -debug -f KMLB* -outdir ~/projDir/data/test/cfradial/kmlb
 
 # Run HawkEye in default mode
 
+cd ~/projDir/data/test/cfradial/kmlb
 HawkEye -f 20191008/cfrad.20191008_16*
 
 # Some fields are not suitable for the default
