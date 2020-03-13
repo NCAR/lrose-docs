@@ -48,6 +48,8 @@ You can check your current defaults with:
 
 This only needs to be run once for each mac. You don't need to do this every time you run CIDD.
 
+Also, in Xquartz -> Preferences -> Security, select to allow network connections.
+
 Then quit Xquartz and restart it.
 
 --------------
