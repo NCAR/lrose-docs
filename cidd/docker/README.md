@@ -12,24 +12,22 @@
 
 ### Install docker
 
-See:
-
-[https://docs.docker.com/](https://docs.docker.com/)
+See: [https://docs.docker.com/](https://docs.docker.com/)
 
 ### On a mac, install XQuartz
 
 Since CIDD is an X application, you will need to install the XQuartz X server.
 
-See:
-
-[https://www.xquartz.org/](https://www.xquartz.org/)
+See:  [https://www.xquartz.org/](https://www.xquartz.org/)
 
 After install, set the permissions to allow network clients:
  
+```
   xQuartz -> Preferences -> Security -> Allow connections from network clients
   xQuartz -> Windows -> Click-through Inactive Windows
+ ```
 
-### On a mac, set defaults
+### Also on a mac, set defaults
 
 Under Mac OS 10.4 and above, CIDD's popup panels do not function correctly by default. The Mac OS window manager does not give focus to the popup panels, so the user cannot select or change GUI elements.
 
@@ -48,9 +46,13 @@ You can check your current defaults with:
 
 This only needs to be run once for each mac. You don't need to do this every time you run CIDD.
 
-Also, in Xquartz -> Preferences -> Security, select to allow network connections.
-
 Then quit Xquartz and restart it.
+
+After restarting XQuartz, open an xterm window, and in that window type:
+
+```
+  xhost +
+```
 
 --------------
 
