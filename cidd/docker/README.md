@@ -54,6 +54,12 @@ After restarting XQuartz, open an xterm window, and in that window type:
   xhost +
 ```
 
+or
+
+```
+  /opt/X11/bin/xhost +
+```
+
 --------------
 
 <a name="download"/>
