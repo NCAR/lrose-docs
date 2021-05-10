@@ -68,7 +68,7 @@ or
 
 The start script is checked into git:
 
-[* run-cidd-in-docker.py](https://raw.githubusercontent.com/NCAR/lrose-displays/master/cidd/scripts/run-cidd-in-docker.py)
+* [run-cidd-in-docker.py](https://raw.githubusercontent.com/NCAR/lrose-displays/master/cidd/scripts/run-cidd-in-docker.py)
 
 Right click on this link, and ```save as```.
 
