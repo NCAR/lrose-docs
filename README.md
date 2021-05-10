@@ -22,8 +22,8 @@ Some of the user documentation resides in other locations, and links will be pro
 | Name | link to github webpage |
 |------|------------------------|
 | emerald | [emerald](https://github.com/ncar/lrose-emerald) |
-| CIDD | [cidd_manual](https://ncar.github.io/lrose-docs/cidd/user_manual/CIDD_manual.html) |
-| running CIDD in Docker | [cidd_in_docker](./cidd/docker/README.md) |
+| Running CIDD in Docker | [cidd_in_docker](./cidd/running_cidd_in_docker.md) |
+| CIDD user manual | [cidd_manual](https://ncar.github.io/lrose-docs/cidd/user_manual/CIDD_manual.html) |
 
 ## data format translation
 
