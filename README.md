@@ -1,58 +1,42 @@
 # LROSE - Lidar Radar Open Software Environment
 
-LROSE is a set of tools to edit, analyze, and visualize LIDAR and RADAR 
-data.  LROSE handles data from a variety of formats (netCDF, HDF5, BUFR, Cfarr, etc.).  
-LROSE tools can be used independently or in sequence.    
-  
+<img align="left" width="175" height="175" src="./images/LROSE_logo.small.png">
+<img align="right" width="175" height="175" src="./images/spol_dynamo.jpg">
+
+LROSE is a set of tools to edit, analyze, and visualize LIDAR and RADAR data.
+
 ## [History](https://www.eol.ucar.edu/content/lidar-radar-open-software-environment)
 
-LROSE is a joint project between the Atmospheric Science Department at Colorado State University (CSU) and the Earth Observing 
-Laboratory (EOL) at the National Center for Atmospheric Research (NCAR). 
+LROSE is a joint project between the Atmospheric Science Department at Colorado State University (CSU) and the Earth Observing Laboratory (EOL) at the National Center for Atmospheric Research (NCAR).
+
 In 2016, the National Science Foundation (NSF) funded LROSE for four years.
 
+## User documentation
+
+The primary purpose of this repository is to centralize the user documentation for the LROSE applications. 
+
+Some of the user documentation resides in other locations, and links will be provided where appropriate.
  
-## [Development Plan](docs/plan_draft.md)
-
-LROSE development has six major phases:
-1. Data Conversion
-2. Visualization
-3. Quality Control 
-4. Grid
-5. Echo
-6. Wind
-
- Data Conversion using RadxConvert is the current phase of development. 
-
-## Additional Resources
-
-### Legacy code
-
-| Name | link to github webpage |
-|:-----:|:-------------------------:|
-| lrose-cedric |  add image of project here  |
-| lrose-reorder | |
-| lrose-soloii | |
-| lrose-solo3  | |
-
-
-### Displays:
+## Displays:
 
 | Name | link to github webpage |
 |------|------------------------|
-| lrose-emerald | [emerald](https://github.com/ncar/lrose-emerald) |
-| lrose-cidd| [cidd_manual](https://ncar.github.io/lrose-docs/cidd/user_manual/CIDD_manual.html) |
-| lrose-cidd| [cidd_in_docker](./cidd/docker/README.md) |
+| emerald | [emerald](https://github.com/ncar/lrose-emerald) |
+| CIDD | [cidd_manual](https://ncar.github.io/lrose-docs/cidd/user_manual/CIDD_manual.html) |
+| running CIDD in Docker | [cidd_in_docker](./cidd/docker/README.md) |
 
+## data format translation
 
+LROSE handles data from a variety of formats (netCDF, HDF5, BUFR, Cfarr, etc.).  
 
-## Releases
-Schedule for releases:
+## Legacy applications
 
-| Name       |  Contents |  |
-|------------|:--------------------|:----------|
-| Blaze [image of rose variety] | RadxConvert |[image]|
-|               | RadxBufr |[image]|
-|               | Radx2Grid |[image]|
-|               | RadxCheck |[image]|
-|               | RadxPrint |[image]|
-|               | HawkEye |<img src="docs/images/hawkeye_screen_shot.png" width="200">|
+The following legacy applications are checked in under separate repositories.
+
+| Name | github location |
+|:-----:|:-------------------------:|
+| cedric, sprint | [lrose-cedric](https://github.com/ncar/lrose-cedric) |
+| reorder        | [lrose-reorder](https://github.com/ncar/lrose-reorder) |
+| soloii         | [lrose-soloii](https://github.com/ncar/lrose-soloii) |
+| solo3          | [lrose-solo3](https://github.com/ncar/lrose-solo3) |
+
