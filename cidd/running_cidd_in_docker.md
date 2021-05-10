@@ -46,7 +46,7 @@ You can check your current defaults with:
 
 This only needs to be run once for each mac. You don't need to do this every time you run CIDD.
 
-Then quit Xquartz and restart it.
+Then quit Xquartz and restart it. A reboot makes it clean.
 
 After restarting XQuartz, open an xterm window, and in that window type:
 
@@ -68,20 +68,20 @@ or
 
 The start script is checked into git:
 
-[run-cidd-in-docker](https://raw.githubusercontent.com/NCAR/lrose-displays/master/cidd/scripts/run-cidd-in-docker.py)
+[run-cidd-in-docker.py](https://raw.githubusercontent.com/NCAR/lrose-displays/master/cidd/scripts/run-cidd-in-docker.py)
 
-Go there, and right click to ```save as```.
+Right click on this link, and ```save as```.
 
 It should save as:
 
 ```
-  run-cidd-in-docker.py
+  ~/Downloads/run-cidd-in-docker.py
 ```
 
 Make the start script executable:
 
 ```
-  chmod +x run-cidd-in-docker.py
+  chmod +x ~/Downloads/run-cidd-in-docker.py
 ```
 
 The usage of the script is as follows:
