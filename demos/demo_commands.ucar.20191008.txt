@@ -1,0 +1,97 @@
+##################################################
+# Commands for UCAR Members meeting Demo
+#
+# 2019/10/08
+# Mike Dixon, Brenda Javornik
+##################################################
+
+# Download from git
+
+mkdir ~/git
+cd ~/git
+
+git clone https://github.com/ncar/lrose-titan
+git clone https://github.com/ncar/lrose-displays
+git clone https://github.com/ncar/lrose-doc
+
+# install nexrad project
+
+cd git/lrose-titan/projects/nexrad_single/projDir/system/scripts/
+./configureProject.py
+
+# Download some example NEXRAD data
+# Look at web, find a site with weather
+# In this case, KMLB, Melbourne Florida
+
+cd
+cd projDir/ingest/scripts
+./GetAwsRadar.py --radarName KMLB --outputDir ~/projDir/data/test/nexrad --realtime --lookbackSecs 3600 --debug
+
+# Convert to CfRadial
+
+cd ~/projDir/data/test/nexrad/KMLB
+RadxPrint -f KMLB????? -rays -data
+RadxConvert -debug -f KMLB* -outdir ~/projDir/data/test/cfradial/kmlb
+
+# Run HawkEye in default mode
+
+cd ~/projDir/data/test/cfradial/kmlb
+HawkEye -f 20191008/cfrad.20191008_16*
+
+# Some fields are not suitable for the default
+
+RadxPrint -f 20191008/cfrad.20191008_160057.412_to_20191008_160442.500_KMLB_Surveillance_SUR.nc | & less
+
+# so create a HawkEye param file
+
+HawkEye -print_params > HawkEye.test
+
+# Edit the file to set the fields you want
+# 
+#    field[0]: REF
+#    field[1]: VEL
+#    field[2]: SW
+#    field[3]: ZDR
+#    field[4]: PHI
+#    field[5]: RHO
+
+# Then run HawkEye again using that param file
+
+HawkEye -f 20191008/cfrad.20191008_16* -params HawkEye.test
+
+
+###############################################################################
+#
+# Run the single nexrad titan project on MELB
+#
+# Get the lat/lon of the radar
+#
+#
+
+RadxPrint -f 20191008/cfrad.20191008_160057.412_to_20191008_160442.500_KMLB_Surveillance_SUR.nc | & less
+
+#  latitudeDeg: 28.1132
+#  longitudeDeg: -80.6541
+#  altitudeKm: 0.045
+
+# Edit the project file
+
+cd ~/projDir/system/params
+emacs -nw project_info
+
+# start the ingest and display
+
+start_all
+stop_all
+
+#################################################################################
+# Running CIDD in Docker
+
+wget https://raw.githubusercontent.com/NCAR/lrose-displays/master/cidd/scripts/run-cidd-in-docker
+mv run-cidd-in-docker run-cidd-in-docker.sh
+chmod +x run-cidd-in-docker.sh
+
+./run-cidd-in-docker.sh http://front.eol.ucar.edu/displayParams/CIDD.relampago
+./run-cidd-in-docker.sh http://front.eol.ucar.edu/displayParams/CIDD.pecan
+./run-cidd-in-docker.sh http://front.eol.ucar.edu/displayParams/CIDD.dynamo
+
