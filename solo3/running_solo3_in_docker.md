@@ -48,7 +48,7 @@ or
 
 The start script is checked into git:
 
- * [run-solo3-in-docker.py](https://raw.githubusercontent.com/NCAR/lrose-displays/master/solo3/scripts/run-solo3-in-docker.py)
+ * [run-solo3-in-docker.py](https://raw.githubusercontent.com/NCAR/lrose-displays/master/solo3/run-solo3-in-docker.py)
 
 Right click on this link, and ```save as```.
 
