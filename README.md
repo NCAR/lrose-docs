@@ -24,6 +24,7 @@ Some of the user documentation resides in other locations, and links will be pro
 | emerald | [emerald](https://github.com/ncar/lrose-emerald) |
 | Running CIDD in Docker | [running_cidd_in_docker](./cidd/running_cidd_in_docker.md) |
 | Running solo3 in Docker | [running_solo3_in_docker](./solo3/running_solo3_in_docker.md) |
+| Running soloii in Docker | [running_soloii_in_docker](./soloii/running_soloii_in_docker.md) |
 | CIDD user manual | [cidd_manual](https://ncar.github.io/lrose-docs/cidd/user_manual/CIDD_manual.html) |
 
 ## data format translation
