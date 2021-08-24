@@ -1,0 +1,86 @@
+<mdv>
+  <buf-file-name>000000.mdv.buf</buf-file-name>
+  <master-header>
+    <time-valid>2008-01-04T00:00:00</time-valid>
+    <time-gen>2008-01-04T00:00:06</time-gen>
+    <time-written>2008-01-23T16:53:45</time-written>
+    <time-begin>2008-01-03T23:50:36</time-begin>
+    <time-end>2008-01-03T23:54:59</time-end>
+    <time-expire>2008-01-04T00:04:23</time-expire>
+    <data-set-name>SAWS 3D Mosaic - include MZ</data-set-name>
+    <data-set-info>Data merged from following files:
+  /hd1/data/mdv/radar/faeo/20080103/235809.mdv
+  /hd1/data/mdv/radar/fair/20080103/235653.mdv
+  /hd1/data/mdv/radar/fabl/20080103/235625.mdv
+  /hd1/data/mdv/radar/fadn/20080103/235520.mdv
+  /hd1/data/mdv/radar/fady/20080103/235658.mdv
+  /hd1/data/mdv/radar/fael/20080103/235459.mdv
+  /hd1/data/mdv/radar/fape/20080103/235753.mdv
+  /hd1/data/mdv/radar/fact/20080103/235723.mdv
+</data-set-info>
+    <data-set-source>Merged data created by MdvMerge2.</data-set-source>
+    <data-dimension>3</data-dimension>
+    <data-collection-type>measured</data-collection-type>
+    <vlevel-type>height-msl-km</vlevel-type>
+    <native-vlevel-type>elevation-angles</native-vlevel-type>
+    <field-grids-differ>false</field-grids-differ>
+    <n-fields>1</n-fields>
+    <n-chunks>0</n-chunks>
+  </master-header>
+  <field>
+    <field-name>DBZ</field-name>
+    <field-name-long>DBZ</field-name-long>
+    <field-units>dBZ</field-units>
+    <field-transform>dBZ</field-transform>
+    <encoding-type>int16</encoding-type>
+    <byte-width>2</byte-width>
+    <field-data-scale>0.00133588</field-data-scale>
+    <field-data-bias>-31.5267</field-data-bias>
+    <compression-type>none</compression-type>
+    <transform-type>none</transform-type>
+    <scaling-type>dynamic</scaling-type>
+    <missing-data-value>0.00000000</missing-data-value>
+    <bad-data-value>0.00000000</bad-data-value>
+    <min-value>-31.50000000</min-value>
+    <max-value>56.00000000</max-value>
+    <data-dimension>3</data-dimension>
+    <dz-constant>true</dz-constant>
+    <projection>
+      <proj-type>latlon</proj-type>
+      <origin-lat>0.00000000</origin-lat>
+      <origin-lon>0.00000000</origin-lon>
+    </projection>
+    <xy-grid>
+      <nx>1380</nx>
+      <ny>1200</ny>
+      <minx>15.00000000</minx>
+      <miny>-37.00000000</miny>
+      <dx>0.01666666</dx>
+      <dy>0.01666666</dy>
+    </xy-grid>
+    <n-vlevels>17</n-vlevels>
+    <vlevel-type>height-msl-km</vlevel-type>
+    <native-vlevel-type>elevation-angles</native-vlevel-type>
+    <vlevels>
+      <level vtype="height-msl-km">1</level>
+      <level vtype="height-msl-km">2</level>
+      <level vtype="height-msl-km">3</level>
+      <level vtype="height-msl-km">4</level>
+      <level vtype="height-msl-km">5</level>
+      <level vtype="height-msl-km">6</level>
+      <level vtype="height-msl-km">7</level>
+      <level vtype="height-msl-km">8</level>
+      <level>9</level>
+      <level vtype="height-msl-km">10</level>
+      <level vtype="height-msl-km">11</level>
+      <level vtype="height-msl-km">12</level>
+      <level vtype="height-msl-km">13</level>
+      <level vtype="height-msl-km">14</level>
+      <level>15</level>
+      <level vtype="height-msl-km">16</level>
+      <level vtype="height-msl-km">17</level>
+    </vlevels>
+    <data-offset-bytes>0</data-offset-bytes>
+    <data-length-bytes>56304000</data-length-bytes>
+  </field>
+</mdv>

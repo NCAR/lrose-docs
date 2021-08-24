@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:annotation>
+    <xs:documentation>
+    SCHEMA for TITAN STORMS XML format
+    RAL, NCAR
+    </xs:documentation>
+  </xs:annotation>
+
+  <xs:element name="tstorms">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="head"/>
+        <xs:element ref="storm-data"/>
+      </xs:sequence>
+      <xs:attribute name="version" use="required" type="xs:decimal"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="head">
+    <xs:complexType>
+      <xs:all>
+        <xs:element ref="system"/>
+        <xs:element ref="title"/>
+        <xs:element ref="product-description"/>
+        <xs:element ref="time-coordinate"/>
+        <xs:element ref="write-time"/>
+      </xs:all>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="system" type="xs:NCName"/>
+  <xs:element name="title" type="xs:string"/>
+  <xs:element name="product-description" type="xs:string"/>
+
+  <xs:element name="time-coordinate" type="xs:NCName"/>
+  <xs:element name="write-time" type="xs:dateTime"/>
+
+  <xs:element name="storm-data">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="observation-time"/>
+        <xs:element ref="dbz-threshold"/>
+        <xs:element maxOccurs="unbounded" ref="storm"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="observation-time" type="xs:dateTime"/>
+  <xs:element name="dbz-threshold" type="xs:decimal"/>
+
+  <xs:element name="storm">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="instance"/>
+      </xs:sequence>
+      <xs:attribute name="ID" use="required" type="xs:integer"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="instance">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="time"/>
+        <xs:element ref="location"/>
+        <xs:element ref="storm-parameters"/>
+      </xs:sequence>
+      <xs:attribute name="relative-time" use="required" type="relative-time_enum"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="time" type="xs:dateTime"/>
+
+  <xs:element name="relative-time" type="relative-time_enum"/>
+  <xs:simpleType name = "relative-time_enum">
+    <xs:annotation>
+      <xs:documentation>
+      relative-time indicates wether this is current data, forecast
+      data or data from the past.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base = "xs:string">
+      <xs:enumeration value = "history"/> 
+      <xs:enumeration value = "current"/> 
+      <xs:enumeration value = "forecast"/> 
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:element name="location">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="area"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="area">
+    <xs:complexType>
+      <xs:all>
+        <xs:element ref="ellipse"/>
+        <xs:element ref="polygon"/>
+      </xs:all>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="ellipse">
+    <xs:complexType>
+      <xs:all>
+        <xs:element ref="moving-point"/>
+        <xs:element ref="major_axis"/>
+        <xs:element ref="minor_axis"/>
+        <xs:element ref="orientation"/>
+      </xs:all>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="major_axis">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="xs:decimal">
+          <xs:attribute name="units" use="required" type="xs:NCName"/>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="minor_axis">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="xs:decimal">
+          <xs:attribute name="units" use="required" type="xs:NCName"/>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="orientation">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="xs:double">
+          <xs:attribute name="units" use="required"/>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="polygon">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="moving-point"/>
+        <xs:element ref="point" maxOccurs="73"/>
+      </xs:sequence>
+      <xs:attribute ref="npoints"/> 
+    </xs:complexType>
+  </xs:element>
+  <xs:attribute name="npoints" type="xs:integer"/>
+
+  <xs:element name="point">
+    <xs:complexType>
+      <xs:attribute name="latitude" use="required" type="xs:decimal"/>
+      <xs:attribute name="longitude" use="required" type="xs:decimal"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="storm-parameters">
+    <xs:complexType>
+      <xs:all>
+        <xs:element ref="ID_child" minOccurs="0"/>
+        <xs:element ref="ID_parent" minOccurs="0"/>
+        <xs:element ref="age"/>
+        <xs:element ref="cell_top"/>
+        <xs:element ref="max_dbz"/>
+      </xs:all>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="ID_child">
+    <xs:complexType mixed="true">
+      <xs:attribute name="units" use="required" type="xs:NCName"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="ID_parent">
+    <xs:complexType mixed="true">
+      <xs:attribute name="units" use="required" type="xs:NCName"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="age">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="xs:integer">
+          <xs:attribute name="units" use="required" type="xs:NCName"/>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="cell_top">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="xs:decimal">
+          <xs:attribute name="units" use="required" type="xs:NCName"/>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="max_dbz">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="xs:decimal">
+          <xs:attribute name="units" use="required" type="xs:NCName"/>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="moving-point">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="latitude"/>
+        <xs:element ref="longitude"/>
+        <xs:element ref="polar_motion"/>
+      </xs:sequence>
+      <xs:attribute name="type" use="required" type="xs:NCName"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="latitude" type="xs:decimal"/>
+  <xs:element name="longitude" type="xs:decimal"/>
+
+  <xs:element name="polar_motion">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="speed"/>
+        <xs:element ref="direction_to"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="speed">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="xs:decimal">
+          <xs:attribute name="units" use="required"/>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="direction_to">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="xs:decimal">
+          <xs:attribute name="units" use="required"/>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+
+</xs:schema>

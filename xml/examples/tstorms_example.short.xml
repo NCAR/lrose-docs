@@ -1,0 +1,666 @@
+<?xml version="1.0" ?>
+<tstorms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.0" xsi:schemaLocation="http://www.ral.ucar.edu/xml/schemas/ http://www.ral.ucar.edu/xml/schemas/tstorms.1.0.xsd">
+<head>
+    <system>TITAN</system>
+    <title>TITAN Thunderstorm Tracks</title>
+    <product-description>TITAN on SAWS Radar mosaic</product-description>
+    <time-coordinate>UTC</time-coordinate>
+    <write-time>2008-01-26T02:14:58</write-time>
+</head>
+<storm-data>
+  <observation-time>2008-01-04T00:00:00</observation-time>
+  <dbz-threshold>35</dbz-threshold>
+  <storm ID="2">
+    <instance relative-time="current">
+      <time>2008-01-04T00:00:00</time>
+      <location>
+        <area>
+          <ellipse>
+            <moving-point type="centroid">
+              <latitude>-26.3117</latitude>
+              <longitude> 29.7217</longitude>
+              <polar_motion>
+                <speed units="km h-1">27.133</speed>
+                <direction_to units="degrees true">70.0176</direction_to>
+              </polar_motion>
+            </moving-point>
+            <major_axis units="km">0.034208</major_axis>
+            <minor_axis units="km">0.0258476</minor_axis>
+            <orientation units="degrees true">158.234</orientation>
+          </ellipse>
+          <polygon npoints="73">
+            <moving-point type="centroid">
+              <latitude>-26.3117</latitude>
+              <longitude> 29.7217</longitude>
+              <polar_motion>
+                <speed units="km h-1">27.133</speed>
+                <direction_to units="degrees true">70.0176</direction_to>
+              </polar_motion>
+            </moving-point>
+            <point latitude="-26.2751" longitude="29.7217" />
+            <point latitude="-26.2750" longitude="29.7249" />
+            <point latitude="-26.2917" longitude="29.7252" />
+            <point latitude="-26.2917" longitude="29.7270" />
+            <point latitude="-26.2917" longitude="29.7289" />
+            <point latitude="-26.2916" longitude="29.7310" />
+            <point latitude="-26.2917" longitude="29.7332" />
+            <point latitude="-26.2917" longitude="29.7356" />
+            <point latitude="-26.2916" longitude="29.7385" />
+            <point latitude="-26.2916" longitude="29.7417" />
+            <point latitude="-26.2948" longitude="29.7417" />
+            <point latitude="-26.2977" longitude="29.7416" />
+            <point latitude="-26.3001" longitude="29.7416" />
+            <point latitude="-26.3023" longitude="29.7417" />
+            <point latitude="-26.3044" longitude="29.7416" />
+            <point latitude="-26.3063" longitude="29.7416" />
+            <point latitude="-26.3081" longitude="29.7417" />
+            <point latitude="-26.3085" longitude="29.7583" />
+            <point latitude="-26.3117" longitude="29.7583" />
+            <point latitude="-26.3149" longitude="29.7583" />
+            <point latitude="-26.3181" longitude="29.7582" />
+            <point latitude="-26.3215" longitude="29.7583" />
+            <point latitude="-26.3250" longitude="29.7583" />
+            <point latitude="-26.3250" longitude="29.7502" />
+            <point latitude="-26.3250" longitude="29.7448" />
+            <point latitude="-26.3256" longitude="29.7416" />
+            <point latitude="-26.3285" longitude="29.7417" />
+            <point latitude="-26.3317" longitude="29.7417" />
+            <point latitude="-26.3355" longitude="29.7417" />
+            <point latitude="-26.3403" longitude="29.7417" />
+            <point latitude="-26.3416" longitude="29.7390" />
+            <point latitude="-26.3417" longitude="29.7357" />
+            <point latitude="-26.3416" longitude="29.7326" />
+            <point latitude="-26.3417" longitude="29.7297" />
+            <point latitude="-26.3416" longitude="29.7269" />
+            <point latitude="-26.3418" longitude="29.7243" />
+            <point latitude="-26.3417" longitude="29.7217" />
+            <point latitude="-26.3418" longitude="29.7190" />
+            <point latitude="-26.3416" longitude="29.7164" />
+            <point latitude="-26.3417" longitude="29.7136" />
+            <point latitude="-26.3416" longitude="29.7108" />
+            <point latitude="-26.3417" longitude="29.7077" />
+            <point latitude="-26.3416" longitude="29.7044" />
+            <point latitude="-26.3417" longitude="29.7007" />
+            <point latitude="-26.3417" longitude="29.6965" />
+            <point latitude="-26.3417" longitude="29.6916" />
+            <point latitude="-26.3368" longitude="29.6917" />
+            <point latitude="-26.3327" longitude="29.6917" />
+            <point latitude="-26.3290" longitude="29.6917" />
+            <point latitude="-26.3257" longitude="29.6916" />
+            <point latitude="-26.3166" longitude="29.7082" />
+            <point latitude="-26.3152" longitude="29.7084" />
+            <point latitude="-26.3140" longitude="29.7083" />
+            <point latitude="-26.3128" longitude="29.7084" />
+            <point latitude="-26.3117" longitude="29.7083" />
+            <point latitude="-26.3105" longitude="29.7084" />
+            <point latitude="-26.3093" longitude="29.7083" />
+            <point latitude="-26.3081" longitude="29.7084" />
+            <point latitude="-26.3068" longitude="29.7082" />
+            <point latitude="-26.3055" longitude="29.7084" />
+            <point latitude="-26.3040" longitude="29.7083" />
+            <point latitude="-26.2907" longitude="29.6917" />
+            <point latitude="-26.2865" longitude="29.6917" />
+            <point latitude="-26.2816" longitude="29.6916" />
+            <point latitude="-26.2759" longitude="29.6917" />
+            <point latitude="-26.2749" longitude="29.6959" />
+            <point latitude="-26.2751" longitude="29.7005" />
+            <point latitude="-26.2750" longitude="29.7046" />
+            <point latitude="-26.2750" longitude="29.7083" />
+            <point latitude="-26.2751" longitude="29.7119" />
+            <point latitude="-26.2751" longitude="29.7152" />
+            <point latitude="-26.2750" longitude="29.7185" />
+            <point latitude="-26.2751" longitude="29.7217" />
+          </polygon>
+        </area>
+      </location>
+      <storm-parameters>
+        <age units="seconds">4200</age>
+        <cell_top units="km">6.5</cell_top>
+        <max_dbz units="dbz">44.5</max_dbz>
+      </storm-parameters>
+    </instance>
+    <instance relative-time="forecast">
+      <time>2008-01-04T00:30:00</time>
+      <location>
+        <area>
+          <ellipse>
+            <moving-point type="centroid">
+              <latitude>-26.2699</latitude>
+              <longitude> 29.8495</longitude>
+              <polar_motion>
+                <speed units="km h-1">27.133</speed>
+                <direction_to units="degrees true">70.0176</direction_to>
+              </polar_motion>
+            </moving-point>
+            <major_axis units="km">0.034208</major_axis>
+            <minor_axis units="km">0.0258476</minor_axis>
+            <orientation units="degrees true">158.234</orientation>
+          </ellipse>
+          <polygon npoints="73">
+            <moving-point type="centroid">
+              <latitude>-26.2699</latitude>
+              <longitude> 29.8495</longitude>
+              <polar_motion>
+                <speed units="km h-1">27.133</speed>
+                <direction_to units="degrees true">70.0176</direction_to>
+              </polar_motion>
+            </moving-point>
+            <point latitude="-26.2333" longitude="29.8495" />
+            <point latitude="-26.2333" longitude="29.8527" />
+            <point latitude="-26.2499" longitude="29.8531" />
+            <point latitude="-26.2499" longitude="29.8549" />
+            <point latitude="-26.2500" longitude="29.8568" />
+            <point latitude="-26.2499" longitude="29.8589" />
+            <point latitude="-26.2500" longitude="29.8611" />
+            <point latitude="-26.2500" longitude="29.8635" />
+            <point latitude="-26.2499" longitude="29.8663" />
+            <point latitude="-26.2499" longitude="29.8696" />
+            <point latitude="-26.2531" longitude="29.8696" />
+            <point latitude="-26.2560" longitude="29.8695" />
+            <point latitude="-26.2584" longitude="29.8695" />
+            <point latitude="-26.2606" longitude="29.8696" />
+            <point latitude="-26.2627" longitude="29.8695" />
+            <point latitude="-26.2646" longitude="29.8695" />
+            <point latitude="-26.2664" longitude="29.8695" />
+            <point latitude="-26.2667" longitude="29.8862" />
+            <point latitude="-26.2699" longitude="29.8861" />
+            <point latitude="-26.2731" longitude="29.8862" />
+            <point latitude="-26.2764" longitude="29.8861" />
+            <point latitude="-26.2797" longitude="29.8861" />
+            <point latitude="-26.2833" longitude="29.8862" />
+            <point latitude="-26.2832" longitude="29.8781" />
+            <point latitude="-26.2833" longitude="29.8727" />
+            <point latitude="-26.2839" longitude="29.8695" />
+            <point latitude="-26.2867" longitude="29.8696" />
+            <point latitude="-26.2900" longitude="29.8696" />
+            <point latitude="-26.2938" longitude="29.8695" />
+            <point latitude="-26.2986" longitude="29.8696" />
+            <point latitude="-26.2999" longitude="29.8668" />
+            <point latitude="-26.2999" longitude="29.8635" />
+            <point latitude="-26.2998" longitude="29.8604" />
+            <point latitude="-26.3000" longitude="29.8576" />
+            <point latitude="-26.2998" longitude="29.8548" />
+            <point latitude="-26.3000" longitude="29.8522" />
+            <point latitude="-26.2999" longitude="29.8495" />
+            <point latitude="-26.3000" longitude="29.8469" />
+            <point latitude="-26.2998" longitude="29.8442" />
+            <point latitude="-26.3000" longitude="29.8415" />
+            <point latitude="-26.2998" longitude="29.8386" />
+            <point latitude="-26.2999" longitude="29.8355" />
+            <point latitude="-26.2999" longitude="29.8322" />
+            <point latitude="-26.2999" longitude="29.8285" />
+            <point latitude="-26.2999" longitude="29.8243" />
+            <point latitude="-26.2999" longitude="29.8195" />
+            <point latitude="-26.2951" longitude="29.8195" />
+            <point latitude="-26.2909" longitude="29.8195" />
+            <point latitude="-26.2872" longitude="29.8196" />
+            <point latitude="-26.2839" longitude="29.8195" />
+            <point latitude="-26.2748" longitude="29.8361" />
+            <point latitude="-26.2735" longitude="29.8363" />
+            <point latitude="-26.2723" longitude="29.8362" />
+            <point latitude="-26.2711" longitude="29.8362" />
+            <point latitude="-26.2699" longitude="29.8362" />
+            <point latitude="-26.2688" longitude="29.8362" />
+            <point latitude="-26.2676" longitude="29.8362" />
+            <point latitude="-26.2664" longitude="29.8363" />
+            <point latitude="-26.2650" longitude="29.8361" />
+            <point latitude="-26.2637" longitude="29.8363" />
+            <point latitude="-26.2622" longitude="29.8362" />
+            <point latitude="-26.2489" longitude="29.8195" />
+            <point latitude="-26.2447" longitude="29.8195" />
+            <point latitude="-26.2399" longitude="29.8195" />
+            <point latitude="-26.2342" longitude="29.8195" />
+            <point latitude="-26.2332" longitude="29.8238" />
+            <point latitude="-26.2333" longitude="29.8284" />
+            <point latitude="-26.2333" longitude="29.8324" />
+            <point latitude="-26.2333" longitude="29.8362" />
+            <point latitude="-26.2333" longitude="29.8397" />
+            <point latitude="-26.2333" longitude="29.8431" />
+            <point latitude="-26.2333" longitude="29.8463" />
+            <point latitude="-26.2333" longitude="29.8495" />
+          </polygon>
+        </area>
+      </location>
+      <storm-parameters>
+        <age units="seconds">4200</age>
+        <cell_top units="km">6.5</cell_top>
+        <max_dbz units="dbz">44.5</max_dbz>
+      </storm-parameters>
+    </instance>
+    <instance relative-time="forecast">
+      <time>2008-01-04T01:00:00</time>
+      <location>
+        <area>
+          <ellipse>
+            <moving-point type="centroid">
+              <latitude>-26.2281</latitude>
+              <longitude> 29.9773</longitude>
+              <polar_motion>
+                <speed units="km h-1">27.133</speed>
+                <direction_to units="degrees true">70.0176</direction_to>
+              </polar_motion>
+            </moving-point>
+            <major_axis units="km">0.034208</major_axis>
+            <minor_axis units="km">0.0258476</minor_axis>
+            <orientation units="degrees true">158.234</orientation>
+          </ellipse>
+          <polygon npoints="73">
+            <moving-point type="centroid">
+              <latitude>-26.2281</latitude>
+              <longitude> 29.9773</longitude>
+              <polar_motion>
+                <speed units="km h-1">27.133</speed>
+                <direction_to units="degrees true">70.0176</direction_to>
+              </polar_motion>
+            </moving-point>
+            <point latitude="-26.1915" longitude="29.9773" />
+            <point latitude="-26.1914" longitude="29.9805" />
+            <point latitude="-26.2081" longitude="29.9808" />
+            <point latitude="-26.2081" longitude="29.9826" />
+            <point latitude="-26.2081" longitude="29.9846" />
+            <point latitude="-26.2080" longitude="29.9867" />
+            <point latitude="-26.2081" longitude="29.9888" />
+            <point latitude="-26.2081" longitude="29.9913" />
+            <point latitude="-26.2080" longitude="29.9941" />
+            <point latitude="-26.2080" longitude="29.9974" />
+            <point latitude="-26.2112" longitude="29.9973" />
+            <point latitude="-26.2141" longitude="29.9972" />
+            <point latitude="-26.2165" longitude="29.9973" />
+            <point latitude="-26.2187" longitude="29.9974" />
+            <point latitude="-26.2208" longitude="29.9972" />
+            <point latitude="-26.2227" longitude="29.9973" />
+            <point latitude="-26.2245" longitude="29.9973" />
+            <point latitude="-26.2249" longitude="30.0139" />
+            <point latitude="-26.2281" longitude="30.0139" />
+            <point latitude="-26.2313" longitude="30.0139" />
+            <point latitude="-26.2345" longitude="30.0139" />
+            <point latitude="-26.2379" longitude="30.0139" />
+            <point latitude="-26.2414" longitude="30.0139" />
+            <point latitude="-26.2414" longitude="30.0058" />
+            <point latitude="-26.2414" longitude="30.0004" />
+            <point latitude="-26.2420" longitude="29.9972" />
+            <point latitude="-26.2449" longitude="29.9973" />
+            <point latitude="-26.2481" longitude="29.9974" />
+            <point latitude="-26.2519" longitude="29.9973" />
+            <point latitude="-26.2567" longitude="29.9973" />
+            <point latitude="-26.2580" longitude="29.9946" />
+            <point latitude="-26.2581" longitude="29.9913" />
+            <point latitude="-26.2580" longitude="29.9882" />
+            <point latitude="-26.2581" longitude="29.9853" />
+            <point latitude="-26.2580" longitude="29.9826" />
+            <point latitude="-26.2581" longitude="29.9799" />
+            <point latitude="-26.2581" longitude="29.9773" />
+            <point latitude="-26.2581" longitude="29.9747" />
+            <point latitude="-26.2580" longitude="29.9720" />
+            <point latitude="-26.2581" longitude="29.9692" />
+            <point latitude="-26.2580" longitude="29.9664" />
+            <point latitude="-26.2581" longitude="29.9633" />
+            <point latitude="-26.2580" longitude="29.9600" />
+            <point latitude="-26.2580" longitude="29.9563" />
+            <point latitude="-26.2581" longitude="29.9521" />
+            <point latitude="-26.2581" longitude="29.9473" />
+            <point latitude="-26.2532" longitude="29.9473" />
+            <point latitude="-26.2491" longitude="29.9473" />
+            <point latitude="-26.2454" longitude="29.9473" />
+            <point latitude="-26.2421" longitude="29.9473" />
+            <point latitude="-26.2329" longitude="29.9639" />
+            <point latitude="-26.2316" longitude="29.9640" />
+            <point latitude="-26.2304" longitude="29.9640" />
+            <point latitude="-26.2292" longitude="29.9640" />
+            <point latitude="-26.2281" longitude="29.9639" />
+            <point latitude="-26.2269" longitude="29.9640" />
+            <point latitude="-26.2257" longitude="29.9640" />
+            <point latitude="-26.2245" longitude="29.9640" />
+            <point latitude="-26.2232" longitude="29.9639" />
+            <point latitude="-26.2219" longitude="29.9640" />
+            <point latitude="-26.2204" longitude="29.9640" />
+            <point latitude="-26.2071" longitude="29.9473" />
+            <point latitude="-26.2029" longitude="29.9473" />
+            <point latitude="-26.1980" longitude="29.9473" />
+            <point latitude="-26.1923" longitude="29.9473" />
+            <point latitude="-26.1913" longitude="29.9516" />
+            <point latitude="-26.1914" longitude="29.9562" />
+            <point latitude="-26.1914" longitude="29.9602" />
+            <point latitude="-26.1914" longitude="29.9640" />
+            <point latitude="-26.1915" longitude="29.9675" />
+            <point latitude="-26.1915" longitude="29.9708" />
+            <point latitude="-26.1914" longitude="29.9741" />
+            <point latitude="-26.1915" longitude="29.9773" />
+          </polygon>
+        </area>
+      </location>
+      <storm-parameters>
+        <age units="seconds">4200</age>
+        <cell_top units="km">6.5</cell_top>
+        <max_dbz units="dbz">44.5</max_dbz>
+      </storm-parameters>
+    </instance>
+  </storm>
+  <storm ID="39">
+    <instance relative-time="current">
+      <time>2008-01-04T00:00:00</time>
+      <location>
+        <area>
+          <ellipse>
+            <moving-point type="centroid">
+              <latitude>-28.0958</latitude>
+              <longitude> 27.6771</longitude>
+              <polar_motion>
+                <speed units="km h-1">30.2115</speed>
+                <direction_to units="degrees true">121.323</direction_to>
+              </polar_motion>
+            </moving-point>
+            <major_axis units="km">0.0667027</major_axis>
+            <minor_axis units="km">0.0530229</minor_axis>
+            <orientation units="degrees true">166.551</orientation>
+          </ellipse>
+          <polygon npoints="73">
+            <moving-point type="centroid">
+              <latitude>-28.0958</latitude>
+              <longitude> 27.6771</longitude>
+              <polar_motion>
+                <speed units="km h-1">30.2115</speed>
+                <direction_to units="degrees true">121.323</direction_to>
+              </polar_motion>
+            </moving-point>
+            <point latitude="-28.0251" longitude="27.6771" />
+            <point latitude="-28.0251" longitude="27.6833" />
+            <point latitude="-28.0249" longitude="27.6896" />
+            <point latitude="-28.0413" longitude="27.6917" />
+            <point latitude="-28.0418" longitude="27.6967" />
+            <point latitude="-28.0416" longitude="27.7024" />
+            <point latitude="-28.0417" longitude="27.7083" />
+            <point latitude="-28.0417" longitude="27.7150" />
+            <point latitude="-28.0417" longitude="27.7225" />
+            <point latitude="-28.0479" longitude="27.7250" />
+            <point latitude="-28.0557" longitude="27.7249" />
+            <point latitude="-28.0740" longitude="27.7082" />
+            <point latitude="-28.0750" longitude="27.7131" />
+            <point latitude="-28.0750" longitude="27.7217" />
+            <point latitude="-28.0784" longitude="27.7249" />
+            <point latitude="-28.0830" longitude="27.7250" />
+            <point latitude="-28.0874" longitude="27.7249" />
+            <point latitude="-28.0916" longitude="27.7251" />
+            <point latitude="-28.0958" longitude="27.7415" />
+            <point latitude="-28.1015" longitude="27.7416" />
+            <point latitude="-28.1072" longitude="27.7415" />
+            <point latitude="-28.1131" longitude="27.7416" />
+            <point latitude="-28.1193" longitude="27.7417" />
+            <point latitude="-28.1250" longitude="27.7397" />
+            <point latitude="-28.1251" longitude="27.7277" />
+            <point latitude="-28.1250" longitude="27.7188" />
+            <point latitude="-28.1249" longitude="27.7118" />
+            <point latitude="-28.1271" longitude="27.7084" />
+            <point latitude="-28.1330" longitude="27.7083" />
+            <point latitude="-28.1405" longitude="27.7084" />
+            <point latitude="-28.1499" longitude="27.7083" />
+            <point latitude="-28.1584" longitude="27.7063" />
+            <point latitude="-28.1583" longitude="27.6998" />
+            <point latitude="-28.1584" longitude="27.6938" />
+            <point latitude="-28.1583" longitude="27.6881" />
+            <point latitude="-28.1584" longitude="27.6826" />
+            <point latitude="-28.1583" longitude="27.6771" />
+            <point latitude="-28.1748" longitude="27.6702" />
+            <point latitude="-28.1749" longitude="27.6631" />
+            <point latitude="-28.1657" longitude="27.6583" />
+            <point latitude="-28.1583" longitude="27.6544" />
+            <point latitude="-28.1584" longitude="27.6479" />
+            <point latitude="-28.1571" longitude="27.6417" />
+            <point latitude="-28.1465" longitude="27.6416" />
+            <point latitude="-28.1417" longitude="27.6386" />
+            <point latitude="-28.1416" longitude="27.6313" />
+            <point latitude="-28.1396" longitude="27.6249" />
+            <point latitude="-28.1322" longitude="27.6251" />
+            <point latitude="-28.1259" longitude="27.6250" />
+            <point latitude="-28.1084" longitude="27.6501" />
+            <point latitude="-28.1084" longitude="27.6426" />
+            <point latitude="-28.1053" longitude="27.6416" />
+            <point latitude="-28.1021" longitude="27.6416" />
+            <point latitude="-28.0989" longitude="27.6415" />
+            <point latitude="-28.0958" longitude="27.6417" />
+            <point latitude="-28.0913" longitude="27.6251" />
+            <point latitude="-28.0867" longitude="27.6250" />
+            <point latitude="-28.0819" longitude="27.6250" />
+            <point latitude="-28.0768" longitude="27.6249" />
+            <point latitude="-28.0715" longitude="27.6250" />
+            <point latitude="-28.0562" longitude="27.6084" />
+            <point latitude="-28.0477" longitude="27.6083" />
+            <point latitude="-28.0417" longitude="27.6125" />
+            <point latitude="-28.0416" longitude="27.6229" />
+            <point latitude="-28.0417" longitude="27.6316" />
+            <point latitude="-28.0417" longitude="27.6392" />
+            <point latitude="-28.0417" longitude="27.6458" />
+            <point latitude="-28.0416" longitude="27.6518" />
+            <point latitude="-28.0418" longitude="27.6574" />
+            <point latitude="-28.0416" longitude="27.6625" />
+            <point latitude="-28.0418" longitude="27.6676" />
+            <point latitude="-28.0415" longitude="27.6723" />
+            <point latitude="-28.0251" longitude="27.6771" />
+          </polygon>
+        </area>
+      </location>
+      <storm-parameters>
+        <age units="seconds">5100</age>
+        <cell_top units="km">10.5</cell_top>
+        <max_dbz units="dbz">48.5</max_dbz>
+      </storm-parameters>
+    </instance>
+    <instance relative-time="forecast">
+      <time>2008-01-04T00:30:00</time>
+      <location>
+        <area>
+          <ellipse>
+            <moving-point type="centroid">
+              <latitude>-28.1664</latitude>
+              <longitude> 27.8087</longitude>
+              <polar_motion>
+                <speed units="km h-1">30.2115</speed>
+                <direction_to units="degrees true">121.323</direction_to>
+              </polar_motion>
+            </moving-point>
+            <major_axis units="km">0.0667027</major_axis>
+            <minor_axis units="km">0.0530229</minor_axis>
+            <orientation units="degrees true">166.551</orientation>
+          </ellipse>
+          <polygon npoints="73">
+            <moving-point type="centroid">
+              <latitude>-28.1664</latitude>
+              <longitude> 27.8087</longitude>
+              <polar_motion>
+                <speed units="km h-1">30.2115</speed>
+                <direction_to units="degrees true">121.323</direction_to>
+              </polar_motion>
+            </moving-point>
+            <point latitude="-28.0957" longitude="27.8087" />
+            <point latitude="-28.0956" longitude="27.8149" />
+            <point latitude="-28.0954" longitude="27.8212" />
+            <point latitude="-28.1118" longitude="27.8233" />
+            <point latitude="-28.1124" longitude="27.8284" />
+            <point latitude="-28.1122" longitude="27.8340" />
+            <point latitude="-28.1123" longitude="27.8399" />
+            <point latitude="-28.1123" longitude="27.8466" />
+            <point latitude="-28.1122" longitude="27.8542" />
+            <point latitude="-28.1185" longitude="27.8566" />
+            <point latitude="-28.1262" longitude="27.8566" />
+            <point latitude="-28.1446" longitude="27.8398" />
+            <point latitude="-28.1456" longitude="27.8448" />
+            <point latitude="-28.1456" longitude="27.8533" />
+            <point latitude="-28.1490" longitude="27.8565" />
+            <point latitude="-28.1536" longitude="27.8566" />
+            <point latitude="-28.1580" longitude="27.8566" />
+            <point latitude="-28.1622" longitude="27.8568" />
+            <point latitude="-28.1664" longitude="27.8732" />
+            <point latitude="-28.1720" longitude="27.8732" />
+            <point latitude="-28.1778" longitude="27.8731" />
+            <point latitude="-28.1837" longitude="27.8732" />
+            <point latitude="-28.1899" longitude="27.8733" />
+            <point latitude="-28.1956" longitude="27.8713" />
+            <point latitude="-28.1956" longitude="27.8594" />
+            <point latitude="-28.1956" longitude="27.8504" />
+            <point latitude="-28.1955" longitude="27.8434" />
+            <point latitude="-28.1977" longitude="27.8400" />
+            <point latitude="-28.2036" longitude="27.8399" />
+            <point latitude="-28.2111" longitude="27.8400" />
+            <point latitude="-28.2205" longitude="27.8399" />
+            <point latitude="-28.2290" longitude="27.8379" />
+            <point latitude="-28.2288" longitude="27.8314" />
+            <point latitude="-28.2290" longitude="27.8255" />
+            <point latitude="-28.2289" longitude="27.8197" />
+            <point latitude="-28.2289" longitude="27.8142" />
+            <point latitude="-28.2289" longitude="27.8087" />
+            <point latitude="-28.2454" longitude="27.8018" />
+            <point latitude="-28.2455" longitude="27.7948" />
+            <point latitude="-28.2363" longitude="27.7900" />
+            <point latitude="-28.2288" longitude="27.7860" />
+            <point latitude="-28.2290" longitude="27.7795" />
+            <point latitude="-28.2276" longitude="27.7734" />
+            <point latitude="-28.2170" longitude="27.7733" />
+            <point latitude="-28.2122" longitude="27.7703" />
+            <point latitude="-28.2122" longitude="27.7629" />
+            <point latitude="-28.2102" longitude="27.7566" />
+            <point latitude="-28.2028" longitude="27.7567" />
+            <point latitude="-28.1965" longitude="27.7566" />
+            <point latitude="-28.1790" longitude="27.7818" />
+            <point latitude="-28.1789" longitude="27.7742" />
+            <point latitude="-28.1759" longitude="27.7733" />
+            <point latitude="-28.1726" longitude="27.7732" />
+            <point latitude="-28.1695" longitude="27.7732" />
+            <point latitude="-28.1664" longitude="27.7734" />
+            <point latitude="-28.1618" longitude="27.7567" />
+            <point latitude="-28.1572" longitude="27.7566" />
+            <point latitude="-28.1525" longitude="27.7567" />
+            <point latitude="-28.1474" longitude="27.7565" />
+            <point latitude="-28.1421" longitude="27.7566" />
+            <point latitude="-28.1267" longitude="27.7400" />
+            <point latitude="-28.1182" longitude="27.7400" />
+            <point latitude="-28.1122" longitude="27.7442" />
+            <point latitude="-28.1122" longitude="27.7545" />
+            <point latitude="-28.1122" longitude="27.7633" />
+            <point latitude="-28.1123" longitude="27.7708" />
+            <point latitude="-28.1123" longitude="27.7775" />
+            <point latitude="-28.1122" longitude="27.7834" />
+            <point latitude="-28.1124" longitude="27.7890" />
+            <point latitude="-28.1121" longitude="27.7942" />
+            <point latitude="-28.1124" longitude="27.7992" />
+            <point latitude="-28.1121" longitude="27.8040" />
+            <point latitude="-28.0957" longitude="27.8087" />
+          </polygon>
+        </area>
+      </location>
+      <storm-parameters>
+        <age units="seconds">5100</age>
+        <cell_top units="km">10.5</cell_top>
+        <max_dbz units="dbz">48.5</max_dbz>
+      </storm-parameters>
+    </instance>
+    <instance relative-time="forecast">
+      <time>2008-01-04T01:00:00</time>
+      <location>
+        <area>
+          <ellipse>
+            <moving-point type="centroid">
+              <latitude>-28.2368</latitude>
+              <longitude> 27.9405</longitude>
+              <polar_motion>
+                <speed units="km h-1">30.2115</speed>
+                <direction_to units="degrees true">121.323</direction_to>
+              </polar_motion>
+            </moving-point>
+            <major_axis units="km">0.0667027</major_axis>
+            <minor_axis units="km">0.0530229</minor_axis>
+            <orientation units="degrees true">166.551</orientation>
+          </ellipse>
+          <polygon npoints="73">
+            <moving-point type="centroid">
+              <latitude>-28.2368</latitude>
+              <longitude> 27.9405</longitude>
+              <polar_motion>
+                <speed units="km h-1">30.2115</speed>
+                <direction_to units="degrees true">121.323</direction_to>
+              </polar_motion>
+            </moving-point>
+            <point latitude="-28.1661" longitude="27.9405" />
+            <point latitude="-28.1660" longitude="27.9467" />
+            <point latitude="-28.1659" longitude="27.9530" />
+            <point latitude="-28.1822" longitude="27.9551" />
+            <point latitude="-28.1828" longitude="27.9602" />
+            <point latitude="-28.1826" longitude="27.9658" />
+            <point latitude="-28.1827" longitude="27.9717" />
+            <point latitude="-28.1827" longitude="27.9784" />
+            <point latitude="-28.1827" longitude="27.9860" />
+            <point latitude="-28.1889" longitude="27.9884" />
+            <point latitude="-28.1967" longitude="27.9884" />
+            <point latitude="-28.2150" longitude="27.9716" />
+            <point latitude="-28.2160" longitude="27.9766" />
+            <point latitude="-28.2160" longitude="27.9851" />
+            <point latitude="-28.2194" longitude="27.9883" />
+            <point latitude="-28.2240" longitude="27.9884" />
+            <point latitude="-28.2284" longitude="27.9884" />
+            <point latitude="-28.2326" longitude="27.9886" />
+            <point latitude="-28.2368" longitude="28.0050" />
+            <point latitude="-28.2425" longitude="28.0050" />
+            <point latitude="-28.2482" longitude="28.0050" />
+            <point latitude="-28.2541" longitude="28.0050" />
+            <point latitude="-28.2603" longitude="28.0051" />
+            <point latitude="-28.2660" longitude="28.0031" />
+            <point latitude="-28.2661" longitude="27.9912" />
+            <point latitude="-28.2660" longitude="27.9822" />
+            <point latitude="-28.2659" longitude="27.9752" />
+            <point latitude="-28.2681" longitude="27.9718" />
+            <point latitude="-28.2740" longitude="27.9717" />
+            <point latitude="-28.2815" longitude="27.9718" />
+            <point latitude="-28.2909" longitude="27.9717" />
+            <point latitude="-28.2994" longitude="27.9697" />
+            <point latitude="-28.2992" longitude="27.9632" />
+            <point latitude="-28.2994" longitude="27.9573" />
+            <point latitude="-28.2993" longitude="27.9515" />
+            <point latitude="-28.2994" longitude="27.9460" />
+            <point latitude="-28.2993" longitude="27.9405" />
+            <point latitude="-28.3158" longitude="27.9336" />
+            <point latitude="-28.3159" longitude="27.9266" />
+            <point latitude="-28.3067" longitude="27.9218" />
+            <point latitude="-28.2992" longitude="27.9178" />
+            <point latitude="-28.2994" longitude="27.9113" />
+            <point latitude="-28.2981" longitude="27.9052" />
+            <point latitude="-28.2874" longitude="27.9051" />
+            <point latitude="-28.2826" longitude="27.9021" />
+            <point latitude="-28.2826" longitude="27.8947" />
+            <point latitude="-28.2806" longitude="27.8884" />
+            <point latitude="-28.2732" longitude="27.8885" />
+            <point latitude="-28.2669" longitude="27.8884" />
+            <point latitude="-28.2494" longitude="27.9136" />
+            <point latitude="-28.2494" longitude="27.9060" />
+            <point latitude="-28.2463" longitude="27.9051" />
+            <point latitude="-28.2431" longitude="27.9050" />
+            <point latitude="-28.2399" longitude="27.9050" />
+            <point latitude="-28.2368" longitude="27.9052" />
+            <point latitude="-28.2323" longitude="27.8885" />
+            <point latitude="-28.2276" longitude="27.8884" />
+            <point latitude="-28.2229" longitude="27.8885" />
+            <point latitude="-28.2178" longitude="27.8883" />
+            <point latitude="-28.2125" longitude="27.8884" />
+            <point latitude="-28.1972" longitude="27.8718" />
+            <point latitude="-28.1887" longitude="27.8718" />
+            <point latitude="-28.1827" longitude="27.8760" />
+            <point latitude="-28.1826" longitude="27.8863" />
+            <point latitude="-28.1827" longitude="27.8951" />
+            <point latitude="-28.1827" longitude="27.9026" />
+            <point latitude="-28.1827" longitude="27.9093" />
+            <point latitude="-28.1826" longitude="27.9152" />
+            <point latitude="-28.1828" longitude="27.9209" />
+            <point latitude="-28.1826" longitude="27.9260" />
+            <point latitude="-28.1828" longitude="27.9310" />
+            <point latitude="-28.1825" longitude="27.9358" />
+            <point latitude="-28.1661" longitude="27.9405" />
+          </polygon>
+        </area>
+      </location>
+      <storm-parameters>
+        <age units="seconds">5100</age>
+        <cell_top units="km">10.5</cell_top>
+        <max_dbz units="dbz">48.5</max_dbz>
+      </storm-parameters>
+    </instance>
+  </storm>
+</storm-data>
+</tstorms>

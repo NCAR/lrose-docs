@@ -1,0 +1,454 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" >
+
+  <xs:annotation>
+    <xs:documentation>
+    SCHEMA for MDV XML format
+    RAL, NCAR
+    </xs:documentation>
+  </xs:annotation>
+
+  <xs:element name="mdv">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="buf-file-name"/>
+        <xs:element ref="master-header"/>
+        <xs:choice maxOccurs="unbounded">
+          <xs:element ref="chunk"/>
+          <xs:element ref="field"/>
+        </xs:choice>
+      </xs:sequence>
+      <xs:attribute ref="version"/> 
+    </xs:complexType>
+  </xs:element>
+
+  <xs:attribute name="version" type="xs:decimal"/>
+  <xs:element name="buf-file-name" type="xs:NMTOKEN"/>
+
+  <xs:element name="master-header">
+    <xs:complexType>
+      <xs:all>
+        <xs:element ref="time-valid"/>
+        <xs:element ref="time-gen" minOccurs="0"/>
+        <xs:element ref="forecast-lead-secs" minOccurs="0"/>
+        <xs:element ref="time-written"/>
+        <xs:element ref="time-user" minOccurs="0"/>
+        <xs:element ref="time-begin" minOccurs="0"/>
+        <xs:element ref="time-end" minOccurs="0"/>
+        <xs:element ref="time-expire" minOccurs="0"/>
+        <xs:element ref="data-set-name"/>
+        <xs:element ref="data-set-info"/>
+        <xs:element ref="data-set-source"/>
+        <xs:element ref="sensor-lon" minOccurs="0"/>
+        <xs:element ref="sensor-lat" minOccurs="0"/>
+        <xs:element ref="sensor-alt" minOccurs="0"/>
+        <xs:element ref="data-dimension"/>
+        <xs:element ref="data-collection-type"/>
+        <xs:element ref="vlevel-type"/>
+        <xs:element ref="native-vlevel-type"/>
+        <xs:element ref="user-data" minOccurs="0"/>
+        <xs:element ref="user-int-0" minOccurs="0"/>
+        <xs:element ref="user-int-1" minOccurs="0"/>
+        <xs:element ref="user-int-2" minOccurs="0"/>
+        <xs:element ref="user-int-3" minOccurs="0"/>
+        <xs:element ref="user-int-4" minOccurs="0"/>
+        <xs:element ref="user-int-5" minOccurs="0"/>
+        <xs:element ref="user-int-6" minOccurs="0"/>
+        <xs:element ref="user-int-7" minOccurs="0"/>
+        <xs:element ref="user-float-0" minOccurs="0"/>
+        <xs:element ref="user-float-1" minOccurs="0"/>
+        <xs:element ref="user-float-2" minOccurs="0"/>
+        <xs:element ref="user-float-3" minOccurs="0"/>
+        <xs:element ref="user-float-4" minOccurs="0"/>
+        <xs:element ref="user-float-5" minOccurs="0"/>
+        <xs:element ref="field-grids-differ"/>
+        <xs:element ref="n-fields"/>
+        <xs:element ref="n-chunks"/>
+      </xs:all>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="time-valid" type="xs:dateTime"/>
+  <xs:element name="time-gen" type="xs:dateTime"/>
+  <xs:element name="forecast-lead-secs" type="xs:integer"/>
+  <xs:element name="time-written" type="xs:dateTime"/>
+  <xs:element name="time-user" type="xs:dateTime"/>
+  <xs:element name="time-begin" type="xs:dateTime"/>
+  <xs:element name="time-end" type="xs:dateTime"/>
+  <xs:element name="time-expire" type="xs:dateTime"/>
+  <xs:element name="data-set-name" type="xs:string"/>
+  <xs:element name="data-set-info" type="xs:string"/>
+  <xs:element name="data-set-source" type="xs:string"/>
+  <xs:element name="sensor-lon" type="xs:decimal"/>
+  <xs:element name="sensor-lat" type="xs:decimal"/>
+  <xs:element name="sensor-alt" type="xs:decimal"/>
+
+  <xs:element name="data-collection-type" type="data-collection-enum"/>
+  <xs:simpleType name = "data-collection-enum">
+    <xs:annotation>
+      <xs:documentation>
+      The data-collection-type documents how the data was collected
+      in the field.
+      int8: unsigned 8-bit scaled integers
+      int16: unsigned 16-bit scaled integers
+      fl32: 32-bit IEEE floating point
+      rgba32: RGBA image pixels
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base = "xs:string">
+      <xs:enumeration value = "measured"/> 
+      <xs:enumeration value = "extrapolated"/> 
+      <xs:enumeration value = "forecast"/> 
+      <xs:enumeration value = "synthesis"/> 
+      <xs:enumeration value = "mixed"/> 
+      <xs:enumeration value = "rgba-image"/> 
+      <xs:enumeration value = "rgba-graphic"/> 
+      <xs:enumeration value = "climo-analysis"/> 
+      <xs:enumeration value = "climo-observed"/> 
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:element name="user-data" type="xs:integer"/>
+  <xs:element name="field-grids-differ" type="xs:boolean"/>
+  <xs:element name="n-fields" type="xs:integer"/>
+  <xs:element name="n-chunks" type="xs:integer"/>
+
+  <xs:element name="field">
+    <xs:complexType>
+      <xs:all>
+        <xs:element ref="field-name"/>
+        <xs:element ref="field-name-long"/>
+        <xs:element ref="field-units"/>
+        <xs:element ref="field-transform"/>
+        <xs:element ref="encoding-type"/>
+        <xs:element ref="byte-width"/>
+        <xs:element ref="field-data-scale"/>
+        <xs:element ref="field-data-bias"/>
+        <xs:element ref="compression-type"/>
+        <xs:element ref="transform-type"/>
+        <xs:element ref="scaling-type"/>
+        <xs:element ref="missing-data-value"/>
+        <xs:element ref="bad-data-value"/>
+        <xs:element ref="min-value"/>
+        <xs:element ref="max-value"/>
+        <xs:element ref="data-dimension"/>
+        <xs:element ref="dz-constant"/>
+        <xs:element ref="projection"/>
+        <xs:element ref="xy-grid"/>
+        <xs:element ref="n-vlevels"/>
+        <xs:element ref="vlevel-type"/>
+        <xs:element ref="native-vlevel-type"/>
+        <xs:element ref="vlevels"/>
+        <xs:element ref="vert-reference" minOccurs="0"/>
+        <xs:element ref="data-offset-bytes"/>
+        <xs:element ref="data-length-bytes"/>
+        <xs:element ref="user-int-0" minOccurs="0"/>
+        <xs:element ref="user-int-1" minOccurs="0"/>
+        <xs:element ref="user-int-2" minOccurs="0"/>
+        <xs:element ref="user-int-3" minOccurs="0"/>
+        <xs:element ref="user-int-4" minOccurs="0"/>
+        <xs:element ref="user-int-5" minOccurs="0"/>
+        <xs:element ref="user-int-6" minOccurs="0"/>
+        <xs:element ref="user-int-7" minOccurs="0"/>
+        <xs:element ref="user-int-8" minOccurs="0"/>
+        <xs:element ref="user-int-9" minOccurs="0"/>
+        <xs:element ref="user-float-0" minOccurs="0"/>
+        <xs:element ref="user-float-1" minOccurs="0"/>
+        <xs:element ref="user-float-2" minOccurs="0"/>
+        <xs:element ref="user-float-3" minOccurs="0"/>
+        <xs:element ref="user-time-1" minOccurs="0"/>
+        <xs:element ref="user-time-2" minOccurs="0"/>
+        <xs:element ref="user-time-3" minOccurs="0"/>
+        <xs:element ref="user-time-4" minOccurs="0"/>
+        <xs:element ref="grib-code" minOccurs="0"/>
+      </xs:all>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="field-name" type="xs:string"/>
+  <xs:element name="field-name-long" type="xs:string"/>
+  <xs:element name="field-units" type="xs:string"/>
+  <xs:element name="field-transform" type="xs:string"/>
+
+  <xs:element name="encoding-type" type="encoding-enum"/>
+  <xs:simpleType name = "encoding-enum">
+    <xs:annotation>
+      <xs:documentation>
+      The encoding type of the field data
+      int8: unsigned 8-bit scaled integers
+      int16: unsigned 16-bit scaled integers
+      fl32: 32-bit IEEE floating point
+      rgba32: RGBA image pixels
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base = "xs:string">
+      <xs:enumeration value = "int8"/> 
+      <xs:enumeration value = "int16"/> 
+      <xs:enumeration value = "fl32"/> 
+      <xs:enumeration value = "rgba32"/> 
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:element name="byte-width" type="xs:integer"/>
+  <xs:element name="field-data-scale" type="xs:double"/>
+  <xs:element name="field-data-bias" type="xs:decimal"/>
+
+  <xs:element name="compression-type" type="compression-enum"/>
+  <xs:simpleType name = "compression-enum">
+    <xs:annotation>
+      <xs:documentation>
+      The compression type of the field data
+      none: no compression
+      gzip: each field is individually gzipped
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base = "xs:string">
+      <xs:enumeration value = "none"/> 
+      <xs:enumeration value = "gzip"/> 
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:element name="transform-type" type="transform-enum"/>
+  <xs:simpleType name = "transform-enum">
+    <xs:annotation>
+      <xs:documentation>
+      The transform applied to create the data.
+      none: no transform
+      log: natural log of the data
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base = "xs:string">
+      <xs:enumeration value = "none"/>
+      <xs:enumeration value = "log"/>
+      <xs:enumeration value = "point"/>
+      <xs:enumeration value = "sum"/>
+      <xs:enumeration value = "diff"/>
+      <xs:enumeration value = "product"/>
+      <xs:enumeration value = "max"/>
+      <xs:enumeration value = "min"/>
+      <xs:enumeration value = "mean"/>
+      <xs:enumeration value = "median"/>
+      <xs:enumeration value = "mode"/>
+      <xs:enumeration value = "mid"/>
+      <xs:enumeration value = "stddev"/>
+      <xs:enumeration value = "variance"/>
+      <xs:enumeration value = "covariance"/>
+      <xs:enumeration value = "normalized"/>
+      <xs:enumeration value = "unknown"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:element name="scaling-type" type="scaling-enum"/>
+  <xs:simpleType name = "scaling-enum">
+    <xs:annotation>
+      <xs:documentation>
+      The scaling type used to compute scaled integers
+      none: no scaling - floats
+      dynamic: scale and bias computed from dynamic range of the data
+      rounded: version of dynamic, scale and bias computed by rounding appropriately
+      integral: version of dynamic, scale and bias are integer values
+      specified: scale and bias specified by the caller
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base = "xs:string">
+      <xs:enumeration value = "none"/> 
+      <xs:enumeration value = "rounded"/> 
+      <xs:enumeration value = "dynamic"/> 
+      <xs:enumeration value = "integral"/> 
+      <xs:enumeration value = "specified"/> 
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:element name="missing-data-value" type="xs:decimal"/>
+  <xs:element name="bad-data-value" type="xs:decimal"/>
+  <xs:element name="min-value" type="xs:decimal"/>
+  <xs:element name="max-value" type="xs:decimal"/>
+  <xs:element name="dz-constant" type="xs:boolean"/>
+
+  <xs:element name="projection">
+    <xs:annotation>
+      <xs:documentation>
+         origin-lat and origin-lon are required by all projections.
+         Some parameters are specific to the projection.
+         lambert: needs lat1 and lat2
+         polar stereo: needs tangent-lon, pole and central-scale
+         oblique-stereo: needs tangent-lat and tangent-lon
+         flat: needs rotation
+      </xs:documentation>
+      </xs:annotation>
+    <xs:complexType>
+      <xs:all>
+        <xs:element ref="proj-type"/>
+        <xs:element ref="origin-lat"/>
+        <xs:element ref="origin-lon"/>
+        <xs:element ref="lat1" minOccurs="0"/>
+        <xs:element ref="lat2" minOccurs="0"/>
+        <xs:element ref="tangent-lat" minOccurs="0"/>
+        <xs:element ref="tangent-lon" minOccurs="0"/>
+        <xs:element ref="pole" minOccurs="0"/>
+        <xs:element ref="central-scale" minOccurs="0"/>
+        <xs:element ref="rotation" minOccurs="0"/>
+      </xs:all>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="proj-type" type="proj-enum"/>
+  <xs:simpleType name = "proj-enum">
+    <xs:annotation>
+      <xs:documentation>
+      The projection type for the field
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base = "xs:string">
+      <xs:enumeration value = "latlon"/> 
+      <xs:enumeration value = "lambert-conformal"/> 
+      <xs:enumeration value = "mercator"/> 
+      <xs:enumeration value = "polar-stereographic"/> 
+      <xs:enumeration value = "flat"/> 
+      <xs:enumeration value = "polar-radar"/> 
+      <xs:enumeration value = "vertical-section"/> 
+      <xs:enumeration value = "oblique-stereographic"/> 
+      <xs:enumeration value = "rhi-radar"/> 
+      <xs:enumeration value = "time-height"/> 
+      <xs:enumeration value = "unknown"/> 
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:element name="origin-lat" type="xs:decimal"/>
+  <xs:element name="origin-lon" type="xs:decimal"/>
+  <xs:element name="lat1" type="xs:decimal"/>
+  <xs:element name="lat2" type="xs:decimal"/>
+  <xs:element name="tangent-lat" type="xs:decimal"/>
+  <xs:element name="tangent-lon" type="xs:decimal"/>
+
+  <xs:element name="pole" type="pole-enum"/>
+  <xs:simpleType name = "pole-enum">
+    <xs:annotation>
+      <xs:documentation>
+      N or S pole for polar stereographic
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base = "xs:string">
+      <xs:enumeration value = "N"/> 
+      <xs:enumeration value = "S"/> 
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:element name="central-scale" type="xs:decimal"/>
+  <xs:element name="rotation" type="xs:decimal"/>
+
+  <xs:element name="xy-grid">
+    <xs:complexType>
+      <xs:all>
+        <xs:element ref="nx"/>
+        <xs:element ref="ny"/>
+        <xs:element ref="minx"/>
+        <xs:element ref="miny"/>
+        <xs:element ref="dx"/>
+        <xs:element ref="dy"/>
+      </xs:all>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="nx" type="xs:integer"/>
+  <xs:element name="ny" type="xs:integer"/>
+  <xs:element name="minx" type="xs:decimal"/>
+  <xs:element name="miny" type="xs:decimal"/>
+  <xs:element name="dx" type="xs:decimal"/>
+  <xs:element name="dy" type="xs:decimal"/>
+
+  <xs:element name="n-vlevels" type="xs:integer"/>
+  <xs:element name="vlevels">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="122" ref="level"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="level">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="xs:decimal">
+          <xs:attribute name="vtype" type="vlevel-enum"/>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="vert-reference" type="xs:integer"/>
+  <xs:element name="user-int-0" type="xs:integer"/>
+  <xs:element name="user-int-1" type="xs:integer"/>
+  <xs:element name="user-int-2" type="xs:integer"/>
+  <xs:element name="user-int-3" type="xs:integer"/>
+  <xs:element name="user-int-4" type="xs:integer"/>
+  <xs:element name="user-int-5" type="xs:integer"/>
+  <xs:element name="user-int-6" type="xs:integer"/>
+  <xs:element name="user-int-7" type="xs:integer"/>
+  <xs:element name="user-int-8" type="xs:integer"/>
+  <xs:element name="user-int-9" type="xs:integer"/>
+  <xs:element name="user-float-0" type="xs:float"/>
+  <xs:element name="user-float-1" type="xs:float"/>
+  <xs:element name="user-float-2" type="xs:float"/>
+  <xs:element name="user-float-3" type="xs:float"/>
+  <xs:element name="user-float-4" type="xs:float"/>
+  <xs:element name="user-float-5" type="xs:float"/>
+  <xs:element name="user-time-1" type="xs:dateTime"/>
+  <xs:element name="user-time-2" type="xs:dateTime"/>
+  <xs:element name="user-time-3" type="xs:dateTime"/>
+  <xs:element name="user-time-4" type="xs:dateTime"/>
+  <xs:element name="grib-code" type="xs:integer"/>
+  <xs:element name="data-dimension" type="xs:integer"/>
+
+  <xs:element name="vlevel-type" type="vlevel-enum"/>
+  <xs:element name="native-vlevel-type" type="vlevel-enum"/>
+
+  <xs:simpleType name = "vlevel-enum">
+    <xs:annotation>
+      <xs:documentation>
+      The type of vertical level coordinate
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base = "xs:string">
+      <xs:enumeration value = "surface"/> 
+      <xs:enumeration value = "sigma-p"/> 
+      <xs:enumeration value = "pressure"/> 
+      <xs:enumeration value = "height-msl-km"/> 
+      <xs:enumeration value = "sigma-z"/> 
+      <xs:enumeration value = "eta"/> 
+      <xs:enumeration value = "theta"/> 
+      <xs:enumeration value = "mixed"/> 
+      <xs:enumeration value = "elevation-angles"/> 
+      <xs:enumeration value = "composite"/> 
+      <xs:enumeration value = "cross-section"/> 
+      <xs:enumeration value = "satellite"/> 
+      <xs:enumeration value = "variable-elevations"/> 
+      <xs:enumeration value = "field-specifc-variable-elevations"/> 
+      <xs:enumeration value = "flight-level"/> 
+      <xs:enumeration value = "earth-conformal"/> 
+      <xs:enumeration value = "azimuth-angles"/> 
+      <xs:enumeration value = "tops-msl-km"/> 
+      <xs:enumeration value = "height-agl-ft"/> 
+      <xs:enumeration value = "variable"/> 
+      <xs:enumeration value = "unknown"/> 
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:element name="data-offset-bytes" type="xs:integer"/>
+  <xs:element name="data-length-bytes" type="xs:integer"/>
+
+  <xs:element name="chunk">
+    <xs:complexType>
+      <xs:all>
+        <xs:element ref="chunk-id"/>
+        <xs:element ref="chunk-info"/>
+        <xs:element ref="data-offset-bytes"/>
+        <xs:element ref="data-length-bytes"/>
+      </xs:all>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="chunk-id" type="xs:integer"/>
+  <xs:element name="chunk-info" type="xs:string"/>
+
+</xs:schema>
