@@ -98,7 +98,7 @@ use_multiple_threads = TRUE;
 // Type: string
 //
 
-input_url = "$(HOME)/data/erad_lrose_workshop/data/mosaic_3d";
+input_url = "/tmp/lrose_data/taiwan_mrms/mosaic_3d";
 
 ///////////// dbz_field_name //////////////////////////
 //
@@ -462,7 +462,7 @@ vert_levels_type = VERT_LEVELS_BY_TEMP;
 // Type: string
 //
 
-temp_profile_url = "$(HOME)/data/erad_lrose_workshop/data/gfs";
+temp_profile_url = "/tmp/lrose_data/taiwan_mrms/gfs";
 
 ///////////// temp_profile_field_name /////////////////
 //
@@ -639,7 +639,7 @@ min_strat_fraction_for_strat_below = 0.9;
 // Type: string
 //
 
-output_url = "$(HOME)/data/erad_lrose_workshop/data/ecco";
+output_url = "/tmp/lrose_data/taiwan_mrms/ecco";
 
 ///////////// write_partition /////////////////////////
 //
