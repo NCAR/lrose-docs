@@ -52,7 +52,7 @@ instance = "$(RADAR_NAME)";
 // Type: string
 //
 
-input_dir = "/tmp/lrose_data/nexrad/raw/$(RADAR_NAME)";
+input_dir = "$(NEXRAD_DATA_DIR)/raw/$(RADAR_NAME)";
 
 ///////////// mode ////////////////////////////////////
 //
@@ -1147,7 +1147,7 @@ compression_level = 4;
 // Type: string
 //
 
-output_dir = "/tmp/lrose_data/nexrad/cfradial/moments/$(RADAR_NAME)";
+output_dir = "$(NEXRAD_DATA_DIR)/cfradial/moments/$(RADAR_NAME)";
 
 ///////////// output_filename_mode ////////////////////
 //

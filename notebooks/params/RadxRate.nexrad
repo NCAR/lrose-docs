@@ -102,7 +102,7 @@ mode = ARCHIVE;
 // Type: string
 //
 
-input_dir = "/tmp/lrose_data/nexrad/cfradial/moments/$(RADAR_NAME)";
+input_dir = "$(NEXRAD_DATA_DIR)/cfradial/moments/$(RADAR_NAME)";
   
 ///////////// input_file_search_ext ///////////////////
 //
@@ -639,7 +639,7 @@ PID_write_debug_fields = FALSE;
 // Type: string
 //
 
-output_dir = "/tmp/lrose_data/nexrad/cfradial/rate/$(RADAR_NAME)";
+output_dir = "$(NEXRAD_DATA_DIR)/cfradial/rate/$(RADAR_NAME)";
 
 ///////////// output_filename_mode ////////////////////
 //

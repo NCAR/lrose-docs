@@ -65,7 +65,7 @@ procmap_register_interval = 60;
 // Type: string
 //
 
-input_dir = "/tmp/lrose_data/nexrad/mdv/ruc/bounded";
+input_dir = "$(NEXRAD_DATA_DIR)/mdv/ruc";
 
 ///////////// mode ////////////////////////////////////
 //
@@ -248,7 +248,7 @@ station_locations = {
 // Type: string
 //
 
-output_url = "/tmp/lrose_data/nexrad/spdb/sounding/ruc";
+output_url = "$(NEXRAD_DATA_DIR)/spdb/sounding/ruc";
 
 ///////////// valid_period_secs ///////////////////////
 //
