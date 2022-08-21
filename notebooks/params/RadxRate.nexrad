@@ -534,7 +534,7 @@ output_encoding = OUTPUT_ENCODING_INT16;
 // Type: boolean
 //
 
-copy_selected_input_fields_to_output = FALSE;
+copy_selected_input_fields_to_output = TRUE;
 
 ///////////// copy_fields /////////////////////////////
 //
@@ -560,36 +560,36 @@ copy_fields = {
     output_name = "DBZ",
     censor_non_weather = FALSE
   }
-  ,
-  {
-    input_name = "VEL",
-    output_name = "VEL",
-    censor_non_weather = FALSE
-  }
-  ,
-  {
-    input_name = "WIDTH",
-    output_name = "WIDTH",
-    censor_non_weather = FALSE
-  }
-  ,
-  {
-    input_name = "ZDR",
-    output_name = "ZDR",
-    censor_non_weather = FALSE
-  }
-  ,
-  {
-    input_name = "PHIDP",
-    output_name = "PHIDP",
-    censor_non_weather = FALSE
-  }
-  ,
-  {
-    input_name = "RHOHV",
-    output_name = "RHOHV",
-    censor_non_weather = FALSE
-  }
+  // ,
+  // {
+  //   input_name = "VEL",
+  //   output_name = "VEL",
+  //   censor_non_weather = FALSE
+  // }
+  // ,
+  // {
+  //   input_name = "WIDTH",
+  //   output_name = "WIDTH",
+  //   censor_non_weather = FALSE
+  // }
+  // ,
+  // {
+  //   input_name = "ZDR",
+  //   output_name = "ZDR",
+  //   censor_non_weather = FALSE
+  // }
+  // ,
+  // {
+  //   input_name = "PHIDP",
+  //   output_name = "PHIDP",
+  //   censor_non_weather = FALSE
+  // }
+  // ,
+  // {
+  //   input_name = "RHOHV",
+  //   output_name = "RHOHV",
+  //   censor_non_weather = FALSE
+  // }
 };
 
 //======================================================================

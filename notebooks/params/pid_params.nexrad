@@ -300,7 +300,7 @@ PID_melting_layer_spdb_output_url = "/tmp/spdb/melting_layer";
 // Type: boolean
 //
 
-PID_use_soundings_from_spdb = FALSE;
+PID_use_soundings_from_spdb = TRUE;
 
 ///////////// PID_sounding_spdb_url ///////////////////
 //
@@ -310,7 +310,7 @@ PID_use_soundings_from_spdb = FALSE;
 // Type: string
 //
 
-PID_sounding_spdb_url = "/tmp/spdb/sounding/gfs";
+PID_sounding_spdb_url = "$(NEXRAD_DATA_DIR)/spdb/sounding/ruc";
 
 ///////////// PID_sounding_search_time_margin_secs ////
 //
