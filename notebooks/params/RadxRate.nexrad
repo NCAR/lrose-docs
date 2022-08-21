@@ -749,7 +749,7 @@ pseudo_earth_radius_ratio = 1.33333;
 // Type: string
 //
 
-instance = "$(radar_name)";
+instance = "$(RADAR_NAME)";
 
 ///////////// procmap_register_interval ///////////////
 //
