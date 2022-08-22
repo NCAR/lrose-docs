@@ -512,7 +512,7 @@ shallow_threshold_temp = 0;
 // Type: double
 //
 
-deep_threshold_temp = -30;
+deep_threshold_temp = -25;
 
 ///////////// shallow_threshold_ht ////////////////////
 //
