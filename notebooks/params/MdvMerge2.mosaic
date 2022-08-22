@@ -1,5 +1,5 @@
 /**********************************************************************
- * TDRP params for MdvMerge2
+ * Tdrp params for MdvMerge2
  **********************************************************************/
 
 //======================================================================
@@ -123,7 +123,7 @@ trigger = TIME_TRIGGER;
 // Type: string
 //
 
-fcst_file_trigger_url = "mdvp:://localhost::./mdv/vil";
+fcst_file_trigger_url = "none";
 
 ///////////// fcstLeadTimes ///////////////////////////
 //
@@ -447,7 +447,7 @@ merge_fields = {
   }
   ,
   {
-    name = "HYBRID_RATE",
+    name = "RATE_HYBRID",
     merge_method = MERGE_MEAN,
     merge_encoding = FLOAT32,
     merge_scale = 0.5,
@@ -470,16 +470,6 @@ merge_fields = {
     name = "range",
     merge_method = MERGE_CLOSEST,
     merge_encoding = FLOAT32,
-    merge_scale = 0.5,
-    merge_bias = -32,
-    output_encoding = INT16,
-    compute_composite = FALSE
-  }
-  ,
-  {
-    name = "coverage",
-    merge_method = MERGE_MAX,
-    merge_encoding = INT16,
     merge_scale = 0.5,
     merge_bias = -32,
     output_encoding = INT16,
@@ -689,8 +679,8 @@ output_projection = OUTPUT_PROJ_LATLON;
 //
 
 output_origin = {
-    lat = 38.5,
-    lon = -100
+    lat = 39.0,
+    lon = -100.0
 };
 
 ///////////// output_rotation /////////////////////////
@@ -749,14 +739,14 @@ output_std_parallels = {
 //
 
 output_grid = {
-    nx = 2800,
-    ny = 1800,
-    nz = 33,
-    minx = -106.5,
-    miny = 34,
-    minz = 0.5,
-    dx = 0.005,
-    dy = 0.005,
+    nx = 900,
+    ny = 700,
+    nz = 31,
+    minx = -104.5,
+    miny = 35.5,
+    minz = 1.25,
+    dx = 0.01,
+    dy = 0.01,
     dz = 0.5
 };
 
@@ -773,7 +763,7 @@ output_grid = {
 //     COMPRESSION_GZIP
 //
 
-output_compression = COMPRESSION_ZLIB;
+output_compression = COMPRESSION_GZIP;
 
 ///////////// output_composite ////////////////////////
 //
@@ -799,7 +789,7 @@ output_composite = FALSE;
 // Type: string
 //
 
-output_data_set_name = "3D MOSAIC";
+output_data_set_name = "3D RADAR MOSAIC";
 
 ///////////// output_data_set_source //////////////////
 //
@@ -811,7 +801,7 @@ output_data_set_name = "3D MOSAIC";
 // Type: string
 //
 
-output_data_set_source = "NEXRAD and SPOL radars for $(PROJECT_NAME)";
+output_data_set_source = "NEXRAD radars";
 
 ///////////// copyMetaDataFromInput ///////////////////
 //
@@ -863,36 +853,36 @@ copyMetaDataFromInput = FALSE;
 //
 
 remap_input_grids = {
-  {
-    url = "mdvp:://exampleHost::example/dir/struct1",
-    gridType = "FLAT",
-    nx = 400,
-    ny = 400,
-    minx = -199.5,
-    miny = -199.5,
-    dx = 1,
-    dy = 1,
-    lambertTruelat1 = 60,
-    lambertTruelat2 = 40,
-    flatEarthRotation = 0,
-    originLat = 40,
-    originLon = -105
-  }
-  ,
-  {
-    url = "mdvp:://exampleHost::example/dir/struct2",
-    gridType = "FLAT",
-    nx = 400,
-    ny = 400,
-    minx = -199.5,
-    miny = -199.5,
-    dx = 1,
-    dy = 1,
-    lambertTruelat1 = 60,
-    lambertTruelat2 = 40,
-    flatEarthRotation = 0,
-    originLat = 41,
-    originLon = -107
-  }
+  // {
+  //   url = "mdvp:://exampleHost::example/dir/struct1",
+  //   gridType = "FLAT",
+  //   nx = 400,
+  //   ny = 400,
+  //   minx = -199.5,
+  //   miny = -199.5,
+  //   dx = 1,
+  //   dy = 1,
+  //   lambertTruelat1 = 60,
+  //   lambertTruelat2 = 40,
+  //   flatEarthRotation = 0,
+  //   originLat = 40,
+  //   originLon = -105
+  // }
+  // ,
+  // {
+  //   url = "mdvp:://exampleHost::example/dir/struct2",
+  //   gridType = "FLAT",
+  //   nx = 400,
+  //   ny = 400,
+  //   minx = -199.5,
+  //   miny = -199.5,
+  //   dx = 1,
+  //   dy = 1,
+  //   lambertTruelat1 = 60,
+  //   lambertTruelat2 = 40,
+  //   flatEarthRotation = 0,
+  //   originLat = 41,
+  //   originLon = -107
+  // }
 };
 
