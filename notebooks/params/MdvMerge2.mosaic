@@ -203,7 +203,7 @@ time_trigger_margin = 600;
 // Type: boolean
 //
 
-past_only = TRUE;
+past_only = FALSE;
 
 ///////////// min_time_between_file_triggers //////////
 //
