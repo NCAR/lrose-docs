@@ -86,7 +86,7 @@ The LROSE code, scripts, parameter files and documentation is checked into GitHu
 
 | Repository | Description   |
 | ------------- |:-------------:|
-| lrose-core | Core C and C++ code |
+| [lrose-core](https://github.com/NCAR/lrose-core) | Core C and C++ code |
 | lrose-bootstrap | Checkout, build, release |
 | lrose-docs | Overall documentation |
 | lrose-devel | Development and test environment |
