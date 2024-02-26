@@ -26,7 +26,20 @@ To download this repository from GitHub, run:
 
 ### EXTERNAL DEPENDENCIES
 
-The `lrose-core` external dependencies:
+`lrose-core` is dependent on the following major packages:
+
+* git
+* cmake
+* gcc and g++ (or clang)
+* X11
+* libcurl, libpng, libtiff
+* zlib, bzip2
+* expat, flex
+* fftw3
+* qt5 or qt6
+* hdf5, netcdf
+
+Details on installing the packages for the build are found at:
 
 * [LINUX](https://github.com/NCAR/lrose-core/tree/master/docs/build/lrose_package_dependencies.linux.md)
 * [OSX](https://github.com/NCAR/lrose-core/tree/master/docs/build/lrose_package_dependencies.osx.md)
