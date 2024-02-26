@@ -30,12 +30,12 @@ To download this repository from GitHub, run:
 
 * git
 * cmake
-* gcc and g++ (or clang)
-* X11
+* gcc, g++ (or clang)
 * libcurl, libpng, libtiff
 * zlib, bzip2
 * expat, flex
 * fftw3
+* X11
 * qt5 or qt6
 * hdf5, netcdf
 
@@ -48,20 +48,37 @@ Details on installing the packages for the build are found at:
 
 `lrose-core` includes a series of libraries that are part of the build:
 
-* [Libraries](https://github.com/NCAR/lrose-core/blob/master/docs/libs/lrose-libs-summary.pdf)
-
-
-### INSTALLING FROM DOWNLOADS
-
-| Target | Description   |
+| Library | Description   |
 | ------------- |:-------------:|
-| [LINUX - Centos, Fedora, RHEL](./docs/download/download_package_and_install.redhat.md) | Install from .rpm package file |
-| [LINUX - Debian, Ubuntu](./docs/download/download_package_and_install.debian.md) | Install from .deb package file |
-| [LINUX - Suse](./docs/download/download_package_and_install.suse.md) | Install from .rpm package file |
-| [LINUX - Alma Linux](./docs/download/download_package_and_install.redhat.md) | Install from .rpm package file |
-| [MAC lrose-core](./docs/download/install_using_homebrew.mac_osx.md) | Build and install using homebrew |
-| [MAC HawkEye](./docs/download/hawkeye_install_from_dmg.md) | Install HawkEye from DMG file |
-| [CIDD - LINUX](./docs/download/CIDD_binary_download_and_install.linux.md) | Binary install of CIDD for LINUX |
+| tdrp | Table-driven run-time parameters |
+| dataport | Portable data types, byte swapping |
+| toolsa | ANSI-C and C++ utilities |
+| physics | Physics, meteorology |
+| rapmath | Mathematics, statistics |
+| FiltAlg, FiltAlgVirtVol | Spatial filtering |
+| euclid | Euclidean geometry |
+| advect | Meteorological advection routines |
+| contour | Contouring routines |
+| kd | KD-tree |
+| hydro | Hydrology |
+| rapformats | Binary representation of met. data types |
+| didss | File access |
+| dsserver, dsdata | Data server layer |
+| grib, grib2 | GRIB data file decoding |
+| shapelib | Shapefile data handling |
+| radar | Radar-specific data and mathematics |
+| Refract | Radar refractivity |
+| Fmq | Fast Message Queue support |
+| Mdv | Meteorological Data Volumes - gridded and Cartesian data |
+| Ncxx | C++ NetCDF support |
+| Radx | Handling radial data - radars and lidars |
+| Spdb | Symbolic Product Data Base - time based storage of feature data |
+| cidd, Solo, qtplot, rapplot | Plotting and display support |
+| titan | Storm identification and tracking, spatial classification of radar data |
+
+Further library details are available at:
+
+* [Libraries](https://github.com/NCAR/lrose-core/blob/master/docs/libs/lrose-libs-summary.pdf)
 
 ### BUILDS
 
