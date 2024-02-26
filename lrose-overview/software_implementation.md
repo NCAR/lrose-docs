@@ -78,7 +78,27 @@ Details on installing the packages for the build are found at:
 
 Further library details are available at:
 
-* [Libraries](https://github.com/NCAR/lrose-core/blob/master/docs/libs/lrose-libs-summary.pdf)
+* [Library descriptions](https://github.com/NCAR/lrose-core/blob/master/docs/libs/lrose-libs-summary.pdf)
+
+### LROSE repositories
+
+The LROSE code, scripts, parameter files and documentation is checked into GitHub under the NCAR organization. The repository details are as follows:
+
+| Repository | Description   |
+| ------------- |:-------------:|
+| lrose-core | Core C and C++ code |
+| lrose-bootstrap | Checkout, build, release |
+| lrose-docs | Overall documentation |
+| lrose-devel | Development and test environment |
+| lrose-test | Development and test environment |
+| lrose-example-data | Data for testing |
+| lrose-titan | TITAN project scripts and parameters |
+| lrose-projects-eolbase | EOL projects scripts and parameters |
+| lrose-projects-precip | PRECIP project scripts and parameters |
+| lrose-cedric | Code for legacy cedric app |
+| lrose-soloii | Code for legacy soloii app |
+| lrose-solo3 | Code for legacy solo3 app |
+| CfRadial | Docs for CfRadial NetCDF format |
 
 ### BUILDS
 
