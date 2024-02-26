@@ -28,8 +28,8 @@ To download this repository from GitHub, run:
 
 The `lrose-core` external dependencies:
 
-* [LINUX](https://github.com/NCAR/lrose-core/docs/build/lrose_package_dependencies.linux.md)
-* [OSX](https://github.com/NCAR/lrose-core/docs/build/lrose_package_dependencies.osx.md)
+* [LINUX](https://github.com/NCAR/lrose-core/tree/master/docs/build/lrose_package_dependencies.linux.md)
+* [OSX](https://github.com/NCAR/lrose-core/tree/master/docs/build/lrose_package_dependencies.osx.md)
 
 ### INTERNAL DEPENDENCIES
 
