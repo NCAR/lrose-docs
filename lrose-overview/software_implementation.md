@@ -87,18 +87,17 @@ The LROSE code, scripts, parameter files and documentation is checked into GitHu
 | Repository | Description   |
 | ------------- |:-------------:|
 | [lrose-core](https://github.com/NCAR/lrose-core) | Core C and C++ code |
-| lrose-bootstrap | Checkout, build, release |
-| lrose-docs | Overall documentation |
-| lrose-devel | Development and test environment |
-| lrose-test | Development and test environment |
-| lrose-example-data | Data for testing |
-| lrose-titan | TITAN project scripts and parameters |
-| lrose-projects-eolbase | EOL projects scripts and parameters |
-| lrose-projects-precip | PRECIP project scripts and parameters |
-| lrose-cedric | Code for legacy cedric app |
-| lrose-soloii | Code for legacy soloii app |
-| lrose-solo3 | Code for legacy solo3 app |
-| CfRadial | Docs for CfRadial NetCDF format |
+| [lrose-bootstrap](https://github.com/NCAR/lrose-bootstrap) | Checkout, build, release |
+| [lrose-docs](https://github.com/NCAR/lrose-docs) | Overall documentation |
+| [lrose-devel](https://github.com/NCAR/lrose-devel) | Development and test environment |
+| [lrose-test](https://github.com/NCAR/lrose-test) | Development and test environment |
+| [lrose-example-data](https://github.com/NCAR/lrose-example-data) | Data for testing |
+| [lrose-titan](https://github.com/NCAR/lrose-titan) | TITAN project scripts and parameters |
+| [lrose-projects-eolbase](https://github.com/NCAR/lrose-projects-eolbase) | EOL projects scripts and parameters |
+| [lrose-cedric](https://github.com/NCAR/lrose-cedric) | Code for legacy cedric app |
+| [lrose-soloii](https://github.com/NCAR/lrose-soloii) | Code for legacy soloii app |
+| [lrose-solo3](https://github.com/NCAR/lrose-solo3) | Code for legacy solo3 app |
+| [CfRadial](https://github.com/NCAR/CfRadial) | Docs for CfRadial NetCDF format |
 
 ### BUILDS
 
