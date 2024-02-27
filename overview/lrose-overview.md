@@ -26,7 +26,7 @@ To download this repository from GitHub, run:
 * git
 * make, cmake
 * python (releases, cmake support)
-* gcc, g++ (or clang compiler)
+* gcc, g++ (or clang on OSX)
 * libcurl (web-based data access)
 * libpng, libtiff (image support)
 * zlib, bzip2 (compression)
