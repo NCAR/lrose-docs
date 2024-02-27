@@ -98,6 +98,9 @@ The LROSE code, scripts, parameter files and documentation is checked into GitHu
 | [lrose-soloii](https://github.com/NCAR/lrose-soloii) | Code for legacy soloii app |
 | [lrose-solo3](https://github.com/NCAR/lrose-solo3) | Code for legacy solo3 app |
 | [CfRadial](https://github.com/NCAR/CfRadial) | Docs for CfRadial NetCDF format |
+| [fractl](https://github.com/mmbell/fractl) | FRACTL wind retrieval application (CSU) |
+| [samurai](https://github.com/mmbell/samurai) | SAMURAI wind retrieval application (CSU) |
+| [vortrac](https://github.com/mmbell/vortrac) | VORTRAC hurricane analysis application (CSU) |
 
 ### BUILDS
 
