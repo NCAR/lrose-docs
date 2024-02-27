@@ -30,11 +30,13 @@ To download this repository from GitHub, run:
 
 * git
 * cmake
-* gcc, g++ (or clang)
-* libcurl, libpng, libtiff
-* zlib, bzip2
-* expat, flex
-* fftw3
+* gcc, g++ (or clang compiler)
+* libcurl (web-based access)
+* libpng, libtiff (image support)
+* zlib, bzip2 (compression)
+* expat (XML)
+* flex (lexical analyzer)
+* fftw3 (Fourier transforms)
 * X11
 * qt5 or qt6
 * hdf5, netcdf
