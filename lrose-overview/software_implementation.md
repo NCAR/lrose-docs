@@ -119,7 +119,3 @@ The DOI entry information is stored at:
 
 * [https://search.datacite.org/works/10.5065/60hz-ry38](https://search.datacite.org/works/10.5065/60hz-ry38)
 
-### This page is published at:
-
-[https://ncar.github.io/lrose-core](https://ncar.github.io/lrose-core)
-
