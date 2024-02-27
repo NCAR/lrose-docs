@@ -102,25 +102,6 @@ The LROSE code, scripts, parameter files and documentation is checked into GitHu
 | [samurai](https://github.com/mmbell/samurai) | SAMURAI wind retrieval application (CSU) |
 | [vortrac](https://github.com/mmbell/vortrac) | VORTRAC hurricane analysis application (CSU) |
 
-### BUILDS
-
-For details on builds and the code development environment, see:
-
-| Location      | Description   |
-| ------------- |:-------------:|
-| [Prepare for build](./docs/build/prepare_for_build.md) | Prepare you OS for building LROSE |
-| [Build overview](./docs/build/LROSE_build_main_page.md) | Building and code development |
-
-### REPOSITORY ORGANIZATION
-
-| Location      | Description   |
-| ------------- |:-------------:|
-| [docs](./docs) | README files |
-| [build](./build) | build scripts, release scripts and associated files |
-| [codebase/libs](./codebase/libs) | library source code |
-| [codebase/apps](./codebase/apps) | application source code |
-| [lrose-bootstrap](https://github.com/NCAR/lrose-bootstrap) | Bootstrap scripts |
-
 ### DOCUMENTATION LINKS
 
 | Name           | Description   |
