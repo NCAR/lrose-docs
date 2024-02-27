@@ -17,7 +17,7 @@ The primary purpose of this repository is to centralize the user documentation f
 
 Some of the user documentation resides in other locations, and links will be provided where appropriate.
  
-## Software overview
+## Software overview - lrose-core
 
 * [See software overview](./overview/lrose-overview.md)
 

@@ -29,16 +29,16 @@ To download this repository from GitHub, run:
 `lrose-core` is dependent on the following major packages:
 
 * git
-* cmake
+* make, cmake
+* python (releases, cmake support)
 * gcc, g++ (or clang compiler)
-* libcurl (web-based access)
+* libcurl (web-based data access)
 * libpng, libtiff (image support)
 * zlib, bzip2 (compression)
 * expat (XML)
 * flex (lexical analyzer)
 * fftw3 (Fourier transforms)
-* X11
-* qt5 or qt6
+* X11, qt5 or qt6
 * hdf5, netcdf
 
 As a rule, we have tried to keep the number of external dependencies to a minimum, and to only include packages that are universally available on the main LINUX versions, plus OSX under `brew`.
