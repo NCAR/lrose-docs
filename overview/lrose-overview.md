@@ -112,6 +112,7 @@ The LROSE code, scripts, parameter files and documentation is checked into GitHu
 | -------------- |:-------------:|
 | [LROSE_DOCS_OVERVIEW](https://github.com/NCAR/lrose-core/blob/master/docs/LROSE_DOCS_OVERVIEW.md) | Documentation index |
 | [RadxDualPolApps](https://github.com/NCAR/lrose-core/blob/master/docs/apps/radx/dualpol/RadxDualpolApps.md) | Dual-polarization apps |
+| [TDRP](http://htmlpreview.github.io/?https://github.com/NCAR/lrose-core/blob/master/docs/tdrp/index.html) | TDRP implementation details |
 
 ### DOIs
 
