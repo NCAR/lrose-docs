@@ -41,6 +41,8 @@ To download this repository from GitHub, run:
 * qt5 or qt6
 * hdf5, netcdf
 
+As a rule, we have tried to keep the number of external dependencies to a minimum, and to only include packages that are universally available on the main LINUX versions, plus OSX under `brew`.
+
 Details on installing the packages for the build are found at:
 
 * [LINUX](https://github.com/NCAR/lrose-core/tree/master/docs/build/lrose_package_dependencies.linux.md)
