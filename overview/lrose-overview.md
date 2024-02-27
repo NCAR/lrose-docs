@@ -1,10 +1,5 @@
 # `lrose-core` software overview
 
-<img align="left" width="175" height="175" src="../images/LROSE_logo.small.png">
-<img align="right" width="175" height="175" src="../images/spol_dynamo.jpg">
-
---------------------------------------------
-
 ## **LROSE** - The Lidar Radar Open Software Environment
 
 LROSE is a co-operative project between:
