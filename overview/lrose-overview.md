@@ -85,23 +85,23 @@ The LROSE code, scripts, parameter files and documentation is checked into GitHu
 
 The repository details are as follows:
 
-| Repository | Description   |
-| ------------- |:-------------:|
-| [lrose-core](https://github.com/NCAR/lrose-core) | Core C and C++ code |
-| [lrose-bootstrap](https://github.com/NCAR/lrose-bootstrap) | Checkout, build, release |
-| [lrose-docs](https://github.com/NCAR/lrose-docs) | Overall documentation |
-| [lrose-devel](https://github.com/NCAR/lrose-devel) | Development and test environment |
-| [lrose-test](https://github.com/NCAR/lrose-test) | Development and test environment |
-| [lrose-example-data](https://github.com/NCAR/lrose-example-data) | Data for testing |
-| [lrose-titan](https://github.com/NCAR/lrose-titan) | TITAN project scripts and parameters |
-| [lrose-projects-eolbase](https://github.com/NCAR/lrose-projects-eolbase) | EOL projects scripts and parameters |
-| [lrose-cedric](https://github.com/NCAR/lrose-cedric) | Code for legacy cedric app |
-| [lrose-soloii](https://github.com/NCAR/lrose-soloii) | Code for legacy soloii app |
-| [lrose-solo3](https://github.com/NCAR/lrose-solo3) | Code for legacy solo3 app |
-| [CfRadial](https://github.com/NCAR/CfRadial) | Docs for CfRadial NetCDF format |
-| [fractl](https://github.com/mmbell/fractl) | FRACTL wind retrieval application (CSU) |
-| [samurai](https://github.com/mmbell/samurai) | SAMURAI wind retrieval application (CSU) |
-| [vortrac](https://github.com/mmbell/vortrac) | VORTRAC hurricane analysis application (CSU) |
+| Name | Repository | Description   |
+| ---- | ------------- |:-------------:|
+| lrose-core | [github.com/NCAR/lrose-core](https://github.com/NCAR/lrose-core) | Core C and C++ code |
+| lrose-bootstrap | [github.com/NCAR/lrose-bootstrap](https://github.com/NCAR/lrose-bootstrap) | Checkout, build, release |
+| lrose-docs | [github.com/NCAR/lrose-docs](https://github.com/NCAR/lrose-docs) | Overall documentation |
+| lrose-devel | [github.com/NCAR/lrose-devel](https://github.com/NCAR/lrose-devel) | Development and test environment |
+| lrose-test | [github.com/NCAR/lrose-test](https://github.com/NCAR/lrose-test) | Development and test environment |
+| lrose-example | [github.com/NCAR/lrose-example-data](https://github.com/NCAR/lrose-example-data) | Data for testing |
+| lrose-titan | [github.com/NCAR/lrose-titan](https://github.com/NCAR/lrose-titan) | TITAN project scripts and parameters |
+| lrose-projects-eolbase | [github.com/NCAR/lrose-projects-eolbase](https://github.com/NCAR/lrose-projects-eolbase) | EOL projects scripts and parameters |
+| lrose-cedric | [github.com/NCAR/lrose-cedric](https://github.com/NCAR/lrose-cedric) | Code for legacy cedric app |
+| lrose-soloii | [github.com/NCAR/lrose-soloii](https://github.com/NCAR/lrose-soloii) | Code for legacy soloii app |
+| lrose-solo3 | [github.com/NCAR/lrose-solo3](https://github.com/NCAR/lrose-solo3) | Code for legacy solo3 app |
+| CfRadial | [github.com/NCAR/CfRadial](https://github.com/NCAR/CfRadial) | Docs for CfRadial NetCDF format |
+| fractl | [github.com/mmbell/fractl](https://github.com/mmbell/fractl) | FRACTL wind retrieval application (CSU) |
+| samurai | [github.com/mmbell/samurai](https://github.com/mmbell/samurai) | SAMURAI wind retrieval application (CSU) |
+| vortrac | [github.com/mmbell/vortrac](https://github.com/mmbell/vortrac) | VORTRAC hurricane analysis application (CSU) |
 
 ### DOCUMENTATION LINKS
 
