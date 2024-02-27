@@ -48,7 +48,7 @@ Details on installing the packages for the build are found at:
 `lrose-core` includes a series of libraries that are part of the build:
 
 | Library | Description   |
-| ------------- |:-------------:|
+| ------------- |-------------|
 | tdrp | Table-driven run-time parameters |
 | dataport | Portable data types, byte swapping |
 | toolsa | ANSI-C and C++ utilities |
