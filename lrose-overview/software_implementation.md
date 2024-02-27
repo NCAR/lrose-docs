@@ -106,8 +106,8 @@ The LROSE code, scripts, parameter files and documentation is checked into GitHu
 
 | Name           | Description   |
 | -------------- |:-------------:|
-| [LROSE_DOCS_OVERVIEW.md](https://github.com/NCAR/lrose-core/docs/LROSE_DOCS_OVERVIEW.md) | Documentation index |
-| [RadxDualPolApps.md](https://github.com/NCAR/lrose-core/docs/apps/radx/dualpol/RadxDualpolApps.md) | Dual-polarization apps |
+| [LROSE_DOCS_OVERVIEW](https://github.com/NCAR/lrose-core/blob/master/docs/LROSE_DOCS_OVERVIEW.md) | Documentation index |
+| [RadxDualPolApps](https://github.com/NCAR/lrose-core/blob/master/docs/apps/radx/dualpol/RadxDualpolApps.md) | Dual-polarization apps |
 
 ### DOIs
 
