@@ -86,7 +86,9 @@ Further library details are available at:
 
 ### LROSE repositories
 
-The LROSE code, scripts, parameter files and documentation is checked into GitHub under the NCAR organization. The repository details are as follows:
+The LROSE code, scripts, parameter files and documentation is checked into GitHub under the NCAR organization.
+
+The repository details are as follows:
 
 | Repository | Description   |
 | ------------- |:-------------:|
