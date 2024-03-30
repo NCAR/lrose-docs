@@ -2,8 +2,7 @@
 
 ## TDRP
 
-Most LROSE apps use TDRP - ** Table Driven Runtime Parameters ** - to specify the parameters
-that govern how the app runs.
+Most LROSE apps use TDRP (Table Driven Runtime Parameters) to specify the parameters for an app.
 
 TDRP provides typed parameter definitions, plus documentation, that becomes compiled into the application.
 
@@ -102,5 +101,50 @@ The Params class for TdrpTest is here:
 | apps      | https://github.com/NCAR/lrose-core/tree/master/codebase/apps/tdrp |
 
 The most important TDRP app is `tdrp_gen`.
+
+## Makefile
+
+In a standard Makefile, we handle tdrp using the following macros and rules:
+
+```
+Params.hh: Params.cc
+
+Params.cc: paramdef.appName
+        tdrp_gen -f paramdef.appName -c++ -prog appName -add_ncar_copyright
+
+clean_tdrp:
+        /bin/rm Params.cc Params.hh
+```
+
+## cmake
+
+```
+# Function for creating TDRP Params.cc and Params.hh files
+
+function(makeTdrpParams)
+
+# Add a custom generator for TDRP Params.cc and Params.hh files
+# from their associated paramdef.<app> file
+
+set(TDRP_EXECUTABLE ${CMAKE_INSTALL_PREFIX}/bin/tdrp_gen)
+#find_program(TDRP_EXECUTABLE NAMES tdrp_gen PATHS ${CMAKE_INSTALL_PREFIX} /usr/local/lrose PATH_SUFFIXES bin)
+
+add_custom_command (
+OUTPUT ${CMAKE_CURRENT_SOURCE_DIR}/Params.hh ${CMAKE_CURRENT_SOURCE_DIR}/Params.cc
+DEPENDS ${CMAKE_CURRENT_SOURCE_DIR}/paramdef.${PROJECT_NAME}
+COMMAND cd ${CMAKE_CURRENT_SOURCE_DIR} && ${TDRP_EXECUTABLE}
+-c++
+-f paramdef.${PROJECT_NAME}
+-prog ${PROJECT_NAME}
+-add_ncar_copyright
+COMMENT "Generating/updating Params.hh and Params.cc for ${PROJECT_NAME}"
+)
+
+endFunction()
+
+# add tdrp_gen as a dependency
+add_dependencies(${PROJECT_NAME} tdrp_gen)
+
+```
 
 
