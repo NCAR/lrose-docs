@@ -21,12 +21,12 @@ Some of the user documentation resides in other locations, and links will be pro
 
 | Name | link to github webpage |
 |------|------------------------|
-| Software overview | [overview](./lrose-core/lrose-overview.md) |
+| Software overview | [Vverview](./lrose-core/lrose-overview.md) |
 | Command line | [Command line](./lrose-core/lrose-command-line.md) |
 | Parameters | [Parameters](./lrose-core/lrose-parameters.md) |
 | Runtime | [Runtime](./lrose-core/lrose-runtime.md) |
 | App struture | [Anatomy of app](./lrose-core/app_anatomy.md) |
-| Realtime | [realtime](./lrose-core/realtime.md) |
+| Realtime | [Realtime operations](./lrose-core/realtime.md) |
 
 * [See software overview](./lrose-core/lrose-overview.md)
 
