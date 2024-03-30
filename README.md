@@ -19,7 +19,7 @@ Some of the user documentation resides in other locations, and links will be pro
  
 ## Software overview - lrose-core
 
-* [See software overview](./overview/lrose-overview.md)
+* [See software overview](./lrose-core/lrose-overview.md)
 
 ## Displays:
 
