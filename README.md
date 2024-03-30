@@ -39,10 +39,10 @@ LROSE handles data from a variety of formats (netCDF, HDF5, BUFR, Cfarr, etc.).
 
 The following legacy applications are checked in under separate repositories.
 
-| Name | github location |
-|:-----:|:-------------------------:|
-| cedric, sprint | [lrose-cedric](https://github.com/ncar/lrose-cedric) |
-| reorder        | [lrose-reorder](https://github.com/ncar/lrose-reorder) |
-| soloii         | [lrose-soloii](https://github.com/ncar/lrose-soloii) |
-| solo3          | [lrose-solo3](https://github.com/ncar/lrose-solo3) |
+| Name | github location | Docs |
+|:-----:|:-------------------------:|:---------:|
+| cedric, sprint | [lrose-cedric](https://github.com/ncar/lrose-cedric) | [cedric_doc](./cedric/cedric_doc.pdf) |
+| reorder        | [lrose-reorder](https://github.com/ncar/lrose-reorder) | [reorder_doc](./reorder/unixreorder.pdf) |
+| soloii         | [lrose-soloii](https://github.com/ncar/lrose-soloii) | [running soloii in docker](./soloii/running_soloii_in_docker.md) |
+| solo3          | [lrose-solo3](https://github.com/ncar/lrose-solo3) | [running solo3 in docker](./solo3/running_solo3_in_docker.md) |
 
