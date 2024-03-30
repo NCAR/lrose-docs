@@ -2,7 +2,7 @@
 
 ## TDRP
 
-Most LROSE apps use TDRP - Table Driven Runtime Parameters - to handle the parameters
+Most LROSE apps use TDRP - ** Table Driven Runtime Parameters ** - to specify the parameters
 that govern how the app runs.
 
 TDRP provides typed parameter definitions, plus documentation, that becomes compiled into the application.
