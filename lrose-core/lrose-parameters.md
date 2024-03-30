@@ -127,7 +127,6 @@ function(makeTdrpParams)
 # from their associated paramdef.<app> file
 
 set(TDRP_EXECUTABLE ${CMAKE_INSTALL_PREFIX}/bin/tdrp_gen)
-#find_program(TDRP_EXECUTABLE NAMES tdrp_gen PATHS ${CMAKE_INSTALL_PREFIX} /usr/local/lrose PATH_SUFFIXES bin)
 
 add_custom_command (
 OUTPUT ${CMAKE_CURRENT_SOURCE_DIR}/Params.hh ${CMAKE_CURRENT_SOURCE_DIR}/Params.cc
@@ -143,8 +142,8 @@ COMMENT "Generating/updating Params.hh and Params.cc for ${PROJECT_NAME}"
 endFunction()
 
 # add tdrp_gen as a dependency
-add_dependencies(${PROJECT_NAME} tdrp_gen)
 
+add_dependencies(${PROJECT_NAME} tdrp_gen)
 ```
 
 
