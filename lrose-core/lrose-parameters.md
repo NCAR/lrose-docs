@@ -109,6 +109,16 @@ If you have a parameter file and you want to update it, you can use the followin
 
 Just make sure .old_params and .new_params are not the same file, otherwise you will end up with an empty file.
 
+## Runtime
+
+At runtime, specify the parameter file on the command line:
+
+```
+  Radx2Grid -params Radx2Grid.good ... other args
+```
+
+Just make sure .old_params and .new_params are not the same file, otherwise you will end up with an empty file.
+
 ## Code location
 
 | TDRP code         | URL      |
