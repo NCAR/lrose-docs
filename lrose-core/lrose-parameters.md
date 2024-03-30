@@ -104,7 +104,7 @@ The most important TDRP app is `tdrp_gen`.
 
 ## Makefile
 
-In a standard Makefile, we handle tdrp using the following macros and rules:
+In a standard Makefile, we handle tdrp using the following rules:
 
 ```
 Params.hh: Params.cc

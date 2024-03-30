@@ -40,7 +40,7 @@ Some of the user documentation resides in other locations, and links will be pro
 | Running soloii in Docker | [running_soloii_in_docker](./soloii/running_soloii_in_docker.md) |
 | CIDD user manual | [cidd_manual](https://ncar.github.io/lrose-docs/cidd/user_manual/CIDD_manual.html) |
 
-## data format translation
+## Data format translation
 
 LROSE handles data from a variety of formats (netCDF, HDF5, BUFR, Cfarr, etc.).  
 
