@@ -15,7 +15,6 @@ The following are standard args on many applications:
   [-v, -verbose] print verbose debug messages
   [-vv, -extra] print extra verbose debug messages
   [ -params path ] specify params file path
-
 ```
 
 ## Example - RadxMon
@@ -82,6 +81,5 @@ TDRP args: [options as below]
        verbose_expand: verbose with env vars expanded
    [ -tdrp_debug] debugging prints for tdrp
    [ -tdrp_usage] print this usage
-
 ```
 
