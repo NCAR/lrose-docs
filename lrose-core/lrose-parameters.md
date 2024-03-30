@@ -93,6 +93,22 @@ The Params class for TdrpTest is here:
 | Params.hh  | [Params.hh](https://github.com/NCAR/lrose-core/tree/master/codebase/apps/tdrp/src/TdrpTest/Params.hh) |
 | Params.cc  | [Params.cc](https://github.com/NCAR/lrose-core/tree/master/codebase/apps/tdrp/src/TdrpTest/Params.cc) |
 
+## Generating a parameter file.
+
+Once an app is compiled, you can generate an example parameter file with the appropriate defaults, as follows (using Radx2Grid as an example):
+
+```
+  Radx2Grid -print_params > Radx2Grid.test
+```
+
+If you have a parameter file and you want to update it, you can use the following:
+
+```
+  Radx2Grid -params Radx2Grid.old_params -print_params > Radx2Grid.new_params
+```
+
+Just make sure .old_params and .new_params are not the same file, otherwise you will end up with an empty file.
+
 ## Code location
 
 | TDRP code         | URL      |
@@ -102,7 +118,7 @@ The Params class for TdrpTest is here:
 
 The most important TDRP app is `tdrp_gen`.
 
-## Makefile
+## Makefile support
 
 In a standard Makefile, we handle tdrp using the following rules:
 
@@ -116,7 +132,7 @@ clean_tdrp:
         /bin/rm Params.cc Params.hh
 ```
 
-## cmake
+## cmake support
 
 ```
 # Function for creating TDRP Params.cc and Params.hh files
