@@ -16,6 +16,8 @@ There are a number of components that make up the LROSE realtime system.
 | DataMapper | Data mapper. This is a server. Applications register with DataMapper when they write data. |
 | start_all | Overall start script. (shell, generally c-shell) |
 | stop_all | Overall stop script. (shell, generally c-shell) |
+| print_procmap | App to print the procmap status. |
+| PrintDataMap | App to print the DataMapper status. |
 
 * string (or char *)
 * boolean
