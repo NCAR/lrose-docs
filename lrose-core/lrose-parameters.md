@@ -33,7 +33,7 @@ In addition, for each parameter, the following may be specified:
 * min, max valid values for numerics
 * default value
 
-The paramdef file for the drpTest application is here:
+The paramdef file for the TdrpTest application is here:
 
 * [paramdef.TdrpTest](https://github.com/NCAR/lrose-core/tree/master/codebase/apps/tdrp/src/TdrpTest/paramdef.TdrpTest)
 
@@ -86,12 +86,13 @@ NOTES: TDRP - Table Driven Runtime Parameters.
     Params.hh and Params.cc.
 ```
 
-The Params class for TdrpTest is here:
+The Params class, and example parameter file, for TdrpTest is here:
 
 | Source file | URL      |
 | -------------     |:-------------:|
 | Params.hh  | [Params.hh](https://github.com/NCAR/lrose-core/tree/master/codebase/apps/tdrp/src/TdrpTest/Params.hh) |
 | Params.cc  | [Params.cc](https://github.com/NCAR/lrose-core/tree/master/codebase/apps/tdrp/src/TdrpTest/Params.cc) |
+| params.good  | [params.good](https://github.com/NCAR/lrose-core/tree/master/codebase/apps/tdrp/src/TdrpTest/params.good) |
 
 ## Generating a parameter file.
 
@@ -116,6 +117,22 @@ At runtime, specify the parameter file on the command line:
 ```
   Radx2Grid -params Radx2Grid.good ... other args
 ```
+
+## Environment variables
+
+Environment variables may be specified in a parameter file using the ```$(ENV_VAR)``` syntax.
+
+For example, the file:
+
+* [params.good](https://github.com/NCAR/lrose-core/tree/master/codebase/apps/tdrp/src/TdrpTest/params.good)
+
+has the line:
+
+```
+  input_dir = "$(HOME)/input_dir";
+```
+
+```$(HOME)``` will be expanded to the home directory of the user.
 
 ## Code location
 
