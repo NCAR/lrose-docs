@@ -23,13 +23,30 @@ There are a number of components that make up the LROSE realtime system.
 
 <img align="center" src="./lrose_runtime.png">
 
-## Code generation
+## ```procmap``` - the process mapper
 
-The ```tdrp_gen``` app reads the paramdef file, and generates a class, generally called ```Params```.
+The process mapper, ```procmap```, lies at the heart of the auto-restart capabilities of the lrose system. procmap keeps a table of the current status of all processes running on the system, except for itself. Each running process registers with procmap at regular intervals, usually once per minute. This is called the ‘heart-beat’ interval. The process status table is read from procmap by the auto_restart script and compared against the list of expected processes in the proc_list. If a process is missing or has not registered its heartbeat recently, it is killed (in case it is hung) and then restarted.
 
-The command line for tdrp_gen is as follows:
+procmap may be queried by the application ‘print_procmap’ which prints out the current table of processes, along with status information.
 
-<span style="color:red;">My teext here</span>
+## ```DataMapper``` - the data mapper
+
+The DataMapper performs a task similar to procmap, except for data sets instead of processes. The DataMapper keeps a table of all data sets on the system, along with such information as the last time data was added to the data set, how many files exist in the data set and how much disk space it occupies.
+
+Each time an application writes data to disk it also registers that activity with the DataMapper. That allows the DataMapper to keep an up-to-date status table. The DataMapper table may be queried by the application ‘PrintDataMap’, which then prints the table information.
+
+## ```auto_restart``` - the auto restarter
+
+This is the most important script. It is responsible for contacting procmap at regular intervals, say once per minute, and checking the table of processes which are running against the proc_list. Any processes which are missing or late in registering are killed with the kill script or kill_inst mechanism (in case they are hung) and then restarted with the start script.
+
+## ```procmap_list_start``` - the process list start script
+
+This script is used at system startup to go through the proc_list and start all processes by calling the start scripts, or by using the ```start_inst``` mechanism.
+
+## ```procmap_list_kill``` - the process list kill script
+
+This script is called at system shutdown to go through the proc_list and kill all processes by calling the kill script or the ```kill_inst``` mechanism.
+
 
 ```
 tdrp_gen -h
