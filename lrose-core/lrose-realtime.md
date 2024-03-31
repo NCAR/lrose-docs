@@ -47,132 +47,54 @@ This script is used at system startup to go through the proc_list and start all 
 
 This script is called at system shutdown to go through the proc_list and kill all processes by calling the kill script or the ```kill_inst``` mechanism.
 
+## ```proc_list``` - the process list
+
+The process list controls which applications (also called processes) should be run in the system. It specifies the process name, the instance and the start and kill scripts for the process. The hostname is included for backward compatibility and should always be set to localhost.
+
+The following is an example of a proc_list file, taken from the lrose project templates template_single_radar:
 
 ```
-tdrp_gen -h
-Usage:
-  tdrp_gen [moduleName] [-h] -f paramdef_path
-           [-c++] [-debug]
-           [-class className] [-dir output_dir]
-           [-prog progName] [-lib libName]
-           [-singleton] [-add_ncar_copyright]
-
-where:
-  [moduleName] in C mode all externals are prepended
-    with this name.
-    moduleName must be first arg if it is specified.
-    If first arg begins with -, moduleName is set
-    to empty string.
-  [-h] gives usage.
-  [-f paramdef_path] parameter definition file path.
-    This arg is REQUIRED.
-  [-c++] C++ mode - generates .hh and .cc class files.
-  [-debug] print debug messages.
-  [-class className] In C++ mode, set the name of the params class.
-    Default is 'Params'.
-  [-dir path] optional dir path to which to write the output.
-    Default is the current directory.
-  [-prog progName] Program name for documenting code files.
-  [-lib libName] Library name if the params reside in a library.
-    This ensures the includes are set correctly.
-  [-singleton] Create a singleton object. Only in C++ mode.
-  [-add_ncar_copyright] Add NCAR copyright in C++ mode.
-
-NOTES: TDRP - Table Driven Runtime Parameters.
-  tdrp_gen performs code generation.
-  tdrp_gen will generate two files, one header and one for code.
-  In C mode, the default, it will generate the files:
-    moduleName_tdrp.h and moduleName_tdrp.c.
-  If moduleName is left out of the command line, the files will be:
-    _tdrp.h and _tdrp.c.
-  In C++ mode, it will generate the files:
-    className.hh and classname.cc.
-  If the -class arg is not specified, the files will be:
-    Params.hh and Params.cc.
+########################################################################
+# Example proc_list file
+#
+# name       instance   start_script          kill_script       hostname
+########################################################################
+# SYSTEM processes
+#
+DsServerMgr   primary    start_DsServerMgr    snuff_inst        localhost
+Janitor       primary    start_Janitor        kill_Janitor      localhost
+Scout         primary    start_Scout          kill_Scout        localhost
+DataMapper    primary    start_DataMapper     kill_DataMapper   localhost
+#########################################################################
+# INGEST processes
+#
+Bprp2Dsr       ops       start_Bprp2Dsr.ops        snuff_inst  localhost
+EsdAcIngest    ops       start_inst(ingest)        snuff_inst  localhost
+Dsr2Vol        ops       start_Dsr2Vol.ops         snuff_inst  localhost
+ClutterRemove  cart      start_inst(ingest)        snuff_inst  localhost
+########################################################################
+# lrose ROCESSES
+#
+lrose          ops       start_lrose.ops           snuff_inst  localhost
+PrecipAccum    single    start_PrecipAccum.single  snuff_inst  localhost
+PrecipAccum    1hr       start_PrecipAccum.1hr     snuff_inst  localhost
+PrecipAccum    24hr      start_PrecipAccum.24hr    snuff_inst  localhost
+Mdv2Vil        ops       start_Mdv2Vil.ops         snuff_inst  localhost
+Tstorms2Spdb   ops       start_Tstorms2Spdb.ops    snuff_inst  localhost
+########################################################################
+# DISPLAY processes
+#
+Rview          ops       start_Rview.ops      snuff_inst       localhost
+TimeHist       ops       start_Rview.ops      snuff_inst       localhost
+RadMon         ops       start_RadMon.ops     kill_RadMon.ops  localhost
+CIDD           ops       start_CIDD.ops       snuff_inst       localhost
 ```
 
-The Params class for TdrpTest is here:
+The process binary must be in the search path. The instance for a process is used to distinguish between different instances of the same process. In the example above, PrecipAccum is running with 3 different instances, one to convert single radar scans into precipitation amounts and the other two to accumulate precipitation into 1 and 24 hour running totals.
 
-| Source file | URL      |
-| -------------     |:-------------:|
-| Params.hh  | [Params.hh](https://github.com/NCAR/lrose-core/tree/master/codebase/apps/tdrp/src/TdrpTest/Params.hh) |
-| Params.cc  | [Params.cc](https://github.com/NCAR/lrose-core/tree/master/codebase/apps/tdrp/src/TdrpTest/Params.cc) |
+If a specific start script for a process exists, it should be specified. If not, the ```start_inst``` mechanism may be used. More details on this later on.
 
-## Generating a parameter file.
+If special action must be taken to kill the application, a kill script should also be supplied. However, if nothing special is needed to kill the application the entry ‘snuff_inst’ can be used instead. Based on that entry the system will kill the application based on its name and instance.
 
-Once an app is compiled, you can generate an example parameter file with the appropriate defaults, as follows (using Radx2Grid as an example):
-
-```
-  Radx2Grid -print_params > Radx2Grid.test
-```
-
-If you have a parameter file and you want to update it, you can use the following:
-
-```
-  Radx2Grid -params Radx2Grid.old_params -print_params > Radx2Grid.new_params
-```
-
-Just make sure .old_params and .new_params are not the same file, otherwise you will end up with an empty file.
-
-## Runtime
-
-At runtime, specify the parameter file on the command line:
-
-```
-  Radx2Grid -params Radx2Grid.good ... other args
-```
-
-## Code location
-
-| TDRP code         | URL      |
-| -------------     |:-------------:|
-| lib       | https://github.com/NCAR/lrose-core/tree/master/codebase/libs/tdrp |
-| apps      | https://github.com/NCAR/lrose-core/tree/master/codebase/apps/tdrp |
-
-The most important TDRP app is `tdrp_gen`.
-
-## Makefile support
-
-In a standard Makefile, we handle tdrp using the following rules:
-
-```
-Params.hh: Params.cc
-
-Params.cc: paramdef.appName
-        tdrp_gen -f paramdef.appName -c++ -prog appName -add_ncar_copyright
-
-clean_tdrp:
-        /bin/rm Params.cc Params.hh
-```
-
-## cmake support
-
-```
-# Function for creating TDRP Params.cc and Params.hh files
-
-function(makeTdrpParams)
-
-# Add a custom generator for TDRP Params.cc and Params.hh files
-# from their associated paramdef.<app> file
-
-set(TDRP_EXECUTABLE ${CMAKE_INSTALL_PREFIX}/bin/tdrp_gen)
-
-add_custom_command (
-OUTPUT ${CMAKE_CURRENT_SOURCE_DIR}/Params.hh ${CMAKE_CURRENT_SOURCE_DIR}/Params.cc
-DEPENDS ${CMAKE_CURRENT_SOURCE_DIR}/paramdef.${PROJECT_NAME}
-COMMAND cd ${CMAKE_CURRENT_SOURCE_DIR} && ${TDRP_EXECUTABLE}
--c++
--f paramdef.${PROJECT_NAME}
--prog ${PROJECT_NAME}
--add_ncar_copyright
-COMMENT "Generating/updating Params.hh and Params.cc for ${PROJECT_NAME}"
-)
-
-endFunction()
-
-# add tdrp_gen as a dependency
-
-add_dependencies(${PROJECT_NAME} tdrp_gen)
-```
-
+This script is called at system shutdown to go through the proc_list and kill all processes by calling the kill script or the ```kill_inst``` mechanism.
 
