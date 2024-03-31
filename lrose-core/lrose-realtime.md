@@ -27,13 +27,13 @@ There are a number of components that make up the LROSE realtime system.
 
 The process mapper, ```procmap```, lies at the heart of the auto-restart capabilities of the lrose system. procmap keeps a table of the current status of all processes running on the system, except for itself. Each running process registers with procmap at regular intervals, usually once per minute. This is called the ‘heart-beat’ interval. The process status table is read from procmap by the auto_restart script and compared against the list of expected processes in the proc_list. If a process is missing or has not registered its heartbeat recently, it is killed (in case it is hung) and then restarted.
 
-procmap may be queried by the application ‘print_procmap’ which prints out the current table of processes, along with status information.
+procmap may be queried by the application ```print_procmap``` which prints out the current table of processes, along with status information.
 
 ## ```DataMapper``` - the data mapper
 
 The DataMapper performs a task similar to procmap, except for data sets instead of processes. The DataMapper keeps a table of all data sets on the system, along with such information as the last time data was added to the data set, how many files exist in the data set and how much disk space it occupies.
 
-Each time an application writes data to disk it also registers that activity with the DataMapper. That allows the DataMapper to keep an up-to-date status table. The DataMapper table may be queried by the application ‘PrintDataMap’, which then prints the table information.
+Each time an application writes data to disk it also registers that activity with the DataMapper. That allows the DataMapper to keep an up-to-date status table. The DataMapper table may be queried by the application ```PrintDataMap```, which then prints the table information.
 
 ## ```auto_restart``` - the auto restarter
 
