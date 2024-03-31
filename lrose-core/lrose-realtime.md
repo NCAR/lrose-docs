@@ -151,10 +151,11 @@ setenv DATA_DISTRIB_LOG_DIR $LOG_DIR/distrib
 
 For convenience links are provided in $LOG_DIR to the logs from yesterday and today. The link is updated every 5 minutes (see cron) using the script ```start_build_logdir_links```.
 
-The links would be something along the following:
+The links would be something like the following:
 
 ```
-
+  today -> /home/rsfdata/data/logs/errors/20240331
+  yesterday -> /home/rsfdata/data/logs/errors/20240330
 ```
 
 ## LogFilter
