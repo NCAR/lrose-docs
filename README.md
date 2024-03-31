@@ -24,8 +24,8 @@ Some of the user documentation resides in other locations, and links will be pro
 | Software overview | [Overview](./lrose-core/lrose-overview.md) |
 | Command line | [Command line](./lrose-core/lrose-command-line.md) |
 | Parameters | [Parameters](./lrose-core/lrose-parameters.md) |
-| Runtime | [Runtime](./lrose-core/lrose-runtime.md) |
 | App struture | [Anatomy of an app](./lrose-core/lrose-app-structure.md) |
+| Runtime | [Runtime](./lrose-core/lrose-runtime.md) |
 | Realtime | [Realtime operations](./lrose-core/realtime.md) |
 
 * [See software overview](./lrose-core/lrose-overview.md)
