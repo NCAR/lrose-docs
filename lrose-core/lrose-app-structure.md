@@ -1,4 +1,4 @@
-# `lrose-core` Anatomy of a typical LROSE application
+# Anatomy of a typical LROSE application
 
 ## Common source files
 

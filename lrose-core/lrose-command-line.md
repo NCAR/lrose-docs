@@ -1,4 +1,4 @@
-# `lrose-core` Command Line Conventions
+# Command Line Conventions
 
 ## Single-dash options
 

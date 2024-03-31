@@ -1,4 +1,4 @@
-# `lrose-core` Parameters
+# Parameters
 
 ## TDRP
 
