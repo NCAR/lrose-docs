@@ -9,8 +9,8 @@ There are a number of components that make up the LROSE realtime system.
 | procmap   | Process mapper. This is a server. Individual applications register routinely with procmap to confirm that they are alive and running as expected. |
 | apps      | Applications register with procmap |
 | proc_list | List of required applications |
-| procmap_list_start | Start script - reads proc_list, starts apps. (perl) |
 | auto_restart | Auto restarter - reads proc_list, checks with procmap if all are running correctly. If a process is not registering correctly, it will kill it (in case it is hung) and restart it. (perl) |
+| procmap_list_start | Start script - reads proc_list, starts apps. (perl) |
 | procmap_list_kill | Kill script - reads proc_list, kills apps. (perl) |
 | cron | Keeps auto_restart running. Performs other tasks on a schedule as required |
 | DataMapper | Data mapper. This is a server. Applications register with DataMapper when they write data. |
@@ -18,6 +18,7 @@ There are a number of components that make up the LROSE realtime system.
 | stop_all | Overall stop script. (shell, generally c-shell) |
 | print_procmap | App to print the procmap status. |
 | PrintDataMap | App to print the DataMapper status. |
+| LogFilter | Reads stdout and stderr from apps, logs the text to date-stamped files in a designated directory. |
 
 The figure below shows how these components interact:
 
@@ -97,4 +98,29 @@ If a specific start script for a process exists, it should be specified. If not,
 If special action must be taken to kill the application, a kill script should also be supplied. However, if nothing special is needed to kill the application the entry ```snuff_inst``` can be used instead. Based on that entry the system will kill the application based on its name and instance.
 
 This script is called at system shutdown to go through the proc_list and kill all processes by calling the kill script or the ```snuff_inst``` mechanism.
+
+## cron table file
+
+The cron daemon on a UNIX system is designed to run tasks on a predefined schedule. The so-called cron table is used to specify which tasks are to be scheduled.
+
+Below is a typical crontab file for a lrose real-time system:
+
+```
+##########################################################################
+#
+# Example cron table for lrose
+#
+# Process restarters
+*/1 * * * *  csh -c “start_auto_restart_check_cron” 1> /dev/null 2> /dev/null
+*/1 * * * *  csh -c “start_procmap_check_cron”      1> /dev/null 2> /dev/null
+#
+# Build links to log date subdirs
+*/5 * * * *   csh -c “start_build_logdir_links” 1> /dev/null 2> /dev/null
+#
+```
+
+There are 3 scheduled tasks:
+* every 1 minute the script start_auto_restart_check_cron is run to ensure that the auto_restart script is running.
+* every 1 minute the script start_procmap_check_cron is run to ensure that procmap is running.
+* every 5 minutes start_build_logdir_links runs to create symbolic links in the log directories to point to log files for yesterday and today. The log files are stored in directories named for the date, i.e. yyyymmdd. The links are a convenient way to easily find the log files for today and yesterday.
 
