@@ -5,7 +5,7 @@
 There are a number of components that make up the LROSE realtime system.
 
 | Component | Description |
-| -----     |:-----------:|
+| -----     | ----------- |
 | procmap   | Process mapper. This is a server. Individual applications register routinely with procmap to confirm that they are alive and running as expected. |
 | apps      | Applications register with procmap |
 | proc_list | List of required applications |
