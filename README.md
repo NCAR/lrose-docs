@@ -27,8 +27,6 @@ Some of the user documentation resides in other locations, and links will be pro
 | App struture | [Anatomy of an app](./lrose-core/lrose-app-structure.md) |
 | Real-time | [Real-time operations](./lrose-core/lrose-realtime.md) |
 
-* [See software overview](./lrose-core/lrose-overview.md)
-
 ## Displays:
 
 | Name | link to github webpage |
