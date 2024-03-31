@@ -3,7 +3,7 @@
 ## Common source files
 
 Many LROSE apps have a similar code structure at the top level.
-Here we use the Radx2Grid application as an example.
+(Here we use the Radx2Grid application as an example.)
 
 | Source file | Description | Example    |
 | -------------     |:-------------:|:----------|
@@ -13,150 +13,132 @@ Here we use the Radx2Grid application as an example.
 | Args.hh  | Command line args | [Args.hh](https://github.com/NCAR/lrose-core/tree/master/codebase/apps/Radx/src/Radx2Grid/Args.hh) |
 | Args.cc  | Command line args | [Args.cc](https://github.com/NCAR/lrose-core/tree/master/codebase/apps/Radx/src/Radx2Grid/Args.cc) |
 
-* M
+## Main.cc
 
-Most LROSE apps use TDRP (Table Driven Runtime Parameters) to specify the parameters for an app.
-
-TDRP provides typed parameter definitions, plus documentation, that becomes compiled into the application.
-
-See the full TDRP docs at:
-
-  http://htmlpreview.github.io/?https://github.com/NCAR/lrose-core/blob/master/docs/tdrp/index.html
-
-## **paramdef** file
-
-The paramters are defined in a ```paramdef``` file.
-
-The following paramter types are supported:
-
-* string (or char *)
-* boolean
-* int
-* long
-* float
-* double
-* enum
-* struct
-* arrays of any of the above types
-
-In addition, for each parameter, the following may be specified:
-
-* descr - description
-* help
-* min, max valid values for numerics
-* default value
-
-The paramdef file for the drpTest application is here:
-
-* [paramdef.TdrpTest](https://github.com/NCAR/lrose-core/tree/master/codebase/apps/tdrp/src/TdrpTest/paramdef.TdrpTest)
-
-## Code generation
-
-The ```tdrp_gen``` app reads the paramdef file, and generates a class, generally called ```Params```.
-
-The command line for tdrp_gen is as follows:
+This is the main entry point, and contains:
 
 ```
-tdrp_gen -h
-Usage:
-  tdrp_gen [moduleName] [-h] -f paramdef_path
-           [-c++] [-debug]
-           [-class className] [-dir output_dir]
-           [-prog progName] [-lib libName]
-           [-singleton] [-add_ncar_copyright]
-
-where:
-  [moduleName] in C mode all externals are prepended
-    with this name.
-    moduleName must be first arg if it is specified.
-    If first arg begins with -, moduleName is set
-    to empty string.
-  [-h] gives usage.
-  [-f paramdef_path] parameter definition file path.
-    This arg is REQUIRED.
-  [-c++] C++ mode - generates .hh and .cc class files.
-  [-debug] print debug messages.
-  [-class className] In C++ mode, set the name of the params class.
-    Default is 'Params'.
-  [-dir path] optional dir path to which to write the output.
-    Default is the current directory.
-  [-prog progName] Program name for documenting code files.
-  [-lib libName] Library name if the params reside in a library.
-    This ensures the includes are set correctly.
-  [-singleton] Create a singleton object. Only in C++ mode.
-  [-add_ncar_copyright] Add NCAR copyright in C++ mode.
-
-NOTES: TDRP - Table Driven Runtime Parameters.
-  tdrp_gen performs code generation.
-  tdrp_gen will generate two files, one header and one for code.
-  In C mode, the default, it will generate the files:
-    moduleName_tdrp.h and moduleName_tdrp.c.
-  If moduleName is left out of the command line, the files will be:
-    _tdrp.h and _tdrp.c.
-  In C++ mode, it will generate the files:
-    className.hh and classname.cc.
-  If the -class arg is not specified, the files will be:
-    Params.hh and Params.cc.
+  int main(int argc, char **argv);
 ```
 
-The Params class for TdrpTest is here:
+We set the signal handling to respond to termination, and to avoid unwanted interrupts from SIGPIPE signals.
 
-| Source file | URL      |
-| -------------     |:-------------:|
-| Params.hh  | [Params.hh](https://github.com/NCAR/lrose-core/tree/master/codebase/apps/tdrp/src/TdrpTest/Params.hh) |
-| Params.cc  | [Params.cc](https://github.com/NCAR/lrose-core/tree/master/codebase/apps/tdrp/src/TdrpTest/Params.cc) |
+We launch the main class.
 
-## Code location
+And we set up a function to clean up on exit.
 
-| TDRP code         | URL      |
-| -------------     |:-------------:|
-| lib       | https://github.com/NCAR/lrose-core/tree/master/codebase/libs/tdrp |
-| apps      | https://github.com/NCAR/lrose-core/tree/master/codebase/apps/tdrp |
+## AppName.hh
 
-The most important TDRP app is `tdrp_gen`.
-
-## Makefile
-
-In a standard Makefile, we handle tdrp using the following rules:
+The main application class generally has the following members at a minumum:
 
 ```
-Params.hh: Params.cc
-
-Params.cc: paramdef.appName
-        tdrp_gen -f paramdef.appName -c++ -prog appName -add_ncar_copyright
-
-clean_tdrp:
-        /bin/rm Params.cc Params.hh
+  string _progName;  // app name
+  char *_paramsPath; // path to parameter file
+  Args _args;        // command line parsing
+  Params _params;    // TDRP parameters
 ```
 
-## cmake
+## AppName.cc
+
+The constructor for the main application class generally contains the following code, as a mimumum:
 
 ```
-# Function for creating TDRP Params.cc and Params.hh files
+  // set programe name
 
-function(makeTdrpParams)
+  _progName = "Radx2Grid";
+  ucopyright((char *) _progName.c_str());
+  
+  // parse command line args
+  
+  if (_args.parse(argc, argv, _progName)) {
+    cerr << "ERROR: " << _progName << endl;
+    cerr << "Problem with command line args." << endl;
+    OK = FALSE;
+    return;
+  }
+  
+  // get TDRP params
+  
+  _paramsPath = (char *) "unknown";
+  if (_params.loadFromArgs(argc, argv,
+			   _args.override.list, &_paramsPath)) {
+    cerr << "ERROR: " << _progName << endl;
+    cerr << "Problem with TDRP parameters." << endl;
+    OK = FALSE;
+    return;
+  }
 
-# Add a custom generator for TDRP Params.cc and Params.hh files
-# from their associated paramdef.<app> file
+  // initialize registration with procmap
+  
+  PMU_auto_init(_progName.c_str(),
+                _params.instance,
+                PROCMAP_REGISTER_INTERVAL);
 
-set(TDRP_EXECUTABLE ${CMAKE_INSTALL_PREFIX}/bin/tdrp_gen)
+  // initial regsitration
 
-add_custom_command (
-OUTPUT ${CMAKE_CURRENT_SOURCE_DIR}/Params.hh ${CMAKE_CURRENT_SOURCE_DIR}/Params.cc
-DEPENDS ${CMAKE_CURRENT_SOURCE_DIR}/paramdef.${PROJECT_NAME}
-COMMAND cd ${CMAKE_CURRENT_SOURCE_DIR} && ${TDRP_EXECUTABLE}
--c++
--f paramdef.${PROJECT_NAME}
--prog ${PROJECT_NAME}
--add_ncar_copyright
-COMMENT "Generating/updating Params.hh and Params.cc for ${PROJECT_NAME}"
-)
-
-endFunction()
-
-# add tdrp_gen as a dependency
-
-add_dependencies(${PROJECT_NAME} tdrp_gen)
+  PMU_auto_register("Init");
 ```
+
+## Args.hh
+
+Class to parse the command line.
+
+Args generally have a list of overrides, to override TDRP parameters:
+
+```
+  tdrp_override_t override;
+```
+
+The override list is defined in ```libs/tdrp/src/include/tdrp/tdrp.h```:
+
+```
+  typedef struct {
+    char **list;
+    int n;
+  } tdrp_override_t;
+```
+
+See Args.cc below for how this is used.
+
+## Args.cc
+
+In Args.cc we process the command line arguments and respond appropriately.
+
+The convention is that the command line overrides the parameters in the params file.
+
+So in the command line loop, you will see examples similar to the following:
+
+```
+  for (int i =  1; i < argc; i++) {
+    
+    if (!strcmp(argv[i], "--") ||
+	!strcmp(argv[i], "-h") ||
+	!strcmp(argv[i], "-help") ||
+	!strcmp(argv[i], "-man")) {
+      
+      _usage(cout);
+      exit (0);
+      
+    } else if (!strcmp(argv[i], "-d") ||
+               !strcmp(argv[i], "-debug")) {
+      
+      sprintf(tmp_str, "debug = DEBUG_NORM;");
+      TDRP_add_override(&override, tmp_str);
+      
+    } else if (!strcmp(argv[i], "-v") ||
+               !strcmp(argv[i], "-verbose")) {
+      
+      sprintf(tmp_str, "debug = DEBUG_VERBOSE;");
+      TDRP_add_override(&override, tmp_str);
+
+    } ...
+```
+
+Here we construct strings and add them to the override list.
+The overrides are appended to the parameter file buffer before parsing.
+Parameters that appear later override those that appear earlier.
+
+You can see the parameters to be parsed by adding the arg ```-tdrp_debug``` to the command line.
+That will force a listing of the parameters to ```stderr```.
 
 
