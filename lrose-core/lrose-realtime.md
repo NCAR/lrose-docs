@@ -148,11 +148,9 @@ setenv ERRORS_LOG_DIR $LOG_DIR/errors
 setenv RESTART_LOG_DIR $LOG_DIR/restart
 setenv DATA_DISTRIB_LOG_DIR $LOG_DIR/distrib
 ```
-
 For convenience links are provided in $LOG_DIR to the logs from yesterday and today. The link is updated every 5 minutes (see cron) using the script ```start_build_logdir_links```.
 
-The links would be something like the following:
-
+As an example, the links for the errors could be the following:
 ```
   today -> /home/rsfdata/data/logs/errors/20240331
   yesterday -> /home/rsfdata/data/logs/errors/20240330
