@@ -1,20 +1,21 @@
 # Real-time operations
 
-## TDRP
+## Overview
 
-Most LROSE apps use TDRP (Table Driven Runtime Parameters) to specify the parameters for an app.
+There are a number of components that make up the LROSE realtime system.
 
-TDRP provides typed parameter definitions, plus documentation, that becomes compiled into the application.
-
-See the full TDRP docs at:
-
-  http://htmlpreview.github.io/?https://github.com/NCAR/lrose-core/blob/master/docs/tdrp/index.html
-
-## **paramdef** file
-
-The paramters are defined in a ```paramdef``` file.
-
-The following paramter types are supported:
+| Component | Description |
+| -----     |:-----------:|
+| procmap   | Process mapper. This is a server. Individual applications register routinely with procmap to confirm that they are alive and running as expected. |
+| apps      | Applications register with procmap |
+| proc_list | List of required applications |
+| procmap_list_start | Start script - reads proc_list, starts apps. (perl).. |
+| auto_restart | Auto restarter - reads proc_list, checks with procmap if all are running correctly. If a process is not registering correctly, it will kill it (in case it is hung) and restart it. (perl) |
+| procmap_list_kill | Kill script - reads proc_list, kills apps. (perl) |
+| cron | Keeps auto_restart running. Performs other tasks on a schedule as required |
+| DataMapper | Data mapper. This is a server. Applications register with DataMapper when they write data. |
+| start_all | Overall start script. |
+| stop_all | Overall stop script. |
 
 * string (or char *)
 * boolean
