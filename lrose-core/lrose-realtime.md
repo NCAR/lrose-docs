@@ -21,7 +21,7 @@ There are a number of components that make up the LROSE realtime system.
 | PrintDataMap | App to print the DataMapper status. |
 | LogFilter | This is an application that reads stdout and stderr from apps, logs the text to date-stamped files in a designated directory. |
 
-The files proc_list and crontab are generally in ```~projDir/control```.
+The files ```proc_list``` and ```crontab``` are generally store in dir: ```~projDir/control```.
 
 The figure below shows how these components interact:
 
