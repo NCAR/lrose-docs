@@ -2,7 +2,7 @@
 
 ## Common source files
 
-Many LROSE apps have a similar code structure at the top level.
+By convention, many of the LROSE apps have a similar code structure at the top level.
 (Here we use the Radx2Grid application as an example.)
 
 | Source file | Description | Example    |
