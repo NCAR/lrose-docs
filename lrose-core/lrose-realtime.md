@@ -124,6 +124,328 @@ There are 3 scheduled tasks:
 * every 1 minute the script start_procmap_check_cron is run to ensure that procmap is running.
 * every 5 minutes start_build_logdir_links runs to create symbolic links in the log directories to point to log files for yesterday and today. The log files are stored in directories named for the date, i.e. yyyymmdd. The links are a convenient way to easily find the log files for today and yesterday.
 
+## Starting the real-time system
+
+To start the system on a host, we set up a script called ```start_all```.
+
+Generally, this script performs the following steps:
+
+* Starts the process mapper procmap.
+* Starts all of the processes listed in the process list file: ~/projDir/control/proc_list 
+* Starts the auto_restart script. 
+* Installs the cron table: ~/projDir/control/crontab
+
+Here is a normal start_all script:
+
+```
+#! /bin/csh 
+
+#
+# Start up entire system...
+#
+
+#
+# start the procmap first so we can watch everything come up
+#
+
+start_procmap
+
+#
+# do a fast-start from the process list. We sleep between starts
+# to prevent overloading the system
+#
+ 
+procmap_list_start -sleep 0 \
+  -proc_list $PROJ_DIR/control/proc_list
+
+#
+# starting up the auto_restart should start up anything
+# that didn't come up during the fast-start
+#
+start_auto_restart
+
+#
+# install the crontab which insures that procmap and
+# the auto_restarter are always going
+#
+install_crontab
+```
+
+To check that the system started correctly, type the command: 
+
+```
+  pcheck
+```
+
+This script checks that all of the required processes have been successfully started. If there are no problems you should get the message: 
+
+```
+  0 processes down
+```
+
+If any processes are down, check that the start scripts and that you can successfully start them by hand. Frequently problems with this step are related to typos which are difficult to spot.
+
+## Stopping the real-time system
+
+To stop the system on a host, we generally set up an overall stop script:
+
+```
+  stop_all
+```
+
+This script performs the following steps, in order: 
+
+* Removes the crontab. 
+* Stops the auto_restart script. 
+* Stops procmap.
+* Stops all of the other lrose processes. 
+* Removes any shared memory segments.
+
+The following is a standard stop_script:
+
+```
+#! /bin/csh
+
+#
+# Shut down entire system
+#
+
+# remove crontab and kill the auto-restarter
+
+remove_crontab
+kill_auto_restart
+
+# kill the server manager so that it does not restart processes
+# which have been killed already.
+# Also kill DsFCopyServer and DsSpdbServer so new data does
+# not arrive after stopping the system.
+
+kill_DsServers
+kill_SymprodServers
+
+# kill all processes
+
+killall_processes
+kill_SysView
+
+# remove shared memory segments
+
+ipcrm_linux
+```
+
+## Starting and stopping individual processes
+
+There are two scripts, snuff and snuff_inst, which are useful for stopping individual processes.
+
+To kill all processes with a specified name, run the command:
+
+```
+snuff process_name
+```
+
+To kill all processes with a specified name and instance, run the command:
+
+```
+snuff_inst process_name instance
+```
+
+To start a process, just call the relevant start script. For processes which appear in the proc_list, the auto_restart script will restart the process anyway.
+
+## Quick check on the real-time system
+
+To check that all processes are running, type the command: 
+
+```
+  pcheck
+```
+
+This is an alias for:
+
+```
+    procmap_list_check -proc_list ~/projDir/control/proc_list
+```
+
+This will report any processes which are down. For example, if the DataMapper is down you would see:
+
+```
+ 1 process(es) down
+ DataMapper primary missing
+```
+
+If all processes are running you will get the message:
+
+```
+    0 processes down
+```
+
+If any processes are down, check that the start scripts and that you can successfully start them by hand. Frequently problems with this step are related to typos which are difficult to spot.
+
+## Detailed check: print out all processes
+
+To print a table of all processes running on a host, type the following command:
+
+```
+ppm
+```
+
+ppm is an alias for:
+
+```
+print_procmap -hb -up -status
+```
+
+You can check the processes on a remote host:
+
+```
+ppm -host hostname
+```
+
+To see the print repeated every 5 seconds, type:
+
+```
+ppm -c 5
+```
+
+ppm will produce a listing like the following:
+
+```
+(cirrus) scripts 30 % ppm
+
+PROCS REGISTERED - localhost - Sun Mar 31 14:33:02 2024
+Uptime: 10.6 d
+
+Name             Instanc  Host    User     Pid    Htbeat   Uptime   Status
+====             =======  ====    ====     ===    ======   ======   ======
+CIDD             Generic  cirrus  jwilson  262353 0:00:01  5.95 d   Idle 166253 secs, Req: 0, Mode: 3, Type: 0
+AcTrack2Symprod  manager  cirrus  rsfdata  371050 0:00:23  2.06 d   Listening, port: 5451
+DataMapper       primary  cirrus  rsfdata  118099 0:00:36  10.6 d   Listening, port: 5434
+DsFCopyServer    manager  cirrus  rsfdata  118197 0:00:34  10.6 d   Listening, port: 5445
+DsFmqServer      manager  cirrus  rsfdata  122617 0:00:55  2.47 d   Listening, port: 5443
+DsMdvServer      manager  cirrus  rsfdata  278763 0:00:40  5.6 d    Listening, port: 5440
+DsProxyServer    primary  cirrus  rsfdata  400687 0:00:45  4.06 d   Listening, port: 5442
+DsServerMgr      primary  cirrus  rsfdata  393325 0:00:55  1.69 d   Listening, port: 5435
+DsSpdbServer     manager  cirrus  rsfdata  192985 0:00:28  2.33 d   Listening, port: 5441
+Metar2Symprod    manager  cirrus  rsfdata  118212 0:00:34  10.6 d   Listening, port: 5456
+Rhi2Symprod      manager  cirrus  rsfdata  249457 0:00:18  6.24 d   Listening, port: 5473
+Scout            primary  cirrus  rsfdata  117857 0:00:09  10.6 d   Sleeping between runs
+SunCal2Symprod   manager  cirrus  rsfdata  118259 0:00:35  10.6 d   Listening, port: 5487
+Tstorms2Symprod  manager  cirrus  rsfdata  105919 0:00:31  8.88 d   Listening, port: 5460
+(cirrus) scripts 31 %
+```
+
+The columns in the above list have the following meanings:
+
+| Label | Description |
+| -----     | ----------- |
+| Name  | Process (application) name |
+| Instance | Process instance. There may be more than one instance of an application running. The instance is required for a unique reference to each instance. |
+| Host  | Normally 'localhost' |
+| User  | Who started the process |
+| Pid   | Process ID |
+| HtBeat | The time since the latest heartbeat, in seconds. Each program registers with the process mapper (procmap) at regular intervals, normally every minute. The heartbeat time gives the time since the last heartbeat. If you run 'ppm -maxint', you will see the maximum heartbeat interval, which is generally twice the normal heartbeat interval. So for most processes this will be 120 secs. If the process fails to heartbeat within this interval, it will be killed and restarted by the auto_restart script. |
+| Uptime | How long the process has been up |
+| Status | Status information, as reported by the app at the latest registration. |
+
+## Checking the data sets
+
+To print a table of all data sets available on a host, type the following command: 
+
+```
+  pdm
+```
+
+Or, for data sets on a different host: 
+
+```
+  pdm -host hostname
+```
+
+To see the print repeated every 5 seconds, type:
+
+```
+  pdm -c 5
+```
+
+pdm is an alias for:
+
+```
+  PrintDataMap -all -relt -lreg
+```
+
+pdm will produce a listing similar to the following:
+
+```
+(cirrus) scripts 32 % pdm
+=========== Data on host 'localhost' at time 2024/03/31 20:41:23 ==========
+DataType  Dir                                                                 HostName                Latest   Last reg  Start date    End date  nFiles  nBytes
+========  ===                                                                 ========                ======   ========  ==========    ========  ======  ======
+raw       precip/raw/SEAPOL                                                   cirrus                                     2022/05/25  2026/06/03     29K    1.6T
+raw       precip/raw/SEAPOL                                                   cirrus.eol.ucar.edu                        2022/05/25  2026/06/03     29K    1.6T
+unknown   precip/grids/cwb/radarPolar/moments/rccg                            cirrus.eol.ucar.edu                        2022/05/25                 15K     21G
+unknown   precip/grids/spol/radarPolar/field/moments/sband/sur                cirrus.eol.ucar.edu                        2022/05/23                 13K    3.2T
+unknown   precip/grids/spol/radarPolar/field/moments/spoldrx/rhi              cirrus.eol.ucar.edu                        2022/05/23                 23K    2.2T
+unknown   precip/grids/spol/radarPolar/field/moments/spoldrx/sur              cirrus.eol.ucar.edu                        2022/05/23                 13K    3.0T
+unknown   precip/grids/spol/radarPolar/field/rate/spoldrx/rhi                 cirrus                                     2022/05/25                 22K    1.0T
+unknown   precip/grids/spol/radarPolar/field/rate/spoldrx/rhi                 cirrus.eol.ucar.edu                        2022/05/25                 22K    1.0T
+unknown   precip/grids/spol/radarPolar/field/rate/spoldrx/sur                 cirrus.eol.ucar.edu                        2022/05/25                 13K    1.5T
+unknown   precip/grids/spol/radarPolar/old/qc2/moments/sband/uncorrected/sur  cirrus.eol.ucar.edu                        2022/05/25  2030/07/27    2.3K    550G
+unknown   precip/grids/spol/radarPolar/qc1/moments/sband/corrected/rhi1       cirrus.eol.ucar.edu                        2022/05/25                8.9K     53G
+unknown   precip/grids/spol/radarPolar/qc1/rate/sband/bad_data                cirrus                                     2022/05/25                  97    4.3G
+unknown   precip/grids/spol/radarPolar/qc1/rate/sband/bad_data                cirrus.eol.ucar.edu                        2022/05/25                  97    4.3G
+```
+
+The columns in the above list have the following meanings:
+
+| Label | Description |
+| -----     | ----------- |
+| DataType  | category of data, for example: (a) raw: data in native input format, (b) mdv: gridded format, (c) spdb: symbolic product format (non-gridded), (d) titan: titan storm and track files |
+| Dir | The directory for the data. This is relative to $DATA_DIR, which is normally ~/projDir/data. |
+| HostName  | The hostname on which the data is stored. Normally 'localhost'. |
+| Latest | The time of the latest data on the disk. This is relative to 'now'. |
+| Last reg | The time at which the data set was last registered with DataMapper. This is relative to 'now'. The process which writes the data to disk is responsible for registering with DataMapper. The last registration time gives you an idea about whether the data is coming in on time. |
+| Start date | The start date of the data set. This is reported by the Scout. |
+| End date | The end date of the data set. This is reported by the Scout. |
+| nFiles | The number of files in the data set. This is reported by the Scout. |
+| nBytes | The number of bytes in the data set. This is reported by the Scout. |
+
+## Changing the process list on the fly
+
+You can change the process list without having to restart the entire system.
+
+If you add a process/instance to the proc_list, the auto_restart script will try to start that process then next time it checks the list.
+
+If you remove a process/instance from the proc_list, you will need to call snuff_inst to kill that process.
+
+## Changing the cron table on the fly
+
+You can change the cron table without having to restart the entire system.
+
+If you make a change to the crontab file, you can activate that table by running the command:
+
+```
+  install_cron
+```
+
+The following is an example of install_cron:
+
+```
+(cirrus) scripts 34 % cat install_crontab 
+#! /bin/csh
+crontab $PROJ_DIR/control/crontab >>&!  $ERRORS_LOG_DIR/crontab
+```
+
+To see the active cron table, run the command:
+
+```
+  crontab -l
+```
+
+To remove the current cron table, run the command:
+
+```
+  crontab -r
+```
+
 ## Log files.
 
 There are 3 possible sets of log files:
@@ -148,9 +470,11 @@ setenv ERRORS_LOG_DIR $LOG_DIR/errors
 setenv RESTART_LOG_DIR $LOG_DIR/restart
 setenv DATA_DISTRIB_LOG_DIR $LOG_DIR/distrib
 ```
+
 For convenience links are provided in $LOG_DIR to the logs from yesterday and today. The link is updated every 5 minutes (see cron) using the script ```start_build_logdir_links```.
 
 As an example, the links for the errors could be the following:
+
 ```
   today -> /home/rsfdata/data/logs/errors/20240331
   yesterday -> /home/rsfdata/data/logs/errors/20240330
@@ -163,7 +487,7 @@ The log files are managed by piping the stderr and stdout output from processes 
 ```LogFilter``` is a C++ application that is designed to read in the output streams (stdout and stderr) from upstream processes, duplicate this stream, and write it to log files in a designated location. See the 'Log files' section above.
 
 
-The following is an example of a start script that invoked the LogFilter:
+The following is an example of a c-shell start script that invokes the LogFilter:
 
 ```
 #! /bin/csh
@@ -177,3 +501,125 @@ if ($status == 1) then
 	LogFilter -d $ERRORS_LOG_DIR -p MdvMerge2 -i 3D_mosaic >& /dev/null &
 endif
 ```
+
+## The Janitor
+
+The Janitor application is used by the real-time system to keep the disk from filling up. A full disk is fatal for any system running in real-time with new data arriving, since when the disk is full no new data will be written and the system will fail.
+
+The Janitor has three major functions:
+
+* to delete files which are older than specified age.
+* to delete empty directories
+* to compress files which are older than a specified age.
+
+WARNING: the Janitor is a potentially DESTRUCTIVE program which will faithfully delete whatever you tell it to delete. So be careful to set it up correctly. In the parameter file you can set report mode on so that the Janitor will leave small text files at the nodes visited to aid in debugging.
+
+Mostly the Janitor is set up to keep the log file area from filling up and causing the system to fail.
+
+The Janitor operates by traversing the data directory tree, starting at an entry point referred to as the ‘top-dir’. Normally it starts at $DATA_DIR. By default the Janitor does nothing other than traverse the directory tree looking for parameter files named _Janitor.
+
+When it finds an _Janitor parameter file, it reads in that file and uses it to override the current settings. The overridden settings only apply from that point DOWN in the tree, and until another _Janitor file is found. As the Janitor pops back up the tree it reverts to using the parameters which were in effect at the upper level, before descending to lower levels.
+
+To set up the Janitor, normally a _Janitor file is placed in $DATA_DIR, to specify the starting behavior as it traverses the tree. At the top level it is normally set up to do nothing. Then, _Janitor files are placed at positions in the data tree designed to control the behavior from that point down. If you need all files below a given point to be deleted after 5 days, set the parameters at that level to indicate that preference. Similarly for compression.
+
+There are a number of file types which the _Janitor will not delete. These include files beginning with underscore ‘_’. That is the reason that the name of any parameter file in the data area always starts with an underscore.
+
+The Janitor can be set up to save data in so-called ‘event lists’. If you want to age off all data except that for certain events, put this information in the event list at the top level.
+
+The early version of the Janitor only specified file ages in seconds. This became cumbersome, but was retained for backward compatibility reasons. Some parameters were added to allow you to specify the ages in days, instead of seconds. These are as follows:
+
+```
+///////////// file_ages_in_days ///////////////////////
+//
+// Option to specify file ages in days, instead of secs.
+// If TRUE, ‘MaxNoModDays’ and ‘MaxNoAccessDays’ are used. If FALSE, 
+//   ‘MaxModificationAgeBeforeDelete’ and
+// ‘MaxAccessAgeBeforeCompress’ are used.
+// Type: boolean
+//
+
+file_ages_in_days = FALSE;
+
+///////////// MaxNoModDays ////////////////////////////
+//
+// Max file age before deletion - days. Used if ‘file_ages_in_days’
+//   is TRUE.
+// If delete_files is TRUE, a file will be deleted if it has not been 
+//   modified in this amount of time.
+// Type: float
+//
+
+MaxNoModDays = 30;
+
+///////////// MaxNoAccessDays /////////////////////////
+//
+// Max quiescent age before compression - days. Used if 
+//   ‘file_ages_in_days’ is TRUE.
+// If compress is TRUE, a file will be compressed if it has not been 
+//   accessed within this time.
+// Type: float
+//
+
+MaxNoAccessDays = 1;
+```
+
+There is another parameter which can cause confusion, named date_format. By default it is TRUE.
+
+```
+///////////// date_format /////////////////////////////
+//
+// Option to check for RAP date-time naming convention.
+// If set, the files must follow the RAP file naming
+// convention (which means that the filename is based
+// on the date that the data in the file pertains to).
+// Type: boolean
+//
+
+date_format = TRUE;
+```
+
+If date_format is left TRUE, The Janitor will only delete files which conform to certain naming conventions related to the date and time. This works fine for most files within the lrose system. However, it often will not work with raw files provided from other sources. Therefore, to be sure to delete all file types, set this to FALSE.
+
+You can tell the Janitor to avoid certain parts of the tree altogether. This saves CPU and ensures you will not delete anything in that area.
+
+```
+///////////// recurse /////////////////////////////////
+//
+// Recurse to lower directories.
+// Set to false to leave directories below the current directory alone.
+// Type: boolean
+//
+
+recurse = FALSE;
+```
+
+You can also tell the Janitor to avoid processing a single directory while progressing to lower directories:
+
+```
+///////////// process /////////////////////////////////
+//
+// Process files in this directory.
+// Set to false to leave the current directory alone.
+// However, subdirs are processed unless the recurse
+// parameter is set to false.
+// Type: boolean
+//
+
+process = FALSE;
+```
+
+This can get pretty confusing, however, so normally recurse and process are both set to FALSE together to protect a directory.
+
+## The Scout
+
+The Scout is an application with properties similar to the Janitor, except that instead of deleting or compressing files it scans the directories for information about the data sets and registers that information with the DataMapper.
+
+The status information gathered on a data set by the Scout is:
+
+* start date 
+* end date
+* number of files
+* number of bytes
+
+The Scout is useful because it helps summarize the status of the data sets. However, it is not essential to the operation of the real-time system.
+
