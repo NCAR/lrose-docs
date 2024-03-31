@@ -94,7 +94,7 @@ The process binary must be in the search path. The instance for a process is use
 
 If a specific start script for a process exists, it should be specified. If not, the ```start_inst``` mechanism may be used. More details on this later on.
 
-If special action must be taken to kill the application, a kill script should also be supplied. However, if nothing special is needed to kill the application the entry ‘snuff_inst’ can be used instead. Based on that entry the system will kill the application based on its name and instance.
+If special action must be taken to kill the application, a kill script should also be supplied. However, if nothing special is needed to kill the application the entry ```snuff_inst``` can be used instead. Based on that entry the system will kill the application based on its name and instance.
 
-This script is called at system shutdown to go through the proc_list and kill all processes by calling the kill script or the ```kill_inst``` mechanism.
+This script is called at system shutdown to go through the proc_list and kill all processes by calling the kill script or the ```snuff_inst``` mechanism.
 
