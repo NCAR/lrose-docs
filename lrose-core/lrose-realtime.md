@@ -19,9 +19,9 @@ There are a number of components that make up the LROSE realtime system.
 | print_procmap | App to print the procmap status. |
 | PrintDataMap | App to print the DataMapper status. |
 
-The figure below shows how some of these components interact.
+![The figure below shows how some of these components interact.](./lrose_runtime.png)
 
-<img align="left" src="./lrose_runtime.png">
+<img align="center" src="./lrose_runtime.png">
 
 * string (or char *)
 * boolean
