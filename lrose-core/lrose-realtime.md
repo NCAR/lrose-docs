@@ -43,6 +43,7 @@ The ```tdrp_gen``` app reads the paramdef file, and generates a class, generally
 
 The command line for tdrp_gen is as follows:
 
+<span style="color:red;">
 ```
 tdrp_gen -h
 Usage:
@@ -85,6 +86,7 @@ NOTES: TDRP - Table Driven Runtime Parameters.
   If the -class arg is not specified, the files will be:
     Params.hh and Params.cc.
 ```
+</span>
 
 The Params class for TdrpTest is here:
 
