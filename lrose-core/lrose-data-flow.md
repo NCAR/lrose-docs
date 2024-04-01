@@ -14,8 +14,94 @@ There are a number of components that make up the LROSE realtime data flow and t
 
 ## The Fast Message Queue (FMQ)
 
-The FMQ functionality is provided by the `libs/Fmq` library in LROSE.
+The Fast Message Queue (FMQ) functionality is provided by the FMQ class in the `libs/Fmq` library in LROSE.
 
+An FMQ comprises 2 circular buffers:
+
+* stat: index of message status details in main buffer containing the messages.
+* buf: main buffer containing the messages.
+
+A message is contiguous array of bytes, in any arbitrary format. The applications need to know and understand the contents of the messages.
+
+The status queue comprises a status header (q_stat_t) followed by an array of slots (q_slot_t), one slot for each message in the main buffer. (The FMQ slots precede the QT SLOT mechanism and are unrelated.)
+
+The status header definition is:
+
+```
+  typedef struct {
+    
+    si32 magic_cookie;    /* magic cookie for file type */
+    
+    si32 youngest_id;     /* message id of last message written */
+    si32 youngest_slot;   /* num of slot which contains the
+			   * youngest message in the queue */
+    si32 oldest_slot;     /* num of slot which contains the
+			     oldest message in the queue */
+    
+    si32 nslots;          /* number of message slots */
+    si32 buf_size;        /* size of buffer */
+    
+    si32 begin_insert;    /* offset to start of insert free region */
+    si32 end_insert;      /* offset to end of insert free region */
+    si32 begin_append;    /* offset to start of append free region */
+    si32 append_mode;     /* TRUE for append mode, FALSE for insert mode */
+    
+    si32 time_written;    /* time at which the status struct was last
+			   * written to file */
+    
+    /* NOTE - blocking write only supported for 1 reader */
+    
+    si32 blocking_write;  /* flag to indicate blocking write */
+    si32 last_id_read;    /* used for blocking write operation */
+    si32 checksum;
+    
+  } q_stat_t;
+```
+
+The slot definition is:
+
+```
+  // FMQ slot struct
+  
+  //   Messages are stored in the buffer as follows:
+  //        si32         si32                             si32
+  //   --------------------------------------------------------
+  //   | magic cookie |  slot_num  | -- message -- | pad |  id  |
+  //   --------------------------------------------------------
+  //   Pad is for 4-byte alignment.
+  
+  typedef struct {
+    
+    si32 active;          /* active flag, 1 or 0 */
+    si32 id;              /* message id 0 to FMQ_MAX_ID */
+    si32 time;            /* Unix time at which the message is written */
+    si32 msg_len;         /* message len in bytes */
+    si32 stored_len;      /* message len + extra 12 bytes (FMQ_NBYTES_EXTRA)
+			   * for magic-cookie and slot num fields,
+			   * plus padding out to even 4 bytes */
+    si32 offset;          /* message offset in buffer */
+    si32 type;            /* message type - user-defined */
+    si32 subtype;         /* message subtype - user-defined */
+    si32 compress;        /* compress mode - TRUE or FALSE */
+    si32 checksum;
+    
+  } q_slot_t;
+
+```
+
+---
+**NOTE**
+
+These need to be updated to 64-bit integers.
+
+---
+
+
+
+| Buffer     | Description |
+| -----      | ----------- |
+| index      | Fast Message Queue. Passes message-based data from one process to the next. |
+| buf        | Applications read a file, process the data, write file(s). |
 
 
 The figure below shows how these components interact:
