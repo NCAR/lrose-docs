@@ -172,19 +172,19 @@ DataMapper    primary    start_DataMapper     kill_DataMapper   localhost
 #########################################################################
 # INGEST processes
 #
-Bprp2Dsr       ops       start_Bprp2Dsr.ops        snuff_inst  localhost
-EsdAcIngest    ops       start_inst(ingest)        snuff_inst  localhost
-Dsr2Vol        ops       start_Dsr2Vol.ops         snuff_inst  localhost
-ClutterRemove  cart      start_inst(ingest)        snuff_inst  localhost
+Bprp2Dsr       ops       start_Bprp2Dsr.ops    snuff_inst      localhost
+EsdAcIngest    ops       start_inst(ingest)    snuff_inst      localhost
+Dsr2Vol        ops       start_inst(ingest)    snuff_inst      localhost
+ClutterRemove  cart      start_inst(ingest)    snuff_inst      localhost
 ########################################################################
 # lrose ROCESSES
 #
-lrose          ops       start_lrose.ops           snuff_inst  localhost
-PrecipAccum    single    start_PrecipAccum.single  snuff_inst  localhost
-PrecipAccum    1hr       start_PrecipAccum.1hr     snuff_inst  localhost
-PrecipAccum    24hr      start_PrecipAccum.24hr    snuff_inst  localhost
-Mdv2Vil        ops       start_Mdv2Vil.ops         snuff_inst  localhost
-Tstorms2Spdb   ops       start_Tstorms2Spdb.ops    snuff_inst  localhost
+titan          ops       start_inst(titan)      snuff_inst     localhost
+PrecipAccum    single    start_inst(titan)      snuff_inst     localhost
+PrecipAccum    1hr       start_inst(titan)      snuff_inst     localhost
+PrecipAccum    24hr      start_inst(titan)      snuff_inst     localhost
+Mdv2Vil        ops       start_inst(titan)      snuff_inst     localhost
+Tstorms2Spdb   ops       start_inst(titan)      snuff_inst     localhost
 ########################################################################
 # DISPLAY processes
 #
@@ -194,7 +194,7 @@ RadMon         ops       start_RadMon.ops     kill_RadMon.ops  localhost
 CIDD           ops       start_CIDD.ops       snuff_inst       localhost
 ```
 
-The process binary must be in the search path. The instance for a process is used to distinguish between different instances of the same process. In the example above, PrecipAccum is running with 3 different instances, one to convert single radar scans into precipitation amounts and the other two to accumulate precipitation into 1 and 24 hour running totals.
+The application binary must be in the search path. The instance for a process is used to distinguish between different instances of the same process. In the example above, PrecipAccum is running with 3 different instances, one to convert single radar scans into precipitation amounts and the other two to accumulate precipitation into 1 and 24 hour running totals.
 
 If a specific start script for a process exists, it should be specified. If not, the ```start_inst``` mechanism may be used. More details on this later on.
 
