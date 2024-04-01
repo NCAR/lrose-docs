@@ -26,6 +26,7 @@ Some of the user documentation resides in other locations, and links will be pro
 | Parameters | [Parameters](./lrose-core/lrose-parameters.md) |
 | App struture | [Anatomy of an app](./lrose-core/lrose-app-structure.md) |
 | Real-time | [Real-time operations](./lrose-core/lrose-realtime.md) |
+| Data-flow | [Data flow for real-time operations](./lrose-core/lrose-data-flow.md) |
 
 ## Displays:
 
