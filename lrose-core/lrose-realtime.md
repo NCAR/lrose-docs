@@ -23,7 +23,7 @@ There are a number of components that make up the LROSE realtime system.
 
 The figure below shows how these components interact:
 
-<img align="center" src="./lrose_runtime.png">
+<img align="center" src="./lrose-runtime.png">
 
 ## Directory structure
 
@@ -155,7 +155,7 @@ snuff Radx2Grid.3D.spol
 
 The process list controls which processes (i.e. instances of applications) should be run in the system. It specifies the process name, the instance and the start and kill scripts for the process. The hostname is included for backward compatibility and should always be set to localhost.
 
-The following is an example of a proc_list file, taken from the lrose project templates template_single_radar:
+The following is an example of a proc_list file, for a Titan-type project, taken from the lrose project templates template_single_radar:
 
 ```
 ########################################################################
@@ -192,6 +192,55 @@ Rview          ops       start_Rview.ops      snuff_inst       localhost
 TimeHist       ops       start_Rview.ops      snuff_inst       localhost
 RadMon         ops       start_RadMon.ops     kill_RadMon.ops  localhost
 CIDD           ops       start_CIDD.ops       snuff_inst       localhost
+###############################################################################
+```
+
+The following is an example of a proc_list file for the APAR simulator:
+
+```
+###############################################################################
+# SYSTEM processes
+#
+DsServerMgr   primary    start_DsServerMgr         snuff_inst        
+DsFmqServer   manager    start_DsFmqServer         snuff_inst        
+Janitor       logs       start_Janitor.logs        kill_Janitor      
+Scout         primary    start_Scout               kill_Scout        
+DataMapper    primary    start_DataMapper          kill_DataMapper   
+#
+###############################################################################
+# controller
+#
+AparController ops        start_AparController     stop_AparController
+###############################################################################
+# apar_rsp
+#
+apar_rsp      ops        start_apar_rsp.ops        stop_apar_rsp
+###############################################################################
+# Moments
+#
+AparTs2Moments  long_pulse      start_inst(moments)     snuff_inst
+AparTs2Moments  short_pulse     start_inst(moments)     snuff_inst
+Dsr2Radx        moments.long_pulse      start_inst(moments)     snuff_inst
+Dsr2Radx        moments.short_pulse     start_inst(moments)     snuff_inst
+#
+###############################################################################
+# Saving time series data
+#
+AparTsArchive long_pulse     start_inst(archive)     snuff_inst
+AparTsArchive short_pulse    start_inst(archive)     snuff_inst
+#
+###############################################################################
+# Saving status data
+#
+AparStatusArchive long_pulse      start_inst(archive)     snuff_inst
+AparStatusArchive short_pulse    start_inst(archive)     snuff_inst
+#
+###############################################################################
+# Displays
+#
+RadMon      long_pulse    start_RadMon.long_pulse   snuff_inst
+RadMon      short_pulse   start_RadMon.short_pulse  snuff_inst
+###############################################################################
 ```
 
 The application binary must be in the search path. The instance for a process is used to distinguish between different instances of the same process. In the example above, PrecipAccum is running with 3 different instances, one to convert single radar scans into precipitation amounts and the other two to accumulate precipitation into 1 and 24 hour running totals.
@@ -404,24 +453,23 @@ ppm will produce a listing like the following:
 
 ```
 % ppm
-PROCS REGISTERED - localhost - Sun Mar 31 14:33:02 2024
-Uptime: 10.6 d
-Name             Instanc  Host    User     Pid    Htbeat   Uptime   Status
-====             =======  ====    ====     ===    ======   ======   ======
-CIDD             Generic  cirrus  jwilson  262353 0:00:01  5.95 d   Idle 166253 secs, Req: 0, Mode: 3, Type: 0
-AcTrack2Symprod  manager  cirrus  rsfdata  371050 0:00:23  2.06 d   Listening, port: 5451
-DataMapper       primary  cirrus  rsfdata  118099 0:00:36  10.6 d   Listening, port: 5434
-DsFCopyServer    manager  cirrus  rsfdata  118197 0:00:34  10.6 d   Listening, port: 5445
-DsFmqServer      manager  cirrus  rsfdata  122617 0:00:55  2.47 d   Listening, port: 5443
-DsMdvServer      manager  cirrus  rsfdata  278763 0:00:40  5.6 d    Listening, port: 5440
-DsProxyServer    primary  cirrus  rsfdata  400687 0:00:45  4.06 d   Listening, port: 5442
-DsServerMgr      primary  cirrus  rsfdata  393325 0:00:55  1.69 d   Listening, port: 5435
-DsSpdbServer     manager  cirrus  rsfdata  192985 0:00:28  2.33 d   Listening, port: 5441
-Metar2Symprod    manager  cirrus  rsfdata  118212 0:00:34  10.6 d   Listening, port: 5456
-Rhi2Symprod      manager  cirrus  rsfdata  249457 0:00:18  6.24 d   Listening, port: 5473
-Scout            primary  cirrus  rsfdata  117857 0:00:09  10.6 d   Sleeping between runs
-SunCal2Symprod   manager  cirrus  rsfdata  118259 0:00:35  10.6 d   Listening, port: 5487
-Tstorms2Symprod  manager  cirrus  rsfdata  105919 0:00:31  8.88 d   Listening, port: 5460
+PROCS REGISTERED - localhost - Mon Apr  1 16:40:49 2024
+Uptime: 0:20:51
+
+Name               Instance             Host          User  Pid    Htbeat   Uptime   Status
+====               ========             ====          ====  ===    ======   ======   ======
+AparStatusArchive  long_pulse           apar-trenton  apar  414303 0:00:26  0:20:46  Getting next pulse
+AparTs2Moments     long_pulse           apar-trenton  apar  414296 0:00:28  0:20:48  In FMQ::_read_blocking()
+AparTs2Moments     short_pulse          apar-trenton  apar  414298 0:00:27  0:20:47  In FMQ::_read_blocking()
+Condor             long_pulse           apar-trenton  apar  414864 0:00:48  0:01:49  timerEvent
+DataMapper         primary              apar-trenton  apar  414292 0:00:29  0:20:49  Listening, port: 5434
+DsFmqServer        manager              apar-trenton  apar  414287 0:00:31  0:20:51  Listening, port: 5443
+DsServerMgr        primary              apar-trenton  apar  414285 0:00:31  0:20:51  Listening, port: 5435
+Dsr2Radx           moments.long_pulse   apar-trenton  apar  414300 0:00:08  0:20:47  Processing volume
+Dsr2Radx           moments.short_pulse  apar-trenton  apar  414301 0:00:08  0:20:46  Processing volume
+Janitor            logs                 apar-trenton  apar  414289 0:00:30  0:20:50  Sleeping between passes
+Scout              primary              apar-trenton  apar  414290 0:00:30  0:20:50  Sleeping between runs
+apar_rsp           ops                  apar-trenton  apar  414892 0:01:23  0:01:23  PMU_auto_init
 ```
 
 The columns in the above list have the following meanings:
@@ -467,21 +515,19 @@ pdm will produce a listing similar to the following:
 
 ```
 % pdm
-=========== Data on host 'localhost' at time 2024/03/31 20:41:23 ==========
-DataType  Dir                                                                 HostName                Latest   Last reg  Start date    End date  nFiles  nBytes
-========  ===                                                                 ========                ======   ========  ==========    ========  ======  ======
-raw       precip/raw/SEAPOL                                                   cirrus                                     2022/05/25  2026/06/03     29K    1.6T
-raw       precip/raw/SEAPOL                                                   cirrus.eol.ucar.edu                        2022/05/25  2026/06/03     29K    1.6T
-cfradial  precip/grids/cwb/radarPolar/moments/rccg                            cirrus.eol.ucar.edu                        2022/05/25                 15K     21G
-cfradial  precip/grids/spol/radarPolar/field/moments/sband/sur                cirrus.eol.ucar.edu                        2022/05/23                 13K    3.2T
-cfradial  precip/grids/spol/radarPolar/field/moments/spoldrx/rhi              cirrus.eol.ucar.edu                        2022/05/23                 23K    2.2T
-cfradial  precip/grids/spol/radarPolar/field/moments/spoldrx/sur              cirrus.eol.ucar.edu                        2022/05/23                 13K    3.0T
-cfradial  precip/grids/spol/radarPolar/field/rate/spoldrx/rhi                 cirrus                                     2022/05/25                 22K    1.0T
-cfradial  precip/grids/spol/radarPolar/field/rate/spoldrx/rhi                 cirrus.eol.ucar.edu                        2022/05/25                 22K    1.0T
-cfradial  precip/grids/spol/radarPolar/field/rate/spoldrx/sur                 cirrus.eol.ucar.edu                        2022/05/25                 13K    1.5T
-cfradial  precip/grids/spol/radarPolar/qc1/moments/sband/corrected/rhi1       cirrus.eol.ucar.edu                        2022/05/25                8.9K     53G
-cfradial  precip/grids/spol/radarPolar/qc1/rate/sband/bad_data                cirrus                                     2022/05/25                  97    4.3G
-cfradial  precip/grids/spol/radarPolar/qc1/rate/sband/bad_data                cirrus.eol.ucar.edu                        2022/05/25                  97    4.3G
+=========== Data on host 'localhost' at time 2024/04/01 16:40:46 ==========
+DataType  Dir                                       HostName         Latest   Last reg  Start date    End date  nFiles  nBytes
+========  ===                                       ========         ======   ========  ==========    ========  ======  ======
+fmq       /tmp/fmq/moments/long_pulse/shmem_20000   apar-trenton  -00:03:11  -00:03:11                                        
+fmq       /tmp/fmq/moments/short_pulse/shmem_20002  apar-trenton  -00:03:11  -00:03:11                                        
+fmq       /tmp/fmq/ts/long_pulse/shmem_10000        apar-trenton  -00:03:07  -00:03:07                                        
+fmq       /tmp/fmq/ts/short_pulse/shmem_10002       apar-trenton  -00:03:07  -00:03:07                                        
+nc        cfradial/moments/long_pulse               apar-trenton  -00:03:07  -00:02:51  2001/01/01  1985/10/19     52K     37G
+nc        cfradial/moments/short_pulse              apar-trenton  -00:03:07  -00:02:51  2001/01/01  1985/11/22     54K     33G
+spdb      spdb/monitoring/long_pulse                apar-trenton  -00:03:10  -00:03:10  2023/12/16  2024/04/01      36    2.5M
+txt       catalog/monitoring/long_pulse             apar-trenton  -00:03:21  -00:03:20                                        
+                                                                                                                ======  ======
+                                                                                                                  106K     70G
 ```
 
 The columns in the above list have the following meanings:
