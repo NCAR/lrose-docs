@@ -128,10 +128,19 @@ In **real-time** mode, you need to ensure that both **numSlots** and **bufSize**
 
 In **archive** mode with blocking set to true, the blocking is implemented on the status buffer. It is important to ensure that the status buffer wraps first, by setting the number of slots to a low number, say 10 to 100. The message buffer should be set large enough to easily accommodate the number of messages (numSlots).
 
+## Message transfer between hosts
 
-The figure below shows how these components interact:
+When writing applications that use an FMQ, we generally use the **DsFmq** class. This inherits **Fmq**, but adds in the capability to either (a) read FMQ messages from a different host or (b) write messages to a different host.
 
-<img align="center" src="./lrose-runtime.png">
+The **DsFmqServer** application is a server that helps to implement remote read and write operations via an FMQ.
+
+The figure below shows the difference between a local and remote read:
+
+<img align="center" src="./FMQ_read_remote.png">
+
+The figure below shows the difference between a local and remote write:
+
+<img align="center" src="./FMQ_write_remote.png">
 
 ## Directory structure
 
