@@ -150,6 +150,57 @@ The following figure is a good example of FMQs in use in a real-time system:
 
 <img align="center" src="./apar_realtime_diagram.png">
 
+## Monitoring an FMQ - FmqMon
+
+The **FmqMon** application allows you to monitor the activity of an FMQ, regardless of the contents of the messages.
+
+The usage is as follows:
+
+```
+Usage: FmqMon [options as below]
+options:
+       [ --, -h, -help, -man ] produce this list.
+       [ -debug ] print debug messages
+       [ -int ? ] specify monitor interval (secs)
+       [ -mode ? ] specify output mode: SUMMARY, FULL, ASCII_PRINT
+          SUMMARY: nmessages and data rate
+          FULL: info on each message
+          ASCII_PRINT: assumes messages are ASCII, prints messages
+  [-start] Seek to start of FMQ
+     If not set, reading begins at the end of the FMQ.
+  [ -url/-fmq ? ] specify URL of fmq to watch
+  [ -verbose ] print verbose debug messages
+```
+
+As an example, on the APAR simulator, if we run the command:
+
+```
+FmqMon -fmq /tmp/fmq/ts/long_pulse/shmem_10000 -c 5
+
+```
+
+we get something like the following:
+
+```
+======================================================================
+                     Dtime   nMess    nBytes    nBytes  Rate B/s  Rate B/s
+                      secs            uncomp      comp    uncomp      comp
+                     =====   =====    ======    ======  ========  ========
+2024/04/01 21:53:19      5    1028  39867856  39880192   7973571   7976038
+2024/04/01 21:53:24      5    1251  48516608  48531620   9703321   9706324
+2024/04/01 21:53:29      5    1259  48829888  48844996   9765977   9768999
+2024/04/01 21:53:34      5    1251  48518520  48533532   9703704   9706706
+2024/04/01 21:53:39      5    1259  48825392  48840500   9765078   9768100
+2024/04/01 21:53:44      5    1263  48986752  49001908   9797350   9800381
+2024/04/01 21:53:49      5    1251  48516464  48531476   9703292   9706295
+2024/04/01 21:53:54      5    1259  48829728  48844836   9765945   9768967
+2024/04/01 21:53:59      5    1251  48518520  48533532   9703704   9706706
+2024/04/01 21:54:04      5    1259  48825536  48840644   9765107   9768128
+2024/04/01 21:54:09      5    1263  48986912  49002068   9797382   9800413
+```
+
+This data is not compressed. The slight difference between the uncompressed and compressed results is that in the FMQ, getting the compressed length adds some housekeeping bytes to the buffer length.
+
 ## File-based operations - using the `latest_data_info` mechanism to trigger downstream processes
 
 FMQs are efficient for the passing of data as messages between processes.
@@ -158,7 +209,7 @@ For many operations, however, it makes sense for an upstream process to write a 
 
 For this we use the **latest_data_info** concept. This began life as simple ASCII files named _latest_data_info, but has since grown to include XML files, and XML messages passed via FMQs specfically for this purpose.
 
-The **latest_data_info** files and FMQ are written to the same directory in which the files are written. In such a directory you will find the following files:
+The **latest_data_info** files and FMQ are written to the same directory to which the files are written. In such a directory you will find the following files:
 
 | File  | Description |
 | ----  | ----------- |
