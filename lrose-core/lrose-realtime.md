@@ -8,12 +8,12 @@ There are a number of components that make up the LROSE realtime system.
 | -----     | ----------- |
 | procmap   | Process mapper. This is a server. Individual applications register routinely with procmap to confirm that they are alive and running as expected. |
 | apps      | Applications register with procmap. |
-| proc_list | List of required applications. |
+| proc_list | List of processes which should be running. |
 | auto_restart | Auto restarter - reads proc_list, checks with procmap if all are running correctly. If a process is not registering correctly, it will kill it (in case it is hung) and restart it. (perl) |
 | procmap_list_start | Start script - reads proc_list, starts apps. (perl) |
 | procmap_list_kill | Kill script - reads proc_list, kills apps. (perl) |
 | cron | Keeps auto_restart running. Performs other tasks on a schedule as required. |
-| crontab | Cron table, to be used by cron. |
+| crontab | The cron table which is installed when the system starts. The crontab specifies the tasks to be run. |
 | DataMapper | Data mapper. This is a server. Applications register with DataMapper when they write data. |
 | start_all | Overall start script. (shell, generally c-shell) |
 | stop_all | Overall stop script. (shell, generally c-shell) |
