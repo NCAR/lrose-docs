@@ -243,6 +243,24 @@ These are not based on the **libs/Fmq** classes.
 
 ---
 
+## Example of muhltiple remote FMQs
+
+The following figure shows an example of multiple FMQs being replicated on a remote host, and then combined into a single FMQ to aggregate the data for display and analysis purposes.
+
+<img align="center" src="./multiple_remote_fmq_example.png">
+
+
+## Distributing files to remote hosts
+
+LROSE has good capabilities for transferring files to remote hosts, while preserving the **latest_data_info**.
+
+The **DsFileDist** application can scan an entire tree of files, searching for new files that need to be copied to remote hosts. The action of DsFileDist is controlled by a top-level parameter file, plus parameter files (_DsFileDist.params) imbedded in the data tree that provide fine-grained control of the file copy mechanism.
+
+The **DsFCopyServer** is a server that runs on the target host, reading data messages from DsFileDist, writing the data files to disk, writing the latest_data_info files and updating the **DataMapper** on the target host.
+
+The following figure shows an example of DsFileDist being used to copy multiple CfRadial files from individual APAR panels to a central host, where they are combined into a single data set for display and analysis purposes.
+
+<img align="center" src="./dsfiledist_example.png">
 
 
 
