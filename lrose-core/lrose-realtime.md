@@ -142,13 +142,13 @@ This script is run at system shutdown to go through the proc_list and kill all p
 If 'snuff_inst' is specified, then procmap_list_kill will run the following command:
 
 ```
-  snuff appname.instance
+snuff appname.instance
 ```
 
 or, more specifically in the case of the prevoius start script:
 
 ```
-  snuff Radx2Grid.3D.spol
+snuff Radx2Grid.3D.spol
 ```
 
 ## ```proc_list``` - the process list
@@ -196,7 +196,7 @@ CIDD           ops       start_CIDD.ops       snuff_inst       localhost
 
 The application binary must be in the search path. The instance for a process is used to distinguish between different instances of the same process. In the example above, PrecipAccum is running with 3 different instances, one to convert single radar scans into precipitation amounts and the other two to accumulate precipitation into 1 and 24 hour running totals.
 
-If a specific start script for a process exists, it should be specified. If not, the ```start_inst``` mechanism may be used. More details on this later on.
+If a specific start script for a process exists, it should be specified. If not, the ```start_inst``` mechanism may be used. See details in 'procmap_list_kill' above.
 
 If special action must be taken to kill the application, a kill script should also be supplied. However, if nothing special is needed to kill the application the entry ```snuff_inst``` can be used instead. Based on that entry the system will kill the application based on its name and instance.
 
@@ -238,7 +238,7 @@ Generally, this script performs the following steps:
 * Starts the auto_restart script. 
 * Installs the cron table: ~/projDir/control/crontab
 
-Here is a normal start_all script:
+Here is a standard start_all script:
 
 ```
 #! /bin/csh 
@@ -274,16 +274,16 @@ start_auto_restart
 install_crontab
 ```
 
-To check that the system started correctly, type the command: 
+To check that the system started correctly, run the command: 
 
 ```
-  pcheck
+pcheck
 ```
 
-This script checks that all of the required processes have been successfully started. If there are no problems you should get the message: 
+```pcheck``` checks that all of the required processes have been successfully started. If there are no problems you should get the message: 
 
 ```
-  0 processes down
+0 processes down
 ```
 
 If any processes are down, check that the start scripts and that you can successfully start them by hand. Frequently problems with this step are related to typos which are difficult to spot.
@@ -293,7 +293,7 @@ If any processes are down, check that the start scripts and that you can success
 To stop the system on a host, we generally set up an overall stop script:
 
 ```
-  stop_all
+stop_all
 ```
 
 This script performs the following steps, in order: 
@@ -318,18 +318,9 @@ The following is a standard stop_script:
 remove_crontab
 kill_auto_restart
 
-# kill the server manager so that it does not restart processes
-# which have been killed already.
-# Also kill DsFCopyServer and DsSpdbServer so new data does
-# not arrive after stopping the system.
-
-kill_DsServers
-kill_SymprodServers
-
-# kill all processes
+# kill all processes, including procmap
 
 killall_processes
-kill_SysView
 
 # remove shared memory segments
 
@@ -359,29 +350,29 @@ To start a process, just call the relevant start script. For processes which app
 To check that all processes are running, type the command: 
 
 ```
-  pcheck
+pcheck
 ```
 
 This is an alias for:
 
 ```
-    procmap_list_check -proc_list ~/projDir/control/proc_list
+procmap_list_check -proc_list ~/projDir/control/proc_list
 ```
 
 This will report any processes which are down. For example, if the DataMapper is down you would see:
 
 ```
- 1 process(es) down
- DataMapper primary missing
+1 process(es) down
+DataMapper primary missing
 ```
 
 If all processes are running you will get the message:
 
 ```
-    0 processes down
+0 processes down
 ```
 
-If any processes are down, check that the start scripts and that you can successfully start them by hand. Frequently problems with this step are related to typos which are difficult to spot.
+If any processes are down, check that the start scripts exist and that you can successfully start them by hand using those scripts. Frequently problems with this step are related to typos which are difficult to spot.
 
 ## Detailed check: print out all processes
 
@@ -412,7 +403,7 @@ ppm -c 5
 ppm will produce a listing like the following:
 
 ```
-(cirrus) scripts 30 % ppm
+% ppm
 
 PROCS REGISTERED - localhost - Sun Mar 31 14:33:02 2024
 Uptime: 10.6 d
@@ -454,25 +445,25 @@ The columns in the above list have the following meanings:
 To print a table of all data sets available on a host, type the following command: 
 
 ```
-  pdm
+pdm
 ```
 
 Or, for data sets on a different host: 
 
 ```
-  pdm -host hostname
+pdm -host hostname
 ```
 
 To see the print repeated every 5 seconds, type:
 
 ```
-  pdm -c 5
+pdm -c 5
 ```
 
 pdm is an alias for:
 
 ```
-  PrintDataMap -all -relt -lreg
+PrintDataMap -all -relt -lreg
 ```
 
 pdm will produce a listing similar to the following:
@@ -526,13 +517,13 @@ You can change the cron table without having to restart the entire system.
 If you make a change to the crontab file, you can activate that table by running the command:
 
 ```
-  install_cron
+install_cron
 ```
 
 The following is an example of install_cron:
 
 ```
-(cirrus) scripts 34 % cat install_crontab 
+% cat install_crontab 
 #! /bin/csh
 crontab $PROJ_DIR/control/crontab >>&!  $ERRORS_LOG_DIR/crontab
 ```
@@ -540,13 +531,13 @@ crontab $PROJ_DIR/control/crontab >>&!  $ERRORS_LOG_DIR/crontab
 To see the active cron table, run the command:
 
 ```
-  crontab -l
+crontab -l
 ```
 
 To remove the current cron table, run the command:
 
 ```
-  crontab -r
+crontab -r
 ```
 
 ## Log files.
@@ -579,8 +570,8 @@ For convenience links are provided in $LOG_DIR to the logs from yesterday and to
 As an example, the links for the errors could be the following:
 
 ```
-  today -> /home/rsfdata/data/logs/errors/20240331
-  yesterday -> /home/rsfdata/data/logs/errors/20240330
+today -> /home/rsfdata/data/logs/errors/20240331
+yesterday -> /home/rsfdata/data/logs/errors/20240330
 ```
 
 ## LogFilter
