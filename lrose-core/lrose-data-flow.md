@@ -100,10 +100,10 @@ youngest_slot, oldest_slot and nslots must remain type si32 (int) to ensure atom
 
 An FMQ can be either file-based or shared-memory based.
 
-| FMQ type   | Description |
-| -----      | ----------- |
-| file       | 2 files: name.stat (status queue) and name.buf (message queue). Slower. The FMQ path includes the fmq name. For example `/tmp/fmq/moments/long_pulse`. |
-| shmem      | 2 buffers in one shared memory segment. Faster. FMQ path included the text 'shmem' followed by the shmem key. For example `/tmp/fmq/ts/short_pulse/shmem_10002`. Shared memory key is 10002. A lock file is created in the directory. In this case it would be `/tmp/fmq/ts/short_pulse/shmem_10002.lock`. |
+| FMQ type   | Speed | Description |
+| -----      | ----- | ----------- |
+| file       | slower | 2 files: name.stat (status queue) and name.buf (message queue). The FMQ path includes the fmq name. For example `/tmp/fmq/moments/long_pulse`. |
+| shmem      | faster | 2 buffers in one shared memory segment. FMQ path included the text 'shmem' followed by the shmem key. For example `/tmp/fmq/ts/short_pulse/shmem_10002`. Shared memory key is 10002. A lock file is created in the directory. In this case it would be `/tmp/fmq/ts/short_pulse/shmem_10002.lock`. |
 
 
 The figure below shows how these components interact:
