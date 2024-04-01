@@ -219,6 +219,16 @@ The **latest_data_info** files and FMQ are written to the same directory to whic
 | _latest_data_info.buf | Message buffer file for latest_data_info FMQ. |
 | _latest_data_info.lock | Lock file for latest_data_info FMQ. |
 
+We need the FMQ funtionality because the downstream processes mauy get busy at times, and potentially miss a file. Having the queue means this is much less likely to occur.
+
+By default the _latest_data_info FMQs have 2500 slots, and a buffer size of (2500 * 500) bytes. The XML messages are of the order of 500 bytes long. So this provides enough space for 2500 messages.
+ 
+The following figure shows an example of how the latest_data_info mechanism is implemented and used.
+
+<img align="center" src="./apar_realtime_diagram.png">
+
+The writer applications use the DsLdataInfo class to wite the _latest_data_info files to the local directory. This also registers the write state with the DataMapper. The reader applications poll the _latest_data_info FMQ to obtain information on the latest files written.
+
 ---
 **NOTE**
 
