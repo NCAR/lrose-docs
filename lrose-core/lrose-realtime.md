@@ -39,6 +39,8 @@ The following lists a typical directory structure for a lrose system running in 
 lrose/bin    (binaries and general scripts)
 projDir/
   control/ (process list and cron table)
+    proc_list
+    crontab
   data/    (probably a symbolic link to a data disk)
     raw/   (raw input data)
     mdv/   (MDV data)
