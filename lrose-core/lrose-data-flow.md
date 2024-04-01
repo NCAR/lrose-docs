@@ -14,7 +14,7 @@ There are a number of components that make up the LROSE realtime data flow and t
 
 ## The Fast Message Queue (FMQ)
 
-The Fast Message Queue (FMQ) is fundamental to the real-time operations in LROSE. It allows messages to be written to a queue by a single writer, and read by multiple readers. This allows data streams to be fed to multiple applications.
+The Fast Message Queue (FMQ) is fundamental to the real-time operations in LROSE. It allows messages to be written to a queue by a single writer, and read by multiple readers. This allows data streams to be fed to multiple applications. Reads are implemented via efficient polling, which makes FMQs lightweight in terms of CPU usage.
 
 FMQ is implemented by the Fmq (and DsFmq) classes in the `libs/Fmq` library.
 
@@ -94,7 +94,7 @@ The slot definition is:
 ---
 **NOTE**
 
-Some of these need to be updated to 64-bit integers. 
+Some of the struct members (time_written, buf_size, begin_insert, end_insert, begin_append, time, msg_len, stored_len, offset) need to be updated to 64-bit integers.
 
 youngest_slot, oldest_slot and nslots must remain type si32 (int) to ensure atomic read/writes. This is not a limitation, since we would never need more that a billion slots.
 
@@ -134,11 +134,11 @@ When writing applications that use an FMQ, we generally use the **DsFmq** class.
 
 The **DsFmqServer** application is a server that helps to implement remote read and write operations via an FMQ.
 
-The figure below shows the difference between a local and remote read:
+The figure below shows the implementation of a local and remote read:
 
 <img align="center" src="./FMQ_read_remote.png">
 
-The figure below shows the difference between a local and remote write:
+The figure below shows the implementation of a local and remote write:
 
 <img align="center" src="./FMQ_write_remote.png">
 
