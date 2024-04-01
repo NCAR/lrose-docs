@@ -7,7 +7,7 @@ There are a number of components that make up the LROSE realtime data flow and t
 | Component  | Description |
 | -----      | ----------- |
 | FMQ        | Fast Message Queue. Passes message-based data from one process to the next. |
-| Data Files | Applications read a file, process the data, write file(s). |
+| Data Files | Applications read a file, process the data, write file(s). File formats include: (a) IWRF time series, (b) CfRadial NetCDF for polar radar data, (c) CF-compliant NetCDF for Cartesian data, (d) XML, (e) various binary formats (e.g. Titan). |
 | latest_data_info | Files and FMQ keeping track of latest data as written to the disk. |
 | DataMapper | Stores current state of data system. This is a server. Applications register with DataMapper when they write data. |
 | PrintDataMap | App to print the DataMapper status. |
