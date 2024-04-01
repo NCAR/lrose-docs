@@ -16,6 +16,10 @@ In 2016, the National Science Foundation (NSF) funded LROSE for four years.
 The primary purpose of this repository is to centralize the user documentation for the LROSE applications. 
 
 Some of the user documentation resides in other locations, and links will be provided where appropriate.
+
+An overview of the documentation resides in lrose-core at:
+
+* [https://github.com/NCAR/lrose-core/blob/master/docs/LROSE_DOCS_OVERVIEW.md](https://github.com/NCAR/lrose-core/blob/master/docs/LROSE_DOCS_OVERVIEW.md)
  
 ## Software overview - lrose-core
 
