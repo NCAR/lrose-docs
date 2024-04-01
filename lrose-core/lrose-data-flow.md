@@ -247,8 +247,7 @@ These are not based on the **libs/Fmq** classes.
 
 The following figure shows an example of multiple FMQs being replicated on a remote host, and then combined into a single FMQ to aggregate the data for display and analysis purposes.
 
-<img align="center" src="./multiple_remote_fmq_example.png">
-
+<img align="center" src="./multiple_fmq_example.png">
 
 ## Distributing files to remote hosts
 
