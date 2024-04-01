@@ -225,7 +225,8 @@ By default the _latest_data_info FMQs have 2500 slots, and a buffer size of (250
  
 The following figure shows an example of how the latest_data_info mechanism is implemented and used.
 
-<img align="center" src="./latest_data_info_flow.png">
+#<img align="center" src="./latest_data_info_flow.png">
+<img align="center" src="./FMQ_read_remote.png">
 
 The writer applications use the DsLdataInfo class to wite the _latest_data_info files to the local directory. This also registers the write state with the DataMapper. The reader applications poll the _latest_data_info FMQ to obtain information on the latest files written.
 
