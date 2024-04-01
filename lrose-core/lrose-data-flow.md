@@ -90,7 +90,7 @@ The slot definition is:
 ```
 
 ---
-** NOTE - TO-DO **
+**NOTE - TO-DO**
 These need to be updated to 64-bit integers.
 ---
 
