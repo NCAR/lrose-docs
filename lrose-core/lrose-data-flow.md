@@ -23,6 +23,8 @@ An FMQ comprises 2 circular buffers:
 * stat: index of message status details in main buffer containing the messages.
 * buf: main buffer containing the messages.
 
+There is also a **.lock** file, which guarantees a single writer.
+
 A message is contiguous array of bytes, in any arbitrary format. The applications need to know and understand the contents of the messages.
 
 The status queue comprises a status header (q_stat_t) followed by an array of slots (q_slot_t), one slot for each message in the main buffer. (The FMQ slots precede the QT SLOT mechanism and are unrelated.)
@@ -128,7 +130,7 @@ In **real-time** mode, you need to ensure that both **numSlots** and **bufSize**
 
 In **archive** mode with blocking set to true, the blocking is implemented on the status buffer. It is important to ensure that the status buffer wraps first, by setting the number of slots to a low number, say 10 to 100. The message buffer should be set large enough to easily accommodate the number of messages (numSlots).
 
-## Message transfer between hosts
+## Remote message transfer between hosts
 
 When writing applications that use an FMQ, we generally use the **DsFmq** class. This inherits **Fmq**, but adds in the capability to either (a) read FMQ messages from a different host or (b) write messages to a different host.
 
@@ -147,6 +149,41 @@ The figure below shows the implementation of a local and remote write:
 The following figure is a good example of FMQs in use in a real-time system:
 
 <img align="center" src="./apar_realtime_diagram.png">
+
+## File-based operations - using the `latest_data_info` mechanism to trigger downstream processes
+
+FMQs are efficient for the passing of data as messages between processes.
+
+For many operations, however, it makes sense for an upstream process to write a file and a downstream process to read that file. In these cases we need an efficient mechanism for triggering the downstream process.
+
+For this we use the **latest_data_info** concept. This began life as simple ASCII files named _latest_data_info, but has since grown to include XML files, and XML messages passed via FMQs specfically for this purpose.
+
+The **latest_data_info** files and FMQ are written to the same directory in which the files are written. In such a directory you will find the following files:
+
+| File  | Description |
+| ----  | ----------- |
+| _latest_data_info | Original simple ASCII file. No longer used. |
+| _latest_data_info.xml | XML version, shows the latest data info for the last file written. |
+| _latest_data_info.stat | Status file for **latest_data_info** **FMQ**. |
+| _latest_data_info.buf | Message buffer file for **latest_data_info** **FMQ**. |
+| _latest_data_info.lock | Lock file for **latest_data_info** **FMQ**. |
+
+---
+**NOTE**
+
+The FMQ functionality for _latest_data_info is implemented via the following classes:
+
+| Class | Library | Note |
+| ----  | ------- | ----------- |
+| LdataInfo | didss | File-based FMQ only. |
+| DsLdataInfo | dsserver | Inherits from LdataInfo. Registers with DataMapper on write. |
+
+---
+
+
+
+
+
 
 
 
