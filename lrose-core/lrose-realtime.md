@@ -91,19 +91,19 @@ This is the most important script. It is responsible for contacting procmap at r
 
 ## ```procmap_list_start``` - the process list start script
 
-This script is used at system startup to go through the proc_list and start all processes by calling the start scripts listed in ```proc_list```.
+This script is run at system startup to go through the proc_list and start all processes by calling the start scripts listed in ```proc_list```.
 
 You can, in some circumstances, use the ```start_inst``` mechanism, in which case we do not need a start script.
 
-Many start scripts follow a standard template. For example, the script start_MdvMerge2.3D_mosaic starts the application MdvMerge2 with an instance 3D_mosaic:
+Many start scripts follow a standard template. For example, the script start_Grib2Mdv.gfs starts the application Grib2Mdv with an instance 'gfs':
 
 ```
 #! /bin/csh
 cd $PROJ_DIR/ingest/params
-running "MdvMerge2 -params MdvMerge2.3D_mosaic"
+running "Grib2toMdv -params Grib2toMdv.gfs"
 if ($status == 1) then
-    MdvMerge2 -params MdvMerge2.3D_mosaic |& \
-        LogFilter -d $ERRORS_LOG_DIR -p MdvMerge2 -i 3D_mosaic >& /dev/null &
+    Grib2toMdv -params Grib2toMdv.gfs |& \
+        LogFilter -d $ERRORS_LOG_DIR -p Grib2toMdv -i gfs >& /dev/null &
 endif
 ```
 
@@ -117,9 +117,39 @@ In this standard case, the parameter file name is formed as application_name.ins
 
 If the start script follows this standard template, we can use 'start_inst(dir)' instead of invoking the start script. In the example above, 'dir' is 'ingest'.
 
+Some start scripts perform unique operations that are not handled by the standard template. In this case you need to provide a start script, and list than in proc_list.
+
+For example, consider the following script, start_Radx2Grid.3D.spol:
+
+```
+#! /bin/csh
+# use MDV because it is more efficient not to go through netcdf
+setenv MDV_WRITE_FORMAT FORMAT_MDV
+setenv MDV_WRITE_USING_EXTENDED_PATHS TRUE
+cd $PROJ_DIR/ingest/params
+running "Radx2Grid -params Radx2Grid.3D.spol"
+if ($status == 1) then
+    Radx2Grid -params Radx2Grid.3D.spol -debug |& \
+        LogFilter -d $ERRORS_LOG_DIR -p Radx2Grid -i 3D.spol >& /dev/null &
+endif
+```
+In this example we set 2 environment variables before starting the application. So we cannot use the standard template, and we need to specify the start script.
+
 ## ```procmap_list_kill``` - the process list kill script
 
-This script is called at system shutdown to go through the proc_list and kill all processes by calling the kill script or the ```kill_inst``` mechanism.
+This script is run at system shutdown to go through the proc_list and kill all processes by calling the kill script or the ```snuff_inst``` mechanism.
+
+If 'snuff_inst' is specified, then procmap_list_kill will run the following command:
+
+```
+  snuff appname.instance
+```
+
+or, more specifically in the case of the prevoius start script:
+
+```
+  snuff Radx2Grid.3D.spol
+```
 
 ## ```proc_list``` - the process list
 
