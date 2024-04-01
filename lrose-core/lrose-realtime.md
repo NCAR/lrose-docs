@@ -27,7 +27,9 @@ The figure below shows how these components interact:
 
 ## Directory structure
 
-We have a top-level directory, normally called projDir, and referred to by the environment variable $PROJ_DIR. The directories for the project lie below projDir.
+We have a top-level directory, normally called projDir, and referred to by the environment variable $PROJ_DIR.
+
+The directories for the project lie below projDir.
 
 Often the data and log directories are on a separate disk partition, because of disk usage requirements for the data, in which case these directories will be symbolic links.
 
@@ -89,7 +91,9 @@ This is the most important script. It is responsible for contacting procmap at r
 
 ## ```procmap_list_start``` - the process list start script
 
-This script is used at system startup to go through the proc_list and start all processes by calling the start scripts, or by using the ```start_inst``` mechanism.
+This script is used at system startup to go through the proc_list and start all processes by calling the start scripts listed in ```proc_list```.
+
+You can, in some circumstances, use the ```start_inst``` mechanism, in which case we do not need a start script.
 
 Many start scripts follow a standard template. For example, the script start_MdvMerge2.3D_mosaic starts the application MdvMerge2 with an instance 3D_mosaic:
 
@@ -103,15 +107,15 @@ if ($status == 1) then
 endif
 ```
 
-In this script we perform the following:
+In this script we perform the following standard steps:
 
-* change directory to $PROJ_DIR/ingest/params.
-* use the script ```running``` to determine if the process is already running.
-* if the process is not running, start it using the parameter file.
+* Change directory to $PROJ_DIR/ingest/params.
+* Use the script ```running``` to determine if the process is already running.
+* If the process is not running, start it using the parameter file.
 
 In this standard case, the parameter file name is formed as application_name.instance.
 
-If the start script follows this template, we can use 'start_inst(dir)' instead of invoking the start script. In the example above, dir is 'ingest'.
+If the start script follows this standard template, we can use 'start_inst(dir)' instead of invoking the start script. In the example above, 'dir' is 'ingest'.
 
 ## ```procmap_list_kill``` - the process list kill script
 
