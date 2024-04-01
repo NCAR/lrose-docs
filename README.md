@@ -42,9 +42,15 @@ An overview of the documentation resides in lrose-core at:
 | Running soloii in Docker | [running_soloii_in_docker](./soloii/running_soloii_in_docker.md) |
 | CIDD user manual | [cidd_manual](https://ncar.github.io/lrose-docs/cidd/user_manual/CIDD_manual.html) |
 
-## Data format translation
+## Data formats
 
-LROSE handles data from a variety of formats (netCDF, HDF5, BUFR, Cfarr, etc.).  
+LROSE handles data from a variety of formats (netCDF, HDF5, BUFR, Cfarr, etc.).
+
+| Format | Description | Documenation |
+| ------ | ----------- | ------------ |
+| IWRF time series | Radar time series | [https://github.com/NCAR/lrose-core/blob/master/codebase/libs/radar/doc/iwrf/IWRF_ts_format.pdf](https://github.com/NCAR/lrose-core/blob/master/codebase/libs/radar/doc/iwrf/IWRF_ts_format.pdf) |
+| CfRadial | NetCDF radar data polar coords | [https://github.com/NCAR/CfRadial/tree/master/docs](https://github.com/NCAR/CfRadial/tree/master/docs) |
+| CF-NetCDF | NetCDF for Cartesian data | [https://axiom-data-science.github.io/cf](https://axiom-data-science.github.io/cf) |
 
 ## Legacy applications
 
