@@ -109,6 +109,12 @@ An FMQ can be either file-based or shared-memory based.
 
 ## Configuring an FMQ
 
+When creating an FMQ, it must be configured to handle the characteristics of the data. You need to ask:
+
+* how large are the messages?
+* how fast are the messages arriving?
+* how fast will the readers be able to comsume the messages?
+
 The following parameters must be set when creating an FMQ:
 
 | Parameter  | Typical value | Description |
@@ -118,9 +124,9 @@ The following parameters must be set when creating an FMQ:
 | compress   | false | Option to compress the messages before storing in the buffer. |
 | blocking   | false | Option to block write to avoid wrapping. Should be used in archive mode only, not real-time. Only works with a single reader. In real-time operations, if the reader falls behind, it is essential to wrap and lose data because it is not possible to catch up. In archive operations, we can afford to wait for the reader. |
 
-In **real-time** mode, you need to ensure that both numSlots and bufSize are large enough to prevent wrapping in your applications. With modern systems it is practical to set numSlots to 10,000 or more, and bufSize to 100M, 1G or more. In real-time mode, it does not really matter whether the status queue or message buffer wraps first.
+In **real-time** mode, you need to ensure that both **numSlots** and **bufSize** are large enough to prevent wrapping in your applications. With modern systems it is practical to set numSlots to 10,000 or more, and bufSize to 100M, 1G or more. In real-time mode, it does not really matter whether the status queue or message buffer wraps first.
 
-In ==archive== mode with blocking set to true, the blocking is implemented on the status buffer. It is important to ensure that the status buffer wraps first, by setting the number of slots to a low number, say 10 to 100. The message buffer should be set large enough to easily accommodate the number of messages (numSlots).
+In **archive** mode with blocking set to true, the blocking is implemented on the status buffer. It is important to ensure that the status buffer wraps first, by setting the number of slots to a low number, say 10 to 100. The message buffer should be set large enough to easily accommodate the number of messages (numSlots).
 
 
 The figure below shows how these components interact:
