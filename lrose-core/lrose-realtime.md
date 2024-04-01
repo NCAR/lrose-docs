@@ -67,14 +67,9 @@ projDir/
 
 The control files ```proc_list``` and ```crontab``` are located in dir: ```~projDir/control```.
 
-## Location of scripts, binaries and control files
+The application binaries and some system scripts are found in ~/lrose/bin. These are the programs which actually perform the work in the real-time system.
 
-All of the application binaries and some system scripts are found in ~/lrose/bin. These are the programs which actually perform the work in the real-time system. In addition to the scripts in the bin directory, the start scripts for the processes are found in the script directories in the system, ingest, display etc. sub-directories.
-
-There are two main control files, in projDir/control. These are:
-
-* proc_list: the list of processes which should run;
-* crontab: the cron table which is installed when the system starts. cron is a system service which runs tasks on a schedule. The crontab specifies the tasks to be run.
+In addition to the scripts in the bin directory, the start scripts for the processes are found in the script directories in the system, ingest, display etc. sub-directories.
 
 ## ```procmap``` - the process mapper
 
@@ -95,6 +90,28 @@ This is the most important script. It is responsible for contacting procmap at r
 ## ```procmap_list_start``` - the process list start script
 
 This script is used at system startup to go through the proc_list and start all processes by calling the start scripts, or by using the ```start_inst``` mechanism.
+
+Many start scripts follow a standard template. For example, the script start_MdvMerge2.3D_mosaic starts the application MdvMerge2 with an instance 3D_mosaic:
+
+```
+#! /bin/csh
+cd $PROJ_DIR/ingest/params
+running "MdvMerge2 -params MdvMerge2.3D_mosaic"
+if ($status == 1) then
+    MdvMerge2 -params MdvMerge2.3D_mosaic |& \
+        LogFilter -d $ERRORS_LOG_DIR -p MdvMerge2 -i 3D_mosaic >& /dev/null &
+endif
+```
+
+In this script we perform the following:
+
+* change directory to $PROJ_DIR/ingest/params.
+* use the script ```running``` to determine if the process is already running.
+* if the process is not running, start it using the parameter file.
+
+In this standard case, the parameter file name is formed as application_name.instance.
+
+If the start script follows this template, we can use 'start_inst(dir)' instead of invoking the start script. In the example above, dir is 'ingest'.
 
 ## ```procmap_list_kill``` - the process list kill script
 
