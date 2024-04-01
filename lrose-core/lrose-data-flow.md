@@ -215,9 +215,9 @@ The **latest_data_info** files and FMQ are written to the same directory to whic
 | ----  | ----------- |
 | _latest_data_info | Original simple ASCII file. No longer used. |
 | _latest_data_info.xml | XML version, shows the latest data info for the last file written. |
-| _latest_data_info.stat | Status file for **latest_data_info** **FMQ**. |
-| _latest_data_info.buf | Message buffer file for **latest_data_info** **FMQ**. |
-| _latest_data_info.lock | Lock file for **latest_data_info** **FMQ**. |
+| _latest_data_info.stat | Status file for latest_data_info FMQ. |
+| _latest_data_info.buf | Message buffer file for latest_data_info FMQ. |
+| _latest_data_info.lock | Lock file for latest_data_info FMQ. |
 
 ---
 **NOTE**
@@ -228,6 +228,8 @@ The FMQ functionality for _latest_data_info is implemented via the following cla
 | ----  | ------- | ----------- |
 | LdataInfo | didss | File-based FMQ only. |
 | DsLdataInfo | dsserver | Inherits from LdataInfo. Registers with DataMapper on write. |
+
+These are not based on the **libs/Fmq** classes.
 
 ---
 
