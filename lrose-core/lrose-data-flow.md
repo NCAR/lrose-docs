@@ -96,12 +96,12 @@ These need to be updated to 64-bit integers.
 
 ---
 
+An FMQ can be either file-based or shared-memory based.
 
-
-| Buffer     | Description |
+| FMQ type   | Description |
 | -----      | ----------- |
-| index      | Fast Message Queue. Passes message-based data from one process to the next. |
-| buf        | Applications read a file, process the data, write file(s). |
+| file       | 2 files: name.stat (status queue) and name.buf (message queue). Slower. The FMQ path includes the fmq name. For example `/tmp/fmq/moments/long_pulse`. |
+| shmem      | 2 buffers in one shared memory segment. Faster. FMQ path included the text 'shmem' followed by the shmem key. For example `/tmp/fmq/ts/short_pulse/shmem_10002`. Shared memory key is 10002. A lock file is created in the directory. In this case it would be `/tmp/fmq/ts/short_pulse/shmem_10002.lock` |
 
 
 The figure below shows how these components interact:
