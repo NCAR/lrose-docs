@@ -14,7 +14,9 @@ There are a number of components that make up the LROSE realtime data flow and t
 
 ## The Fast Message Queue (FMQ)
 
-The Fast Message Queue (FMQ) functionality is provided by the FMQ class in the `libs/Fmq` library in LROSE.
+The Fast Message Queue (FMQ) is fundamental to the real-time operations in LROSE. It allows messages to be written to a queue by a single writer, and read by multiple readers. This allows data streams to be fed to multiple applications.
+
+FMQ is implemented by the Fmq (and DsFmq) classes in the `libs/Fmq` library.
 
 An FMQ comprises 2 circular buffers:
 
@@ -104,6 +106,20 @@ An FMQ can be either file-based or shared-memory based.
 | -----      | ----- | ----------- |
 | file       | slower | 2 files: name.stat (status queue) and name.buf (message queue). The FMQ path includes the fmq name. For example `/tmp/fmq/moments/long_pulse`. The files would be `/tmp/fmq/moments/long_pulse.stat` and `/tmp/fmq/moments/long_pulse.buf`. |
 | shmem      | faster | 2 buffers in one shared memory segment. FMQ path included the text 'shmem' followed by the shmem key. For example `/tmp/fmq/ts/short_pulse/shmem_10002`. Shared memory key is 10002. A lock file is created in the directory. In this case it would be `/tmp/fmq/ts/short_pulse/shmem_10002.lock`. |
+
+## Configuring an FMQ
+
+The following parameters must be set when creating an FMQ:
+
+| Parameter  | Typical value | Description |
+| -----      | ------------- | ----------- |
+| numSlots   | 1000 | The number of slots in the status queue. The FMQ will wrap when the number of slots is exceeded. |
+| bufSize    | 10M  | The size of the message buffer. The FMQ will wrap when the buffer has been filled, and the messages start again at the start of the buffer. |
+| compress   | false | Option to compress the messages before storing in the buffer. |
+| blocking   | false | Option to block write to avoid wrapping. Should be used in archive mode only, not real-time. Only works with a single reader. In real-time operations, if the reader falls behind, it is essential to wrap and lose data because it is not possible to catch up. In archive operations, we can afford to wait for the reader. |
+
+
+
 
 
 The figure below shows how these components interact:
