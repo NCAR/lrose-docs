@@ -27,6 +27,51 @@ The figure below shows how these components interact:
 
 <img align="center" src="./lrose_runtime.png">
 
+## Directory structure
+
+We have a top-level directory, normally called projDir, and referred to by the environment variable $PROJ_DIR. The directories for the project lie below projDir. Often the data and log directories are on a separate disk partition, because of disk usage requirements for the data, in which case these directories will be symbolic links.
+
+The following lists a typical directory structure for a lrose system running in real-time:
+
+```
+lrose/bin    (binaries and general scripts)
+projDir/
+  control/ (process list and cron table)
+  data/    (probably a symbolic link to a data disk)
+    raw/   (raw input data)
+    mdv/   (MDV data)
+    spdb/  (SPDB data)
+    fmq/   (FMQ data)
+    titan/ (titan storm track data)
+  logs/      (may be a symbolic link)
+    errors/  (error logs)
+    restart/ (restart logs)
+  system/
+    scripts/  (general system scripts)
+    params/   (general system parameters)
+  ingest/
+    scripts/  (start scripts for ingest processes)
+    params/   (parameters for ingest processes)
+  titan/
+    scripts/  (start scripts for titan processes)
+    params/   (parameters for titan processes)
+  display/
+    scripts/  (start scripts for displays)
+    params/   (parameters for displays)
+    maps/     (maps for displays)
+    color_scales/ (color scales for displays)
+```
+
+Real-time system components
+Scripts and binaries
+All of the application binaries and some system scripts are found in ~/lrose/bin. These are the programs which actually perform the work in the real-time system. In addition to the scripts in the bin directory, the start scripts for the processes are found in the script directories in the system, ingest, display etc. sub-directories.
+Control files
+There are two main control files, in projDir/control. These are:
+proc_list: the list of processes which should run;
+crontab: the cron table which is installed when the system starts. cron is a system service which runs tasks on a schedule. The crontab specifies the tasks to be run.
+Sometimes these will be symbolic links, as in template_
+
+
 ## ```procmap``` - the process mapper
 
 The process mapper, ```procmap```, lies at the heart of the auto-restart capabilities of the lrose system. procmap keeps a table of the current status of all processes running on the system, except for itself. Each running process registers with procmap at regular intervals, usually once per minute. This is called the ‘heart-beat’ interval. The process status table is read from procmap by the auto_restart script and compared against the list of expected processes in the proc_list. If a process is missing or has not registered its heartbeat recently, it is killed (in case it is hung) and then restarted.
