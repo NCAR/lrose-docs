@@ -472,17 +472,16 @@ DataType  Dir                                                                 Ho
 ========  ===                                                                 ========                ======   ========  ==========    ========  ======  ======
 raw       precip/raw/SEAPOL                                                   cirrus                                     2022/05/25  2026/06/03     29K    1.6T
 raw       precip/raw/SEAPOL                                                   cirrus.eol.ucar.edu                        2022/05/25  2026/06/03     29K    1.6T
-unknown   precip/grids/cwb/radarPolar/moments/rccg                            cirrus.eol.ucar.edu                        2022/05/25                 15K     21G
-unknown   precip/grids/spol/radarPolar/field/moments/sband/sur                cirrus.eol.ucar.edu                        2022/05/23                 13K    3.2T
-unknown   precip/grids/spol/radarPolar/field/moments/spoldrx/rhi              cirrus.eol.ucar.edu                        2022/05/23                 23K    2.2T
-unknown   precip/grids/spol/radarPolar/field/moments/spoldrx/sur              cirrus.eol.ucar.edu                        2022/05/23                 13K    3.0T
-unknown   precip/grids/spol/radarPolar/field/rate/spoldrx/rhi                 cirrus                                     2022/05/25                 22K    1.0T
-unknown   precip/grids/spol/radarPolar/field/rate/spoldrx/rhi                 cirrus.eol.ucar.edu                        2022/05/25                 22K    1.0T
-unknown   precip/grids/spol/radarPolar/field/rate/spoldrx/sur                 cirrus.eol.ucar.edu                        2022/05/25                 13K    1.5T
-unknown   precip/grids/spol/radarPolar/old/qc2/moments/sband/uncorrected/sur  cirrus.eol.ucar.edu                        2022/05/25  2030/07/27    2.3K    550G
-unknown   precip/grids/spol/radarPolar/qc1/moments/sband/corrected/rhi1       cirrus.eol.ucar.edu                        2022/05/25                8.9K     53G
-unknown   precip/grids/spol/radarPolar/qc1/rate/sband/bad_data                cirrus                                     2022/05/25                  97    4.3G
-unknown   precip/grids/spol/radarPolar/qc1/rate/sband/bad_data                cirrus.eol.ucar.edu                        2022/05/25                  97    4.3G
+cfradial  precip/grids/cwb/radarPolar/moments/rccg                            cirrus.eol.ucar.edu                        2022/05/25                 15K     21G
+cfradial  precip/grids/spol/radarPolar/field/moments/sband/sur                cirrus.eol.ucar.edu                        2022/05/23                 13K    3.2T
+cfradial  precip/grids/spol/radarPolar/field/moments/spoldrx/rhi              cirrus.eol.ucar.edu                        2022/05/23                 23K    2.2T
+cfradial  precip/grids/spol/radarPolar/field/moments/spoldrx/sur              cirrus.eol.ucar.edu                        2022/05/23                 13K    3.0T
+cfradial  precip/grids/spol/radarPolar/field/rate/spoldrx/rhi                 cirrus                                     2022/05/25                 22K    1.0T
+cfradial  precip/grids/spol/radarPolar/field/rate/spoldrx/rhi                 cirrus.eol.ucar.edu                        2022/05/25                 22K    1.0T
+cfradial  precip/grids/spol/radarPolar/field/rate/spoldrx/sur                 cirrus.eol.ucar.edu                        2022/05/25                 13K    1.5T
+cfradial  precip/grids/spol/radarPolar/qc1/moments/sband/corrected/rhi1       cirrus.eol.ucar.edu                        2022/05/25                8.9K     53G
+cfradial  precip/grids/spol/radarPolar/qc1/rate/sband/bad_data                cirrus                                     2022/05/25                  97    4.3G
+cfradial  precip/grids/spol/radarPolar/qc1/rate/sband/bad_data                cirrus.eol.ucar.edu                        2022/05/25                  97    4.3G
 ```
 
 The columns in the above list have the following meanings:
