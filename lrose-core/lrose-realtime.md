@@ -449,7 +449,7 @@ To see the print repeated every 5 seconds, type:
 ppm -c 5
 ```
 
-ppm will produce a listing like the following:
+ppm will produce a listing as follows (this is for the APAR simulator):
 
 ```
 % ppm
@@ -511,7 +511,7 @@ pdm is an alias for:
 PrintDataMap -all -relt -lreg
 ```
 
-pdm will produce a listing similar to the following:
+pdm will produce a listing as follows (this is for the APAR simulator):
 
 ```
 % pdm
