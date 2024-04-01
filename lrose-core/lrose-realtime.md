@@ -29,7 +29,9 @@ The figure below shows how these components interact:
 
 ## Directory structure
 
-We have a top-level directory, normally called projDir, and referred to by the environment variable $PROJ_DIR. The directories for the project lie below projDir. Often the data and log directories are on a separate disk partition, because of disk usage requirements for the data, in which case these directories will be symbolic links.
+We have a top-level directory, normally called projDir, and referred to by the environment variable $PROJ_DIR. The directories for the project lie below projDir.
+
+Often the data and log directories are on a separate disk partition, because of disk usage requirements for the data, in which case these directories will be symbolic links.
 
 The following lists a typical directory structure for a lrose system running in real-time:
 
@@ -46,15 +48,16 @@ projDir/
   logs/      (may be a symbolic link)
     errors/  (error logs)
     restart/ (restart logs)
+    distrib/ (file distribution logs)
   system/
     scripts/  (general system scripts)
     params/   (general system parameters)
   ingest/
     scripts/  (start scripts for ingest processes)
     params/   (parameters for ingest processes)
-  titan/
-    scripts/  (start scripts for titan processes)
-    params/   (parameters for titan processes)
+  algorithm/
+    scripts/  (start scripts for algorithm processes)
+    params/   (parameters for algorithm processes)
   display/
     scripts/  (start scripts for displays)
     params/   (parameters for displays)
@@ -62,15 +65,14 @@ projDir/
     color_scales/ (color scales for displays)
 ```
 
-Real-time system components
-Scripts and binaries
-All of the application binaries and some system scripts are found in ~/lrose/bin. These are the programs which actually perform the work in the real-time system. In addition to the scripts in the bin directory, the start scripts for the processes are found in the script directories in the system, ingest, display etc. sub-directories.
-Control files
-There are two main control files, in projDir/control. These are:
-proc_list: the list of processes which should run;
-crontab: the cron table which is installed when the system starts. cron is a system service which runs tasks on a schedule. The crontab specifies the tasks to be run.
-Sometimes these will be symbolic links, as in template_
+## Location of scripts, binaries and control files
 
+All of the application binaries and some system scripts are found in ~/lrose/bin. These are the programs which actually perform the work in the real-time system. In addition to the scripts in the bin directory, the start scripts for the processes are found in the script directories in the system, ingest, display etc. sub-directories.
+
+There are two main control files, in projDir/control. These are:
+
+* proc_list: the list of processes which should run;
+* crontab: the cron table which is installed when the system starts. cron is a system service which runs tasks on a schedule. The crontab specifies the tasks to be run.
 
 ## ```procmap``` - the process mapper
 
