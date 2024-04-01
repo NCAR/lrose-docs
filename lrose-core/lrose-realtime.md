@@ -404,10 +404,8 @@ ppm will produce a listing like the following:
 
 ```
 % ppm
-
 PROCS REGISTERED - localhost - Sun Mar 31 14:33:02 2024
 Uptime: 10.6 d
-
 Name             Instanc  Host    User     Pid    Htbeat   Uptime   Status
 ====             =======  ====    ====     ===    ======   ======   ======
 CIDD             Generic  cirrus  jwilson  262353 0:00:01  5.95 d   Idle 166253 secs, Req: 0, Mode: 3, Type: 0
@@ -424,7 +422,6 @@ Rhi2Symprod      manager  cirrus  rsfdata  249457 0:00:18  6.24 d   Listening, p
 Scout            primary  cirrus  rsfdata  117857 0:00:09  10.6 d   Sleeping between runs
 SunCal2Symprod   manager  cirrus  rsfdata  118259 0:00:35  10.6 d   Listening, port: 5487
 Tstorms2Symprod  manager  cirrus  rsfdata  105919 0:00:31  8.88 d   Listening, port: 5460
-(cirrus) scripts 31 %
 ```
 
 The columns in the above list have the following meanings:
@@ -469,7 +466,7 @@ PrintDataMap -all -relt -lreg
 pdm will produce a listing similar to the following:
 
 ```
-(cirrus) scripts 32 % pdm
+% pdm
 =========== Data on host 'localhost' at time 2024/03/31 20:41:23 ==========
 DataType  Dir                                                                 HostName                Latest   Last reg  Start date    End date  nFiles  nBytes
 ========  ===                                                                 ========                ======   ========  ==========    ========  ======  ======
