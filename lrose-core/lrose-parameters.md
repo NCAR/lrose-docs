@@ -94,7 +94,7 @@ The Params class, and example parameter file, for TdrpTest is here:
 | Params.cc  | [Params.cc](https://github.com/NCAR/lrose-core/tree/master/codebase/apps/tdrp/src/TdrpTest/Params.cc) |
 | params.good  | [params.good](https://github.com/NCAR/lrose-core/tree/master/codebase/apps/tdrp/src/TdrpTest/params.good) |
 
-The following is an example of a long parameter file for a complicated application:
+The following is an example of a long parameter file (5000+ lines) for a complex application:
 
 * [Iq2Dsr.test](https://github.com/NCAR/lrose-core/tree/master/codebase/apps/radar/src/Iq2Dsr/Iq2Dsr.test)
 
