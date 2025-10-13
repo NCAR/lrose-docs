@@ -1,0 +1,1294 @@
+/**********************************************************************
+ * TDRP params for NWSsoundingIngest
+ **********************************************************************/
+
+//======================================================================
+//
+// NWSsoundingIngest is a program that reads WMO format
+// upper air sounding data and writes them to an SPDB
+// database. Niles Oien February 2002.
+//
+//======================================================================
+ 
+///////////// debug ///////////////////////////////////
+//
+// Debug option.
+//
+// If set, debug messages will be printed.
+//
+//
+// Type: boolean
+//
+
+debug = FALSE;
+
+///////////// printBeforeSave /////////////////////////
+//
+// Debug option.
+//
+// If set, soundings will be printed before they are saved.
+//
+//
+// Type: boolean
+//
+
+printBeforeSave = FALSE;
+
+///////////// instance ////////////////////////////////
+//
+// Process instance.
+//
+// Used for registration with procmap.
+//
+//
+// Type: string
+//
+
+instance = "test";
+
+///////////// mode ////////////////////////////////////
+//
+// Operation mode.
+//
+// Program may be run in two modes, archive and realtime. In realtime 
+//   mode, the conversion is performed for each input file as it becomes 
+//   available. In archive mode, the file list is obtained from the 
+//   command line.
+//
+//
+// Type: enum
+// Options:
+//     ARCHIVE
+//     REALTIME
+//
+
+mode = ARCHIVE;
+
+//======================================================================
+//
+// DATA INPUT.
+//
+//======================================================================
+ 
+///////////// InDir ///////////////////////////////////
+//
+// Input directory - top level. Set to the
+// the directory in which the input files appear.Used in realtime mode 
+//   only.
+//
+// Directory path for input data files.
+//
+//
+// Type: string
+//
+
+InDir = "$(HOME)/data/NWS_soundings/raw";
+
+///////////// useLdataInfo ////////////////////////////
+//
+// Option to use _latest_data_info file.
+//
+// Set to TRUE if the input source writes an _latest_data_info
+// file. If set to FALSE the input dir is polled recursively.
+//
+//
+// Type: boolean
+//
+
+useLdataInfo = FALSE;
+
+///////////// fileExtension ///////////////////////////
+//
+// Input file extension.
+//
+// If string is NULL, all extensions are valid.
+//
+//
+// Type: string
+//
+
+fileExtension = "";
+
+///////////// max_realtime_valid_age //////////////////
+//
+// Max age of input data.
+//
+// For realtime only - max age of input data for it to be valid.
+//
+//
+// Type: int
+//
+
+max_realtime_valid_age = 7200;
+
+//======================================================================
+//
+// SPECIFY THE BLOCKS TO USE.
+//
+// A sounding may comprise a number of blocks: TTAA, TTBB, TTCC, TTDD, 
+//   PPAA, PPBB, PPCC and PPDD. Generally you only want to use TTAA and 
+//   TTBB blocks, but the option is there to use the other blocks as well. 
+//   Data from the various blocks, at the same time, will be merged into a 
+//   single sounding.
+//
+//======================================================================
+ 
+///////////// use_TTAA ////////////////////////////////
+//
+// Use the TTAA block?.
+//
+// This contains the mandatory levels - 1000, 925, 850,  700, 500, 400, 
+//   300, 200, 150, 100 hPa.
+//
+//
+// Type: boolean
+//
+
+use_TTAA = TRUE;
+
+///////////// use_TTBB ////////////////////////////////
+//
+// Use the TTBB block?.
+//
+// This contains the significant levels - i.e. where there is a change 
+//   in slope in the sounding.
+//
+//
+// Type: boolean
+//
+
+use_TTBB = TRUE;
+
+///////////// use_TTCC ////////////////////////////////
+//
+// Use the TTCC block?.
+//
+// This contains possible mandatory levels above 100 hPa - 70, 50, 30, 
+//   20, 10.
+//
+//
+// Type: boolean
+//
+
+use_TTCC = TRUE;
+
+///////////// use_TTDD ////////////////////////////////
+//
+// Use the TTDD block?.
+//
+// This contains possible significant levels above 100 hPa.
+//
+//
+// Type: boolean
+//
+
+use_TTDD = TRUE;
+
+///////////// use_PPAA ////////////////////////////////
+//
+// Use the PPAA block?.
+//
+// PP blocks contain wind data. Generally not used. See TTAA.
+//
+//
+// Type: boolean
+//
+
+use_PPAA = FALSE;
+
+///////////// use_PPBB ////////////////////////////////
+//
+// Use the PPBB block?.
+//
+// PP blocks contain wind data. Generally not used. See TTBB.
+//
+//
+// Type: boolean
+//
+
+use_PPBB = FALSE;
+
+///////////// use_PPCC ////////////////////////////////
+//
+// Use the PPCC block?.
+//
+// PP blocks contain wind data. Generally not used. See TTCC.
+//
+//
+// Type: boolean
+//
+
+use_PPCC = FALSE;
+
+///////////// use_PPDD ////////////////////////////////
+//
+// Use the PPDD block?.
+//
+// PP blocks contain wind data. Generally not used. See TTDD.
+//
+//
+// Type: boolean
+//
+
+use_PPDD = FALSE;
+
+//======================================================================
+//
+// LOCATION INFORMATION.
+//
+// The name is optional. If it has a non-zero length it will be used 
+//   instead of the ID for station identification.
+//
+//======================================================================
+ 
+///////////// siteLocations ///////////////////////////
+//
+// Given an input sounding ID, this table
+// is used to locate the station in lat, lon and alt.
+//
+// See http://www.met.fsu.edu/Classes/Common/00zua.gif and
+// http://www.ofcm.gov/fmh3/text/append-c.html and
+// http://tgsv5.nws.noaa.gov/er/bgm/upper_air.html.
+//
+//
+// Type: struct
+//   typedef struct {
+//      int soundingSiteId;
+//      double lat;
+//      double lon;
+//      double alt;
+//      string name;
+//   }
+//
+// 1D array - variable length.
+//
+
+siteLocations = {
+  {
+    soundingSiteId = 61967,
+    lat = -7.3,
+    lon = 72.4,
+    alt = 3,
+    name = ""
+  }
+  ,
+  {
+    soundingSiteId = 61902,
+    lat = -7.96667,
+    lon = -14.4,
+    alt = 79,
+    name = ""
+  }
+  ,
+  {
+    soundingSiteId = 70273,
+    lat = 61.15,
+    lon = -149.983,
+    alt = 50,
+    name = ""
+  }
+  ,
+  {
+    soundingSiteId = 70398,
+    lat = 55.0333,
+    lon = -131.567,
+    alt = 37,
+    name = ""
+  }
+  ,
+  {
+    soundingSiteId = 70026,
+    lat = 71.3,
+    lon = -156.783,
+    alt = 12,
+    name = ""
+  }
+  ,
+  {
+    soundingSiteId = 70219,
+    lat = 60.7833,
+    lon = -161.8,
+    alt = 36,
+    name = ""
+  }
+  ,
+  {
+    soundingSiteId = 70316,
+    lat = 55.2,
+    lon = -162.717,
+    alt = 30,
+    name = ""
+  }
+  ,
+  {
+    soundingSiteId = 70261,
+    lat = 64.8167,
+    lon = -147.867,
+    alt = 135,
+    name = ""
+  }
+  ,
+  {
+    soundingSiteId = 70326,
+    lat = 58.6833,
+    lon = -156.65,
+    alt = 15,
+    name = ""
+  }
+  ,
+  {
+    soundingSiteId = 70350,
+    lat = 57.75,
+    lon = -152.483,
+    alt = 4,
+    name = ""
+  }
+  ,
+  {
+    soundingSiteId = 70133,
+    lat = 66.8667,
+    lon = -162.633,
+    alt = 5,
+    name = ""
+  }
+  ,
+  {
+    soundingSiteId = 70231,
+    lat = 62.9667,
+    lon = -155.617,
+    alt = 103,
+    name = ""
+  }
+  ,
+  {
+    soundingSiteId = 70200,
+    lat = 64.5,
+    lon = -165.433,
+    alt = 5,
+    name = ""
+  }
+  ,
+  {
+    soundingSiteId = 70308,
+    lat = 57.15,
+    lon = -170.217,
+    alt = 10,
+    name = ""
+  }
+  ,
+  {
+    soundingSiteId = 70414,
+    lat = 52.7167,
+    lon = -174.1,
+    alt = 31,
+    name = ""
+  }
+  ,
+  {
+    soundingSiteId = 70361,
+    lat = 59.5167,
+    lon = -139.667,
+    alt = 12,
+    name = ""
+  }
+  ,
+  {
+    soundingSiteId = 72659,
+    lat = 45.45,
+    lon = -98.4167,
+    alt = 397,
+    name = ""
+  }
+  ,
+  {
+    soundingSiteId = 72518,
+    lat = 42.75,
+    lon = -73.8,
+    alt = 86,
+    name = ""
+  }
+  ,
+  {
+    soundingSiteId = 72365,
+    lat = 35.0333,
+    lon = -106.617,
+    alt = 1615,
+    name = ""
+  }
+  ,
+  {
+    soundingSiteId = 72634,
+    lat = 44.9167,
+    lon = -84.7167,
+    alt = 1465,
+    name = ""
+  }
+  ,
+  {
+    soundingSiteId = 72363,
+    lat = 35.2333,
+    lon = -101.7,
+    alt = 1094,
+    name = ""
+  }
+  ,
+  {
+    soundingSiteId = 72215,
+    lat = 33.3667,
+    lon = -84.5667,
+    alt = 246,
+    name = ""
+  }
+  ,
+  {
+    soundingSiteId = 72230,
+    lat = 33.1667,
+    lon = -86.7667,
+    alt = 178,
+    name = ""
+  }
+  ,
+  {
+    soundingSiteId = 72764,
+    lat = 46.7667,
+    lon = -100.75,
+    alt = 505,
+    name = ""
+  }
+  ,
+  {
+    soundingSiteId = 72681,
+    lat = 43.5667,
+    lon = -116.217,
+    alt = 871,
+    name = ""
+  }
+  ,
+  {
+    soundingSiteId = 72250,
+    lat = 25.9,
+    lon = -97.4333,
+    alt = 7,
+    name = ""
+  }
+  ,
+  {
+    soundingSiteId = 72528,
+    lat = 42.9333,
+    lon = -78.7333,
+    alt = 218,
+    name = ""
+  }
+  ,
+  {
+    soundingSiteId = 72712,
+    lat = 46.8667,
+    lon = -68.0167,
+    alt = 191,
+    name = ""
+  }
+  ,
+  {
+    soundingSiteId = 72208,
+    lat = 32.9,
+    lon = -80.0333,
+    alt = 15,
+    name = ""
+  }
+  ,
+  {
+    soundingSiteId = 72426,
+    lat = 39.4167,
+    lon = -83.8167,
+    alt = 323,
+    name = ""
+  }
+  ,
+  {
+    soundingSiteId = 72251,
+    lat = 27.7667,
+    lon = -97.5,
+    alt = 14,
+    name = ""
+  }
+  ,
+  {
+    soundingSiteId = 72261,
+    lat = 29.3667,
+    lon = -100.917,
+    alt = 314,
+    name = ""
+  }
+  ,
+  {
+    soundingSiteId = 72469,
+    lat = 39.7667,
+    lon = -104.867,
+    alt = 1611,
+    name = ""
+  }
+  ,
+  {
+    soundingSiteId = 72387,
+    lat = 36.6167,
+    lon = -116.017,
+    alt = 1007,
+    name = ""
+  }
+  ,
+  {
+    soundingSiteId = 72632,
+    lat = 42.7,
+    lon = -83.4667,
+    alt = 329,
+    name = ""
+  }
+  ,
+  {
+    soundingSiteId = 72451,
+    lat = 37.7667,
+    lon = -99.9667,
+    alt = 790,
+    name = ""
+  }
+  ,
+  {
+    soundingSiteId = 72381,
+    lat = 34.9,
+    lon = -117.917,
+    alt = 724,
+    name = ""
+  }
+  ,
+  {
+    soundingSiteId = 72221,
+    lat = 30.4833,
+    lon = -86.5167,
+    alt = 20,
+    name = ""
+  }
+  ,
+  {
+    soundingSiteId = 72582,
+    lat = 40.8667,
+    lon = -115.733,
+    alt = 1607,
+    name = ""
+  }
+  ,
+  {
+    soundingSiteId = 72364,
+    lat = 31.8667,
+    lon = -106.7,
+    alt = 1257,
+    name = ""
+  }
+  ,
+  {
+    soundingSiteId = 72376,
+    lat = 35.2333,
+    lon = -111.817,
+    alt = 2180,
+    name = ""
+  }
+  ,
+  {
+    soundingSiteId = 72257,
+    lat = 31.1,
+    lon = -97.3333,
+    alt = 270,
+    name = ""
+  }
+  ,
+  {
+    soundingSiteId = 72273,
+    lat = 31.5667,
+    lon = -110.35,
+    alt = 1439,
+    name = ""
+  }
+  ,
+  {
+    soundingSiteId = 72249,
+    lat = 32.1333,
+    lon = -97.05,
+    alt = 198,
+    name = ""
+  }
+  ,
+  {
+    soundingSiteId = 72768,
+    lat = 48.2167,
+    lon = -106.617,
+    alt = 696,
+    name = ""
+  }
+  ,
+  {
+    soundingSiteId = 72476,
+    lat = 39.1167,
+    lon = -108.533,
+    alt = 1475,
+    name = ""
+  }
+  ,
+  {
+    soundingSiteId = 72776,
+    lat = 47.45,
+    lon = -111.383,
+    alt = 1132,
+    name = ""
+  }
+  ,
+  {
+    soundingSiteId = 72645,
+    lat = 44.4833,
+    lon = -88.1333,
+    alt = 214,
+    name = ""
+  }
+  ,
+  {
+    soundingSiteId = 72317,
+    lat = 36.0833,
+    lon = -79.95,
+    alt = 277,
+    name = ""
+  }
+  ,
+  {
+    soundingSiteId = 72747,
+    lat = 48.5667,
+    lon = -93.3833,
+    alt = 361,
+    name = ""
+  }
+  ,
+  {
+    soundingSiteId = 72235,
+    lat = 32.3167,
+    lon = -90.0833,
+    alt = 91,
+    name = ""
+  }
+  ,
+  {
+    soundingSiteId = 72206,
+    lat = 30.4833,
+    lon = -81.7,
+    alt = 11,
+    name = ""
+  }
+  ,
+  {
+    soundingSiteId = 72201,
+    lat = 24.55,
+    lon = -81.75,
+    alt = 2,
+    name = ""
+  }
+  ,
+  {
+    soundingSiteId = 72240,
+    lat = 30.1167,
+    lon = -93.2167,
+    alt = 5,
+    name = ""
+  }
+  ,
+  {
+    soundingSiteId = 72340,
+    lat = 34.8333,
+    lon = -92.2667,
+    alt = 172,
+    name = ""
+  }
+  ,
+  {
+    soundingSiteId = 72597,
+    lat = 42.3833,
+    lon = -122.883,
+    alt = 397,
+    name = ""
+  }
+  ,
+  {
+    soundingSiteId = 72202,
+    lat = 24.75,
+    lon = -80.3833,
+    alt = 5,
+    name = ""
+  }
+  ,
+  {
+    soundingSiteId = 72265,
+    lat = 31.95,
+    lon = -102.183,
+    alt = 873,
+    name = ""
+  }
+  ,
+  {
+    soundingSiteId = 72649,
+    lat = 44.85,
+    lon = -93.9,
+    alt = 288,
+    name = ""
+  }
+  ,
+  {
+    soundingSiteId = 72305,
+    lat = 34.7833,
+    lon = -76.8833,
+    alt = 11,
+    name = ""
+  }
+  ,
+  {
+    soundingSiteId = 72327,
+    lat = 36.25,
+    lon = -86.5667,
+    alt = 180,
+    name = ""
+  }
+  ,
+  {
+    soundingSiteId = 72233,
+    lat = 30.3333,
+    lon = -89.8333,
+    alt = 10,
+    name = ""
+  }
+  ,
+  {
+    soundingSiteId = 72501,
+    lat = 40.8667,
+    lon = -72.8667,
+    alt = 20,
+    name = ""
+  }
+  ,
+  {
+    soundingSiteId = 72357,
+    lat = 35.2333,
+    lon = -97.45,
+    alt = 357,
+    name = ""
+  }
+  ,
+  {
+    soundingSiteId = 72562,
+    lat = 41.1333,
+    lon = -100.683,
+    alt = 847,
+    name = ""
+  }
+  ,
+  {
+    soundingSiteId = 72493,
+    lat = 37.75,
+    lon = -122.217,
+    alt = 6,
+    name = ""
+  }
+  ,
+  {
+    soundingSiteId = 72558,
+    lat = 41.3167,
+    lon = -96.3667,
+    alt = 350,
+    name = ""
+  }
+  ,
+  {
+    soundingSiteId = 72520,
+    lat = 40.5333,
+    lon = -80.2333,
+    alt = 360,
+    name = ""
+  }
+  ,
+  {
+    soundingSiteId = 72391,
+    lat = 34.1167,
+    lon = -119.117,
+    alt = 14,
+    name = ""
+  }
+  ,
+  {
+    soundingSiteId = 72797,
+    lat = 47.7833,
+    lon = -124.55,
+    alt = 56,
+    name = ""
+  }
+  ,
+  {
+    soundingSiteId = 72662,
+    lat = 44.05,
+    lon = -103.067,
+    alt = 966,
+    name = ""
+  }
+  ,
+  {
+    soundingSiteId = 72489,
+    lat = 39.5667,
+    lon = -119.8,
+    alt = 1516,
+    name = ""
+  }
+  ,
+  {
+    soundingSiteId = 72672,
+    lat = 43.0667,
+    lon = -108.483,
+    alt = 1700,
+    name = ""
+  }
+  ,
+  {
+    soundingSiteId = 72318,
+    lat = 37.2,
+    lon = -80.4167,
+    alt = 648,
+    name = ""
+  }
+  ,
+  {
+    soundingSiteId = 72694,
+    lat = 44.9167,
+    lon = -123.017,
+    alt = 61,
+    name = ""
+  }
+  ,
+  {
+    soundingSiteId = 72572,
+    lat = 40.7833,
+    lon = -111.95,
+    alt = 1288,
+    name = ""
+  }
+  ,
+  {
+    soundingSiteId = 72293,
+    lat = 32.8333,
+    lon = -117.117,
+    alt = 134,
+    name = ""
+  }
+  ,
+  {
+    soundingSiteId = 72291,
+    lat = 33.2333,
+    lon = -119.467,
+    alt = 14,
+    name = ""
+  }
+  ,
+  {
+    soundingSiteId = 72248,
+    lat = 32.45,
+    lon = -93.8333,
+    alt = 85,
+    name = ""
+  }
+  ,
+  {
+    soundingSiteId = 72785,
+    lat = 47.6333,
+    lon = -117.533,
+    alt = 720,
+    name = ""
+  }
+  ,
+  {
+    soundingSiteId = 72440,
+    lat = 37.2333,
+    lon = -93.4,
+    alt = 390,
+    name = ""
+  }
+  ,
+  {
+    soundingSiteId = 72214,
+    lat = 30.3833,
+    lon = -84.35,
+    alt = 18,
+    name = ""
+  }
+  ,
+  {
+    soundingSiteId = 72210,
+    lat = 27.7,
+    lon = -82.4,
+    alt = 13,
+    name = ""
+  }
+  ,
+  {
+    soundingSiteId = 72456,
+    lat = 39.0667,
+    lon = -95.6333,
+    alt = 270,
+    name = ""
+  }
+  ,
+  {
+    soundingSiteId = 72274,
+    lat = 32.1167,
+    lon = -110.933,
+    alt = 787,
+    name = ""
+  }
+  ,
+  {
+    soundingSiteId = 72393,
+    lat = 34.7333,
+    lon = -120.55,
+    alt = 100,
+    name = ""
+  }
+  ,
+  {
+    soundingSiteId = 72402,
+    lat = 37.9333,
+    lon = -75.4833,
+    alt = 13,
+    name = ""
+  }
+  ,
+  {
+    soundingSiteId = 72403,
+    lat = 38.9833,
+    lon = -77.4667,
+    alt = 85,
+    name = ""
+  }
+  ,
+  {
+    soundingSiteId = 74002,
+    lat = 39.4667,
+    lon = -76.0667,
+    alt = 5,
+    name = ""
+  }
+  ,
+  {
+    soundingSiteId = 74794,
+    lat = 28.4833,
+    lon = -80.55,
+    alt = 5,
+    name = ""
+  }
+  ,
+  {
+    soundingSiteId = 74560,
+    lat = 40.15,
+    lon = -89.3333,
+    alt = 178,
+    name = ""
+  }
+  ,
+  {
+    soundingSiteId = 74494,
+    lat = 41.6667,
+    lon = -69.9667,
+    alt = 16,
+    name = ""
+  }
+  ,
+  {
+    soundingSiteId = 74003,
+    lat = 40.0167,
+    lon = -112.533,
+    alt = 1325,
+    name = ""
+  }
+  ,
+  {
+    soundingSiteId = 74389,
+    lat = 43.9,
+    lon = -70.25,
+    alt = 125,
+    name = ""
+  }
+  ,
+  {
+    soundingSiteId = 74455,
+    lat = 41.6167,
+    lon = -90.5833,
+    alt = 229,
+    name = ""
+  }
+  ,
+  {
+    soundingSiteId = 74001,
+    lat = 34.6,
+    lon = -86.6333,
+    alt = 175,
+    name = ""
+  }
+  ,
+  {
+    soundingSiteId = 74606,
+    lat = 34.65,
+    lon = -120.567,
+    alt = 112,
+    name = ""
+  }
+  ,
+  {
+    soundingSiteId = 74690,
+    lat = 32.2167,
+    lon = -106.217,
+    alt = 1224,
+    name = ""
+  }
+  ,
+  {
+    soundingSiteId = 74004,
+    lat = 32.55,
+    lon = -113.483,
+    alt = 145,
+    name = ""
+  }
+  ,
+  {
+    soundingSiteId = 78367,
+    lat = 19.9,
+    lon = -75.2167,
+    alt = 56,
+    name = ""
+  }
+  ,
+  {
+    soundingSiteId = 78806,
+    lat = 8.98333,
+    lon = -79.55,
+    alt = 69,
+    name = ""
+  }
+  ,
+  {
+    soundingSiteId = 78526,
+    lat = 18.4333,
+    lon = -66,
+    alt = 3,
+    name = ""
+  }
+  ,
+  {
+    soundingSiteId = 91334,
+    lat = 7.45,
+    lon = 151.833,
+    alt = 3,
+    name = ""
+  }
+  ,
+  {
+    soundingSiteId = 91212,
+    lat = 13.4833,
+    lon = 144.8,
+    alt = 78,
+    name = ""
+  }
+  ,
+  {
+    soundingSiteId = 91285,
+    lat = 19.7167,
+    lon = -155.067,
+    alt = 10,
+    name = ""
+  }
+  ,
+  {
+    soundingSiteId = 91408,
+    lat = 7.33333,
+    lon = 134.483,
+    alt = 30,
+    name = ""
+  }
+  ,
+  {
+    soundingSiteId = 91366,
+    lat = 8.73333,
+    lon = 167.733,
+    alt = 8,
+    name = ""
+  }
+  ,
+  {
+    soundingSiteId = 91165,
+    lat = 21.9833,
+    lon = -159.35,
+    alt = 32,
+    name = ""
+  }
+  ,
+  {
+    soundingSiteId = 91376,
+    lat = 7.08333,
+    lon = 171.383,
+    alt = 3,
+    name = ""
+  }
+  ,
+  {
+    soundingSiteId = 91765,
+    lat = -14.3333,
+    lon = -170.717,
+    alt = 5,
+    name = ""
+  }
+  ,
+  {
+    soundingSiteId = 91348,
+    lat = 6.96667,
+    lon = 158.217,
+    alt = 39,
+    name = ""
+  }
+  ,
+  {
+    soundingSiteId = 91245,
+    lat = 19.2833,
+    lon = 166.65,
+    alt = 5,
+    name = ""
+  }
+  ,
+  {
+    soundingSiteId = 91413,
+    lat = 9.48333,
+    lon = 138.083,
+    alt = 14,
+    name = ""
+  }
+};
+
+///////////// processIfNotLocated /////////////////////
+//
+// Option to write data for stations whos ID number
+// does not appear in the siteLocations table above.
+// Default is to simply skip these stations; setting this option
+// causes them to be written out with silly lat,lon and alt
+// values.
+//
+// Used primarily for debugging.
+//
+//
+// Type: boolean
+//
+
+processIfNotLocated = FALSE;
+
+//======================================================================
+//
+// DATA OUTPUT.
+//
+//======================================================================
+ 
+///////////// OutUrl //////////////////////////////////
+//
+// URL for output SPDB data.
+//
+//
+// Type: string
+//
+
+OutUrl = "$(HOME)/NWS_soundings/spdb";
+
+///////////// expiry //////////////////////////////////
+//
+// How long data are valid, seconds.
+//
+//
+// Type: int
+//
+
+expiry = 1800;
+
+///////////// soundingMergeEpsilon ////////////////////
+//
+// Maximum vertical distance between sounding points for them to be
+// considered distinct points, meters.
+//
+// The WMO input encoding scheme is such that different parts of the
+// sounding are in different input messages. The merging of these
+// messages into one coherrent sounding requires that a decision
+// be made as to if two points in two different messages are
+// at the same height.
+//
+// If the heights differ by less than soundingMergeEpsilon
+// vertical meters, then they are taken to be at the same
+// height and merged. If not, they are taken to be at different
+// heights and interleaved.
+//
+// Values of less than 0.5 for
+// epsilon are problematic and are not allowed (points are
+// (never merged if epsilon is 0.0, even if they are identical).
+//
+// Minimum val: 0.5
+// Maximum val: 500
+//
+// Type: double
+//
+
+soundingMergeEpsilon = 100;
+
+///////////// doInterp ////////////////////////////////
+//
+// Interpolation option.
+//
+// If set, vertical interpolation is done through the profile.
+// This fills in missing points. The only reason not to to this is
+// when debugging.
+//
+//
+// Type: boolean
+//
+
+doInterp = TRUE;
+
+///////////// maxInterpDist ///////////////////////////
+//
+// Maximum vertical interpolation distance, meters.
+//
+// Missing values are only filled in with interpolation
+// if the vertical distance to the next valid point is
+// less than or equal to this distance.
+//
+//
+// Type: double
+//
+
+maxInterpDist = 500;
+
+///////////// limit ///////////////////////////////////
+//
+// Option to set an upper limit on the wind speed.
+//
+// Applies to all levels. Units are m/s. If acceptDirection is
+// FALSE, winds above the threshold are set to missing, otherwise
+// the wind speed is truncated to the maximum value and the
+// direction is retained.
+//
+//
+// Type: struct
+//   typedef struct {
+//      boolean limitWindSpeed;
+//      double maxWindSpeed;
+//      boolean acceptDirection;
+//   }
+//
+//
+
+limit = {
+    limitWindSpeed = FALSE,
+    maxWindSpeed = 500,
+    acceptDirection = TRUE
+};
+
