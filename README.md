@@ -63,3 +63,7 @@ The following legacy applications are checked in under separate repositories.
 | soloii         | [lrose-soloii](https://github.com/ncar/lrose-soloii) | [running soloii in docker](./soloii/running_soloii_in_docker.md) |
 | solo3          | [lrose-solo3](https://github.com/ncar/lrose-solo3) | [running solo3 in docker](./solo3/running_solo3_in_docker.md) |
 
+### This page is published at:
+
+[https://ncar.github.io/lrose-docs](https://ncar.github.io/lrose-docs)
+
